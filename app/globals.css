@@ -55,50 +55,51 @@
 
 /* Light theme */
 .light {
+  --brand-blue: #009fd6;
   --background: oklch(0.98 0.004 230);
   --foreground: oklch(0.15 0.02 230);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.15 0.02 230);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0.02 230);
-  --primary: oklch(0.55 0.16 195);
-  --primary-foreground: oklch(0.98 0.004 230);
+  --primary: var(--brand-blue);
+  --primary-foreground: oklch(0.16 0.02 230);
   --secondary: oklch(0.95 0.008 230);
   --secondary-foreground: oklch(0.25 0.02 230);
   --muted: oklch(0.95 0.006 230);
   --muted-foreground: oklch(0.45 0.02 230);
-  --accent: oklch(0.55 0.16 195);
-  --accent-foreground: oklch(0.98 0.004 230);
+  --accent: var(--brand-blue);
+  --accent-foreground: oklch(0.16 0.02 230);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: oklch(0.90 0.008 230);
   --input: oklch(0.92 0.006 230);
-  --ring: oklch(0.55 0.16 195);
-  --chart-1: oklch(0.55 0.16 195);
+  --ring: var(--brand-blue);
+  --chart-1: var(--brand-blue);
   --chart-2: oklch(0.45 0.14 195);
   --chart-3: oklch(0.35 0.12 195);
   --chart-4: oklch(0.40 0.10 210);
   --chart-5: oklch(0.50 0.08 220);
   --sidebar: oklch(0.97 0.004 230);
   --sidebar-foreground: oklch(0.15 0.02 230);
-  --sidebar-primary: oklch(0.55 0.16 195);
-  --sidebar-primary-foreground: oklch(0.98 0.004 230);
+  --sidebar-primary: var(--brand-blue);
+  --sidebar-primary-foreground: oklch(0.16 0.02 230);
   --sidebar-accent: oklch(0.95 0.008 230);
   --sidebar-accent-foreground: oklch(0.25 0.02 230);
   --sidebar-border: oklch(0.90 0.008 230);
-  --sidebar-ring: oklch(0.55 0.16 195);
+  --sidebar-ring: var(--brand-blue);
 
   /* Utility vars for glass/mesh in light mode */
   --glass-bg: oklch(1 0 0 / 0.65);
   --glass-border: oklch(0.88 0.008 230 / 0.6);
   --glass-hover-bg: oklch(0.97 0.004 230 / 0.8);
-  --glass-hover-border: oklch(0.55 0.16 195 / 0.4);
+  --glass-hover-border: rgb(0 159 214 / 0.4);
   --grid-line: oklch(0.88 0.008 230 / 0.4);
-  --mesh-1: oklch(0.55 0.16 195 / 0.06);
-  --mesh-2: oklch(0.55 0.16 195 / 0.04);
+  --mesh-1: rgb(0 159 214 / 0.06);
+  --mesh-2: rgb(0 159 214 / 0.04);
   --mesh-3: oklch(0.45 0.12 210 / 0.04);
-  --glow-color: oklch(0.55 0.16 195 / 0.12);
-  --glow-hover-color: oklch(0.55 0.16 195 / 0.20);
+  --glow-color: rgb(0 159 214 / 0.12);
+  --glow-hover-color: rgb(0 159 214 / 0.20);
 }
 
 @theme inline {

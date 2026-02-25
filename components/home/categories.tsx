@@ -5,16 +5,17 @@ import Image from "next/image"
 import { Container } from "@/components/container"
 import { SectionHeader } from "@/components/section-header"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Brackets, Cctv, Lightbulb, Monitor, Network, SquareActivity, Wind, type LucideIcon } from "lucide-react"
 import { useLanguage } from "@/lib/i18n"
 
-const categories = [
-  { titleKey: "cat.imaging", descKey: "cat.imaging.desc", image: "/images/cat-imaging.jpg" },
-  { titleKey: "cat.surgical", descKey: "cat.surgical.desc", image: "/images/cat-surgical.jpg" },
-  { titleKey: "cat.endoscopy", descKey: "cat.endoscopy.desc", image: "/images/cat-endoscopy.jpg" },
-  { titleKey: "cat.monitoring", descKey: "cat.monitoring.desc", image: "/images/cat-monitoring.jpg" },
-  { titleKey: "cat.sterilization", descKey: "cat.sterilization.desc", image: "/images/cat-sterilization.jpg" },
-  { titleKey: "cat.lighting", descKey: "cat.lighting.desc", image: "/images/cat-lighting.jpg" },
+const categories: { titleKey: string; descKey: string; image: string; icon: LucideIcon }[] = [
+  { titleKey: "cat.imaging", descKey: "cat.imaging.desc", image: "/images/cat-imaging.jpg", icon: Network },
+  { titleKey: "cat.lighting", descKey: "cat.lighting.desc", image: "/images/cat-lighting.jpg", icon: Lightbulb },
+  { titleKey: "cat.endoscopy", descKey: "cat.endoscopy.desc", image: "/images/cat-endoscopy.jpg", icon: SquareActivity },
+  { titleKey: "cat.monitoring", descKey: "cat.monitoring.desc", image: "/images/cat-monitoring.jpg", icon: Wind },
+  { titleKey: "cat.sterilization", descKey: "cat.sterilization.desc", image: "/images/cat-sterilization.jpg", icon: Monitor },
+  { titleKey: "cat.surgical", descKey: "cat.surgical.desc", image: "/images/cat-surgical.jpg", icon: Brackets },
+  { titleKey: "cat.videorecorders", descKey: "cat.videorecorders.desc", image: "/images/cat-endoscopy.jpg", icon: Cctv },
 ]
 
 export function Categories() {
@@ -48,7 +49,10 @@ export function Categories() {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
               </div>
               <div className="p-5">
-                <h3 className="text-base font-semibold text-foreground">{t(cat.titleKey)}</h3>
+                <h3 className="flex items-center gap-2 text-base font-semibold text-foreground">
+                  <cat.icon className="h-4 w-4 text-primary" />
+                  {t(cat.titleKey)}
+                </h3>
                 <p className="mt-1 text-sm text-muted-foreground">{t(cat.descKey)}</p>
               </div>
             </Link>

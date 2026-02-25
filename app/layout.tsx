@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Providers } from '@/components/providers'
+import { BackToTop } from '@/components/back-to-top'
+import { ScrollIndicator } from '@/components/scroll-indicator'
 import './globals.css'
 
 const _inter = Inter({ subsets: ["latin", "cyrillic"] })
@@ -15,14 +17,6 @@ export const metadata: Metadata = {
     'Precision medical equipment solutions and operating room integration for hospitals, clinics, and surgical centers across Europe.',
   icons: {
     icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
       {
         url: '/icon.svg',
         type: 'image/svg+xml',
@@ -49,6 +43,8 @@ export default function RootLayout({
       <body className="font-sans antialiased" suppressHydrationWarning>
         <Providers>
           {children}
+          <ScrollIndicator />
+          <BackToTop />
         </Providers>
         <Analytics />
       </body>
