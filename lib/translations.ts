@@ -72,6 +72,8 @@ export const translations: Record<string, { en: string; ua: string }> = {
   "cat.sterilization.desc": { en: "Autoclaves, washers, and disinfection", ua: "Автоклави, мийні машини та дезінфекція" },
   "cat.lighting": { en: "OR Lighting", ua: "Операційне освітлення" },
   "cat.lighting.desc": { en: "LED surgical lights and examination lamps", ua: "Хірургічні LED-світильники та оглядові лампи" },
+  "cat.icu": { en: "ICU Infrastructure", ua: "Інфраструктура ВІТ" },
+  "cat.icu.desc": { en: "Ceiling pendants, ICU beams, and bed head units", ua: "Стельові консолі, балкові системи ВІТ та прикроватні панелі" },
 
   // Projects Preview
   "projects.label": { en: "Our Work", ua: "Наші роботи" },
@@ -182,6 +184,85 @@ export const translations: Record<string, { en: string; ua: string }> = {
   "equip.ledlights.desc": { en: "High-intensity LED operating room lighting systems.", ua: "Високоінтенсивні LED-системи освітлення операційних залів." },
   "equip.examlamps.name": { en: "Examination Lamps", ua: "Оглядові лампи" },
   "equip.examlamps.desc": { en: "Mobile and ceiling-mounted examination lighting.", ua: "Мобільне та стельове оглядове освітлення." },
+
+  // ICU / Critical Infrastructure — Ceiling Medical Supply Units (INMED)
+  "equip.lissaclassic.name": { en: "Ceiling Pendant LISSAclassic", ua: "Стельовий консоль LISSAclassic" },
+  "equip.lissaclassic.desc": {
+    en: "Modular ceiling pendant for OR and ICU with ergonomic swivel arms, high load capacity, and fast access to all gas and electrical fittings.",
+    ua: "Модульний стельовий консоль для операційних та ВІТ з ергономічними поворотними кронштейнами, великою вантажопідйомністю та швидким доступом до всіх газових та електричних підключень.",
+  },
+  "equip.lissaclassiclift.name": { en: "Ceiling Pendant LISSAclassic-lift", ua: "Стельовий консоль LISSAclassic-lift" },
+  "equip.lissaclassiclift.desc": {
+    en: "Ceiling pendant with electric or spring lift drive for OR and treatment rooms — high ergonomics and flexible configuration with optional electromagnetic, pneumatic, or electro-pneumatic brakes.",
+    ua: "Стельовий консоль з електричним або пружинним приводом підйому для операційних та процедурних кімнат — висока ергономіка та гнучке конфігурування з опціональними електромагнітними, пневматичними або електропневматичними гальмами.",
+  },
+  "equip.lissaheavy.name": { en: "Ceiling Pendant LISSAheavy", ua: "Стельовий консоль LISSAheavy" },
+  "equip.lissaheavy.desc": {
+    en: "Heavy-duty ceiling pendant with load capacity up to 250 kg and total arm extension up to 260 cm for the most demanding OR and ICU environments.",
+    ua: "Важконавантажений стельовий консоль з вантажопідйомністю до 250 кг та загальним виносом кронштейна до 260 см для найвимогливіших середовищ операційних та ВІТ.",
+  },
+  "equip.lunacompact.name": { en: "Ceiling Pendant LUNAcompact", ua: "Стельовий консоль LUNAcompact" },
+  "equip.lunacompact.desc": {
+    en: "Economical fixed rigid ceiling pendant for ICU patient rooms and treatment areas — configurable with shelves, jibs, and accessories to meet specific clinical requirements.",
+    ua: "Економічний нерухомий стельовий консоль для палат ВІТ та процедурних зон — конфігурується з полицями, кронштейнами та аксесуарами відповідно до конкретних клінічних вимог.",
+  },
+  "equip.vegacare.name": { en: "Strut Unit VEGAcare", ua: "Стійкова установка VEGAcare" },
+  "equip.vegacare.desc": {
+    en: "Floor-to-ceiling strut medical unit for ICU and anaesthesia care, delivering full pendant functionality without ceiling mounting — ideal for renovations and structural constraints.",
+    ua: "Стійкова медична установка підлога-стеля для ВІТ та анестезіологічної допомоги, що забезпечує повну функціональність консолі без кріплення до стелі — ідеально для реконструкцій та структурних обмежень.",
+  },
+  "equip.caroclassic.name": { en: "ICU Ceiling Beam CAROclassic", ua: "Стельова балкова система ВІТ CAROclassic" },
+  "equip.caroclassic.desc": {
+    en: "Ceiling beam for intensive care units with a solid, robust body — no sliding gliders or service heads, ensuring maximum reliability and ease of cleaning.",
+    ua: "Стельова балкова система для відділень інтенсивної терапії з міцним монолітним корпусом — без ковзних кареток та сервісних головок, що забезпечує максимальну надійність та легке прибирання.",
+  },
+  "equip.carocarepremium.name": { en: "ICU Ceiling Beam CAROcare-premium", ua: "Стельова балкова система ВІТ CAROcare-premium" },
+  "equip.carocarepremium.desc": {
+    en: "Advanced ICU ceiling beam with sliding gliders and medical rails for flexible, ergonomic arrangement of all equipment, media outlets, and monitoring accessories.",
+    ua: "Вдосконалена стельова балкова система ВІТ з ковзними каретками та медичними рейками для гнучкого, ергономічного розміщення всього обладнання, комунікацій та аксесуарів моніторингу.",
+  },
+
+  // ICU / Critical Infrastructure — Bed Head Units (INMED MERY family)
+  "equip.meryclassic.name": { en: "Bed Head Unit MERYclassic", ua: "Прикроватна панель MERYclassic" },
+  "equip.meryclassic.desc": {
+    en: "Functional modular bed head unit integrating medical gas, electrical, and lighting systems — the original and most established model in the MERY family.",
+    ua: "Функціональна модульна прикроватна панель з інтегрованими системами медичних газів, електрики та освітлення — оригінальна та найбільш зарекомендована модель сімейства MERY.",
+  },
+  "equip.merycare.name": { en: "ICU Bed Head Unit MERYcare", ua: "Прикроватна панель ВІТ MERYcare" },
+  "equip.merycare.desc": {
+    en: "Advanced ICU/NICU bed head unit available in horizontal and vertical configurations — high quality, functionality, and ergonomics for fast, precise critical care work.",
+    ua: "Вдосконалена прикроватна панель ВІТ/НІТУ у горизонтальній та вертикальній конфігураціях — висока якість, функціональність та ергономіка для швидкої та точної роботи в інтенсивній терапії.",
+  },
+  "equip.merycareclassic.name": { en: "ICU Bed Head Unit MERYcare-classic", ua: "Прикроватна панель ВІТ MERYcare-classic" },
+  "equip.merycareclassic.desc": {
+    en: "ICU bed head unit with doubled gas outlets, additional electrical and equipotential sockets, and a full range of accessories including medical rails, trays, shelves, IV poles, and baskets.",
+    ua: "Прикроватна панель ВІТ з подвоєними виходами медичних газів, додатковими електричними та еквіпотенційними розетками та повним набором аксесуарів: медичні рейки, лотки, полиці, стійки для крапельниць та кошики.",
+  },
+  "equip.merylight.name": { en: "Bed Head Unit MERYlight", ua: "Прикроватна панель MERYlight" },
+  "equip.merylight.desc": {
+    en: "Ultra-slim and lightweight bed head unit for modern hospital rooms — 9 aluminium profile types enable comprehensive gas, electrical, IT, and lighting configuration.",
+    ua: "Ультратонка та легка прикроватна панель для сучасних палат — 9 типів алюмінієвих профілів забезпечують комплексне конфігурування газів, електрики, ІТ та освітлення.",
+  },
+  "equip.meryedge.name": { en: "Bed Head Unit MERYedge", ua: "Прикроватна панель MERYedge" },
+  "equip.meryedge.desc": {
+    en: "Modern bed head unit with elegant brushed aluminium front — ergonomic media access combined with contemporary ward aesthetics.",
+    ua: "Сучасна прикроватна панель з елегантним матовим алюмінієвим фронтом — ергономічний доступ до комунікацій у поєднанні зі сучасною естетикою палати.",
+  },
+  "equip.meryfun.name": { en: "Paediatric Bed Head Unit MERYfun", ua: "Прикроватна панель педіатрії MERYfun" },
+  "equip.meryfun.desc": {
+    en: "Children's ward bed head unit with colourful Corian® graphic fronts, child-safe electrical sockets, LED/AmbientLight technology, and full medical gas and IT integration.",
+    ua: "Прикроватна панель для дитячих відділень із барвистими графічними фронтами Corian®, безпечними для дітей електричними розетками, технологією LED/AmbientLight та повною інтеграцією медичних газів та ІТ.",
+  },
+  "equip.meryart.name": { en: "Premium Bed Head Unit MERYart", ua: "Преміум прикроватна панель MERYart" },
+  "equip.meryart.desc": {
+    en: "Premium bed head unit with Corian® or tempered glass fronts — merging full clinical functionality with high-end design for private and premium healthcare environments.",
+    ua: "Преміум прикроватна панель з фронтами Corian® або загартованого скла — поєднання повної клінічної функціональності з дизайном вищого класу для приватних та преміальних медичних закладів.",
+  },
+  "equip.merycomfort.name": { en: "Bed Head Unit MERYcomfort", ua: "Прикроватна панель MERYcomfort" },
+  "equip.merycomfort.desc": {
+    en: "Patient-comfort focused bed head unit with Corian® finish, dedicated patient and medical staff zones, integrated media systems, and multi-zone lighting.",
+    ua: "Прикроватна панель з орієнтацією на комфорт пацієнта з оздобленням Corian®, виділеними зонами пацієнта та медичного персоналу, інтегрованими медіасистемами та багатозонним освітленням.",
+  },
 
   // Services Page
   "services.label": { en: "Our Services", ua: "Наші послуги" },

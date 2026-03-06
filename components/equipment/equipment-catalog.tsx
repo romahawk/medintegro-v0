@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 import { ArrowRight } from "lucide-react"
 import { useLanguage } from "@/lib/i18n"
 
-type CategoryKey = "all" | "imaging" | "surgical" | "endoscopy" | "monitoring" | "sterilization" | "lighting"
+type CategoryKey = "all" | "imaging" | "surgical" | "endoscopy" | "monitoring" | "sterilization" | "lighting" | "icu"
 
 interface EquipmentItem {
   nameKey: string
@@ -25,6 +25,7 @@ const categoryFilters: { key: CategoryKey; labelKey: string }[] = [
   { key: "monitoring", labelKey: "cat.monitoring" },
   { key: "sterilization", labelKey: "cat.sterilization" },
   { key: "lighting", labelKey: "cat.lighting" },
+  { key: "icu", labelKey: "cat.icu" },
 ]
 
 const equipment: EquipmentItem[] = [
@@ -44,6 +45,23 @@ const equipment: EquipmentItem[] = [
   { nameKey: "equip.washers.name", descKey: "equip.washers.desc", category: "sterilization", image: "/images/cat-sterilization.jpg" },
   { nameKey: "equip.ledlights.name", descKey: "equip.ledlights.desc", category: "lighting", image: "/images/cat-lighting.jpg" },
   { nameKey: "equip.examlamps.name", descKey: "equip.examlamps.desc", category: "lighting", image: "/images/cat-lighting.jpg" },
+  // ICU / Critical Infrastructure — Ceiling Medical Supply Units (INMED)
+  { nameKey: "equip.lissaclassic.name", descKey: "equip.lissaclassic.desc", category: "icu", image: "/images/or-integration.jpg" },
+  { nameKey: "equip.lissaclassiclift.name", descKey: "equip.lissaclassiclift.desc", category: "icu", image: "/images/or-integration.jpg" },
+  { nameKey: "equip.lissaheavy.name", descKey: "equip.lissaheavy.desc", category: "icu", image: "/images/or-integration.jpg" },
+  { nameKey: "equip.lunacompact.name", descKey: "equip.lunacompact.desc", category: "icu", image: "/images/or-integration.jpg" },
+  { nameKey: "equip.vegacare.name", descKey: "equip.vegacare.desc", category: "icu", image: "/images/or-integration.jpg" },
+  { nameKey: "equip.caroclassic.name", descKey: "equip.caroclassic.desc", category: "icu", image: "/images/or-integration.jpg" },
+  { nameKey: "equip.carocarepremium.name", descKey: "equip.carocarepremium.desc", category: "icu", image: "/images/or-integration.jpg" },
+  // ICU / Critical Infrastructure — Bed Head Units (INMED MERY family)
+  { nameKey: "equip.meryclassic.name", descKey: "equip.meryclassic.desc", category: "icu", image: "/images/cat-monitoring.jpg" },
+  { nameKey: "equip.merycare.name", descKey: "equip.merycare.desc", category: "icu", image: "/images/cat-monitoring.jpg" },
+  { nameKey: "equip.merycareclassic.name", descKey: "equip.merycareclassic.desc", category: "icu", image: "/images/cat-monitoring.jpg" },
+  { nameKey: "equip.merylight.name", descKey: "equip.merylight.desc", category: "icu", image: "/images/cat-monitoring.jpg" },
+  { nameKey: "equip.meryedge.name", descKey: "equip.meryedge.desc", category: "icu", image: "/images/cat-monitoring.jpg" },
+  { nameKey: "equip.meryfun.name", descKey: "equip.meryfun.desc", category: "icu", image: "/images/cat-monitoring.jpg" },
+  { nameKey: "equip.meryart.name", descKey: "equip.meryart.desc", category: "icu", image: "/images/cat-monitoring.jpg" },
+  { nameKey: "equip.merycomfort.name", descKey: "equip.merycomfort.desc", category: "icu", image: "/images/cat-monitoring.jpg" },
 ]
 
 export function EquipmentCatalog() {
