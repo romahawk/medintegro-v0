@@ -73,8 +73,16 @@ const equipment: EquipmentItem[] = [
   },
   { key: "equip.videotower.name", nameKey: "equip.videotower.name", descKey: "equip.videotower.desc", category: "videorecorders", image: "/images/cat-endoscopy.jpg" },
   { key: "equip.scopes.name", nameKey: "equip.scopes.name", descKey: "equip.scopes.desc", category: "videorecorders", image: "/images/cat-endoscopy.jpg" },
-  { key: "equip.monitors.name", nameKey: "equip.monitors.name", descKey: "equip.monitors.desc", category: "monitoring", image: "/images/cat-monitoring.jpg" },
-  { key: "equip.central.name", nameKey: "equip.central.name", descKey: "equip.central.desc", category: "monitoring", image: "/images/cat-monitoring.jpg" },
+  // Medical gases & distribution — single entry pointing to sub-category listing
+  {
+    key: "medical-gases",
+    nameKey: "medgas.catalog.name",
+    descKey: "medgas.catalog.desc",
+    category: "monitoring",
+    image: "/images/or-integration.jpg",
+    href: "/equipment/medical-gases",
+    ctaKey: "equipment.viewMore",
+  },
   { key: "equip.autoclaves.name", nameKey: "equip.autoclaves.name", descKey: "equip.autoclaves.desc", category: "sterilization", image: "/images/cat-sterilization.jpg" },
   { key: "equip.washers.name", nameKey: "equip.washers.name", descKey: "equip.washers.desc", category: "sterilization", image: "/images/cat-sterilization.jpg" },
   {
