@@ -72,6 +72,8 @@ export const translations: Record<string, { en: string; ua: string }> = {
   "cat.sterilization.desc": { en: "Medical-grade displays for OR visualization and decision support", ua: "Медичні дисплеї для візуалізації в операційній та підтримки прийняття рішень" },
   "cat.lighting": { en: "OR Lighting", ua: "Операційне освітлення" },
   "cat.lighting.desc": { en: "LED surgical lights and examination lamps", ua: "Хірургічні LED-світильники та оглядові лампи" },
+  "medgas.catalog.name": { en: "Medical Gas & Distribution Systems", ua: "Системи медичних газів та розподілу" },
+  "medgas.catalog.desc": { en: "Complete medical gas infrastructure from source generation and pipeline distribution to terminal outlets and monitoring.", ua: "Повна інфраструктура медичних газів від генерації джерел та трубопровідного розподілу до термінальних виходів та моніторингу." },
   "icu.ceilingPendants.name": { en: "Ceiling Medical Supply Units", ua: "Стельові медичні консолі" },
   "icu.ceilingPendants.desc": { en: "INMED ceiling pendants and ICU beams for operating rooms and intensive care units.", ua: "Стельові консолі та балкові системи INMED для операційних залів та відділень ВІТ." },
   "icu.bedHeadUnits.name": { en: "Bed Head Units", ua: "Прикроватні панелі" },
