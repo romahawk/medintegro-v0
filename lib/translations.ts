@@ -72,8 +72,10 @@ export const translations: Record<string, { en: string; ua: string }> = {
   "cat.sterilization.desc": { en: "Medical-grade displays for OR visualization and decision support", ua: "Медичні дисплеї для візуалізації в операційній та підтримки прийняття рішень" },
   "cat.lighting": { en: "OR Lighting", ua: "Операційне освітлення" },
   "cat.lighting.desc": { en: "LED surgical lights and examination lamps", ua: "Хірургічні LED-світильники та оглядові лампи" },
-  "cat.icu": { en: "ICU Infrastructure", ua: "Інфраструктура ВІТ" },
-  "cat.icu.desc": { en: "Ceiling pendants, ICU beams, and bed head units", ua: "Стельові консолі, балкові системи ВІТ та прикроватні панелі" },
+  "icu.ceilingPendants.name": { en: "Ceiling Medical Supply Units", ua: "Стельові медичні консолі" },
+  "icu.ceilingPendants.desc": { en: "INMED ceiling pendants and ICU beams for operating rooms and intensive care units.", ua: "Стельові консолі та балкові системи INMED для операційних залів та відділень ВІТ." },
+  "icu.bedHeadUnits.name": { en: "Bed Head Units", ua: "Прикроватні панелі" },
+  "icu.bedHeadUnits.desc": { en: "INMED MERY family bed head units for hospital wards, ICU, paediatric, and premium care environments.", ua: "Прикроватні панелі сімейства INMED MERY для лікарняних палат, ВІТ, педіатрії та преміальних середовищ догляду." },
   "cat.videorecorders": { en: "Surgical videorecorders", ua: "Хірургічні відеореєстратори" },
   "cat.videorecorders.desc": { en: "4K video recording and streaming systems for surgical procedures", ua: "Системи 4K-відеозапису та стримінгу для хірургічних процедур" },
 
