@@ -12,10 +12,11 @@ import { Logo } from "@/components/logo"
 
 const navKeys = [
   { href: "/", key: "nav.home" },
-  { href: "/about", key: "nav.about" },
-  { href: "/equipment", key: "nav.equipment" },
   { href: "/services", key: "nav.services" },
+  { href: "/equipment", key: "nav.equipment" },
   { href: "/projects", key: "nav.projects" },
+  { href: "/partners", key: "nav.partners" },
+  { href: "/about", key: "nav.about" },
   { href: "/contact", key: "nav.contact" },
 ]
 

@@ -3,8 +3,9 @@ export const translations: Record<string, { en: string; ua: string }> = {
   "nav.home": { en: "Home", ua: "Головна" },
   "nav.about": { en: "About", ua: "Про нас" },
   "nav.equipment": { en: "Equipment", ua: "Обладнання" },
-  "nav.services": { en: "Services", ua: "Послуги" },
+  "nav.services": { en: "Solutions", ua: "Рішення" },
   "nav.projects": { en: "Projects", ua: "Проєкти" },
+  "nav.partners": { en: "Partners", ua: "Партнери" },
   "nav.contact": { en: "Contact", ua: "Контакти" },
   "nav.getQuote": { en: "Get a Quote", ua: "Отримати пропозицію" },
 

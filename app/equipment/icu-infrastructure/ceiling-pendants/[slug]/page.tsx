@@ -1,10 +1,32 @@
 import Image from "next/image"
 import Link from "next/link"
+import { existsSync, statSync } from "node:fs"
+import path from "node:path"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Layers, Settings2, Shield } from "lucide-react"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { getCeilingPendantBySlug, ceilingPendantProducts } from "@/lib/icu-infrastructure-products"
+
+function getCeilingPendantImage(slug: string, fileName: string) {
+  const relativePath = `/images/products/icu-infrastructure/ceiling-pendants/${slug}/${fileName}`
+  const absolutePath = path.join(
+    process.cwd(),
+    "public",
+    "images",
+    "products",
+    "icu-infrastructure",
+    "ceiling-pendants",
+    slug,
+    fileName
+  )
+
+  if (!existsSync(absolutePath)) {
+    return relativePath
+  }
+
+  return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
+}
 
 export function generateStaticParams() {
   return ceilingPendantProducts.map((product) => ({ slug: product.slug }))
@@ -28,6 +50,16 @@ export default async function CeilingPendantProductPage({
     currentIndex < ceilingPendantProducts.length - 1 ? ceilingPendantProducts[currentIndex + 1] : null
 
   const capabilityIcons = [Layers, Shield, Settings2]
+  const heroImages = {
+    main: { src: getCeilingPendantImage(product.slug, "hero-main.jpg"), alt: product.heroImages.main.alt },
+    secondary1: { src: getCeilingPendantImage(product.slug, "hero-secondary-1.jpg"), alt: product.heroImages.secondary1.alt },
+    secondary2: { src: getCeilingPendantImage(product.slug, "hero-secondary-2.jpg"), alt: product.heroImages.secondary2.alt },
+  }
+  const deploymentImages = [
+    { src: getCeilingPendantImage(product.slug, "deploy-1.jpg"), alt: product.deploymentImages[0].alt },
+    { src: getCeilingPendantImage(product.slug, "deploy-2.jpg"), alt: product.deploymentImages[1].alt },
+    { src: getCeilingPendantImage(product.slug, "deploy-3.jpg"), alt: product.deploymentImages[2].alt },
+  ]
 
   return (
     <>
@@ -86,14 +118,14 @@ export default async function CeilingPendantProductPage({
             </div>
 
             <div className="grid grid-cols-2 gap-3 md:gap-4">
-              <div className="relative col-span-2 aspect-[16/9] overflow-hidden rounded-xl border border-border/40">
-                <Image src={product.heroImages.main.src} alt={product.heroImages.main.alt} fill className="object-cover" />
+              <div className="relative col-span-2 aspect-video overflow-hidden rounded-xl border border-border/40">
+                <Image src={heroImages.main.src} alt={heroImages.main.alt} fill className="object-cover" />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/40">
-                <Image src={product.heroImages.secondary1.src} alt={product.heroImages.secondary1.alt} fill className="object-cover" />
+              <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40">
+                <Image src={heroImages.secondary1.src} alt={heroImages.secondary1.alt} fill className="object-cover" />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/40">
-                <Image src={product.heroImages.secondary2.src} alt={product.heroImages.secondary2.alt} fill className="object-cover" />
+              <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40">
+                <Image src={heroImages.secondary2.src} alt={heroImages.secondary2.alt} fill className="object-cover" />
               </div>
             </div>
           </div>
@@ -168,8 +200,8 @@ export default async function CeilingPendantProductPage({
               <article key={item.title} className="glass rounded-xl p-4">
                 <div className="relative mb-4 aspect-[4/3] overflow-hidden rounded-lg border border-border/40">
                   <Image
-                    src={product.deploymentImages[index]?.src ?? product.deploymentImages[0].src}
-                    alt={product.deploymentImages[index]?.alt ?? item.title}
+                    src={deploymentImages[index]?.src ?? deploymentImages[0].src}
+                    alt={deploymentImages[index]?.alt ?? item.title}
                     fill
                     className="object-cover"
                   />

@@ -23,18 +23,18 @@ export const beaconProducts: SurgicalMonitorProduct[] = [
     slug: "s3285p",
     name: "S3285P",
     shortDescription: "32\" 4K UHD surgical monitor with optical bonding, BT.2020 wide color gamut, and PaP/PiP multiview.",
-    cardImage: "/images/cat-monitoring.jpg",
+    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
     heroTitle: "32\" 4K UHD with Optical Bonding and Wide Color Gamut",
     heroSubtitle:
-      "The S3285P delivers 4K UHD resolution with optical bonding technology, BT.2020 wide color gamut, FHD-to-4K upscaling, and peak brightness of ≥800 cd/m² for demanding endoscopic and open-surgery visualization.",
+      "The S3285P delivers 4K UHD resolution with optical bonding technology, BT.2020 wide color gamut, FHD-to-4K upscaling, and peak brightness of в‰Ґ800 cd/mВІ for demanding endoscopic and open-surgery visualization.",
     overview:
       "The Beacon S3285P is a 32-inch 4K UHD surgical display engineered for high-acuity visualization in modern operating rooms. Optical bonding eliminates internal reflections and improves contrast under high-ambient-light conditions. The BT.2020 color space and FHD-to-4K upscaling engine ensure consistent image quality across legacy and next-generation camera systems. PaP (Picture-and-Picture) and PiP (Picture-in-Picture) multiview modes enable simultaneous display of multiple signal sources without additional hardware.",
     highlights: [
-      "4K UHD resolution (3840×2160) with optical bonding for glare-free surgical visualization.",
+      "4K UHD resolution (3840Г—2160) with optical bonding for glare-free surgical visualization.",
       "BT.2020 wide color gamut for accurate tissue and anatomical color reproduction.",
       "FHD-to-4K upscaling preserves image clarity when using standard-definition camera inputs.",
       "PaP/PiP multiview enables concurrent display of two signal sources on a single screen.",
-      "Peak brightness ≥800 cd/m² maintains visibility in bright OR environments.",
+      "Peak brightness в‰Ґ800 cd/mВІ maintains visibility in bright OR environments.",
     ],
     capabilityItems: [
       {
@@ -82,30 +82,30 @@ export const beaconProducts: SurgicalMonitorProduct[] = [
       "Upscaling engine extends the effective life of existing standard-resolution camera investments.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "Beacon S3285P 32\" 4K surgical monitor in operating room" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "Surgical monitor integrated into OR video tower" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "Close-up of 4K UHD surgical display panel" },
+      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "Beacon S3285P 32\" 4K surgical monitor in operating room" },
+      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "Surgical monitor integrated into OR video tower" },
+      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "Close-up of 4K UHD surgical display panel" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "S3285P in endoscopic surgery workstation" },
-      { src: "/images/cat-monitoring.jpg", alt: "S3285P in open surgery OR environment" },
-      { src: "/images/or-integration.jpg", alt: "S3285P in hybrid OR integration setup" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S3285P in endoscopic surgery workstation" },
+      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "S3285P in open surgery OR environment" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S3285P in hybrid OR integration setup" },
     ],
   },
   {
     slug: "s3181p",
     name: "S3181P",
-    shortDescription: "31.5\" 4K surgical monitor with local backlight, peak brightness ≥1750 cd/m², and contrast ≥1,000,000:1.",
-    cardImage: "/images/cat-monitoring.jpg",
+    shortDescription: "31.5\" 4K surgical monitor with local backlight, peak brightness в‰Ґ1750 cd/mВІ, and contrast в‰Ґ1,000,000:1.",
+    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
     heroTitle: "31.5\" 4K with Local Backlight and Ultra-High Contrast",
     heroSubtitle:
-      "The S3181P combines local backlight dimming with peak luminance of ≥1750 cd/m² and a contrast ratio exceeding 1,000,000:1, delivering exceptional HDR performance for critical surgical visualization with PaP/PiP multiview support.",
+      "The S3181P combines local backlight dimming with peak luminance of в‰Ґ1750 cd/mВІ and a contrast ratio exceeding 1,000,000:1, delivering exceptional HDR performance for critical surgical visualization with PaP/PiP multiview support.",
     overview:
-      "The Beacon S3181P is a 31.5-inch 4K surgical display designed around ultra-high contrast and HDR performance. Local backlight dimming technology allows independent control of display zones, producing deep blacks alongside bright highlights within the same frame. Peak brightness of ≥1750 cd/m² ensures outstanding image clarity under demanding OR lighting conditions. A contrast ratio exceeding 1,000,000:1 supports exceptional differentiation between tissue types and anatomical structures.",
+      "The Beacon S3181P is a 31.5-inch 4K surgical display designed around ultra-high contrast and HDR performance. Local backlight dimming technology allows independent control of display zones, producing deep blacks alongside bright highlights within the same frame. Peak brightness of в‰Ґ1750 cd/mВІ ensures outstanding image clarity under demanding OR lighting conditions. A contrast ratio exceeding 1,000,000:1 supports exceptional differentiation between tissue types and anatomical structures.",
     highlights: [
       "Local backlight dimming for independent zone brightness control and deep black reproduction.",
-      "Peak brightness ≥1750 cd/m² for exceptional visibility in bright operating environments.",
-      "Contrast ratio ≥1,000,000:1 enabling superior tissue differentiation.",
+      "Peak brightness в‰Ґ1750 cd/mВІ for exceptional visibility in bright operating environments.",
+      "Contrast ratio в‰Ґ1,000,000:1 enabling superior tissue differentiation.",
       "PaP/PiP multiview for simultaneous multi-source display on a single 4K panel.",
       "31.5\" 4K UHD panel sized for flexible OR positioning and boom integration.",
     ],
@@ -118,7 +118,7 @@ export const beaconProducts: SurgicalMonitorProduct[] = [
       {
         title: "Ultra-high peak luminance",
         description:
-          "Peak brightness of ≥1750 cd/m² ensures the display remains highly readable under intense overhead surgical lighting without degrading image accuracy.",
+          "Peak brightness of в‰Ґ1750 cd/mВІ ensures the display remains highly readable under intense overhead surgical lighting without degrading image accuracy.",
       },
       {
         title: "High dynamic range imaging",
@@ -155,21 +155,21 @@ export const beaconProducts: SurgicalMonitorProduct[] = [
       "Multiview modes reduce equipment clutter and simplify OR setup workflows.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "Beacon S3181P 31.5\" 4K surgical monitor" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "S3181P in high-acuity surgical suite" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "Local backlight surgical display detail" },
+      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "Beacon S3181P 31.5\" 4K surgical monitor" },
+      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S3181P in high-acuity surgical suite" },
+      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "Local backlight surgical display detail" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "S3181P in endoscopic procedure room" },
-      { src: "/images/cat-monitoring.jpg", alt: "S3181P in bright overhead-lit OR environment" },
-      { src: "/images/or-integration.jpg", alt: "S3181P multi-source monitoring deployment" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S3181P in endoscopic procedure room" },
+      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "S3181P in bright overhead-lit OR environment" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S3181P multi-source monitoring deployment" },
     ],
   },
   {
     slug: "s2781p",
     name: "S2781P",
     shortDescription: "27\" HD surgical monitor for endoscopy, anesthesia, and secondary display applications.",
-    cardImage: "/images/cat-monitoring.jpg",
+    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
     heroTitle: "27\" HD Surgical Monitor for Versatile OR Use",
     heroSubtitle:
       "The S2781P provides reliable high-definition visualization in a compact 27-inch format, suited for endoscopy workstations, anesthesia positions, secondary display roles, and space-constrained operating environments.",
@@ -228,21 +228,21 @@ export const beaconProducts: SurgicalMonitorProduct[] = [
       "Consistent clinical-grade image quality throughout long procedure sessions.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "Beacon S2781P 27\" surgical monitor" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "S2781P in endoscopy procedure room" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "S2781P secondary display configuration" },
+      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "Beacon S2781P 27\" surgical monitor" },
+      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S2781P in endoscopy procedure room" },
+      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "S2781P secondary display configuration" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "S2781P in endoscopy workstation deployment" },
-      { src: "/images/cat-monitoring.jpg", alt: "S2781P as anesthesia station display" },
-      { src: "/images/or-integration.jpg", alt: "S2781P in multi-display OR configuration" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S2781P in endoscopy workstation deployment" },
+      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "S2781P as anesthesia station display" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S2781P in multi-display OR configuration" },
     ],
   },
   {
     slug: "s5581",
     name: "S5581",
     shortDescription: "55\" large-format 4K UHD OR display for team visualization and gallery viewing.",
-    cardImage: "/images/cat-monitoring.jpg",
+    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
     heroTitle: "55\" Large-Format 4K UHD Operating Room Display",
     heroSubtitle:
       "The S5581 provides a 55-inch 4K UHD large-format display for operating room environments requiring wide-area team visualization, surgical gallery use, or high-resolution secondary imaging in spacious surgical suites.",
@@ -301,14 +301,14 @@ export const beaconProducts: SurgicalMonitorProduct[] = [
       "Large-format deployment reduces the need for multiple smaller monitors in gallery positions.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "Beacon S5581 55\" 4K large-format OR display" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "S5581 in integrated OR gallery position" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "S5581 team visualization in surgical suite" },
+      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "Beacon S5581 55\" 4K large-format OR display" },
+      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S5581 in integrated OR gallery position" },
+      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "S5581 team visualization in surgical suite" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "S5581 in integrated OR gallery deployment" },
-      { src: "/images/cat-monitoring.jpg", alt: "S5581 in surgical training observation room" },
-      { src: "/images/or-integration.jpg", alt: "S5581 in robotic surgery suite configuration" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S5581 in integrated OR gallery deployment" },
+      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "S5581 in surgical training observation room" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S5581 in robotic surgery suite configuration" },
     ],
   },
 ]
@@ -318,14 +318,14 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
     slug: "fs-l2402d",
     name: "FS-L2402D",
     shortDescription: "24\" WUXGA surgical monitor with edge-to-edge glass and fanless design for quiet OR environments.",
-    cardImage: "/images/cat-monitoring.jpg",
+    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
     heroTitle: "24\" WUXGA Fanless Surgical Monitor with Edge-to-Edge Glass",
     heroSubtitle:
       "The FSN FS-L2402D delivers WUXGA resolution in a 24-inch fanless design with edge-to-edge glass construction, providing a hygienic, quiet, and compact surgical display solution for endoscopy and auxiliary visualization positions.",
     overview:
-      "The FSN FS-L2402D is a 24-inch WUXGA (1920×1200) surgical monitor built for clinical environments that demand quiet operation, easy decontamination, and reliable image performance in a compact form factor. The fanless design eliminates active cooling noise and moving-part failure risks, while the edge-to-edge glass construction minimizes crevices that could harbor pathogens and simplifies surface cleaning protocols.",
+      "The FSN FS-L2402D is a 24-inch WUXGA (1920Г—1200) surgical monitor built for clinical environments that demand quiet operation, easy decontamination, and reliable image performance in a compact form factor. The fanless design eliminates active cooling noise and moving-part failure risks, while the edge-to-edge glass construction minimizes crevices that could harbor pathogens and simplifies surface cleaning protocols.",
     highlights: [
-      "WUXGA (1920×1200) resolution for high-clarity image display at 24-inch screen size.",
+      "WUXGA (1920Г—1200) resolution for high-clarity image display at 24-inch screen size.",
       "Fanless design eliminates cooling noise and reduces mechanical failure points.",
       "Edge-to-edge glass for simplified surface decontamination and infection control.",
       "Compact 24-inch form factor suitable for space-constrained OR positions.",
@@ -345,7 +345,7 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       {
         title: "WUXGA image clarity",
         description:
-          "1920×1200 resolution at 24 inches provides a high pixel density suitable for endoscopic detail visualization and ancillary data display.",
+          "1920Г—1200 resolution at 24 inches provides a high pixel density suitable for endoscopic detail visualization and ancillary data display.",
       },
       {
         title: "Compact clinical integration",
@@ -377,21 +377,21 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       "Compact form factor enables deployment in space-limited OR and procedure room positions.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "FSN FS-L2402D 24\" WUXGA surgical monitor" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "FS-L2402D in endoscopy procedure room" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "FS-L2402D edge-to-edge glass surface" },
+      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FSN FS-L2402D 24\" WUXGA surgical monitor" },
+      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FS-L2402D in endoscopy procedure room" },
+      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FS-L2402D edge-to-edge glass surface" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "FS-L2402D in endoscopy auxiliary position" },
-      { src: "/images/cat-monitoring.jpg", alt: "FS-L2402D at anesthesia workstation" },
-      { src: "/images/or-integration.jpg", alt: "FS-L2402D in compact procedure room" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FS-L2402D in endoscopy auxiliary position" },
+      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FS-L2402D at anesthesia workstation" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FS-L2402D in compact procedure room" },
     ],
   },
   {
     slug: "fs-l3202d",
     name: "FS-L3202D",
     shortDescription: "32\" FHD surgical monitor with multiview capability and fanless design.",
-    cardImage: "/images/cat-monitoring.jpg",
+    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
     heroTitle: "32\" FHD Fanless Surgical Monitor with Multiview",
     heroSubtitle:
       "The FSN FS-L3202D provides full HD visualization in a 32-inch fanless format with built-in multiview for simultaneous display of multiple signal sources, suited for endoscopy towers and auxiliary monitoring positions.",
@@ -413,7 +413,7 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       {
         title: "32-inch FHD primary display",
         description:
-          "Full HD (1920×1080) at 32 inches provides a comfortable and detailed viewing experience for standard endoscopic and open-surgery camera systems.",
+          "Full HD (1920Г—1080) at 32 inches provides a comfortable and detailed viewing experience for standard endoscopic and open-surgery camera systems.",
       },
       {
         title: "Fanless quiet operation",
@@ -450,28 +450,28 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       "Cost-effective solution for primary and secondary OR display modernization programs.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "FSN FS-L3202D 32\" FHD surgical monitor" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "FS-L3202D in endoscopy tower configuration" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "FS-L3202D multiview display in use" },
+      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FSN FS-L3202D 32\" FHD surgical monitor" },
+      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FS-L3202D in endoscopy tower configuration" },
+      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FS-L3202D multiview display in use" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "FS-L3202D in standard endoscopy tower" },
-      { src: "/images/cat-monitoring.jpg", alt: "FS-L3202D in multi-source auxiliary position" },
-      { src: "/images/or-integration.jpg", alt: "FS-L3202D in modernized procedure room" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FS-L3202D in standard endoscopy tower" },
+      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FS-L3202D in multi-source auxiliary position" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FS-L3202D in modernized procedure room" },
     ],
   },
   {
     slug: "fm-e2701d",
     name: "FM-E2701D",
     shortDescription: "27\" 4K UHD surgical monitor for compact 4K visualization in endoscopy and open surgery.",
-    cardImage: "/images/cat-monitoring.jpg",
+    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
     heroTitle: "27\" 4K UHD Surgical Monitor for Compact High-Resolution Visualization",
     heroSubtitle:
       "The FSN FM-E2701D delivers 4K UHD resolution in a 27-inch compact form factor, providing high pixel density for detailed endoscopic visualization and secondary 4K display applications in space-efficient OR configurations.",
     overview:
       "The FSN FM-E2701D is a 27-inch 4K UHD surgical monitor designed for operating rooms and procedure environments where high resolution is required without the footprint of a larger display. The 27-inch 4K panel achieves a high pixel density that renders fine anatomical detail from modern 4K endoscopic cameras, making it suitable as both a primary compact 4K display and a high-resolution secondary monitor in multi-display OR configurations.",
     highlights: [
-      "4K UHD (3840×2160) resolution at 27 inches for high pixel density visualization.",
+      "4K UHD (3840Г—2160) resolution at 27 inches for high pixel density visualization.",
       "Compact form factor suited for space-efficient 4K display configurations.",
       "Medical-grade panel calibrated for accurate color in surgical imaging applications.",
       "Compatible with 4K surgical cameras and standard HD sources via upscaling.",
@@ -523,28 +523,28 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       "Flexible mounting compatibility simplifies integration into existing OR infrastructure.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "FSN FM-E2701D 27\" 4K surgical monitor" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "FM-E2701D in compact 4K endoscopy setup" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "FM-E2701D secondary display configuration" },
+      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FSN FM-E2701D 27\" 4K surgical monitor" },
+      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E2701D in compact 4K endoscopy setup" },
+      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-E2701D secondary display configuration" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "FM-E2701D in compact 4K endoscopy room" },
-      { src: "/images/cat-monitoring.jpg", alt: "FM-E2701D as secondary 4K auxiliary display" },
-      { src: "/images/or-integration.jpg", alt: "FM-E2701D near robotic console position" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E2701D in compact 4K endoscopy room" },
+      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-E2701D as secondary 4K auxiliary display" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E2701D near robotic console position" },
     ],
   },
   {
     slug: "fm-e3203d",
     name: "FM-E3203D",
     shortDescription: "32\" 4K UHD surgical monitor with DC 5V accessory power output.",
-    cardImage: "/images/cat-monitoring.jpg",
+    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
     heroTitle: "32\" 4K UHD Surgical Monitor with Integrated DC Accessory Power",
     heroSubtitle:
       "The FSN FM-E3203D combines 4K UHD resolution in a standard 32-inch surgical display format with an integrated DC 5V accessory power output, simplifying connection of USB-powered peripherals and reducing cable complexity in the OR.",
     overview:
       "The FSN FM-E3203D is a 32-inch 4K UHD surgical monitor that integrates a DC 5V accessory power output alongside full 4K imaging capability. This feature allows USB-powered devices such as cameras, signal converters, or peripheral accessories to draw power directly from the display, eliminating the need for separate power supplies and reducing cable routing complexity in operating room environments.",
     highlights: [
-      "4K UHD (3840×2160) resolution in a standard 32-inch surgical display form factor.",
+      "4K UHD (3840Г—2160) resolution in a standard 32-inch surgical display form factor.",
       "Integrated DC 5V accessory power output for USB-powered peripheral devices.",
       "Reduces cable complexity by consolidating power and display connections.",
       "Medical-grade 4K panel calibrated for accurate surgical imaging color reproduction.",
@@ -596,21 +596,21 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       "Medical-grade calibration maintains imaging accuracy over extended clinical use.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "FSN FM-E3203D 32\" 4K surgical monitor" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "FM-E3203D in 4K endoscopy tower configuration" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "FM-E3203D integrated OR cart deployment" },
+      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FSN FM-E3203D 32\" 4K surgical monitor" },
+      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3203D in 4K endoscopy tower configuration" },
+      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-E3203D integrated OR cart deployment" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "FM-E3203D as primary 4K endoscopy tower display" },
-      { src: "/images/cat-monitoring.jpg", alt: "FM-E3203D with USB accessory peripherals" },
-      { src: "/images/or-integration.jpg", alt: "FM-E3203D in integrated OR room setup" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3203D as primary 4K endoscopy tower display" },
+      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-E3203D with USB accessory peripherals" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3203D in integrated OR room setup" },
     ],
   },
   {
     slug: "fm-e3250d",
     name: "FM-E3250D",
     shortDescription: "32\" 4K Mini-LED surgical monitor with local dimming and HDR for exceptional contrast and brightness.",
-    cardImage: "/images/cat-monitoring.jpg",
+    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
     heroTitle: "32\" 4K Mini-LED Surgical Monitor with Local Dimming and HDR",
     heroSubtitle:
       "The FSN FM-E3250D combines Mini-LED backlight technology with local dimming and HDR processing to deliver exceptional contrast ratios and peak brightness for demanding surgical visualization requiring the highest image quality.",
@@ -669,21 +669,21 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       "Premium display performance supports surgeon confidence in complex, detail-sensitive procedures.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "FSN FM-E3250D 32\" 4K Mini-LED surgical monitor" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "FM-E3250D in high-complexity surgical suite" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "FM-E3250D Mini-LED display in OR environment" },
+      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FSN FM-E3250D 32\" 4K Mini-LED surgical monitor" },
+      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3250D in high-complexity surgical suite" },
+      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-E3250D Mini-LED display in OR environment" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "FM-E3250D in high-complexity endoscopy suite" },
-      { src: "/images/cat-monitoring.jpg", alt: "FM-E3250D in fluorescence-guided surgery setup" },
-      { src: "/images/or-integration.jpg", alt: "FM-E3250D in premium integrated OR room" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3250D in high-complexity endoscopy suite" },
+      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-E3250D in fluorescence-guided surgery setup" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3250D in premium integrated OR room" },
     ],
   },
   {
     slug: "fm-f2701d",
     name: "FM-F2701D",
     shortDescription: "27\" OLED surgical monitor with perfect black levels, infinite contrast, and wide viewing angles.",
-    cardImage: "/images/cat-monitoring.jpg",
+    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
     heroTitle: "27\" OLED Surgical Monitor with Perfect Black Levels and Infinite Contrast",
     heroSubtitle:
       "The FSN FM-F2701D uses OLED panel technology to deliver perfect black levels, infinite contrast ratio, and wide viewing angles in a 27-inch surgical display, enabling exceptional tissue differentiation and depth perception in demanding endoscopic procedures.",
@@ -691,7 +691,7 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       "The FSN FM-F2701D is a 27-inch OLED surgical monitor that leverages organic light-emitting diode technology to achieve display characteristics that are physically impossible with LCD-based panels. Each OLED pixel generates its own light independently, enabling true black display (zero pixel emission) and an effectively infinite contrast ratio. This produces a display depth and tissue differentiation capability that is particularly valuable in procedures where shadow detail and color fidelity are clinically important.",
     highlights: [
       "OLED panel technology for true zero-black and infinite contrast ratio.",
-      "Wide 178° viewing angle for accurate color from any observer position.",
+      "Wide 178В° viewing angle for accurate color from any observer position.",
       "Instant pixel response time eliminating motion blur in fast endoscope movements.",
       "Exceptional tissue differentiation enabled by OLED per-pixel light control.",
       "27-inch form factor for compact high-performance surgical display deployment.",
@@ -710,7 +710,7 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       {
         title: "Wide viewing angle accuracy",
         description:
-          "OLED technology maintains color accuracy and brightness uniformity across 178° horizontal and vertical viewing angles, ensuring consistent imaging for all team positions around the OR table.",
+          "OLED technology maintains color accuracy and brightness uniformity across 178В° horizontal and vertical viewing angles, ensuring consistent imaging for all team positions around the OR table.",
       },
       {
         title: "Instant pixel response",
@@ -742,21 +742,21 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       "Compact 27-inch OLED format delivers flagship display performance in space-efficient configurations.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "FSN FM-F2701D 27\" OLED surgical monitor" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "FM-F2701D in advanced minimally invasive surgery" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "FM-F2701D OLED display in OR environment" },
+      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FSN FM-F2701D 27\" OLED surgical monitor" },
+      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-F2701D in advanced minimally invasive surgery" },
+      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-F2701D OLED display in OR environment" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "FM-F2701D in advanced laparoscopic suite" },
-      { src: "/images/cat-monitoring.jpg", alt: "FM-F2701D in fluorescence imaging application" },
-      { src: "/images/or-integration.jpg", alt: "FM-F2701D in premium compact OR configuration" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-F2701D in advanced laparoscopic suite" },
+      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-F2701D in fluorescence imaging application" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-F2701D in premium compact OR configuration" },
     ],
   },
   {
     slug: "fm-d5802dv",
     name: "FM-D5802DV",
     shortDescription: "58\" 4K UHD large-format surgical monitor with DICOM compliance and uniform brightness calibration.",
-    cardImage: "/images/cat-monitoring.jpg",
+    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
     heroTitle: "58\" 4K UHD DICOM Large-Format Surgical Display with Uniform Brightness",
     heroSubtitle:
       "The FSN FM-D5802DV provides a 58-inch 4K UHD large-format display with DICOM Part 14 compliance and factory-calibrated uniform brightness, enabling diagnostic-quality imaging for wide-area OR visualization and medical imaging review.",
@@ -815,21 +815,21 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       "Shared visualization reduces information asymmetry between OR team positions.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "FSN FM-D5802DV 58\" 4K DICOM large-format display" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "FM-D5802DV in integrated OR gallery position" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "FM-D5802DV large-format surgical team display" },
+      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FSN FM-D5802DV 58\" 4K DICOM large-format display" },
+      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-D5802DV in integrated OR gallery position" },
+      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-D5802DV large-format surgical team display" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "FM-D5802DV in integrated OR gallery deployment" },
-      { src: "/images/cat-monitoring.jpg", alt: "FM-D5802DV in medical imaging review room" },
-      { src: "/images/or-integration.jpg", alt: "FM-D5802DV in surgical training observation room" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-D5802DV in integrated OR gallery deployment" },
+      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-D5802DV in medical imaging review room" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-D5802DV in surgical training observation room" },
     ],
   },
   {
     slug: "fm-e3204dgc",
     name: "FM-E3204DGC",
     shortDescription: "32\" 4K 3D surgical monitor with 2D/3D OSD switch and passive polarized eyewear included.",
-    cardImage: "/images/cat-monitoring.jpg",
+    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
     heroTitle: "32\" 4K 3D Surgical Monitor with 2D/3D Switch and Polarized Eyewear",
     heroSubtitle:
       "The FSN FM-E3204DGC provides 4K 3D stereoscopic visualization in a 32-inch surgical display with on-screen 2D/3D switching, delivering depth perception for advanced minimally invasive and robotic-assisted surgery with passive polarized eyewear included.",
@@ -888,14 +888,14 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       "4K resolution in both display modes preserves imaging quality across all procedure phases.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "FSN FM-E3204DGC 32\" 4K 3D surgical monitor" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "FM-E3204DGC in robotic surgery suite" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "FM-E3204DGC 3D visualization in use" },
+      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FSN FM-E3204DGC 32\" 4K 3D surgical monitor" },
+      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3204DGC in robotic surgery suite" },
+      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-E3204DGC 3D visualization in use" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "FM-E3204DGC in robotic-assisted surgery suite" },
-      { src: "/images/cat-monitoring.jpg", alt: "FM-E3204DGC in advanced laparoscopic room" },
-      { src: "/images/or-integration.jpg", alt: "FM-E3204DGC in surgical simulation environment" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3204DGC in robotic-assisted surgery suite" },
+      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-E3204DGC in advanced laparoscopic room" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3204DGC in surgical simulation environment" },
     ],
   },
 ]

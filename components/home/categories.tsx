@@ -5,17 +5,21 @@ import Image from "next/image"
 import { Container } from "@/components/container"
 import { SectionHeader } from "@/components/section-header"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Brackets, Cctv, Lightbulb, Monitor, Network, SquareActivity, Wind, type LucideIcon } from "lucide-react"
+import { ArrowRight, Lightbulb, Monitor, Network, SquareActivity, Wind, type LucideIcon } from "lucide-react"
 import { useLanguage } from "@/lib/i18n"
 
-const categories: { titleKey: string; descKey: string; image: string; icon: LucideIcon }[] = [
-  { titleKey: "cat.imaging", descKey: "cat.imaging.desc", image: "/images/cat-imaging.jpg", icon: Network },
-  { titleKey: "cat.lighting", descKey: "cat.lighting.desc", image: "/images/cat-lighting.jpg", icon: Lightbulb },
-  { titleKey: "cat.endoscopy", descKey: "cat.endoscopy.desc", image: "/images/cat-endoscopy.jpg", icon: SquareActivity },
-  { titleKey: "cat.monitoring", descKey: "cat.monitoring.desc", image: "/images/cat-monitoring.jpg", icon: Wind },
-  { titleKey: "cat.sterilization", descKey: "cat.sterilization.desc", image: "/images/cat-sterilization.jpg", icon: Monitor },
-  { titleKey: "cat.surgical", descKey: "cat.surgical.desc", image: "/images/cat-surgical.jpg", icon: Brackets },
-  { titleKey: "cat.videorecorders", descKey: "cat.videorecorders.desc", image: "/images/cat-endoscopy.jpg", icon: Cctv },
+const categories: {
+  titleKey: string
+  descKey: string
+  image: string
+  icon: LucideIcon
+  href: string
+}[] = [
+  { titleKey: "cat.imaging", descKey: "cat.imaging.desc", image: "/images/categories/integrated-or/cover.jpg", icon: Network, href: "/equipment" },
+  { titleKey: "cat.lighting", descKey: "cat.lighting.desc", image: "/images/categories/or-lighting/cover.png", icon: Lightbulb, href: "/equipment/or-lighting" },
+  { titleKey: "cat.endoscopy", descKey: "cat.endoscopy.desc", image: "/images/categories/icu-infrastructure/cover-v2.jpg", icon: SquareActivity, href: "/equipment/icu-infrastructure/ceiling-pendants" },
+  { titleKey: "cat.monitoring", descKey: "cat.monitoring.desc", image: "/images/categories/medical-gases/cover.jpg", icon: Wind, href: "/equipment/medical-gases" },
+  { titleKey: "cat.sterilization", descKey: "cat.sterilization.desc", image: "/images/categories/surgical-monitors/cover.jpg", icon: Monitor, href: "/equipment/surgical-monitors/fsn" },
 ]
 
 export function Categories() {
@@ -36,7 +40,7 @@ export function Categories() {
           {categories.map((cat) => (
             <Link
               key={cat.titleKey}
-              href="/equipment"
+              href={cat.href}
               className="glass glass-hover glow-cyan-hover group overflow-hidden rounded-xl transition-all duration-300"
             >
               <div className="relative aspect-[16/10] overflow-hidden">

@@ -9,9 +9,10 @@ export function Footer() {
   const { t } = useLanguage()
 
   const solutionLinks = [
-    { href: "/equipment", key: "nav.equipment" },
     { href: "/services", key: "nav.services" },
+    { href: "/equipment", key: "nav.equipment" },
     { href: "/projects", key: "nav.projects" },
+    { href: "/partners", key: "nav.partners" },
   ]
 
   const companyLinks = [
@@ -73,11 +74,21 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               <li className="flex items-start gap-2.5">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span className="text-sm text-muted-foreground">info@medintegro.com</span>
+                <a
+                  href="mailto:info@medintegro.com"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  info@medintegro.com
+                </a>
               </li>
               <li className="flex items-start gap-2.5">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span className="text-sm text-muted-foreground">+380 44 123 4567</span>
+                <a
+                  href="tel:+380441234567"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  +380 44 123 4567
+                </a>
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />

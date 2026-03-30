@@ -44,9 +44,25 @@ export default function ContactPage() {
                       <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                         {t(detail.labelKey)}
                       </p>
-                      <p className="mt-1 text-sm text-foreground">
-                        {detail.valueKey ? t(detail.valueKey) : detail.value}
-                      </p>
+                      {detail.value === "info@medintegro.com" ? (
+                        <a
+                          href="mailto:info@medintegro.com"
+                          className="mt-1 block text-sm text-foreground transition-colors hover:text-primary"
+                        >
+                          info@medintegro.com
+                        </a>
+                      ) : detail.value === "+380 44 123 4567" ? (
+                        <a
+                          href="tel:+380441234567"
+                          className="mt-1 block text-sm text-foreground transition-colors hover:text-primary"
+                        >
+                          +380 44 123 4567
+                        </a>
+                      ) : (
+                        <p className="mt-1 text-sm text-foreground">
+                          {detail.valueKey ? t(detail.valueKey) : detail.value}
+                        </p>
+                      )}
                     </div>
                   </div>
                 ))}

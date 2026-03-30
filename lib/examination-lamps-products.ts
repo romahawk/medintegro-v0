@@ -5,7 +5,7 @@ export const examinationLampProducts: OrLightingProduct[] = [
     slug: "diasys-range",
     name: "DIASYS Range",
     shortDescription: "Treatment and examination lighting designed for specialist care environments.",
-    cardImage: "/images/or-lighting/diasys-range.png",
+    cardImage: "/images/products/examination-lamps/diasys-range/card.png",
     heroTitle: "Treatment and examination lighting for specialist workflows",
     heroSubtitle:
       "DIASYS is built for procedure and consultation spaces where reliable visibility, ergonomic handling, and daily operational readiness are essential.",
@@ -62,14 +62,14 @@ export const examinationLampProducts: OrLightingProduct[] = [
       "Fits well in modernization programs for outpatient and minor-procedure areas.",
     ],
     heroImages: {
-      main: { src: "/images/or-lighting/examination-lamps/diasys-range/hero-main.png", alt: "DIASYS examination light in specialist care setting" },
-      secondary1: { src: "/images/or-lighting/examination-lamps/diasys-range/deploy-1.jpg", alt: "Clinical room with examination lighting setup" },
-      secondary2: { src: "/images/or-lighting/examination-lamps/diasys-range/deploy-2.jpg", alt: "Treatment environment with focused lighting" },
+      main: { src: "/images/products/examination-lamps/diasys-range/hero-main.png", alt: "DIASYS examination light in specialist care setting" },
+      secondary1: { src: "/images/products/examination-lamps/diasys-range/deploy-1.jpg", alt: "Clinical room with examination lighting setup" },
+      secondary2: { src: "/images/products/examination-lamps/diasys-range/deploy-2.jpg", alt: "Treatment environment with focused lighting" },
     },
     deploymentImages: [
-      { src: "/images/or-lighting/examination-lamps/diasys-range/deploy-1.jpg", alt: "DIASYS in consultation room deployment" },
-      { src: "/images/or-lighting/examination-lamps/diasys-range/deploy-2.jpg", alt: "DIASYS in minor procedure environment" },
-      { src: "/images/or-lighting/examination-lamps/diasys-range/deploy-3.jpg", alt: "DIASYS in specialist outpatient setup" },
+      { src: "/images/products/examination-lamps/diasys-range/deploy-1.jpg", alt: "DIASYS in consultation room deployment" },
+      { src: "/images/products/examination-lamps/diasys-range/deploy-2.jpg", alt: "DIASYS in minor procedure environment" },
+      { src: "/images/products/examination-lamps/diasys-range/deploy-3.jpg", alt: "DIASYS in specialist outpatient setup" },
     ],
   },
 ]

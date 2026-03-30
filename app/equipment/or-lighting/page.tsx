@@ -18,7 +18,7 @@ export default function OrLightingPage() {
       key: "examination-lamps",
       title: "Examination Lamps",
       description: "Dedicated examination and treatment lighting solutions for specialist care environments.",
-      image: "/images/or-lighting/diasys-range.png",
+      image: "/images/categories/examination-lamps/cover.png",
       href: "/equipment/examination-lamps",
     },
   ]
@@ -63,9 +63,9 @@ export default function OrLightingPage() {
           <div className="grid gap-5 md:grid-cols-3">
             {lightingCards.map((card) => (
               <article key={card.key} className="glass glass-hover glow-cyan-hover overflow-hidden rounded-xl transition-all duration-300">
-                <div className="relative aspect-[4/3]">
+                <div className="relative aspect-4/3">
                   <Image src={card.image} alt={card.title} fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-background/70 to-transparent" />
                 </div>
                 <div className="p-5">
                   <h2 className="text-lg font-semibold text-foreground">{card.title}</h2>

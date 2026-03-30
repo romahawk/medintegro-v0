@@ -23,7 +23,7 @@ export const orLightingProducts: OrLightingProduct[] = [
     slug: "xmt-range",
     name: "XMT Range",
     shortDescription: "High-performance operating lights for demanding surgical applications.",
-    cardImage: "/images/or-lighting/xmt-range.png",
+    cardImage: "/images/products/or-lighting/xmt-range/card.png",
     heroTitle: "Unique and high-quality operating room lighting",
     heroSubtitle:
       "XMT is designed for surgical teams that need stable light quality, precise field control, and dependable performance throughout complex procedures.",
@@ -80,21 +80,21 @@ export const orLightingProducts: OrLightingProduct[] = [
       "Contributes to long-term OR performance and operational quality.",
     ],
     heroImages: {
-      main: { src: "/images/or-lighting/xmt-range/hero-main.png", alt: "XMT operating lights in modern surgical room" },
-      secondary1: { src: "/images/or-lighting/xmt-range/hero-secondary-1.png", alt: "Surgical team under operating light system" },
-      secondary2: { src: "/images/or-lighting/xmt-range/hero-secondary-2.png", alt: "Integrated OR environment with ceiling lights" },
+      main: { src: "/images/products/or-lighting/xmt-range/hero-main.png", alt: "XMT operating lights in modern surgical room" },
+      secondary1: { src: "/images/products/or-lighting/xmt-range/hero-secondary-1.png", alt: "Surgical team under operating light system" },
+      secondary2: { src: "/images/products/or-lighting/xmt-range/hero-secondary-2.png", alt: "Integrated OR environment with ceiling lights" },
     },
     deploymentImages: [
-      { src: "/images/or-lighting/xmt-range/deploy-1.jpg", alt: "Single-dome operating light deployment" },
-      { src: "/images/or-lighting/xmt-range/deploy-2.jpg", alt: "Dual-dome surgical light deployment" },
-      { src: "/images/or-lighting/xmt-range/deploy-3.jpg", alt: "Operating light integrated in planned OR layout" },
+      { src: "/images/products/or-lighting/xmt-range/deploy-1.jpg", alt: "Single-dome operating light deployment" },
+      { src: "/images/products/or-lighting/xmt-range/deploy-2.jpg", alt: "Dual-dome surgical light deployment" },
+      { src: "/images/products/or-lighting/xmt-range/deploy-3.jpg", alt: "Operating light integrated in planned OR layout" },
     ],
   },
   {
     slug: "epure-range",
     name: "EPURE Range",
     shortDescription: "Affordable, high-performance surgical lights with touchless control concepts.",
-    cardImage: "/images/or-lighting/epure-range.png",
+    cardImage: "/images/products/or-lighting/epure-range/card.png",
     heroTitle: "High-performance and affordable surgical lighting",
     heroSubtitle:
       "EPURE combines strong surgical illumination with accessible deployment economics, making high-quality lighting easier to standardize across facilities.",
@@ -151,14 +151,14 @@ export const orLightingProducts: OrLightingProduct[] = [
       "Enables scalable modernization strategies across operating suites.",
     ],
     heroImages: {
-      main: { src: "/images/or-lighting/epure-range/hero-main.png", alt: "EPURE operating lights in active OR" },
-      secondary1: { src: "/images/or-lighting/epure-range/hero-secondary-1.png", alt: "EPURE ceiling light array in surgical room" },
-      secondary2: { src: "/images/or-lighting/epure-range/hero-secondary-2.png", alt: "Clinical environment with integrated lighting solution" },
+      main: { src: "/images/products/or-lighting/epure-range/hero-main.png", alt: "EPURE operating lights in active OR" },
+      secondary1: { src: "/images/products/or-lighting/epure-range/hero-secondary-1.png", alt: "EPURE ceiling light array in surgical room" },
+      secondary2: { src: "/images/products/or-lighting/epure-range/hero-secondary-2.png", alt: "Clinical environment with integrated lighting solution" },
     },
     deploymentImages: [
-      { src: "/images/or-lighting/epure-range/deploy-1.jpg", alt: "EPURE in cost-efficient operating room upgrade" },
-      { src: "/images/or-lighting/epure-range/deploy-2.jpg", alt: "EPURE in multi-room standardization deployment" },
-      { src: "/images/or-lighting/epure-range/deploy-3.jpg", alt: "EPURE in sterile-focused procedural environment" },
+      { src: "/images/products/or-lighting/epure-range/deploy-1.jpg", alt: "EPURE in cost-efficient operating room upgrade" },
+      { src: "/images/products/or-lighting/epure-range/deploy-2.jpg", alt: "EPURE in multi-room standardization deployment" },
+      { src: "/images/products/or-lighting/epure-range/deploy-3.jpg", alt: "EPURE in sterile-focused procedural environment" },
     ],
   },
 ]

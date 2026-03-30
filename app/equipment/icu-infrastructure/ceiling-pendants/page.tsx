@@ -1,9 +1,31 @@
 import Link from "next/link"
 import Image from "next/image"
+import { existsSync, statSync } from "node:fs"
+import path from "node:path"
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { ceilingPendantProducts } from "@/lib/icu-infrastructure-products"
+
+function getCeilingPendantImage(slug: string, fileName: string) {
+  const relativePath = `/images/products/icu-infrastructure/ceiling-pendants/${slug}/${fileName}`
+  const absolutePath = path.join(
+    process.cwd(),
+    "public",
+    "images",
+    "products",
+    "icu-infrastructure",
+    "ceiling-pendants",
+    slug,
+    fileName
+  )
+
+  if (!existsSync(absolutePath)) {
+    return relativePath
+  }
+
+  return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
+}
 
 export default function CeilingPendantsPage() {
   return (
@@ -51,9 +73,9 @@ export default function CeilingPendantsPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {ceilingPendantProducts.map((product) => (
               <article key={product.slug} className="glass glass-hover glow-cyan-hover overflow-hidden rounded-xl transition-all duration-300">
-                <div className="relative aspect-[4/3]">
-                  <Image src={product.cardImage} alt={product.name} fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
+                <div className="relative aspect-4/3">
+                  <Image src={getCeilingPendantImage(product.slug, "card.jpg")} alt={product.name} fill className="object-cover" />
+                  <div className="absolute inset-0 bg-linear-to-t from-background/70 to-transparent" />
                 </div>
                 <div className="p-5">
                   <h2 className="text-lg font-semibold text-foreground">{product.name}</h2>

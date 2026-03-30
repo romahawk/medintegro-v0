@@ -74,13 +74,13 @@ export default async function ExaminationLampProductPage({
             </div>
 
             <div className="grid grid-cols-2 gap-3 md:gap-4">
-              <div className="relative col-span-2 aspect-[16/9] overflow-hidden rounded-xl border border-border/40">
+              <div className="relative col-span-2 aspect-video overflow-hidden rounded-xl border border-border/40">
                 <Image src={product.heroImages.main.src} alt={product.heroImages.main.alt} fill className="object-cover" />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/40">
+              <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40">
                 <Image src={product.heroImages.secondary1.src} alt={product.heroImages.secondary1.alt} fill className="object-cover" />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/40">
+              <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40">
                 <Image src={product.heroImages.secondary2.src} alt={product.heroImages.secondary2.alt} fill className="object-cover" />
               </div>
             </div>
