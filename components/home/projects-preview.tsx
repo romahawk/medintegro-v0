@@ -13,19 +13,19 @@ const projects = [
     titleKey: "project.1.title",
     descKey: "project.1.desc",
     location: "Kyiv",
-    image: "/images/project-hospital.jpg",
+    image: "/images/projects/project-hospital.jpg",
   },
   {
     titleKey: "project.2.title",
     descKey: "project.2.desc",
     location: "Lviv",
-    image: "/images/project-clinic.jpg",
+    image: "/images/projects/project-clinic.jpg",
   },
   {
     titleKey: "project.3.title",
     descKey: "project.3.desc",
     location: "Odesa",
-    image: "/images/project-surgical.jpg",
+    image: "/images/projects/project-surgical.jpg",
   },
 ]
 
@@ -37,8 +37,8 @@ export function ProjectsPreview() {
       <Container>
         <SectionHeader
           label={t("projects.label")}
-          title={t("projects.title")}
-          description={t("projects.description")}
+          title="Representative project work"
+          description="Not just installed equipment, but projects where sourcing, integration, and stakeholder coordination had to work together."
         />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (

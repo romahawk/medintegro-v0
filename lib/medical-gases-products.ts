@@ -24,14 +24,14 @@ export const medicalGasProducts: MedicalGasProduct[] = [
     name: "Medical Gas Sources",
     shortDescription:
       "Central medical gas plants including oxygen, vacuum, medical air, and cylinder manifold systems for healthcare facilities.",
-    cardImage: "/images/or-integration.jpg",
+    cardImage: "/images/products/medical-gases/shared/hero-main.jpg",
     heroTitle: "Central medical gas generation and supply systems",
     heroSubtitle:
       "From oxygen cylinder manifolds and cryogenic liquid oxygen plants to medical vacuum systems and compressed air plants, we supply the complete range of compliant medical gas source equipment for hospitals and clinics.",
     overview:
-      "Medical gas sources are the foundation of a hospital's gas infrastructure, providing the primary supply of oxygen, medical air, nitrous oxide, carbon dioxide, and surgical vacuum to every point of care in the facility. Our portfolio covers all source technologies — cylinder manifold systems for smaller facilities, cryogenic liquid oxygen plants for high-demand hospitals, multi-pump vacuum plants with antibacterial filtration, and medical air compressor systems. Every system is compliant with EN ISO 7396-1 and relevant national standards, designed for reliable continuous operation and ease of maintenance.",
+      "Medical gas sources are the foundation of a hospital's gas infrastructure, providing the primary supply of oxygen, medical air, nitrous oxide, carbon dioxide, and surgical vacuum to every point of care in the facility. Our portfolio covers all source technologies вЂ” cylinder manifold systems for smaller facilities, cryogenic liquid oxygen plants for high-demand hospitals, multi-pump vacuum plants with antibacterial filtration, and medical air compressor systems. Every system is compliant with EN ISO 7396-1 and relevant national standards, designed for reliable continuous operation and ease of maintenance.",
     highlights: [
-      "Full range: cylinder manifolds, cryogenic O₂ plants, vacuum plants, medical air plants.",
+      "Full range: cylinder manifolds, cryogenic Oв‚‚ plants, vacuum plants, medical air plants.",
       "Central oxygen reduction stations for cylinder and bulk liquid supply.",
       "Medical vacuum plants with minimum 3 pumps, tanks, and antibacterial filters.",
       "All systems compliant with EN ISO 7396-1 and healthcare facility standards.",
@@ -40,12 +40,12 @@ export const medicalGasProducts: MedicalGasProduct[] = [
       {
         title: "Medical oxygen supply systems",
         description:
-          "Cylinder manifold systems, cryogenic liquid oxygen (LOX) storage plants, and central oxygen reduction stations providing reliable primary O₂ supply at all demand levels.",
+          "Cylinder manifold systems, cryogenic liquid oxygen (LOX) storage plants, and central oxygen reduction stations providing reliable primary Oв‚‚ supply at all demand levels.",
       },
       {
         title: "Medical vacuum plants",
         description:
-          "Multi-pump vacuum systems (minimum 3 pumps) with storage tanks, antibacterial filters, and control panels — designed for N+1 redundancy to maintain continuous vacuum supply.",
+          "Multi-pump vacuum systems (minimum 3 pumps) with storage tanks, antibacterial filters, and control panels вЂ” designed for N+1 redundancy to maintain continuous vacuum supply.",
       },
       {
         title: "Medical air compressor plants",
@@ -55,7 +55,7 @@ export const medicalGasProducts: MedicalGasProduct[] = [
       {
         title: "Cylinder connectors and reduction stations",
         description:
-          "Cylinder connectors for connecting gas cylinders to central reduction units, and reduction stations for nitrous oxide, CO₂, and other medical gases requiring secondary source systems.",
+          "Cylinder connectors for connecting gas cylinders to central reduction units, and reduction stations for nitrous oxide, COв‚‚, and other medical gases requiring secondary source systems.",
       },
     ],
     deploymentItems: [
@@ -82,14 +82,14 @@ export const medicalGasProducts: MedicalGasProduct[] = [
       "Supports all medical gas types used in hospital environments.",
     ],
     heroImages: {
-      main: { src: "/images/or-integration.jpg", alt: "Medical gas plant room with oxygen and vacuum systems" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "Cryogenic LOX tank and vaporizer installation" },
-      secondary2: { src: "/images/or-integration.jpg", alt: "Medical air compressor plant with monitoring panel" },
+      main: { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "Medical gas plant room with oxygen and vacuum systems" },
+      secondary1: { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "Cryogenic LOX tank and vaporizer installation" },
+      secondary2: { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "Medical air compressor plant with monitoring panel" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "Medical gas plant in new hospital build" },
-      { src: "/images/or-integration.jpg", alt: "Vacuum plant upgrade for increased capacity" },
-      { src: "/images/or-integration.jpg", alt: "Cylinder manifold replacement program" },
+      { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "Medical gas plant in new hospital build" },
+      { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "Vacuum plant upgrade for increased capacity" },
+      { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "Cylinder manifold replacement program" },
     ],
   },
   {
@@ -97,10 +97,10 @@ export const medicalGasProducts: MedicalGasProduct[] = [
     name: "Medical Gas Pipeline Distribution Systems",
     shortDescription:
       "Complete copper pipeline networks connecting gas sources to every point of care across operating rooms, ICU, and ward areas.",
-    cardImage: "/images/or-integration.jpg",
+    cardImage: "/images/products/medical-gases/shared/hero-main.jpg",
     heroTitle: "Medical gas pipeline networks from source to point of care",
     heroSubtitle:
-      "We design, supply, and install medical-grade copper pipeline distribution systems that deliver all medical gases and vacuum safely and reliably to every clinical area in the facility — OR, ICU, wards, and outpatient rooms.",
+      "We design, supply, and install medical-grade copper pipeline distribution systems that deliver all medical gases and vacuum safely and reliably to every clinical area in the facility вЂ” OR, ICU, wards, and outpatient rooms.",
     overview:
       "Medical gas pipeline distribution systems are the arterial network of a hospital's gas infrastructure, connecting central sources to the terminal outlet at every bed, operating table, and treatment point. Our systems use medical-grade copper pipework per EN ISO 7396-1, with full zone isolation, pressure testing, and validation before commissioning. We cover design, supply, installation, pressure testing, purging, identification, and handover documentation for complete pipeline projects in new builds, extensions, and renovation programs.",
     highlights: [
@@ -155,14 +155,14 @@ export const medicalGasProducts: MedicalGasProduct[] = [
       "Experienced installation team with medical gas certification.",
     ],
     heroImages: {
-      main: { src: "/images/or-integration.jpg", alt: "Medical gas copper pipeline distribution network" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "Pipeline installation in ceiling services" },
-      secondary2: { src: "/images/or-integration.jpg", alt: "Pipeline distribution system in hospital corridor" },
+      main: { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "Medical gas copper pipeline distribution network" },
+      secondary1: { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "Pipeline installation in ceiling services" },
+      secondary2: { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "Pipeline distribution system in hospital corridor" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "Pipeline installation in new hospital" },
-      { src: "/images/or-integration.jpg", alt: "Pipeline extension in renovated department" },
-      { src: "/images/or-integration.jpg", alt: "Legacy pipeline replacement program" },
+      { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "Pipeline installation in new hospital" },
+      { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "Pipeline extension in renovated department" },
+      { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "Legacy pipeline replacement program" },
     ],
   },
   {
@@ -170,7 +170,7 @@ export const medicalGasProducts: MedicalGasProduct[] = [
     name: "Area Valve Service Units",
     shortDescription:
       "Zone isolation valve boxes enabling controlled shutdown of individual clinical areas for maintenance without disrupting adjacent zones.",
-    cardImage: "/images/or-integration.jpg",
+    cardImage: "/images/products/medical-gases/shared/hero-main.jpg",
     heroTitle: "Zone isolation for safe maintenance without service disruption",
     heroSubtitle:
       "Area Valve Service Units (AVSUs) provide the critical zone isolation function in medical gas pipeline systems, allowing individual clinical areas to be safely isolated for maintenance while all other zones continue uninterrupted supply.",
@@ -186,7 +186,7 @@ export const medicalGasProducts: MedicalGasProduct[] = [
       {
         title: "Multi-gas zone isolation",
         description:
-          "Each AVSU contains individual isolation valves for all medical gas and vacuum services running through that zone — typically O₂, N₂O, CO₂, medical air, and vacuum.",
+          "Each AVSU contains individual isolation valves for all medical gas and vacuum services running through that zone вЂ” typically Oв‚‚, Nв‚‚O, COв‚‚, medical air, and vacuum.",
       },
       {
         title: "Pressure monitoring at zone",
@@ -228,14 +228,14 @@ export const medicalGasProducts: MedicalGasProduct[] = [
       "Supports emergency gas shutdown procedures across clinical areas.",
     ],
     heroImages: {
-      main: { src: "/images/or-integration.jpg", alt: "Area Valve Service Unit box with multi-gas valves" },
-      secondary1: { src: "/images/or-integration.jpg", alt: "AVSU with pressure gauges and lockable enclosure" },
-      secondary2: { src: "/images/or-integration.jpg", alt: "AVSU installation in hospital corridor" },
+      main: { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "Area Valve Service Unit box with multi-gas valves" },
+      secondary1: { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "AVSU with pressure gauges and lockable enclosure" },
+      secondary2: { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "AVSU installation in hospital corridor" },
     },
     deploymentImages: [
-      { src: "/images/or-integration.jpg", alt: "AVSU at OR suite entrance" },
-      { src: "/images/or-integration.jpg", alt: "AVSU in ICU zone" },
-      { src: "/images/or-integration.jpg", alt: "AVSU on main distribution riser" },
+      { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "AVSU at OR suite entrance" },
+      { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "AVSU in ICU zone" },
+      { src: "/images/products/medical-gases/shared/hero-main.jpg", alt: "AVSU on main distribution riser" },
     ],
   },
   {
@@ -243,7 +243,7 @@ export const medicalGasProducts: MedicalGasProduct[] = [
     name: "Medical Gas Monitoring Systems",
     shortDescription:
       "Alarm panels, pressure monitoring, and centralized gas management systems providing continuous visibility of medical gas pressure and status across all zones.",
-    cardImage: "/images/cat-monitoring.jpg",
+    cardImage: "/images/products/medical-gases/shared/hero-secondary-2.jpg",
     heroTitle: "Continuous medical gas monitoring and alarm management",
     heroSubtitle:
       "Medical gas monitoring systems provide real-time pressure data, zone status, and fault alarming for every gas and vacuum service throughout the facility, ensuring rapid detection and response to supply disruptions.",
@@ -253,7 +253,7 @@ export const medicalGasProducts: MedicalGasProduct[] = [
       "Local area alarm panels for immediate bedside and zone pressure indication.",
       "Master alarm panels at nursing stations and control rooms.",
       "Centralized monitoring with data logging, trends, and remote notification.",
-      "Covers all medical gas services: O₂, medical air, vacuum, N₂O, CO₂.",
+      "Covers all medical gas services: Oв‚‚, medical air, vacuum, Nв‚‚O, COв‚‚.",
     ],
     capabilityItems: [
       {
@@ -301,27 +301,27 @@ export const medicalGasProducts: MedicalGasProduct[] = [
       "Scalable from single-zone panels to full hospital monitoring.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "Medical gas alarm panel displaying pressure status" },
-      secondary1: { src: "/images/cat-monitoring.jpg", alt: "Master alarm panel at nursing station" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "Centralized gas monitoring system display" },
+      main: { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Medical gas alarm panel displaying pressure status" },
+      secondary1: { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Master alarm panel at nursing station" },
+      secondary2: { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Centralized gas monitoring system display" },
     },
     deploymentImages: [
-      { src: "/images/cat-monitoring.jpg", alt: "Gas alarm panel in operating theatre" },
-      { src: "/images/cat-monitoring.jpg", alt: "Zone monitoring in ICU nurse station" },
-      { src: "/images/cat-monitoring.jpg", alt: "Hospital-wide gas management platform" },
+      { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Gas alarm panel in operating theatre" },
+      { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Zone monitoring in ICU nurse station" },
+      { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Hospital-wide gas management platform" },
     ],
   },
   {
     slug: "gas-outlets",
     name: "Medical Gas Outlets",
     shortDescription:
-      "Terminal units for oxygen, medical air, vacuum, N₂O, and CO₂ at points of care in operating rooms, ICU, and ward environments.",
-    cardImage: "/images/cat-monitoring.jpg",
+      "Terminal units for oxygen, medical air, vacuum, Nв‚‚O, and COв‚‚ at points of care in operating rooms, ICU, and ward environments.",
+    cardImage: "/images/products/medical-gases/shared/hero-secondary-2.jpg",
     heroTitle: "Medical gas terminal units for safe and reliable point-of-care connection",
     heroSubtitle:
       "Medical gas outlets are the final delivery point of the pipeline system, providing gas-specific connections for clinical equipment at every bed, operating table, treatment space, and procedure room.",
     overview:
-      "Medical gas outlets (terminal units) are the interface between the hospital's pipeline infrastructure and the clinical equipment — anaesthesia machines, ventilators, infusion pumps, and suction devices — that depend on a continuous, reliable gas supply. Our outlet range covers all international standard probe types (NIST, Schraeder/DISS, and NF standards) in all medical gas services, in wall-mounted, ceiling-mounted, pendant, and column configurations. All outlets comply with BS EN ISO 9170-1 and gas-specific colour coding and labelling standards to prevent cross-connection.",
+      "Medical gas outlets (terminal units) are the interface between the hospital's pipeline infrastructure and the clinical equipment вЂ” anaesthesia machines, ventilators, infusion pumps, and suction devices вЂ” that depend on a continuous, reliable gas supply. Our outlet range covers all international standard probe types (NIST, Schraeder/DISS, and NF standards) in all medical gas services, in wall-mounted, ceiling-mounted, pendant, and column configurations. All outlets comply with BS EN ISO 9170-1 and gas-specific colour coding and labelling standards to prevent cross-connection.",
     highlights: [
       "Gas-specific probe design prevents cross-connection between services.",
       "NIST, Schraeder/DISS outlet types to international standards.",
@@ -332,7 +332,7 @@ export const medicalGasProducts: MedicalGasProduct[] = [
       {
         title: "Gas-specific outlet design",
         description:
-          "Each outlet accepts only the correct gas-specific probe, providing a physical safeguard against cross-connection of medical gas equipment — a critical patient safety feature.",
+          "Each outlet accepts only the correct gas-specific probe, providing a physical safeguard against cross-connection of medical gas equipment вЂ” a critical patient safety feature.",
       },
       {
         title: "Multiple outlet standard compatibility",
@@ -354,7 +354,7 @@ export const medicalGasProducts: MedicalGasProduct[] = [
       {
         title: "Operating room pendant and wall outlets",
         description:
-          "High-density outlet provision for anaesthesia gas, surgical air, surgical vacuum, and CO₂ on ceiling pendants and OR wall panels.",
+          "High-density outlet provision for anaesthesia gas, surgical air, surgical vacuum, and COв‚‚ on ceiling pendants and OR wall panels.",
       },
       {
         title: "ICU and bed head unit integration",
@@ -374,14 +374,14 @@ export const medicalGasProducts: MedicalGasProduct[] = [
       "Suitable for integration with all INMED pendant and bed head systems.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "Medical gas outlet panel with colour-coded terminal units" },
-      secondary1: { src: "/images/cat-monitoring.jpg", alt: "NIST and Schraeder gas outlets on wall panel" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "Medical gas outlets integrated in ceiling pendant" },
+      main: { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Medical gas outlet panel with colour-coded terminal units" },
+      secondary1: { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "NIST and Schraeder gas outlets on wall panel" },
+      secondary2: { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Medical gas outlets integrated in ceiling pendant" },
     },
     deploymentImages: [
-      { src: "/images/cat-monitoring.jpg", alt: "Gas outlets on OR ceiling pendant" },
-      { src: "/images/cat-monitoring.jpg", alt: "Gas outlets in ICU bed head unit" },
-      { src: "/images/cat-monitoring.jpg", alt: "Ward gas outlet wall panel" },
+      { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Gas outlets on OR ceiling pendant" },
+      { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Gas outlets in ICU bed head unit" },
+      { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Ward gas outlet wall panel" },
     ],
   },
   {
@@ -389,12 +389,12 @@ export const medicalGasProducts: MedicalGasProduct[] = [
     name: "Medical Gas Consumption Boards",
     shortDescription:
       "Multi-outlet distribution boards organizing gas, electrical, and data connections for OR, ICU, and procedure room environments.",
-    cardImage: "/images/cat-monitoring.jpg",
+    cardImage: "/images/products/medical-gases/shared/hero-secondary-2.jpg",
     heroTitle: "Medical gas consumption boards for organized multi-outlet clinical environments",
     heroSubtitle:
       "Medical gas consumption boards combine multiple gas outlets, electrical sockets, and data connections in a single organized distribution unit, simplifying equipment management in high-density clinical environments.",
     overview:
-      "Medical gas consumption boards are designed for clinical environments where multiple gas and electrical connections are required at a single location — procedure rooms, endoscopy suites, minor treatment rooms, and outpatient clinical areas. Rather than running individual outlet points to each location, consumption boards consolidate all required gas services, electrical sockets, equipotential connections, and data ports in a single wall or ceiling-mounted unit. This approach simplifies installation, improves room organization, and makes all connections accessible from one clearly labelled panel.",
+      "Medical gas consumption boards are designed for clinical environments where multiple gas and electrical connections are required at a single location вЂ” procedure rooms, endoscopy suites, minor treatment rooms, and outpatient clinical areas. Rather than running individual outlet points to each location, consumption boards consolidate all required gas services, electrical sockets, equipotential connections, and data ports in a single wall or ceiling-mounted unit. This approach simplifies installation, improves room organization, and makes all connections accessible from one clearly labelled panel.",
     highlights: [
       "Combines gas, electrical, and data connections in one organized panel.",
       "Gas outlets gas-specific and colour-coded per EN ISO 7396-1.",
@@ -405,7 +405,7 @@ export const medicalGasProducts: MedicalGasProduct[] = [
       {
         title: "Multi-gas outlet consolidation",
         description:
-          "Multiple gas service outlets — oxygen, medical air, vacuum, N₂O — organized in a single panel, reducing the number of pipeline terminal points in the room.",
+          "Multiple gas service outlets вЂ” oxygen, medical air, vacuum, Nв‚‚O вЂ” organized in a single panel, reducing the number of pipeline terminal points in the room.",
       },
       {
         title: "Integrated electrical provision",
@@ -447,14 +447,14 @@ export const medicalGasProducts: MedicalGasProduct[] = [
       "Configurable to match the specific gas and electrical needs of any room type.",
     ],
     heroImages: {
-      main: { src: "/images/cat-monitoring.jpg", alt: "Medical gas consumption board with multi-service outlets" },
-      secondary1: { src: "/images/cat-monitoring.jpg", alt: "Gas and electrical consumption board in procedure room" },
-      secondary2: { src: "/images/cat-monitoring.jpg", alt: "Consumption board in endoscopy suite" },
+      main: { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Medical gas consumption board with multi-service outlets" },
+      secondary1: { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Gas and electrical consumption board in procedure room" },
+      secondary2: { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Consumption board in endoscopy suite" },
     },
     deploymentImages: [
-      { src: "/images/cat-monitoring.jpg", alt: "Consumption board in procedure room" },
-      { src: "/images/cat-monitoring.jpg", alt: "Consumption board in outpatient room" },
-      { src: "/images/cat-monitoring.jpg", alt: "Consumption board in recovery bay" },
+      { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Consumption board in procedure room" },
+      { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Consumption board in outpatient room" },
+      { src: "/images/products/medical-gases/shared/hero-secondary-2.jpg", alt: "Consumption board in recovery bay" },
     ],
   },
 ]

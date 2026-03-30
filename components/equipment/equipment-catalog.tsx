@@ -5,7 +5,15 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { ArrowRight, Brackets, Cctv, Lightbulb, Monitor, Network, SquareActivity, Wind, type LucideIcon } from "lucide-react"
+import {
+  ArrowRight,
+  Lightbulb,
+  Monitor,
+  Network,
+  SquareActivity,
+  Wind,
+  type LucideIcon,
+} from "lucide-react"
 import { useLanguage } from "@/lib/i18n"
 import { integratedOrProducts } from "@/lib/integrated-or-products"
 
@@ -15,8 +23,6 @@ type CategoryKey =
   | "endoscopy"
   | "monitoring"
   | "sterilization"
-  | "surgical"
-  | "videorecorders"
 
 interface EquipmentItem {
   key: string
@@ -24,6 +30,8 @@ interface EquipmentItem {
   descKey: string
   category: CategoryKey
   image: string
+  imageClassName?: string
+  imageWrapperClassName?: string
   href?: string
   ctaKey?: string
 }
@@ -34,8 +42,6 @@ const categoryFilters: { key: CategoryKey; labelKey: string; icon: LucideIcon }[
   { key: "endoscopy", labelKey: "cat.endoscopy", icon: SquareActivity },
   { key: "monitoring", labelKey: "cat.monitoring", icon: Wind },
   { key: "sterilization", labelKey: "cat.sterilization", icon: Monitor },
-  { key: "surgical", labelKey: "cat.surgical", icon: Brackets },
-  { key: "videorecorders", labelKey: "cat.videorecorders", icon: Cctv },
 ]
 
 const equipment: EquipmentItem[] = [
@@ -44,21 +50,17 @@ const equipment: EquipmentItem[] = [
     nameKey: product.name,
     descKey: product.shortDescription,
     category: "imaging" as const,
-    image: product.cardImage ?? "/images/cat-imaging.jpg",
+    image: product.cardImage ?? "/images/categories/integrated-or/cover.jpg",
     href: `/equipment/integrated-or/${product.slug}`,
     ctaKey: "equipment.viewMore",
   })),
-  { key: "equip.robot.name", nameKey: "equip.robot.name", descKey: "equip.robot.desc", category: "surgical", image: "/images/cat-surgical.jpg" },
-  { key: "equip.electro.name", nameKey: "equip.electro.name", descKey: "equip.electro.desc", category: "surgical", image: "/images/cat-surgical.jpg" },
-  { key: "equip.nav.name", nameKey: "equip.nav.name", descKey: "equip.nav.desc", category: "surgical", image: "/images/cat-surgical.jpg" },
-  { key: "equip.tables.name", nameKey: "equip.tables.name", descKey: "equip.tables.desc", category: "surgical", image: "/images/cat-surgical.jpg" },
-  // ICU / critical infrastructure — two sub-category cards
   {
     key: "icu-ceiling-pendants",
     nameKey: "icu.ceilingPendants.name",
     descKey: "icu.ceilingPendants.desc",
     category: "endoscopy",
-    image: "/images/or-integration.jpg",
+    image: "/images/categories/icu-infrastructure/cover-v2.jpg",
+    imageClassName: "scale-125 object-center",
     href: "/equipment/icu-infrastructure/ceiling-pendants",
     ctaKey: "equipment.viewMore",
   },
@@ -67,30 +69,46 @@ const equipment: EquipmentItem[] = [
     nameKey: "icu.bedHeadUnits.name",
     descKey: "icu.bedHeadUnits.desc",
     category: "endoscopy",
-    image: "/images/cat-monitoring.jpg",
+    image: "/images/categories/icu-infrastructure/cover-v2.jpg",
+    imageClassName: "scale-125 object-center",
     href: "/equipment/icu-infrastructure/bed-head-units",
     ctaKey: "equipment.viewMore",
   },
-  { key: "equip.videotower.name", nameKey: "equip.videotower.name", descKey: "equip.videotower.desc", category: "videorecorders", image: "/images/cat-endoscopy.jpg" },
-  { key: "equip.scopes.name", nameKey: "equip.scopes.name", descKey: "equip.scopes.desc", category: "videorecorders", image: "/images/cat-endoscopy.jpg" },
-  // Medical gases & distribution — single entry pointing to sub-category listing
   {
     key: "medical-gases",
     nameKey: "medgas.catalog.name",
     descKey: "medgas.catalog.desc",
     category: "monitoring",
-    image: "/images/or-integration.jpg",
+    image: "/images/categories/integrated-or/cover.jpg",
     href: "/equipment/medical-gases",
     ctaKey: "equipment.viewMore",
   },
-  { key: "equip.autoclaves.name", nameKey: "equip.autoclaves.name", descKey: "equip.autoclaves.desc", category: "sterilization", image: "/images/cat-sterilization.jpg" },
-  { key: "equip.washers.name", nameKey: "equip.washers.name", descKey: "equip.washers.desc", category: "sterilization", image: "/images/cat-sterilization.jpg" },
+  {
+    key: "beacon-monitors",
+    nameKey: "monitors.beacon.name",
+    descKey: "monitors.beacon.desc",
+    category: "sterilization",
+    image: "/images/categories/medical-gases/cover.jpg",
+    href: "/equipment/surgical-monitors/beacon",
+    ctaKey: "equipment.viewMore",
+  },
+  {
+    key: "fsn-monitors",
+    nameKey: "monitors.fsn.name",
+    descKey: "monitors.fsn.desc",
+    category: "sterilization",
+    image: "/images/categories/medical-gases/cover.jpg",
+    href: "/equipment/surgical-monitors/fsn",
+    ctaKey: "equipment.viewMore",
+  },
   {
     key: "equip.ledlights.name",
     nameKey: "equip.ledlights.name",
     descKey: "equip.ledlights.desc",
     category: "lighting",
-    image: "/images/led-surgical-lights.png",
+    image: "/images/categories/or-lighting/cover.png",
+    imageClassName: "scale-90 object-center",
+    imageWrapperClassName: "bg-background/70",
     href: "/equipment/or-lighting",
     ctaKey: "equipment.viewMore",
   },
@@ -99,7 +117,9 @@ const equipment: EquipmentItem[] = [
     nameKey: "equip.examlamps.name",
     descKey: "equip.examlamps.desc",
     category: "lighting",
-    image: "/images/examination-lamps.png",
+    image: "/images/categories/examination-lamps/cover.png",
+    imageClassName: "scale-90 object-center",
+    imageWrapperClassName: "bg-background/70",
     href: "/equipment/examination-lamps",
     ctaKey: "equipment.viewMore",
   },
@@ -113,7 +133,6 @@ export function EquipmentCatalog() {
 
   return (
     <div>
-      {/* Category filter */}
       <div className="mb-10 flex flex-wrap gap-2">
         {categoryFilters.map((cat) => (
           <button
@@ -123,7 +142,7 @@ export function EquipmentCatalog() {
               "inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200",
               activeCategory === cat.key
                 ? "bg-primary text-primary-foreground glow-cyan"
-                : "glass text-muted-foreground hover:text-foreground hover:border-primary/30"
+                : "glass text-muted-foreground hover:border-primary/30 hover:text-foreground"
             )}
           >
             <cat.icon className="h-4 w-4" />
@@ -132,32 +151,40 @@ export function EquipmentCatalog() {
         ))}
       </div>
 
-      {/* Product grid */}
       <div className="grid gap-5 md:grid-cols-2">
         {filtered.map((item) => (
           <article
             key={item.key}
             className="glass glass-hover glow-cyan-hover flex flex-col overflow-hidden rounded-xl transition-all duration-300 md:flex-row"
           >
-            <div className="relative aspect-[4/3] w-full shrink-0 md:aspect-auto md:w-48">
+            <div className={cn("relative aspect-4/3 w-full shrink-0 overflow-hidden md:w-48", item.imageWrapperClassName)}>
               <Image
                 src={item.image}
                 alt={t(item.nameKey)}
                 fill
-                className="object-cover"
+                className={cn("object-cover transition-transform duration-300", item.imageClassName)}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/30 md:block hidden" />
+              <div className="absolute inset-0 hidden bg-linear-to-r from-transparent to-background/30 md:block" />
             </div>
             <div className="flex flex-1 flex-col gap-3 p-5">
               <div>
                 <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-primary">
                   {t(categoryFilters.find((c) => c.key === item.category)?.labelKey ?? "")}
                 </span>
-                <h3 className="text-base font-semibold text-foreground">{t(item.nameKey) === item.nameKey ? item.nameKey : t(item.nameKey)}</h3>
+                <h3 className="text-base font-semibold text-foreground">
+                  {t(item.nameKey) === item.nameKey ? item.nameKey : t(item.nameKey)}
+                </h3>
               </div>
-              <p className="text-sm leading-relaxed text-muted-foreground">{t(item.descKey) === item.descKey ? item.descKey : t(item.descKey)}</p>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                {t(item.descKey) === item.descKey ? item.descKey : t(item.descKey)}
+              </p>
               <div className="mt-auto pt-2">
-                <Button asChild variant="outline" size="sm" className="gap-2 rounded-lg border-border/50 hover:border-primary/40">
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="gap-2 rounded-lg border-border/50 hover:border-primary/40"
+                >
                   <Link href={item.href ?? "/contact"}>
                     {t(item.ctaKey ?? "equipment.requestQuote")}
                     <ArrowRight className="h-3.5 w-3.5" />

@@ -38,23 +38,23 @@ export default async function IntegratedOrProductPage({
     currentIndex < integratedOrProducts.length - 1 ? integratedOrProducts[currentIndex + 1] : null
   const fallbackHeroImages = {
     main: {
-      src: "/images/hero-or.jpg",
+      src: "/images/company/hero-or.jpg",
       alt: "Integrated operating room environment",
     },
     secondary1: {
-      src: "/images/or-integration.jpg",
+      src: "/images/company/or-integration.jpg",
       alt: "OR control and displays",
     },
     secondary2: {
-      src: "/images/project-surgical.jpg",
+      src: "/images/projects/project-surgical.jpg",
       alt: "Surgical setup and display workflow",
     },
   }
   const heroImages = product.heroImages ?? fallbackHeroImages
   const deploymentImages = product.deploymentImages ?? [
-    { src: "/images/or-integration.jpg", alt: "Integrated OR deployment configuration" },
-    { src: "/images/project-surgical.jpg", alt: "Integrated OR deployment configuration" },
-    { src: "/images/hero-or.jpg", alt: "Integrated OR deployment configuration" },
+    { src: "/images/company/or-integration.jpg", alt: "Integrated OR deployment configuration" },
+    { src: "/images/projects/project-surgical.jpg", alt: "Integrated OR deployment configuration" },
+    { src: "/images/company/hero-or.jpg", alt: "Integrated OR deployment configuration" },
   ]
 
   return (

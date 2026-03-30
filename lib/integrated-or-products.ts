@@ -24,7 +24,7 @@ export const integratedOrProducts: IntegratedOrProduct[] = [
     slug: "surgimedia-compact",
     name: "SurgiMedia Compact",
     shortDescription: "Flexible integrated OR platform tailored for hybrid operating and treatment rooms.",
-    cardImage: "/images/integrated-or/surgimedia-compact.jpg",
+    cardImage: "/images/products/integrated-or/surgimedia-compact/card.jpg",
     overview:
       "SurgiMedia Compact is positioned as a highly flexible and customizable integration solution for procedure spaces that require adaptable workflows and central control.",
     highlights: [
@@ -80,29 +80,29 @@ export const integratedOrProducts: IntegratedOrProduct[] = [
     ],
     heroImages: {
       main: {
-        src: "/images/integrated-or/compact/hero-main.jpg.jpg",
+        src: "/images/products/integrated-or/surgimedia-compact/hero-main.jpg",
         alt: "SurgiMedia Compact in an integrated operating room",
       },
       secondary1: {
-        src: "/images/integrated-or/compact/hero-secondary-1.jpg",
+        src: "/images/products/integrated-or/surgimedia-compact/hero-secondary-1.jpg",
         alt: "SurgiMedia Compact touchscreen in clinical use",
       },
       secondary2: {
-        src: "/images/integrated-or/compact/hero-secondary-2.jpg",
+        src: "/images/products/integrated-or/surgimedia-compact/hero-secondary-2.jpg",
         alt: "SurgiMedia Compact mobile setup in operating environment",
       },
     },
     deploymentImages: [
       {
-        src: "/images/integrated-or/compact/deploy-wall-arm.jpg",
+        src: "/images/products/integrated-or/surgimedia-compact/deploy-1.jpg",
         alt: "Compact mounted on wall or surgical arm",
       },
       {
-        src: "/images/integrated-or/compact/deploy-video-column.jpg",
+        src: "/images/products/integrated-or/surgimedia-compact/deploy-2.jpg",
         alt: "Compact integrated on a video column",
       },
       {
-        src: "/images/integrated-or/compact/deploy-mobile-trolley.jpg",
+        src: "/images/products/integrated-or/surgimedia-compact/deploy-3.jpg",
         alt: "Compact deployed on a mobile trolley",
       },
     ],
@@ -111,7 +111,7 @@ export const integratedOrProducts: IntegratedOrProduct[] = [
     slug: "surgimedia-xxl-4k",
     name: "SurgiMedia XXL 4K",
     shortDescription: "Advanced 4K integrated OR concept for minimally invasive and image-guided surgery.",
-    cardImage: "/images/integrated-or/surgimedia-xxl-4k.jpg",
+    cardImage: "/images/products/integrated-or/surgimedia-xxl-4k/card.jpg",
     overview:
       "SurgiMedia XXL 4K focuses on complex operating suites that need high-end visualization, centralized integration, and room setups that can be adapted to different surgical specialties.",
     highlights: [
@@ -170,29 +170,29 @@ export const integratedOrProducts: IntegratedOrProduct[] = [
     ],
     heroImages: {
       main: {
-        src: "/images/integrated-or/surgimedia-xxl-4k/hero-main.jpg",
+        src: "/images/products/integrated-or/surgimedia-xxl-4k/hero-main.jpg",
         alt: "SurgiMedia XXL 4K integrated operating room scene",
       },
       secondary1: {
-        src: "/images/integrated-or/surgimedia-xxl-4k/hero-secondary-1.jpg",
+        src: "/images/products/integrated-or/surgimedia-xxl-4k/hero-secondary-1.jpg",
         alt: "High-resolution OR integration display workflow",
       },
       secondary2: {
-        src: "/images/integrated-or/surgimedia-xxl-4k/hero-secondary-2.jpg",
+        src: "/images/products/integrated-or/surgimedia-xxl-4k/hero-secondary-2.jpg",
         alt: "Surgical environment with advanced visualization systems",
       },
     },
     deploymentImages: [
       {
-        src: "/images/integrated-or/surgimedia-xxl-4k/deploy-1.jpg",
+        src: "/images/products/integrated-or/surgimedia-xxl-4k/deploy-1.jpg",
         alt: "XXL 4K deployed in wall-mounted configuration",
       },
       {
-        src: "/images/integrated-or/surgimedia-xxl-4k/deploy-2.jpg",
+        src: "/images/products/integrated-or/surgimedia-xxl-4k/deploy-2.jpg",
         alt: "XXL 4K embedded into surgical wall environment",
       },
       {
-        src: "/images/integrated-or/surgimedia-xxl-4k/deploy-3.jpg",
+        src: "/images/products/integrated-or/surgimedia-xxl-4k/deploy-3.jpg",
         alt: "XXL 4K in hybrid OR-compatible room setup",
       },
     ],
@@ -201,7 +201,7 @@ export const integratedOrProducts: IntegratedOrProduct[] = [
     slug: "surgimedia-distriview-4k-ip",
     name: "SurgiMedia DistriView 4K-IP",
     shortDescription: "IP-based distribution and control platform for medical audio, video, and data signals.",
-    cardImage: "/images/integrated-or/surgimedia-distriview-4k-ip.webp",
+    cardImage: "/images/products/integrated-or/surgimedia-distriview-4k-ip/card.webp",
     overview:
       "SurgiMedia DistriView 4K-IP is presented as a network-distributed visualization and integration platform for both existing and greenfield installations.",
     highlights: [
@@ -261,29 +261,29 @@ export const integratedOrProducts: IntegratedOrProduct[] = [
     ],
     heroImages: {
       main: {
-        src: "/images/integrated-or/surgimedia-distriview-4k-ip/hero-main.webp",
+        src: "/images/products/integrated-or/surgimedia-distriview-4k-ip/hero-main.webp",
         alt: "SurgiMedia DistriView 4K-IP integrated operating room control setup",
       },
       secondary1: {
-        src: "/images/integrated-or/surgimedia-distriview-4k-ip/hero-secondary-1.webp",
+        src: "/images/products/integrated-or/surgimedia-distriview-4k-ip/hero-secondary-1.webp",
         alt: "Clinical workstation and video management interface",
       },
       secondary2: {
-        src: "/images/integrated-or/surgimedia-distriview-4k-ip/hero-secondary-2.webp",
+        src: "/images/products/integrated-or/surgimedia-distriview-4k-ip/hero-secondary-2.webp",
         alt: "Surgical room video distribution and display workflow",
       },
     },
     deploymentImages: [
       {
-        src: "/images/integrated-or/surgimedia-distriview-4k-ip/deploy-1.webp",
+        src: "/images/products/integrated-or/surgimedia-distriview-4k-ip/deploy-1.webp",
         alt: "Rack-based multimedia deployment in OR environment",
       },
       {
-        src: "/images/integrated-or/surgimedia-distriview-4k-ip/deploy-2.webp",
+        src: "/images/products/integrated-or/surgimedia-distriview-4k-ip/deploy-2.webp",
         alt: "Built-in surgical display integration approach",
       },
       {
-        src: "/images/integrated-or/surgimedia-distriview-4k-ip/deploy-3.webp",
+        src: "/images/products/integrated-or/surgimedia-distriview-4k-ip/deploy-3.webp",
         alt: "Scalable modular video management deployment",
       },
     ],
@@ -292,7 +292,7 @@ export const integratedOrProducts: IntegratedOrProduct[] = [
     slug: "surgimedia-multiview-4k-ip",
     name: "SurgiMedia MultiView 4K-IP",
     shortDescription: "Integrated video management for multi-discipline and hybrid OR environments.",
-    cardImage: "/images/integrated-or/surgimedia-multiview-4k-ip.jpg",
+    cardImage: "/images/products/integrated-or/surgimedia-multiview-4k-ip/card.jpg",
     overview:
       "SurgiMedia MultiView 4K-IP is described as a video management system aimed at multi-discipline operating rooms and hybrid ORs where many image sources must be orchestrated.",
     highlights: [
@@ -352,29 +352,29 @@ export const integratedOrProducts: IntegratedOrProduct[] = [
     ],
     heroImages: {
       main: {
-        src: "/images/integrated-or/surgimedia-multiview-4k-ip/hero-main.jpg",
+        src: "/images/products/integrated-or/surgimedia-multiview-4k-ip/hero-main.jpg",
         alt: "SurgiMedia MultiView 4K-IP in a hybrid OR environment",
       },
       secondary1: {
-        src: "/images/integrated-or/surgimedia-multiview-4k-ip/hero-secondary-1.webp",
+        src: "/images/products/integrated-or/surgimedia-multiview-4k-ip/hero-secondary-1.webp",
         alt: "Centralized multi-window 4K visualization workflow",
       },
       secondary2: {
-        src: "/images/integrated-or/surgimedia-multiview-4k-ip/hero-secondary-2.webp",
+        src: "/images/products/integrated-or/surgimedia-multiview-4k-ip/hero-secondary-2.webp",
         alt: "Hybrid OR collaboration and video management interface",
       },
     },
     deploymentImages: [
       {
-        src: "/images/integrated-or/surgimedia-multiview-4k-ip/deploy-1.webp",
+        src: "/images/products/integrated-or/surgimedia-multiview-4k-ip/deploy-1.webp",
         alt: "Central collaboration display deployment in operating room",
       },
       {
-        src: "/images/integrated-or/surgimedia-multiview-4k-ip/deploy-2.webp",
+        src: "/images/products/integrated-or/surgimedia-multiview-4k-ip/deploy-2.webp",
         alt: "Built-in and fixed screen integration strategy",
       },
       {
-        src: "/images/integrated-or/surgimedia-multiview-4k-ip/deploy-3.webp",
+        src: "/images/products/integrated-or/surgimedia-multiview-4k-ip/deploy-3.webp",
         alt: "Custom audio and video routing topology for hybrid OR",
       },
     ],

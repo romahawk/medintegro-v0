@@ -5,16 +5,61 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Send } from "lucide-react"
+import { LoaderCircle, Send } from "lucide-react"
 import { useLanguage } from "@/lib/i18n"
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState("")
   const { t } = useLanguage()
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSubmitted(true)
+    setSubmitting(true)
+    setError("")
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    const payload = {
+      name: formData.get("name"),
+      company: formData.get("company"),
+      email: formData.get("email"),
+      inquiryType: formData.get("inquiryType"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+      website: formData.get("website"),
+    }
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+
+      const result = (await response.json()) as { ok?: boolean; error?: string }
+
+      if (!response.ok || !result.ok) {
+        throw new Error(
+          result.error || "We could not send your message. Please try again."
+        )
+      }
+
+      setSubmitted(true)
+      form.reset()
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "We could not send your message. Please try again."
+      )
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (submitted) {
@@ -36,6 +81,14 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      <input
+        type="text"
+        name="website"
+        autoComplete="off"
+        tabIndex={-1}
+        className="hidden"
+        aria-hidden="true"
+      />
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
           <Label htmlFor="name">{t("contact.form.name")}</Label>
@@ -49,6 +102,27 @@ export function ContactForm() {
       <div className="flex flex-col gap-2">
         <Label htmlFor="email">{t("contact.form.email")}</Label>
         <Input id="email" name="email" type="email" placeholder={t("contact.form.email")} required className="rounded-lg bg-input border-border/50 focus:border-primary/50" />
+      </div>
+      <div className="flex flex-col gap-2">
+        <Label htmlFor="inquiryType">Inquiry Type</Label>
+        <select
+          id="inquiryType"
+          name="inquiryType"
+          required
+          defaultValue=""
+          className="h-10 rounded-lg border border-border/50 bg-input px-3 text-sm text-foreground focus:border-primary/50 focus:outline-none"
+        >
+          <option value="" disabled>
+            Select inquiry type
+          </option>
+          <option value="Project consultation">Project consultation</option>
+          <option value="Equipment sourcing">Equipment sourcing</option>
+          <option value="Contractor partnership">Contractor partnership</option>
+          <option value="Manufacturer / distributor partnership">
+            Manufacturer / distributor partnership
+          </option>
+          <option value="Service & maintenance">Service & maintenance</option>
+        </select>
       </div>
       <div className="flex flex-col gap-2">
         <Label htmlFor="subject">{t("contact.form.subject")}</Label>
@@ -65,9 +139,27 @@ export function ContactForm() {
           className="rounded-lg bg-input border-border/50 focus:border-primary/50"
         />
       </div>
-      <Button type="submit" size="lg" className="gap-2 self-start rounded-xl glow-cyan">
-        {t("contact.form.submit")}
-        <Send className="h-4 w-4" />
+      <div className="rounded-xl border border-border/50 bg-card/40 p-4 text-sm text-muted-foreground">
+        Share your project stage, facility type, target rooms, and any brand or technical constraints.
+        We typically respond within one business day.
+      </div>
+      {error && (
+        <div className="rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+          {error}
+        </div>
+      )}
+      <Button
+        type="submit"
+        size="lg"
+        disabled={submitting}
+        className="gap-2 self-start rounded-xl glow-cyan"
+      >
+        {submitting ? "Sending..." : t("contact.form.submit")}
+        {submitting ? (
+          <LoaderCircle className="h-4 w-4 animate-spin" />
+        ) : (
+          <Send className="h-4 w-4" />
+        )}
       </Button>
     </form>
   )
