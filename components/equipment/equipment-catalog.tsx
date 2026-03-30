@@ -83,8 +83,8 @@ const equipment: EquipmentItem[] = [
     href: "/equipment/medical-gases",
     ctaKey: "equipment.viewMore",
   },
-  { key: "equip.autoclaves.name", nameKey: "equip.autoclaves.name", descKey: "equip.autoclaves.desc", category: "sterilization", image: "/images/cat-sterilization.jpg" },
-  { key: "equip.washers.name", nameKey: "equip.washers.name", descKey: "equip.washers.desc", category: "sterilization", image: "/images/cat-sterilization.jpg" },
+  { key: "beacon-monitors", nameKey: "monitors.beacon.name", descKey: "monitors.beacon.desc", category: "sterilization", image: "/images/cat-monitoring.jpg", href: "/equipment/surgical-monitors/beacon", ctaKey: "equipment.viewMore" },
+  { key: "fsn-monitors", nameKey: "monitors.fsn.name", descKey: "monitors.fsn.desc", category: "sterilization", image: "/images/cat-monitoring.jpg", href: "/equipment/surgical-monitors/fsn", ctaKey: "equipment.viewMore" },
   {
     key: "equip.ledlights.name",
     nameKey: "equip.ledlights.name",
