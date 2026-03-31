@@ -1,4 +1,4 @@
-import Link from "next/link"
+﻿import Link from "next/link"
 import Image from "next/image"
 import { existsSync, statSync } from "node:fs"
 import path from "node:path"
@@ -61,7 +61,7 @@ export default function CeilingPendantsPage() {
             Ceiling Medical Supply Units
           </h1>
           <p className="mt-4 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            INMED ceiling pendants, ICU beams, and floor-to-ceiling strut units — providing
+            INMED ceiling pendants, ICU beams, and floor-to-ceiling strut units - providing
             reliable gas, electrical, data, and accessory infrastructure for operating rooms
             and intensive care environments.
           </p>
@@ -105,7 +105,7 @@ export default function CeilingPendantsPage() {
           </h2>
           <p className="mt-4 max-w-4xl text-sm leading-relaxed text-muted-foreground md:text-base">
             Ceiling medical supply units centralize all gas, electrical, data, and accessory connections
-            at the point of care — reducing floor-level clutter, supporting ergonomic clinical workflows,
+            at the point of care - reducing floor-level clutter, supporting ergonomic clinical workflows,
             and providing a reliable media infrastructure that serves both operating rooms and intensive care units.
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
@@ -168,3 +168,4 @@ export default function CeilingPendantsPage() {
     </>
   )
 }
+

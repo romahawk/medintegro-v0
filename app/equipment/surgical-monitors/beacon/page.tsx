@@ -1,16 +1,38 @@
 import Link from "next/link"
 import Image from "next/image"
+import { existsSync, statSync } from "node:fs"
+import path from "node:path"
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { beaconProducts } from "@/lib/surgical-monitors-products"
+
+function getBeaconImage(slug: string, fileName: string, fallbackSrc: string) {
+  const relativePath = `/images/products/surgical-monitors/beacon/${slug}/${fileName}`
+  const absolutePath = path.join(
+    process.cwd(),
+    "public",
+    "images",
+    "products",
+    "surgical-monitors",
+    "beacon",
+    slug,
+    fileName
+  )
+
+  if (!existsSync(absolutePath)) {
+    return fallbackSrc
+  }
+
+  return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
+}
 
 export default function BeaconMonitorsPage() {
   const productCards = beaconProducts.map((product) => ({
     key: product.slug,
     title: product.name,
     description: product.shortDescription,
-    image: product.cardImage,
+    image: getBeaconImage(product.slug, "card.jpg", product.cardImage),
     href: `/equipment/surgical-monitors/beacon/${product.slug}`,
   }))
 
@@ -43,9 +65,8 @@ export default function BeaconMonitorsPage() {
             Beacon Display Surgical Monitors
           </h1>
           <p className="mt-4 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            High-performance 4K surgical displays from Beacon Display, engineered for endoscopy,
-            open surgery, and large-format OR visualization with advanced optical bonding,
-            local backlight, and HDR technologies.
+            Beacon operating-room display lineup covering FHD, 4K UHD, and 3D surgical monitors
+            for endoscopy, integrated OR workflows, and large-format team viewing environments.
           </p>
         </Container>
       </section>
@@ -55,9 +76,9 @@ export default function BeaconMonitorsPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {productCards.map((card) => (
               <article key={card.key} className="glass glass-hover glow-cyan-hover overflow-hidden rounded-xl transition-all duration-300">
-                <div className="relative aspect-[4/3]">
+                <div className="relative aspect-4/3">
                   <Image src={card.image} alt={card.title} fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-background/70 to-transparent" />
                 </div>
                 <div className="p-5">
                   <h2 className="text-lg font-semibold text-foreground">{card.title}</h2>
