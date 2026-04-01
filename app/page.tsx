@@ -1,4 +1,5 @@
 import { Hero } from "@/components/home/hero"
+import { OrIntegrationFocus } from "@/components/home/or-integration-focus"
 import { Expertise } from "@/components/home/expertise"
 import { Categories } from "@/components/home/categories"
 import { ProjectsPreview } from "@/components/home/projects-preview"
@@ -31,6 +32,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
+      <OrIntegrationFocus />
       <Trust />
       <Expertise />
       <Categories />

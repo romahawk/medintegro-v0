@@ -4,16 +4,16 @@ import { Container } from "@/components/container"
 
 export function Trust() {
   const stats = [
-    { value: "200+", label: "projects supported" },
-    { value: "15+", label: "years of market experience" },
-    { value: "50+", label: "technology and brand partners" },
-    { value: "24/7", label: "service support availability" },
+    { value: "200+", label: "clinical projects and room packages supported" },
+    { value: "15+", label: "years in medical technology and project delivery" },
+    { value: "50+", label: "manufacturers and technology partners" },
+    { value: "24/7", label: "service coordination and support availability" },
   ]
 
   const proofPoints = [
-    "One partner for sourcing, integration, commissioning, and project coordination.",
-    "Built for new construction, modernization programs, and multi-brand delivery packages.",
-    "Designed to support hospitals, private clinics, contractors, and international partners.",
+    "OR integration expertise that aligns surgical displays, lighting, medical gas infrastructure, and supporting clinical systems into one reliable room environment.",
+    "Structured for new operating room builds, surgical-suite upgrades, and multi-brand hospital projects that require commissioning and handover discipline.",
+    "Built for hospitals, private clinics, contractors, and manufacturers that need a technically credible local integration partner rather than a simple reseller.",
   ]
 
   const brands = ["Olympus", "Karl Storz", "GE HealthCare", "Siemens", "Drager", "FSN", "INMED"]
@@ -38,7 +38,7 @@ export function Trust() {
         <div className="mt-10 grid gap-4 lg:grid-cols-[1.2fr_1fr]">
           <div className="glass rounded-xl p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-              Why buyers trust this model
+              Why OR buyers trust Medintegro
             </p>
             <div className="mt-4 grid gap-3 md:grid-cols-3">
               {proofPoints.map((point) => (
@@ -50,7 +50,7 @@ export function Trust() {
           </div>
           <div className="glass rounded-xl p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-              Working across brands
+              Representative brands and technologies
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {brands.map((brand) => (
@@ -62,6 +62,10 @@ export function Trust() {
                 </span>
               ))}
             </div>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              We coordinate multi-brand operating room and surgical infrastructure packages around
+              the clinical workflow, installation sequence, and long-term support model.
+            </p>
           </div>
         </div>
       </Container>

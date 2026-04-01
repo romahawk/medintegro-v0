@@ -8,16 +8,17 @@ import { ArrowRight } from "lucide-react"
 
 export function Hero() {
   const copy = {
-    label: "Medical Infrastructure Integrator",
-    title: "Turnkey medical projects for hospitals, clinics, contractors, and partners",
+    label: "OR Integration Expert",
+    title: "Integrated operating rooms and surgical infrastructure for high-performance clinical environments",
     subtitle:
-      "Medintegro helps plan, source, integrate, and launch complex healthcare environments, from operating rooms and ICU infrastructure to medical gases and multi-brand equipment packages.",
-    cta1: "Explore Solutions",
-    cta2: "Discuss Your Project",
+      "Medintegro designs and integrates operating room systems that combine OR integration platforms, surgical lights, medical gas infrastructure, and specialized clinical equipment into one reliable surgical workflow.",
+    cta1: "Explore OR Solutions",
+    cta2: "Discuss an OR Project",
     badges: [
-      "Hospitals & clinics",
-      "General contractors",
-      "Distributors & manufacturers",
+      "OR integration",
+      "Surgical lights",
+      "Medical gas systems",
+      "Hospitals, contractors, and partners",
     ],
   }
 
@@ -62,7 +63,7 @@ export function Hero() {
           </div>
           <div className="flex flex-wrap gap-3 pt-2">
             <Button asChild size="lg" className="gap-2 rounded-xl glow-cyan">
-              <Link href="/equipment">
+              <Link href="/services">
                 {copy.cta1}
                 <ArrowRight className="h-4 w-4" />
               </Link>
