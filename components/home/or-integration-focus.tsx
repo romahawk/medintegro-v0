@@ -108,7 +108,7 @@ export function OrIntegrationFocus() {
 
               <div className="flex flex-wrap gap-3">
                 <Button asChild className="rounded-xl">
-                  <Link href="/services">
+                  <Link href="/solutions">
                     Explore OR Solutions
                     <ArrowRight className="h-4 w-4" />
                   </Link>

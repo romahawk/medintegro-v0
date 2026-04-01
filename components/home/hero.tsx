@@ -63,7 +63,7 @@ export function Hero() {
           </div>
           <div className="flex flex-wrap gap-3 pt-2">
             <Button asChild size="lg" className="gap-2 rounded-xl glow-cyan">
-              <Link href="/services">
+              <Link href="/solutions">
                 {copy.cta1}
                 <ArrowRight className="h-4 w-4" />
               </Link>

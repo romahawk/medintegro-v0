@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/equipment",
     "/partners",
     "/projects",
-    "/services",
+    "/solutions",
     "/equipment/examination-lamps",
     "/equipment/icu-infrastructure/bed-head-units",
     "/equipment/icu-infrastructure/ceiling-pendants",
