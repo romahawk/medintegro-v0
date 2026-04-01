@@ -6,23 +6,23 @@ import { SectionHeader } from "@/components/section-header"
 
 const expertiseItems = [
   {
-    title: "Sourcing and specification",
-    desc: "We build the right package around the clinical brief, budget constraints, and room requirements.",
+    title: "Clinical brief and OR specification",
+    desc: "We translate the surgical brief, room constraints, and equipment priorities into a practical OR system scope.",
     image: "/images/company/equipment-supply.jpg",
   },
   {
-    title: "Infrastructure and systems integration",
-    desc: "We align medical gases, displays, lighting, IT, and workflow logic as one coordinated environment.",
+    title: "System alignment across the room",
+    desc: "We coordinate lights, medical gases, displays, pendants, and supporting infrastructure so the room works as one clinical environment.",
     image: "/images/company/or-integration.jpg",
   },
   {
-    title: "Delivery and commissioning",
-    desc: "We coordinate supply, installation, commissioning, training, and handover documentation.",
+    title: "Installation, commissioning, and handover",
+    desc: "We support delivery planning, on-site coordination, commissioning, staff orientation, and structured handover for the surgical team.",
     image: "/images/company/maintenance.jpg",
   },
   {
-    title: "Support after launch",
-    desc: "We stay involved through service coordination, updates, and future modernization phases.",
+    title: "Support beyond launch",
+    desc: "We stay involved through service coordination, modernization planning, and future room upgrades as clinical needs evolve.",
     image: "/images/company/turnkey.jpg",
   },
 ]
@@ -33,8 +33,8 @@ export function Expertise() {
       <Container>
         <SectionHeader
           label="How We Work"
-          title="Commercial and technical coordination for complex healthcare projects"
-          description="We combine equipment sourcing, technical integration, and delivery management so buyers receive an operational solution, not just a list of devices."
+          title="A delivery model built for operating rooms and surgical infrastructure"
+          description="From OR specification to commissioning and post-launch support, we help buyers coordinate the systems, brands, and project steps required for a dependable surgical environment."
         />
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {expertiseItems.map((item) => (
