@@ -1,6 +1,4 @@
-"use client"
-
-import { Globe2, Handshake, Hospital, ShieldCheck } from "lucide-react"
+import { CheckCircle2, Globe2, Handshake, Hospital, Shield, ShieldCheck } from "lucide-react"
 import { PageHeader } from "@/components/page-header"
 import { Container } from "@/components/container"
 import { CTASection } from "@/components/cta-section"
@@ -28,9 +26,20 @@ const cards = [
   },
 ]
 
-const bullets = [
-  "Exclusive distributor of Surgiris and Surgimedia for Ukraine.",
-  "Official distributor of Inmed, Beacon, and FSN.",
+const distributorships = [
+  {
+    label: "Exclusive in Ukraine",
+    title: "Surgiris and Surgimedia",
+    desc: "Exclusive distributor position for Ukraine across OR integration and related surgical infrastructure solutions.",
+  },
+  {
+    label: "Official in Ukraine",
+    title: "Inmed, Beacon, and FSN",
+    desc: "Official distributor relationships covering medical infrastructure, surgical displays, and supporting clinical systems.",
+  },
+]
+
+const integrationProof = [
   "Vendor-neutral OR integration systems compatible with most global equipment brands.",
   "Able to coordinate room systems, infrastructure interfaces, and partner delivery steps around one surgical environment.",
 ]
@@ -70,19 +79,44 @@ export default function PartnersPage() {
             Distribution status and integration position
           </h2>
           <div className="mt-8 grid gap-4 lg:grid-cols-[1.3fr_1fr]">
-            <div className="glass rounded-xl p-6">
-              <ul className="space-y-3">
-                {bullets.map((bullet) => (
-                  <li key={bullet} className="text-sm leading-relaxed text-muted-foreground">
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
+            <div className="grid gap-4">
+              {distributorships.map((item) => (
+                <article key={item.title} className="glass rounded-xl border border-border/60 p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <span className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+                        {item.label}
+                      </span>
+                      <h3 className="mt-4 text-lg font-semibold text-foreground">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {item.desc}
+                      </p>
+                    </div>
+                    <div className="rounded-xl border border-primary/20 bg-primary/10 p-2.5 text-primary">
+                      <Shield className="h-5 w-5" />
+                    </div>
+                  </div>
+                </article>
+              ))}
             </div>
             <div className="glass rounded-xl p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
                 What this means in practice
               </p>
+              <div className="mt-4 rounded-xl border border-border/50 bg-background/35 p-4">
+                <div className="mb-3 flex items-center gap-2 text-foreground">
+                  <ShieldCheck className="h-4 w-4 text-primary" />
+                  <p className="text-sm font-semibold">Vendor-neutral OR integration</p>
+                </div>
+                <ul className="space-y-3">
+                  {integrationProof.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <span className="text-sm leading-relaxed text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
                 <p>
                   We can represent specific brands where distribution status is defined, while still
