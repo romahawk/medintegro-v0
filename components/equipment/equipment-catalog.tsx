@@ -141,22 +141,7 @@ const equipment: EquipmentItem[] = [
 export function EquipmentCatalog() {
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("imaging")
   const searchParams = useSearchParams()
-  const { locale, t } = useLanguage()
-
-  const introCopy = {
-    eyebrow: {
-      en: "How to read this catalog",
-      ua: "Як читати цей каталог",
-    },
-    title: {
-      en: "Start with the operating room system, then move into the supporting infrastructure",
-      ua: "Починайте з системи операційної, а далі переходьте до допоміжної інфраструктури",
-    },
-    description: {
-      en: "Integrated OR platforms, surgical lights, medical gas systems, displays, and related room infrastructure are grouped here to reflect how buyers actually scope surgical environments.",
-      ua: "Інтегровані OR-платформи, хірургічне освітлення, системи медичних газів, дисплеї та пов’язана кімнатна інфраструктура згруповані тут так, щоб відображати реальну логіку формування хірургічного середовища.",
-    },
-  }
+  const { t } = useLanguage()
 
   useEffect(() => {
     const categoryParam = searchParams.get("category")
@@ -176,18 +161,6 @@ export function EquipmentCatalog() {
 
   return (
     <div>
-      <div className="mb-10 glass rounded-2xl border border-border/60 p-6 md:p-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-          {introCopy.eyebrow[locale]}
-        </p>
-        <h2 className="mt-3 max-w-3xl text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-          {introCopy.title[locale]}
-        </h2>
-        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
-          {introCopy.description[locale]}
-        </p>
-      </div>
-
       <div className="mb-10 flex flex-wrap gap-2">
         {categoryFilters.map((cat) => (
           <button
