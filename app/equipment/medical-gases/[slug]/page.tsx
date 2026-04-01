@@ -1,10 +1,31 @@
 import Image from "next/image"
 import Link from "next/link"
+import { existsSync, statSync } from "node:fs"
+import path from "node:path"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Layers, Settings2, Shield } from "lucide-react"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { getMedicalGasProductBySlug, medicalGasProducts } from "@/lib/medical-gases-products"
+
+function getMedicalGasImage(slug: string, fileName: string, fallbackSrc: string) {
+  const relativePath = `/images/products/medical-gases/${slug}/${fileName}`
+  const absolutePath = path.join(
+    process.cwd(),
+    "public",
+    "images",
+    "products",
+    "medical-gases",
+    slug,
+    fileName
+  )
+
+  if (!existsSync(absolutePath)) {
+    return fallbackSrc
+  }
+
+  return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
+}
 
 export function generateStaticParams() {
   return medicalGasProducts.map((product) => ({ slug: product.slug }))
@@ -28,10 +49,37 @@ export default async function MedicalGasProductPage({
     currentIndex < medicalGasProducts.length - 1 ? medicalGasProducts[currentIndex + 1] : null
 
   const capabilityIcons = [Layers, Shield, Settings2]
+  const heroImages = {
+    main: {
+      src: getMedicalGasImage(product.slug, "hero-main.jpg", product.heroImages.main.src),
+      alt: product.heroImages.main.alt,
+    },
+    secondary1: {
+      src: getMedicalGasImage(product.slug, "hero-secondary-1.jpg", product.heroImages.secondary1.src),
+      alt: product.heroImages.secondary1.alt,
+    },
+    secondary2: {
+      src: getMedicalGasImage(product.slug, "hero-secondary-2.jpg", product.heroImages.secondary2.src),
+      alt: product.heroImages.secondary2.alt,
+    },
+  }
+  const deploymentImages = [
+    {
+      src: getMedicalGasImage(product.slug, "deploy-1.jpg", product.deploymentImages[0].src),
+      alt: product.deploymentImages[0].alt,
+    },
+    {
+      src: getMedicalGasImage(product.slug, "deploy-2.jpg", product.deploymentImages[1].src),
+      alt: product.deploymentImages[1].alt,
+    },
+    {
+      src: getMedicalGasImage(product.slug, "deploy-3.jpg", product.deploymentImages[2].src),
+      alt: product.deploymentImages[2].alt,
+    },
+  ]
 
   return (
     <>
-      {/* Hero */}
       <section className="relative overflow-hidden border-b border-border/50 py-16 md:py-20">
         <div className="absolute inset-0 bg-mesh" />
         <div className="absolute inset-0 bg-grid opacity-30" />
@@ -42,7 +90,7 @@ export default async function MedicalGasProductPage({
               Equipment
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/equipment/medical-gases" className="transition-colors hover:text-primary">
+            <Link href="/equipment?category=monitoring" className="transition-colors hover:text-primary">
               Medical Gases & Distribution
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
@@ -50,11 +98,11 @@ export default async function MedicalGasProductPage({
           </nav>
 
           <Link
-            href="/equipment/medical-gases"
+            href="/equipment?category=monitoring"
             className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Medical Gases & Distribution
+            Back to Medical Gases
           </Link>
 
           <div className="grid items-start gap-8 lg:grid-cols-2">
@@ -93,26 +141,26 @@ export default async function MedicalGasProductPage({
             </div>
 
             <div className="grid grid-cols-2 gap-3 md:gap-4">
-              <div className="relative col-span-2 aspect-[16/9] overflow-hidden rounded-xl border border-border/40">
+              <div className="relative col-span-2 aspect-video overflow-hidden rounded-xl border border-border/40">
                 <Image
-                  src={product.heroImages.main.src}
-                  alt={product.heroImages.main.alt}
+                  src={heroImages.main.src}
+                  alt={heroImages.main.alt}
                   fill
                   className="object-cover"
                 />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/40">
+              <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40">
                 <Image
-                  src={product.heroImages.secondary1.src}
-                  alt={product.heroImages.secondary1.alt}
+                  src={heroImages.secondary1.src}
+                  alt={heroImages.secondary1.alt}
                   fill
                   className="object-cover"
                 />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/40">
+              <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40">
                 <Image
-                  src={product.heroImages.secondary2.src}
-                  alt={product.heroImages.secondary2.alt}
+                  src={heroImages.secondary2.src}
+                  alt={heroImages.secondary2.alt}
                   fill
                   className="object-cover"
                 />
@@ -122,7 +170,6 @@ export default async function MedicalGasProductPage({
         </Container>
       </section>
 
-      {/* Overview */}
       <section id="overview" className="py-16 md:py-24">
         <Container>
           <div className="grid gap-6 lg:grid-cols-3">
@@ -157,7 +204,6 @@ export default async function MedicalGasProductPage({
         </Container>
       </section>
 
-      {/* Capabilities */}
       <section id="capabilities" className="relative overflow-hidden border-y border-border/50 py-16 md:py-24">
         <div className="absolute inset-0 bg-card/40" />
         <Container className="relative">
@@ -186,7 +232,6 @@ export default async function MedicalGasProductPage({
         </Container>
       </section>
 
-      {/* Deployment */}
       <section id="deployment" className="py-16 md:py-24">
         <Container>
           <h2 className="text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
@@ -199,10 +244,10 @@ export default async function MedicalGasProductPage({
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {product.deploymentItems.map((item, index) => (
               <article key={item.title} className="glass rounded-xl p-4">
-                <div className="relative mb-4 aspect-[4/3] overflow-hidden rounded-lg border border-border/40">
+                <div className="relative mb-4 aspect-4/3 overflow-hidden rounded-lg border border-border/40">
                   <Image
-                    src={product.deploymentImages[index]?.src ?? product.deploymentImages[0].src}
-                    alt={product.deploymentImages[index]?.alt ?? item.title}
+                    src={deploymentImages[index]?.src ?? deploymentImages[0].src}
+                    alt={deploymentImages[index]?.alt ?? item.title}
                     fill
                     className="object-cover"
                   />
@@ -217,7 +262,6 @@ export default async function MedicalGasProductPage({
         </Container>
       </section>
 
-      {/* Prev / Next navigation */}
       <section className="relative overflow-hidden border-y border-border/50 py-10">
         <Container className="flex flex-wrap items-center justify-between gap-3">
           <div className="text-sm text-muted-foreground">Explore other medical gas systems</div>
@@ -252,7 +296,6 @@ export default async function MedicalGasProductPage({
         </Container>
       </section>
 
-      {/* CTA */}
       <section className="relative overflow-hidden border-t border-border/50 py-20 md:py-24">
         <div className="absolute inset-0 bg-mesh" />
         <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />

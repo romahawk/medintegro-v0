@@ -1,10 +1,32 @@
 import Image from "next/image"
 import Link from "next/link"
+import { existsSync, statSync } from "node:fs"
+import path from "node:path"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Layers, Settings2, Shield } from "lucide-react"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { getBedHeadUnitBySlug, bedHeadUnitProducts } from "@/lib/icu-infrastructure-products"
+
+function getBedHeadUnitImage(slug: string, fileName: string, fallbackSrc: string) {
+  const relativePath = `/images/products/icu-infrastructure/bed-head-units/${slug}/${fileName}`
+  const absolutePath = path.join(
+    process.cwd(),
+    "public",
+    "images",
+    "products",
+    "icu-infrastructure",
+    "bed-head-units",
+    slug,
+    fileName
+  )
+
+  if (!existsSync(absolutePath)) {
+    return fallbackSrc
+  }
+
+  return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
+}
 
 export function generateStaticParams() {
   return bedHeadUnitProducts.map((product) => ({ slug: product.slug }))
@@ -28,6 +50,34 @@ export default async function BedHeadUnitProductPage({
     currentIndex < bedHeadUnitProducts.length - 1 ? bedHeadUnitProducts[currentIndex + 1] : null
 
   const capabilityIcons = [Layers, Shield, Settings2]
+  const heroImages = {
+    main: {
+      src: getBedHeadUnitImage(product.slug, "hero-main.jpg", product.heroImages.main.src),
+      alt: product.heroImages.main.alt,
+    },
+    secondary1: {
+      src: getBedHeadUnitImage(product.slug, "hero-secondary-1.jpg", product.heroImages.secondary1.src),
+      alt: product.heroImages.secondary1.alt,
+    },
+    secondary2: {
+      src: getBedHeadUnitImage(product.slug, "hero-secondary-2.jpg", product.heroImages.secondary2.src),
+      alt: product.heroImages.secondary2.alt,
+    },
+  }
+  const deploymentImages = [
+    {
+      src: getBedHeadUnitImage(product.slug, "deploy-1.jpg", product.deploymentImages[0].src),
+      alt: product.deploymentImages[0].alt,
+    },
+    {
+      src: getBedHeadUnitImage(product.slug, "deploy-2.jpg", product.deploymentImages[1].src),
+      alt: product.deploymentImages[1].alt,
+    },
+    {
+      src: getBedHeadUnitImage(product.slug, "deploy-3.jpg", product.deploymentImages[2].src),
+      alt: product.deploymentImages[2].alt,
+    },
+  ]
 
   return (
     <>
@@ -86,14 +136,14 @@ export default async function BedHeadUnitProductPage({
             </div>
 
             <div className="grid grid-cols-2 gap-3 md:gap-4">
-              <div className="relative col-span-2 aspect-[16/9] overflow-hidden rounded-xl border border-border/40">
-                <Image src={product.heroImages.main.src} alt={product.heroImages.main.alt} fill className="object-cover" />
+              <div className="relative col-span-2 aspect-video overflow-hidden rounded-xl border border-border/40">
+                <Image src={heroImages.main.src} alt={heroImages.main.alt} fill className="object-cover" />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/40">
-                <Image src={product.heroImages.secondary1.src} alt={product.heroImages.secondary1.alt} fill className="object-cover" />
+              <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40">
+                <Image src={heroImages.secondary1.src} alt={heroImages.secondary1.alt} fill className="object-cover" />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/40">
-                <Image src={product.heroImages.secondary2.src} alt={product.heroImages.secondary2.alt} fill className="object-cover" />
+              <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40">
+                <Image src={heroImages.secondary2.src} alt={heroImages.secondary2.alt} fill className="object-cover" />
               </div>
             </div>
           </div>
@@ -166,10 +216,10 @@ export default async function BedHeadUnitProductPage({
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {product.deploymentItems.map((item, index) => (
               <article key={item.title} className="glass rounded-xl p-4">
-                <div className="relative mb-4 aspect-[4/3] overflow-hidden rounded-lg border border-border/40">
+                <div className="relative mb-4 aspect-4/3 overflow-hidden rounded-lg border border-border/40">
                   <Image
-                    src={product.deploymentImages[index]?.src ?? product.deploymentImages[0].src}
-                    alt={product.deploymentImages[index]?.alt ?? item.title}
+                    src={deploymentImages[index]?.src ?? deploymentImages[0].src}
+                    alt={deploymentImages[index]?.alt ?? item.title}
                     fill
                     className="object-cover"
                   />

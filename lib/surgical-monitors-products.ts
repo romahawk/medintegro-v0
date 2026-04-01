@@ -1,4 +1,4 @@
-export interface SurgicalMonitorProduct {
+﻿export interface SurgicalMonitorProduct {
   slug: string
   name: string
   shortDescription: string
@@ -18,299 +18,192 @@ export interface SurgicalMonitorProduct {
   deploymentImages: { src: string; alt: string }[]
 }
 
+const beaconSharedImages = {
+  card: "/images/products/surgical-monitors/shared/card.jpg",
+  heroMain: "/images/products/surgical-monitors/shared/hero-main.jpg",
+  heroSecondary1: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg",
+  heroSecondary2: "/images/products/surgical-monitors/shared/hero-secondary-2.jpg",
+  deploy1: "/images/products/surgical-monitors/shared/deploy-1.jpg",
+  deploy2: "/images/products/surgical-monitors/shared/deploy-2.jpg",
+  deploy3: "/images/products/surgical-monitors/shared/deploy-3.jpg",
+}
+
+function createBeaconProduct({
+  slug,
+  name,
+  displaySize,
+  resolution,
+  orientation = "surgical display",
+  useCase = "operating-room and endoscopy visualization",
+  is3D = false,
+}: {
+  slug: string
+  name: string
+  displaySize: string
+  resolution: string
+  orientation?: string
+  useCase?: string
+  is3D?: boolean
+}): SurgicalMonitorProduct {
+  const modeLabel = is3D ? "3D surgical display" : orientation
+  const overviewUseCase = is3D ? "stereoscopic operating-room visualization" : useCase
+
+  return {
+    slug,
+    name,
+    shortDescription: `${displaySize} ${resolution} ${modeLabel} for ${overviewUseCase}.`,
+    cardImage: beaconSharedImages.card,
+    heroTitle: `${displaySize} ${resolution} Beacon surgical monitor`,
+    heroSubtitle:
+      `Beacon lists the ${name} as a ${displaySize} ${resolution} operating-room display for ${useCase}.`,
+    overview:
+      `The ${name} is part of Beacon's surgical display range for operating-room applications. Based on the manufacturer's current operating-room lineup, this model is positioned as a ${displaySize} ${resolution} display intended for clinical video workflows where reliable intraoperative visualization and medical-grade mounting compatibility are required.`,
+    highlights: [
+      `${displaySize} display format suited to Beacon's operating-room product range.`,
+      `${resolution} native resolution for surgical video workflows.`,
+      is3D ? "3D-capable surgical viewing for stereoscopic workflows." : "Intended for operating-room and endoscopy visualization.",
+      "Configured for medical display deployment in procedure and OR environments.",
+    ],
+    capabilityItems: [
+      {
+        title: "Operating-room display format",
+        description:
+          `The ${name} is positioned for OR deployment where monitor size and image resolution need to match room layout, viewing distance, and surgical workflow.`,
+      },
+      {
+        title: "Resolution matched to clinical video",
+        description:
+          `${resolution} output supports modern surgical imaging workflows and provides a clear fit for endoscopy, procedure-room, or auxiliary OR visualization depending on the monitor size.`,
+      },
+      {
+        title: is3D ? "3D visualization workflow" : "Medical integration flexibility",
+        description: is3D
+          ? "This model is listed as a 3D surgical display, making it relevant for workflows where stereoscopic depth perception is part of the camera and display chain."
+          : "The form factor is suited to medical mounting and integration scenarios such as carts, booms, wall mounts, or integrated OR display layouts.",
+      },
+      {
+        title: "Beacon operating-room range alignment",
+        description:
+          "This model sits within Beacon's operating-room product family shown on the manufacturer's surgical-display page, helping keep the public catalog aligned with the current vendor lineup.",
+      },
+    ],
+    deploymentItems: [
+      {
+        title: "Endoscopy and procedure rooms",
+        description:
+          `Suitable for use in endoscopy-led clinical environments where a ${displaySize} monitor format is appropriate for the procedure-room layout.`,
+      },
+      {
+        title: "Integrated operating rooms",
+        description:
+          "Can be specified as part of integrated OR video layouts where display size and resolution must align with camera systems and team viewing needs.",
+      },
+      {
+        title: is3D ? "3D-capable surgical suites" : "Auxiliary or team-viewing positions",
+        description: is3D
+          ? "Relevant for operating rooms using a 3D-capable video chain for stereoscopic surgical visualization."
+          : "Depending on monitor size, the display can serve as a primary surgical screen, auxiliary monitor, or large-format team-viewing display.",
+      },
+    ],
+    valuePoints: [
+      "Keeps the public product catalog aligned with the current Beacon lineup.",
+      `${displaySize} sizing helps match display choice to room layout and viewing distance.`,
+      `${resolution} positioning gives buyers a clear starting point for monitor selection.`,
+      is3D ? "Supports conversations around 3D-capable surgical visualization." : "Useful for OR, endoscopy, and integrated-room planning discussions.",
+    ],
+    heroImages: {
+      main: { src: beaconSharedImages.heroMain, alt: `${name} Beacon surgical monitor` },
+      secondary1: { src: beaconSharedImages.heroSecondary1, alt: `${name} installed in operating-room workflow` },
+      secondary2: { src: beaconSharedImages.heroSecondary2, alt: `${name} display detail` },
+    },
+    deploymentImages: [
+      { src: beaconSharedImages.deploy1, alt: `${name} in endoscopy environment` },
+      { src: beaconSharedImages.deploy2, alt: `${name} in integrated OR setup` },
+      { src: beaconSharedImages.deploy3, alt: `${name} in clinical deployment` },
+    ],
+  }
+}
+
 export const beaconProducts: SurgicalMonitorProduct[] = [
-  {
+  createBeaconProduct({
+    slug: "s2421p",
+    name: "S2421P",
+    displaySize: '24"',
+    resolution: "FHD",
+    useCase: "operating-room and procedure-room visualization",
+  }),
+  createBeaconProduct({
+    slug: "s271p",
+    name: "S271P",
+    displaySize: '27"',
+    resolution: "FHD",
+    useCase: "operating-room and endoscopy visualization",
+  }),
+  createBeaconProduct({
+    slug: "s5583p-l",
+    name: "S5583P(L)",
+    displaySize: '55"',
+    resolution: "4K UHD",
+    useCase: "large-format operating-room team viewing",
+  }),
+  createBeaconProduct({
+    slug: "s2785p",
+    name: "S2785P",
+    displaySize: '27"',
+    resolution: "4K UHD",
+    useCase: "4K endoscopy and operating-room visualization",
+  }),
+  createBeaconProduct({
     slug: "s3285p",
     name: "S3285P",
-    shortDescription: "32\" 4K UHD surgical monitor with optical bonding, BT.2020 wide color gamut, and PaP/PiP multiview.",
-    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
-    heroTitle: "32\" 4K UHD with Optical Bonding and Wide Color Gamut",
-    heroSubtitle:
-      "The S3285P delivers 4K UHD resolution with optical bonding technology, BT.2020 wide color gamut, FHD-to-4K upscaling, and peak brightness of в‰Ґ800 cd/mВІ for demanding endoscopic and open-surgery visualization.",
-    overview:
-      "The Beacon S3285P is a 32-inch 4K UHD surgical display engineered for high-acuity visualization in modern operating rooms. Optical bonding eliminates internal reflections and improves contrast under high-ambient-light conditions. The BT.2020 color space and FHD-to-4K upscaling engine ensure consistent image quality across legacy and next-generation camera systems. PaP (Picture-and-Picture) and PiP (Picture-in-Picture) multiview modes enable simultaneous display of multiple signal sources without additional hardware.",
-    highlights: [
-      "4K UHD resolution (3840Г—2160) with optical bonding for glare-free surgical visualization.",
-      "BT.2020 wide color gamut for accurate tissue and anatomical color reproduction.",
-      "FHD-to-4K upscaling preserves image clarity when using standard-definition camera inputs.",
-      "PaP/PiP multiview enables concurrent display of two signal sources on a single screen.",
-      "Peak brightness в‰Ґ800 cd/mВІ maintains visibility in bright OR environments.",
-    ],
-    capabilityItems: [
-      {
-        title: "Optical bonding technology",
-        description:
-          "Eliminates the air gap between the display panel and protective glass, reducing internal reflections and improving perceived contrast in bright surgical suites.",
-      },
-      {
-        title: "BT.2020 wide color gamut",
-        description:
-          "Covers a significantly broader color space than standard sRGB, reproducing tissue tones and anatomical structures with higher fidelity across endoscopic and open-surgery applications.",
-      },
-      {
-        title: "FHD-to-4K upscaling engine",
-        description:
-          "Intelligently scales legacy full-HD camera inputs to native 4K resolution, maintaining sharpness and detail without requiring camera system upgrades.",
-      },
-      {
-        title: "PaP and PiP multiview",
-        description:
-          "Supports simultaneous display of two independent video sources in side-by-side or picture-in-picture layouts, reducing monitor count and simplifying OR table layouts.",
-      },
-    ],
-    deploymentItems: [
-      {
-        title: "Endoscopic surgery workstations",
-        description:
-          "Ideal as the primary 4K display in minimally invasive surgery towers where image accuracy and multiview capability are essential.",
-      },
-      {
-        title: "Open surgery visualization",
-        description:
-          "High brightness and wide color reproduction support accurate surgical field visualization under intense overhead lighting.",
-      },
-      {
-        title: "Hybrid OR integration",
-        description:
-          "Compatible with multi-source OR integration systems requiring simultaneous display of camera, imaging, and patient data feeds.",
-      },
-    ],
-    valuePoints: [
-      "Reduces the need for additional monitors through integrated PaP/PiP multiview.",
-      "Optical bonding improves display performance in high-ambient-light operating environments.",
-      "Wide color gamut supports accurate intraoperative tissue differentiation.",
-      "Upscaling engine extends the effective life of existing standard-resolution camera investments.",
-    ],
-    heroImages: {
-      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "Beacon S3285P 32\" 4K surgical monitor in operating room" },
-      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "Surgical monitor integrated into OR video tower" },
-      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "Close-up of 4K UHD surgical display panel" },
-    },
-    deploymentImages: [
-      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S3285P in endoscopic surgery workstation" },
-      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "S3285P in open surgery OR environment" },
-      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S3285P in hybrid OR integration setup" },
-    ],
-  },
-  {
-    slug: "s3181p",
-    name: "S3181P",
-    shortDescription: "31.5\" 4K surgical monitor with local backlight, peak brightness в‰Ґ1750 cd/mВІ, and contrast в‰Ґ1,000,000:1.",
-    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
-    heroTitle: "31.5\" 4K with Local Backlight and Ultra-High Contrast",
-    heroSubtitle:
-      "The S3181P combines local backlight dimming with peak luminance of в‰Ґ1750 cd/mВІ and a contrast ratio exceeding 1,000,000:1, delivering exceptional HDR performance for critical surgical visualization with PaP/PiP multiview support.",
-    overview:
-      "The Beacon S3181P is a 31.5-inch 4K surgical display designed around ultra-high contrast and HDR performance. Local backlight dimming technology allows independent control of display zones, producing deep blacks alongside bright highlights within the same frame. Peak brightness of в‰Ґ1750 cd/mВІ ensures outstanding image clarity under demanding OR lighting conditions. A contrast ratio exceeding 1,000,000:1 supports exceptional differentiation between tissue types and anatomical structures.",
-    highlights: [
-      "Local backlight dimming for independent zone brightness control and deep black reproduction.",
-      "Peak brightness в‰Ґ1750 cd/mВІ for exceptional visibility in bright operating environments.",
-      "Contrast ratio в‰Ґ1,000,000:1 enabling superior tissue differentiation.",
-      "PaP/PiP multiview for simultaneous multi-source display on a single 4K panel.",
-      "31.5\" 4K UHD panel sized for flexible OR positioning and boom integration.",
-    ],
-    capabilityItems: [
-      {
-        title: "Local backlight dimming",
-        description:
-          "Divides the display into independently controlled backlight zones, enabling simultaneous rendering of deep shadows and bright highlights in the same image frame.",
-      },
-      {
-        title: "Ultra-high peak luminance",
-        description:
-          "Peak brightness of в‰Ґ1750 cd/mВІ ensures the display remains highly readable under intense overhead surgical lighting without degrading image accuracy.",
-      },
-      {
-        title: "High dynamic range imaging",
-        description:
-          "The combination of local dimming and high contrast ratio produces HDR-quality visualization that reveals anatomical detail across a broad tonal range.",
-      },
-      {
-        title: "PaP and PiP multiview",
-        description:
-          "Enables concurrent monitoring of two independent video inputs in configurable layouts without requiring an external signal processor or additional display hardware.",
-      },
-    ],
-    deploymentItems: [
-      {
-        title: "High-acuity endoscopic procedures",
-        description:
-          "Local backlight and extreme contrast ratio deliver the image depth required for fine tissue detail in laparoscopic and thoracoscopic surgery.",
-      },
-      {
-        title: "Bright OR environments",
-        description:
-          "High peak luminance maintains clear, accurate visualization even when overhead surgical lights produce significant screen washout on standard displays.",
-      },
-      {
-        title: "Multi-source monitoring",
-        description:
-          "PaP/PiP capability allows simultaneous display of endoscope video alongside patient monitoring waveforms or fluoroscopy feeds.",
-      },
-    ],
-    valuePoints: [
-      "Local backlight dimming reveals anatomical detail that flat-backlit displays cannot reproduce.",
-      "Extreme contrast ratio supports confident intraoperative decision-making.",
-      "High brightness extends clinical usability into environments where ambient light is difficult to control.",
-      "Multiview modes reduce equipment clutter and simplify OR setup workflows.",
-    ],
-    heroImages: {
-      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "Beacon S3181P 31.5\" 4K surgical monitor" },
-      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S3181P in high-acuity surgical suite" },
-      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "Local backlight surgical display detail" },
-    },
-    deploymentImages: [
-      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S3181P in endoscopic procedure room" },
-      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "S3181P in bright overhead-lit OR environment" },
-      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S3181P multi-source monitoring deployment" },
-    ],
-  },
-  {
-    slug: "s2781p",
-    name: "S2781P",
-    shortDescription: "27\" HD surgical monitor for endoscopy, anesthesia, and secondary display applications.",
-    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
-    heroTitle: "27\" HD Surgical Monitor for Versatile OR Use",
-    heroSubtitle:
-      "The S2781P provides reliable high-definition visualization in a compact 27-inch format, suited for endoscopy workstations, anesthesia positions, secondary display roles, and space-constrained operating environments.",
-    overview:
-      "The Beacon S2781P is a 27-inch HD surgical monitor designed for applications requiring dependable image clarity in a practical form factor. Its compact footprint makes it well-suited for secondary display positions, procedure rooms with limited boom or cart space, and endoscopy setups where a full 4K primary display is complemented by an HD secondary monitor for additional information sources.",
-    highlights: [
-      "27-inch HD display sized for secondary and auxiliary OR positions.",
-      "Reliable HD image quality for endoscopy, anesthesia, and ancillary visualization.",
-      "Compact form factor suitable for space-constrained operating room layouts.",
-      "Medical-grade panel optimized for consistent performance in clinical environments.",
-      "Low-profile design supports flexible boom arm and cart integration.",
-    ],
-    capabilityItems: [
-      {
-        title: "Secondary display performance",
-        description:
-          "Serves reliably as an auxiliary monitor for displaying patient data, navigation overlays, or secondary camera feeds alongside a primary 4K surgical display.",
-      },
-      {
-        title: "Compact OR integration",
-        description:
-          "The 27-inch format integrates cleanly into procedure room setups where 32-inch or larger displays would limit boom positioning or instrument access.",
-      },
-      {
-        title: "Consistent HD image quality",
-        description:
-          "Medical-grade calibration ensures stable color and brightness performance throughout extended procedure sessions.",
-      },
-      {
-        title: "Flexible mounting compatibility",
-        description:
-          "Standard VESA mounting pattern enables installation on boom arms, ceiling mounts, and portable carts across a range of OR configurations.",
-      },
-    ],
-    deploymentItems: [
-      {
-        title: "Endoscopy procedure rooms",
-        description:
-          "Suitable as the primary display in standard HD endoscopy setups where 4K output is not the primary requirement.",
-      },
-      {
-        title: "Anesthesia workstation display",
-        description:
-          "Compact size and clear HD image quality make it appropriate for anesthesia monitoring positions requiring a dedicated secondary screen.",
-      },
-      {
-        title: "Multi-display OR configurations",
-        description:
-          "Pairs with larger 4K primary monitors to provide dedicated secondary visualization for patient data or reference imagery.",
-      },
-    ],
-    valuePoints: [
-      "Compact form factor reduces space demands in procedure room layouts.",
-      "Reliable HD performance for secondary and auxiliary display roles.",
-      "Cost-effective complement to primary 4K surgical display configurations.",
-      "Consistent clinical-grade image quality throughout long procedure sessions.",
-    ],
-    heroImages: {
-      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "Beacon S2781P 27\" surgical monitor" },
-      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S2781P in endoscopy procedure room" },
-      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "S2781P secondary display configuration" },
-    },
-    deploymentImages: [
-      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S2781P in endoscopy workstation deployment" },
-      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "S2781P as anesthesia station display" },
-      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S2781P in multi-display OR configuration" },
-    ],
-  },
-  {
-    slug: "s5581",
-    name: "S5581",
-    shortDescription: "55\" large-format 4K UHD OR display for team visualization and gallery viewing.",
-    cardImage: "/images/products/surgical-monitors/shared/card.jpg",
-    heroTitle: "55\" Large-Format 4K UHD Operating Room Display",
-    heroSubtitle:
-      "The S5581 provides a 55-inch 4K UHD large-format display for operating room environments requiring wide-area team visualization, surgical gallery use, or high-resolution secondary imaging in spacious surgical suites.",
-    overview:
-      "The Beacon S5581 is a 55-inch 4K UHD large-format display designed for operating rooms where multiple team members need clear simultaneous access to surgical imagery. Its scale is suited to gallery-position visualization, surgical coaching environments, educational observation, and integrated OR rooms with ceiling or wall-mounted display positions. The 4K UHD resolution ensures that the full detail of modern endoscopic camera systems remains visible across the large screen area.",
-    highlights: [
-      "55-inch 4K UHD panel for wide-area team visualization in large surgical suites.",
-      "Gallery-position and wall-mount deployment for simultaneous multi-observer access.",
-      "4K UHD resolution maintains image detail across the full large-format display area.",
-      "Suitable for surgical coaching, educational observation, and team-based procedures.",
-      "Large-format design supports integration into ceiling and wall-mounted OR display systems.",
-    ],
-    capabilityItems: [
-      {
-        title: "Wide-area team visualization",
-        description:
-          "The 55-inch screen size allows all surgical team members, including scrub nurses and circulating staff, to view procedure imagery simultaneously without crowding around a smaller monitor.",
-      },
-      {
-        title: "Gallery and observation room use",
-        description:
-          "Large-format 4K display supports educational observation environments where trainees and attendings need clear views of real-time surgical video.",
-      },
-      {
-        title: "High-resolution large-format imaging",
-        description:
-          "4K UHD resolution distributed across 55 inches maintains pixel density that keeps diagnostic-quality image detail visible from multiple viewing distances.",
-      },
-      {
-        title: "Flexible large-format mounting",
-        description:
-          "Supports ceiling, wall, and boom integration in large surgical suites where conventional 32-inch monitor positions do not provide adequate visibility for the full team.",
-      },
-    ],
-    deploymentItems: [
-      {
-        title: "Integrated OR gallery positions",
-        description:
-          "Wall or ceiling-mounted deployment in integrated operating rooms where team visualization and real-time procedure monitoring are required.",
-      },
-      {
-        title: "Surgical training and observation",
-        description:
-          "Large-format display in training or observation rooms enables simultaneous viewing by multiple learners without compromising image quality.",
-      },
-      {
-        title: "Robotic and complex procedure suites",
-        description:
-          "In large surgical suites accommodating robotic platforms or multi-team procedures, the S5581 provides shared high-resolution visualization for all participants.",
-      },
-    ],
-    valuePoints: [
-      "Enables full surgical team situational awareness through wide-area display coverage.",
-      "4K resolution at 55 inches retains diagnostic image detail for every viewer.",
-      "Supports surgical education and coaching use cases within the operating environment.",
-      "Large-format deployment reduces the need for multiple smaller monitors in gallery positions.",
-    ],
-    heroImages: {
-      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "Beacon S5581 55\" 4K large-format OR display" },
-      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S5581 in integrated OR gallery position" },
-      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "S5581 team visualization in surgical suite" },
-    },
-    deploymentImages: [
-      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S5581 in integrated OR gallery deployment" },
-      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "S5581 in surgical training observation room" },
-      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "S5581 in robotic surgery suite configuration" },
-    ],
-  },
+    displaySize: '32"',
+    resolution: "4K UHD",
+    useCase: "primary operating-room and endoscopy visualization",
+  }),
+  createBeaconProduct({
+    slug: "s3282p",
+    name: "S3282P",
+    displaySize: '31.5"',
+    resolution: "4K UHD",
+    useCase: "operating-room and endoscopy visualization",
+  }),
+  createBeaconProduct({
+    slug: "s2780p",
+    name: "S2780P",
+    displaySize: '27"',
+    resolution: "4K UHD",
+    useCase: "compact 4K surgical display workflows",
+  }),
+  createBeaconProduct({
+    slug: "s5583p-h",
+    name: "S5583P(H)",
+    displaySize: '55"',
+    resolution: "4K UHD",
+    useCase: "large-format operating-room and gallery viewing",
+  }),
+  createBeaconProduct({
+    slug: "s3285p-3d",
+    name: "S3285P-3D",
+    displaySize: '32"',
+    resolution: "4K 3D",
+    useCase: "3D operating-room and endoscopy visualization",
+    is3D: true,
+  }),
+  createBeaconProduct({
+    slug: "s3221p-3d",
+    name: "S3221P-3D",
+    displaySize: '31.5"',
+    resolution: "FHD 3D",
+    useCase: "3D operating-room visualization",
+    is3D: true,
+  }),
+  createBeaconProduct({
+    slug: "s3286p",
+    name: "S3286P",
+    displaySize: '31.5"',
+    resolution: "4K UHD",
+    useCase: "operating-room and endoscopy visualization",
+  }),
 ]
 
 export const fsnProducts: SurgicalMonitorProduct[] = [
@@ -323,9 +216,9 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
     heroSubtitle:
       "The FSN FS-L2402D delivers WUXGA resolution in a 24-inch fanless design with edge-to-edge glass construction, providing a hygienic, quiet, and compact surgical display solution for endoscopy and auxiliary visualization positions.",
     overview:
-      "The FSN FS-L2402D is a 24-inch WUXGA (1920Г—1200) surgical monitor built for clinical environments that demand quiet operation, easy decontamination, and reliable image performance in a compact form factor. The fanless design eliminates active cooling noise and moving-part failure risks, while the edge-to-edge glass construction minimizes crevices that could harbor pathogens and simplifies surface cleaning protocols.",
+      "The FSN FS-L2402D is a 24-inch WUXGA (1920 x 1200) surgical monitor built for clinical environments that demand quiet operation, easy decontamination, and reliable image performance in a compact form factor. The fanless design eliminates active cooling noise and moving-part failure risks, while the edge-to-edge glass construction minimizes crevices that could harbor pathogens and simplifies surface cleaning protocols.",
     highlights: [
-      "WUXGA (1920Г—1200) resolution for high-clarity image display at 24-inch screen size.",
+      "WUXGA (1920 x 1200) resolution for high-clarity image display at 24-inch screen size.",
       "Fanless design eliminates cooling noise and reduces mechanical failure points.",
       "Edge-to-edge glass for simplified surface decontamination and infection control.",
       "Compact 24-inch form factor suitable for space-constrained OR positions.",
@@ -345,7 +238,7 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       {
         title: "WUXGA image clarity",
         description:
-          "1920Г—1200 resolution at 24 inches provides a high pixel density suitable for endoscopic detail visualization and ancillary data display.",
+          "1920 x 1200 resolution at 24 inches provides a high pixel density suitable for endoscopic detail visualization and ancillary data display.",
       },
       {
         title: "Compact clinical integration",
@@ -413,7 +306,7 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       {
         title: "32-inch FHD primary display",
         description:
-          "Full HD (1920Г—1080) at 32 inches provides a comfortable and detailed viewing experience for standard endoscopic and open-surgery camera systems.",
+          "Full HD (1920 x 1080) at 32 inches provides a comfortable and detailed viewing experience for standard endoscopic and open-surgery camera systems.",
       },
       {
         title: "Fanless quiet operation",
@@ -471,7 +364,7 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
     overview:
       "The FSN FM-E2701D is a 27-inch 4K UHD surgical monitor designed for operating rooms and procedure environments where high resolution is required without the footprint of a larger display. The 27-inch 4K panel achieves a high pixel density that renders fine anatomical detail from modern 4K endoscopic cameras, making it suitable as both a primary compact 4K display and a high-resolution secondary monitor in multi-display OR configurations.",
     highlights: [
-      "4K UHD (3840Г—2160) resolution at 27 inches for high pixel density visualization.",
+      "4K UHD (3840 x 2160) resolution at 27 inches for high pixel density visualization.",
       "Compact form factor suited for space-efficient 4K display configurations.",
       "Medical-grade panel calibrated for accurate color in surgical imaging applications.",
       "Compatible with 4K surgical cameras and standard HD sources via upscaling.",
@@ -534,27 +427,27 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
     ],
   },
   {
-    slug: "fm-e3203d",
-    name: "FM-E3203D",
-    shortDescription: "32\" 4K UHD surgical monitor with DC 5V accessory power output.",
+    slug: "fm-e3230d",
+    name: "FM-E3230D",
+    shortDescription: "32\" 4K surgical monitor with protective corner guards and a rear cable cover for cleaner OR integration.",
     cardImage: "/images/products/surgical-monitors/shared/card.jpg",
-    heroTitle: "32\" 4K UHD Surgical Monitor with Integrated DC Accessory Power",
+    heroTitle: "32\" 4K Surgical Monitor with OR-Safe Protective Details",
     heroSubtitle:
-      "The FSN FM-E3203D combines 4K UHD resolution in a standard 32-inch surgical display format with an integrated DC 5V accessory power output, simplifying connection of USB-powered peripherals and reducing cable complexity in the OR.",
+      "The FSN FM-E3230D is presented by the manufacturer as a 32-inch 4K medical display with wide viewing angles, protective corner guards, and a rear cable cover for cleaner operating-room deployment.",
     overview:
-      "The FSN FM-E3203D is a 32-inch 4K UHD surgical monitor that integrates a DC 5V accessory power output alongside full 4K imaging capability. This feature allows USB-powered devices such as cameras, signal converters, or peripheral accessories to draw power directly from the display, eliminating the need for separate power supplies and reducing cable routing complexity in operating room environments.",
+      "The FSN FM-E3230D is a 32-inch 4K surgical monitor intended for operating-room environments that need high-resolution visualization with practical integration details already built into the display. Based on the current FSN 4K monitor category, this series emphasizes wide viewing angles for team visibility, protective corner guards for safer movement around booms and carts, and a rear cable cover to keep wiring more controlled in active OR workflows.",
     highlights: [
-      "4K UHD (3840Г—2160) resolution in a standard 32-inch surgical display form factor.",
-      "Integrated DC 5V accessory power output for USB-powered peripheral devices.",
-      "Reduces cable complexity by consolidating power and display connections.",
-      "Medical-grade 4K panel calibrated for accurate surgical imaging color reproduction.",
-      "Compatible with standard OR boom arm and cart mounting configurations.",
+      "4K UHD (3840 x 2160) resolution in a standard 32-inch surgical display form factor.",
+      "Protective corner guards for safer handling around carts, booms, and room movement.",
+      "Rear cable cover to keep OR wiring more controlled and presentation-ready.",
+      "Wide viewing angles for shared image visibility across the OR team.",
+      "Medical-grade enclosure designed for clinical cleaning and daily use.",
     ],
     capabilityItems: [
       {
-        title: "DC 5V accessory power output",
+        title: "Protective OR-oriented design",
         description:
-          "Built-in DC 5V output supplies power to compatible USB-powered accessories directly from the monitor, eliminating separate power adapters and reducing cable count in the OR.",
+          "Protective corner guards help reduce accidental contact damage during installation, repositioning, and day-to-day use around mobile or boom-mounted clinical setups.",
       },
       {
         title: "32-inch 4K UHD display",
@@ -562,48 +455,48 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
           "Full 4K UHD resolution at 32 inches provides the detail and viewing comfort required for primary surgical visualization in standard OR environments.",
       },
       {
-        title: "Simplified OR cable management",
+        title: "Cleaner cable management",
         description:
-          "Consolidating accessory power into the display unit reduces the number of discrete power supply units needed on OR carts and boom arms.",
+          "A rear cable cover helps keep cords managed behind the display, supporting tidier endoscopy tower, boom, and wall-mount installations.",
       },
       {
-        title: "Accurate 4K image calibration",
+        title: "Reliable shared viewing",
         description:
-          "Factory-calibrated color and brightness settings ensure consistent, accurate representation of surgical imaging throughout the display's clinical lifetime.",
+          "Wide viewing angles allow multiple observers around the OR table to see the same image without significant brightness or color degradation.",
       },
     ],
     deploymentItems: [
       {
-        title: "Primary 4K endoscopy tower display",
+        title: "Integrated endoscopy towers",
         description:
-          "Standard 32-inch 4K primary monitor for endoscopy and laparoscopy towers where accessory power integration simplifies peripheral connections.",
+          "Corner protection, cable management, and 32-inch 4K resolution make the FM-E3230D well suited for tower-based 4K endoscopy systems requiring a robust primary display.",
       },
       {
-        title: "OR carts with USB accessories",
+        title: "Boom-mounted OR monitors",
         description:
-          "Ideal for OR cart configurations where multiple USB-powered devices such as signal converters or camera adapters need power alongside the 4K display.",
+          "Standard 32-inch 4K format integrates into ceiling boom display positions for team-viewing and surgical camera visualization.",
       },
       {
-        title: "Integrated OR room displays",
+        title: "Cart and wall-mounted 4K displays",
         description:
-          "Works within integrated OR systems where reducing cable infrastructure and simplifying equipment power management are ongoing priorities.",
+          "Supports 4K visualization in mobile or fixed installations where controlled cable routing and a medical-grade enclosure are required.",
       },
     ],
     valuePoints: [
-      "DC 5V output reduces peripheral power supply count and simplifies OR setup.",
-      "4K UHD resolution supports full detail from modern endoscopic camera systems.",
-      "Integrated power consolidation contributes to cleaner and safer OR cable management.",
-      "Medical-grade calibration maintains imaging accuracy over extended clinical use.",
+      "32-inch 4K format balances compact mounting with high-detail surgical imaging.",
+      "Protective corner guards add practical resilience for real OR deployments.",
+      "Rear cable cover supports a cleaner, more controlled installed appearance.",
+      "Wide viewing angles support better image access for surgeons, assistants, and staff.",
     ],
     heroImages: {
-      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FSN FM-E3203D 32\" 4K surgical monitor" },
-      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3203D in 4K endoscopy tower configuration" },
-      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-E3203D integrated OR cart deployment" },
+      main: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FSN FM-E3230D 32\" 4K surgical monitor" },
+      secondary1: { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3230D in 4K endoscopy tower configuration" },
+      secondary2: { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-E3230D integrated OR display deployment" },
     },
     deploymentImages: [
-      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3203D as primary 4K endoscopy tower display" },
-      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-E3203D with USB accessory peripherals" },
-      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3203D in integrated OR room setup" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3230D as primary 4K endoscopy tower display" },
+      { src: "/images/products/surgical-monitors/shared/card.jpg", alt: "FM-E3230D in boom-mounted OR deployment" },
+      { src: "/images/products/surgical-monitors/shared/hero-secondary-1.jpg", alt: "FM-E3230D in integrated OR room setup" },
     ],
   },
   {
@@ -691,7 +584,7 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       "The FSN FM-F2701D is a 27-inch OLED surgical monitor that leverages organic light-emitting diode technology to achieve display characteristics that are physically impossible with LCD-based panels. Each OLED pixel generates its own light independently, enabling true black display (zero pixel emission) and an effectively infinite contrast ratio. This produces a display depth and tissue differentiation capability that is particularly valuable in procedures where shadow detail and color fidelity are clinically important.",
     highlights: [
       "OLED panel technology for true zero-black and infinite contrast ratio.",
-      "Wide 178В° viewing angle for accurate color from any observer position.",
+      "Wide 178-degree viewing angle for accurate color from any observer position.",
       "Instant pixel response time eliminating motion blur in fast endoscope movements.",
       "Exceptional tissue differentiation enabled by OLED per-pixel light control.",
       "27-inch form factor for compact high-performance surgical display deployment.",
@@ -710,7 +603,7 @@ export const fsnProducts: SurgicalMonitorProduct[] = [
       {
         title: "Wide viewing angle accuracy",
         description:
-          "OLED technology maintains color accuracy and brightness uniformity across 178В° horizontal and vertical viewing angles, ensuring consistent imaging for all team positions around the OR table.",
+          "OLED technology maintains color accuracy and brightness uniformity across 178-degree horizontal and vertical viewing angles, ensuring consistent imaging for all team positions around the OR table.",
       },
       {
         title: "Instant pixel response",
@@ -907,3 +800,4 @@ export function getBeaconProductBySlug(slug: string) {
 export function getFsnProductBySlug(slug: string) {
   return fsnProducts.find((item) => item.slug === slug)
 }
+

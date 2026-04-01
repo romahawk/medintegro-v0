@@ -1,9 +1,31 @@
-import Link from "next/link"
+﻿import Link from "next/link"
 import Image from "next/image"
+import { existsSync, statSync } from "node:fs"
+import path from "node:path"
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { bedHeadUnitProducts } from "@/lib/icu-infrastructure-products"
+
+function getBedHeadUnitImage(slug: string, fileName: string, fallbackSrc: string) {
+  const relativePath = `/images/products/icu-infrastructure/bed-head-units/${slug}/${fileName}`
+  const absolutePath = path.join(
+    process.cwd(),
+    "public",
+    "images",
+    "products",
+    "icu-infrastructure",
+    "bed-head-units",
+    slug,
+    fileName
+  )
+
+  if (!existsSync(absolutePath)) {
+    return fallbackSrc
+  }
+
+  return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
+}
 
 export default function BedHeadUnitsPage() {
   return (
@@ -39,7 +61,7 @@ export default function BedHeadUnitsPage() {
             Bed Head Units
           </h1>
           <p className="mt-4 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            INMED MERY family bed head units — integrating medical gas, electrical, data, IT,
+            INMED MERY family bed head units - integrating medical gas, electrical, data, IT,
             and lighting in a single modular bedside unit for hospital wards, ICU, paediatric,
             and premium care environments.
           </p>
@@ -51,9 +73,14 @@ export default function BedHeadUnitsPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {bedHeadUnitProducts.map((product) => (
               <article key={product.slug} className="glass glass-hover glow-cyan-hover overflow-hidden rounded-xl transition-all duration-300">
-                <div className="relative aspect-[4/3]">
-                  <Image src={product.cardImage} alt={product.name} fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
+                <div className="relative aspect-4/3 overflow-hidden">
+                  <Image
+                    src={getBedHeadUnitImage(product.slug, "card.jpg", product.cardImage)}
+                    alt={product.name}
+                    fill
+                    className={product.slug === "mery-classic" ? "scale-125 object-cover" : "object-cover"}
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-background/70 to-transparent" />
                 </div>
                 <div className="p-5">
                   <h2 className="text-lg font-semibold text-foreground">{product.name}</h2>
@@ -82,7 +109,7 @@ export default function BedHeadUnitsPage() {
             Bed head units for every hospital ward and care environment
           </h2>
           <p className="mt-4 max-w-4xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Bed head units organize all bedside media — gas, power, data, lighting — in one modular
+            Bed head units organize all bedside media - gas, power, data, lighting - in one modular
             overhead system, supporting efficient nursing workflows and a clean patient environment.
             The MERY family covers every ward type from standard general wards to ICU, paediatric,
             and premium private care.
@@ -147,3 +174,4 @@ export default function BedHeadUnitsPage() {
     </>
   )
 }
+

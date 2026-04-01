@@ -1,10 +1,32 @@
 import Image from "next/image"
 import Link from "next/link"
+import path from "node:path"
+import { existsSync, statSync } from "node:fs"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Lightbulb, Monitor, Settings2 } from "lucide-react"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { getFsnProductBySlug, fsnProducts } from "@/lib/surgical-monitors-products"
+
+function getFsnImage(slug: string, fileName: string, fallbackSrc: string) {
+  const relativePath = `/images/products/surgical-monitors/fsn/${slug}/${fileName}`
+  const absolutePath = path.join(
+    process.cwd(),
+    "public",
+    "images",
+    "products",
+    "surgical-monitors",
+    "fsn",
+    slug,
+    fileName
+  )
+
+  if (!existsSync(absolutePath)) {
+    return fallbackSrc
+  }
+
+  return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
+}
 
 export function generateStaticParams() {
   return fsnProducts.map((product) => ({ slug: product.slug }))
@@ -26,6 +48,34 @@ export default async function FsnMonitorProductPage({
   const prevProduct = currentIndex > 0 ? fsnProducts[currentIndex - 1] : null
   const nextProduct =
     currentIndex < fsnProducts.length - 1 ? fsnProducts[currentIndex + 1] : null
+  const heroImages = {
+    main: {
+      src: getFsnImage(product.slug, "hero-main.jpg", product.heroImages.main.src),
+      alt: product.heroImages.main.alt,
+    },
+    secondary1: {
+      src: getFsnImage(product.slug, "hero-secondary-1.jpg", product.heroImages.secondary1.src),
+      alt: product.heroImages.secondary1.alt,
+    },
+    secondary2: {
+      src: getFsnImage(product.slug, "hero-secondary-2.jpg", product.heroImages.secondary2.src),
+      alt: product.heroImages.secondary2.alt,
+    },
+  }
+  const deploymentImages = [
+    {
+      src: getFsnImage(product.slug, "deploy-1.jpg", product.deploymentImages[0]?.src ?? product.heroImages.main.src),
+      alt: product.deploymentImages[0]?.alt ?? `${product.name} in clinical deployment`,
+    },
+    {
+      src: getFsnImage(product.slug, "deploy-2.jpg", product.deploymentImages[1]?.src ?? product.deploymentImages[0]?.src ?? product.heroImages.main.src),
+      alt: product.deploymentImages[1]?.alt ?? `${product.name} in integrated OR setup`,
+    },
+    {
+      src: getFsnImage(product.slug, "deploy-3.jpg", product.deploymentImages[2]?.src ?? product.deploymentImages[0]?.src ?? product.heroImages.main.src),
+      alt: product.deploymentImages[2]?.alt ?? `${product.name} in procedure-room deployment`,
+    },
+  ]
 
   return (
     <>
@@ -84,14 +134,14 @@ export default async function FsnMonitorProductPage({
             </div>
 
             <div className="grid grid-cols-2 gap-3 md:gap-4">
-              <div className="relative col-span-2 aspect-[16/9] overflow-hidden rounded-xl border border-border/40">
-                <Image src={product.heroImages.main.src} alt={product.heroImages.main.alt} fill className="object-cover" />
+              <div className="relative col-span-2 aspect-video overflow-hidden rounded-xl border border-border/40 bg-white">
+                <Image src={heroImages.main.src} alt={heroImages.main.alt} fill className="object-contain p-6" />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/40">
-                <Image src={product.heroImages.secondary1.src} alt={product.heroImages.secondary1.alt} fill className="object-cover" />
+              <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40 bg-white">
+                <Image src={heroImages.secondary1.src} alt={heroImages.secondary1.alt} fill className="object-contain p-4" />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/40">
-                <Image src={product.heroImages.secondary2.src} alt={product.heroImages.secondary2.alt} fill className="object-cover" />
+              <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40 bg-white">
+                <Image src={heroImages.secondary2.src} alt={heroImages.secondary2.alt} fill className="object-contain p-4" />
               </div>
             </div>
           </div>
@@ -161,8 +211,8 @@ export default async function FsnMonitorProductPage({
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {product.deploymentItems.map((item, index) => (
               <article key={item.title} className="glass rounded-xl p-4">
-                <div className="relative mb-4 aspect-[4/3] overflow-hidden rounded-lg border border-border/40">
-                  <Image src={product.deploymentImages[index]?.src ?? product.deploymentImages[0].src} alt={product.deploymentImages[index]?.alt ?? item.title} fill className="object-cover" />
+                <div className="relative mb-4 aspect-4/3 overflow-hidden rounded-lg border border-border/40 bg-white">
+                  <Image src={deploymentImages[index]?.src ?? deploymentImages[0].src} alt={deploymentImages[index]?.alt ?? item.title} fill className="object-contain p-4" />
                 </div>
                 <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>

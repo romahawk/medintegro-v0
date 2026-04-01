@@ -1,5 +1,6 @@
 "use client"
 
+import { Suspense } from "react"
 import { PageHeader } from "@/components/page-header"
 import { Container } from "@/components/container"
 import { CTASection } from "@/components/cta-section"
@@ -18,7 +19,9 @@ export default function EquipmentPage() {
       />
       <section className="py-16 md:py-24">
         <Container>
-          <EquipmentCatalog />
+          <Suspense fallback={null}>
+            <EquipmentCatalog />
+          </Suspense>
         </Container>
       </section>
       <CTASection />

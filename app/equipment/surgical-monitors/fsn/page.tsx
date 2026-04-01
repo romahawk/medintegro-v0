@@ -1,16 +1,38 @@
 import Link from "next/link"
 import Image from "next/image"
+import path from "node:path"
+import { existsSync, statSync } from "node:fs"
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { fsnProducts } from "@/lib/surgical-monitors-products"
+
+function getFsnImage(slug: string, fileName: string, fallbackSrc: string) {
+  const relativePath = `/images/products/surgical-monitors/fsn/${slug}/${fileName}`
+  const absolutePath = path.join(
+    process.cwd(),
+    "public",
+    "images",
+    "products",
+    "surgical-monitors",
+    "fsn",
+    slug,
+    fileName
+  )
+
+  if (!existsSync(absolutePath)) {
+    return fallbackSrc
+  }
+
+  return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
+}
 
 export default function FsnMonitorsPage() {
   const productCards = fsnProducts.map((product) => ({
     key: product.slug,
     title: product.name,
     description: product.shortDescription,
-    image: product.cardImage,
+    image: getFsnImage(product.slug, "card.jpg", product.cardImage),
     href: `/equipment/surgical-monitors/fsn/${product.slug}`,
   }))
 
@@ -43,9 +65,9 @@ export default function FsnMonitorsPage() {
             FSN Medical Technologies Surgical Monitors
           </h1>
           <p className="mt-4 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            Full-range surgical display solutions from FSN Medical Technologies, covering FHD to
-            4K Mini-LED, OLED, large-format DICOM, and 3D stereoscopic monitors for every
-            modern operating room application.
+            FSN structures its surgical-display range across FHD, 4K, and large-format 4K
+            categories, including Mini-LED, OLED, and team-viewing monitor formats for modern
+            operating-room environments.
           </p>
         </Container>
       </section>
@@ -55,9 +77,9 @@ export default function FsnMonitorsPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {productCards.map((card) => (
               <article key={card.key} className="glass glass-hover glow-cyan-hover overflow-hidden rounded-xl transition-all duration-300">
-                <div className="relative aspect-[4/3]">
-                  <Image src={card.image} alt={card.title} fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
+                <div className="relative aspect-4/3 overflow-hidden bg-white">
+                  <Image src={card.image} alt={card.title} fill className="object-contain p-5" />
+                  <div className="absolute inset-0 bg-linear-to-t from-background/70 to-transparent" />
                 </div>
                 <div className="p-5">
                   <h2 className="text-lg font-semibold text-foreground">{card.title}</h2>
@@ -86,10 +108,10 @@ export default function FsnMonitorsPage() {
             A complete surgical display range for every OR application
           </h2>
           <p className="mt-4 max-w-4xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            FSN Medical Technologies offers one of the most comprehensive surgical monitor lines available,
-            from compact FHD fanless displays for space-efficient procedure rooms to OLED and Mini-LED
-            flagship panels for demanding minimally invasive surgery, large-format DICOM displays for
-            gallery positions, and 3D stereoscopic monitors for robotic and advanced laparoscopic suites.
+            The current FSN monitor structure highlights compact FHD displays, 4K clinical panels,
+            Mini-LED and OLED premium options, and large 55-58 inch monitors for team-viewing and
+            integrated-room layouts. This gives buyers a practical path from standard procedure-room
+            visualization up to premium OR imaging environments.
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             <article className="glass rounded-xl p-5">

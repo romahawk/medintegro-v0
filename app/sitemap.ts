@@ -22,7 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/equipment/examination-lamps",
     "/equipment/icu-infrastructure/bed-head-units",
     "/equipment/icu-infrastructure/ceiling-pendants",
-    "/equipment/medical-gases",
     "/equipment/or-lighting",
     "/equipment/surgical-monitors/beacon",
     "/equipment/surgical-monitors/fsn",

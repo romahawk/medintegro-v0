@@ -1,8 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import {
@@ -16,6 +17,7 @@ import {
 } from "lucide-react"
 import { useLanguage } from "@/lib/i18n"
 import { integratedOrProducts } from "@/lib/integrated-or-products"
+import { medicalGasProducts } from "@/lib/medical-gases-products"
 
 type CategoryKey =
   | "imaging"
@@ -45,21 +47,32 @@ const categoryFilters: { key: CategoryKey; labelKey: string; icon: LucideIcon }[
 ]
 
 const equipment: EquipmentItem[] = [
-  ...integratedOrProducts.map((product) => ({
-    key: product.slug,
-    nameKey: product.name,
-    descKey: product.shortDescription,
-    category: "imaging" as const,
-    image: product.cardImage ?? "/images/categories/integrated-or/cover.jpg",
-    href: `/equipment/integrated-or/${product.slug}`,
-    ctaKey: "equipment.viewMore",
-  })),
+  ...integratedOrProducts.map((product) => {
+    const integratedOrCardVersions: Record<string, string> = {
+      "surgimedia-compact": "639104632581964485",
+      "surgimedia-xxl-4k": "639104632582133265",
+      "surgimedia-distriview-4k-ip": "639104632581987923",
+      "surgimedia-multiview-4k-ip": "639104632582028020",
+    }
+
+    return {
+      key: product.slug,
+      nameKey: product.name,
+      descKey: product.shortDescription,
+      category: "imaging" as const,
+      image: product.cardImage
+        ? `${product.cardImage}?v=${integratedOrCardVersions[product.slug] ?? "1"}`
+        : "/images/categories/integrated-or/cover.jpg?v=639104632582028020",
+      href: `/equipment/integrated-or/${product.slug}`,
+      ctaKey: "equipment.viewMore",
+    }
+  }),
   {
     key: "icu-ceiling-pendants",
     nameKey: "icu.ceilingPendants.name",
     descKey: "icu.ceilingPendants.desc",
     category: "endoscopy",
-    image: "/images/categories/icu-infrastructure/cover-v2.jpg",
+    image: "/images/categories/icu-infrastructure/cover-v1.jpg",
     imageClassName: "scale-125 object-center",
     href: "/equipment/icu-infrastructure/ceiling-pendants",
     ctaKey: "equipment.viewMore",
@@ -69,20 +82,20 @@ const equipment: EquipmentItem[] = [
     nameKey: "icu.bedHeadUnits.name",
     descKey: "icu.bedHeadUnits.desc",
     category: "endoscopy",
-    image: "/images/categories/icu-infrastructure/cover-v2.jpg",
+    image: "/images/categories/icu-infrastructure/cover-v2.jpg?v=639105416652393297",
     imageClassName: "scale-125 object-center",
     href: "/equipment/icu-infrastructure/bed-head-units",
     ctaKey: "equipment.viewMore",
   },
-  {
-    key: "medical-gases",
-    nameKey: "medgas.catalog.name",
-    descKey: "medgas.catalog.desc",
-    category: "monitoring",
-    image: "/images/categories/integrated-or/cover.jpg",
-    href: "/equipment/medical-gases",
+  ...medicalGasProducts.map((product) => ({
+    key: product.slug,
+    nameKey: product.name,
+    descKey: product.shortDescription,
+    category: "monitoring" as const,
+    image: `/images/products/medical-gases/${product.slug}/card.jpg`,
+    href: `/equipment/medical-gases/${product.slug}`,
     ctaKey: "equipment.viewMore",
-  },
+  })),
   {
     key: "beacon-monitors",
     nameKey: "monitors.beacon.name",
@@ -127,7 +140,22 @@ const equipment: EquipmentItem[] = [
 
 export function EquipmentCatalog() {
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("imaging")
+  const searchParams = useSearchParams()
   const { t } = useLanguage()
+
+  useEffect(() => {
+    const categoryParam = searchParams.get("category")
+
+    if (
+      categoryParam === "imaging" ||
+      categoryParam === "lighting" ||
+      categoryParam === "endoscopy" ||
+      categoryParam === "monitoring" ||
+      categoryParam === "sterilization"
+    ) {
+      setActiveCategory(categoryParam)
+    }
+  }, [searchParams])
 
   const filtered = equipment.filter((item) => item.category === activeCategory)
 

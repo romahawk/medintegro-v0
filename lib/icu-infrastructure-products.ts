@@ -96,13 +96,13 @@ export const ceilingPendantProducts: IcuInfrastructureProduct[] = [
   {
     slug: "lissa-classic-lift",
     name: "LISSAclassic-lift",
-    shortDescription: "Ceiling pendant with electric or spring lift for OR and treatment rooms вЂ” high ergonomics and flexible brake options.",
+    shortDescription: "Ceiling pendant with electric or spring lift for OR and treatment rooms - high ergonomics and flexible brake options.",
     cardImage: "/images/products/icu-infrastructure/shared/hero-main.jpg",
     heroTitle: "Ceiling pendant with integrated vertical lift for enhanced ergonomics",
     heroSubtitle:
       "LISSAclassic-lift adds electric or spring-actuated height adjustment to the proven LISSAclassic platform, eliminating manual effort for repositioning during complex surgical procedures.",
     overview:
-      "LISSAclassic-lift is designed for operating rooms and treatment environments where height-adjustable pendant positioning is required to accommodate different surgical team configurations, patient table heights, and procedure types. The lift drive вЂ” available in electric or spring-actuated variants вЂ” provides smooth, controlled vertical movement with configurable brake options including electromagnetic, pneumatic, and electro-pneumatic systems.",
+      "LISSAclassic-lift is designed for operating rooms and treatment environments where height-adjustable pendant positioning is required to accommodate different surgical team configurations, patient table heights, and procedure types. The lift drive - available in electric or spring-actuated variants - provides smooth, controlled vertical movement with configurable brake options including electromagnetic, pneumatic, and electro-pneumatic systems.",
     highlights: [
       "Electric or spring lift drive for smooth vertical height adjustment.",
       "Electromagnetic, pneumatic, or electro-pneumatic brake configurations.",
@@ -246,7 +246,7 @@ export const ceilingPendantProducts: IcuInfrastructureProduct[] = [
     heroSubtitle:
       "LUNAcompact provides reliable media access for ICU patient rooms and treatment areas in a cost-effective fixed-arm design, fully configurable with shelves, jibs, and clinical accessories.",
     overview:
-      "LUNAcompact is designed for ICU patient bays, general wards, and treatment rooms where a fixed-position pendant provides all required media connections without the complexity of articulated arm systems. Its economical design does not compromise on functionality вЂ” LUNAcompact accommodates medical gas, electrical, data, and lighting connections along with a full range of shelves, medical rails, and accessories to meet specific bedspace requirements.",
+      "LUNAcompact is designed for ICU patient bays, general wards, and treatment rooms where a fixed-position pendant provides all required media connections without the complexity of articulated arm systems. Its economical design does not compromise on functionality - LUNAcompact accommodates medical gas, electrical, data, and lighting connections along with a full range of shelves, medical rails, and accessories to meet specific bedspace requirements.",
     highlights: [
       "Economical fixed-arm design for cost-effective ICU and ward deployments.",
       "Configurable with shelves, jibs, IV poles, and accessory rails.",
@@ -312,15 +312,15 @@ export const ceilingPendantProducts: IcuInfrastructureProduct[] = [
   {
     slug: "vega-care",
     name: "VEGAcare",
-    shortDescription: "Floor-to-ceiling strut medical unit for ICU and anaesthesia care вЂ” full pendant functionality without ceiling mounting.",
+    shortDescription: "Floor-to-ceiling strut medical unit for ICU and anaesthesia care - full pendant functionality without ceiling mounting.",
     cardImage: "/images/products/icu-infrastructure/shared/hero-main.jpg",
     heroTitle: "Floor-to-ceiling pendant alternative for renovation and constrained structures",
     heroSubtitle:
       "VEGAcare delivers complete pendant media functionality through a floor-to-ceiling strut system, enabling ICU and anaesthesia room upgrades in buildings where ceiling mounting is not feasible.",
     overview:
-      "VEGAcare is the ideal solution for ICU, anaesthesia, and critical care environments in existing buildings where ceiling structure does not permit direct pendant mounting. The floor-to-ceiling strut design provides rigid, stable support for all media services вЂ” gas, electrical, data, and accessories вЂ” without any ceiling modification, making it the preferred choice for renovation projects and structurally constrained installations.",
+      "VEGAcare is the ideal solution for ICU, anaesthesia, and critical care environments in existing buildings where ceiling structure does not permit direct pendant mounting. The floor-to-ceiling strut design provides rigid, stable support for all media services - gas, electrical, data, and accessories - without any ceiling modification, making it the preferred choice for renovation projects and structurally constrained installations.",
     highlights: [
-      "No ceiling modification required вЂ” ideal for renovation projects.",
+      "No ceiling modification required - ideal for renovation projects.",
       "Full pendant gas, electrical, and data media provision via strut mount.",
       "Suitable for ICU, anaesthesia, and critical care environments.",
       "Stable, vibration-resistant strut construction for clinical loads.",
@@ -384,15 +384,15 @@ export const ceilingPendantProducts: IcuInfrastructureProduct[] = [
   {
     slug: "caro-classic",
     name: "CAROclassic",
-    shortDescription: "ICU ceiling beam with solid robust body вЂ” no sliding gliders or service heads, maximum reliability and easy cleaning.",
+    shortDescription: "ICU ceiling beam with solid robust body - no sliding gliders or service heads, maximum reliability and easy cleaning.",
     cardImage: "/images/products/icu-infrastructure/shared/hero-main.jpg",
     heroTitle: "Robust ICU ceiling beam engineered for maximum reliability and ease of hygiene",
     heroSubtitle:
       "CAROclassic provides a fixed, solid-body ceiling beam for intensive care units, eliminating sliding components and service heads to maximize reliability and simplify cleaning protocols.",
     overview:
-      "CAROclassic is designed for intensive care units where reliability and infection control are the primary system requirements. Its solid, robust body contains no sliding gliders or service heads вЂ” the components most subject to wear and contamination in conventional beam systems. This architecture maximizes system uptime, simplifies daily cleaning, and reduces long-term maintenance costs in demanding ICU environments.",
+      "CAROclassic is designed for intensive care units where reliability and infection control are the primary system requirements. Its solid, robust body contains no sliding gliders or service heads - the components most subject to wear and contamination in conventional beam systems. This architecture maximizes system uptime, simplifies daily cleaning, and reduces long-term maintenance costs in demanding ICU environments.",
     highlights: [
-      "Solid body вЂ” no sliding gliders or service heads for maximum reliability.",
+      "Solid body - no sliding gliders or service heads for maximum reliability.",
       "Simplified hygiene: smooth surfaces support ICU cleaning protocols.",
       "Fixed gas, electrical, and media connections along the beam length.",
       "Robust construction rated for continuous ICU operation.",
@@ -535,7 +535,7 @@ export const bedHeadUnitProducts: IcuInfrastructureProduct[] = [
     name: "MERYclassic",
     shortDescription: "The original MERY bed head unit integrating medical gas, electrical, and lighting systems in a modular design.",
     cardImage: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg",
-    heroTitle: "The original MERY вЂ” modular bed head unit for hospitals and clinics",
+    heroTitle: "The original MERY - modular bed head unit for hospitals and clinics",
     heroSubtitle:
       "MERYclassic is the most established model in the MERY family, providing a reliable combination of medical gas, electrical, and integrated lighting for hospital ward bedspaces.",
     overview:
@@ -605,7 +605,7 @@ export const bedHeadUnitProducts: IcuInfrastructureProduct[] = [
   {
     slug: "mery-care",
     name: "MERYcare",
-    shortDescription: "Advanced ICU/NICU bed head unit in horizontal and vertical configurations вЂ” high quality, functionality, and ergonomics for critical care.",
+    shortDescription: "Advanced ICU/NICU bed head unit in horizontal and vertical configurations - high quality, functionality, and ergonomics for critical care.",
     cardImage: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg",
     heroTitle: "Advanced ICU and NICU bed head unit for critical care environments",
     heroSubtitle:
@@ -672,78 +672,6 @@ export const bedHeadUnitProducts: IcuInfrastructureProduct[] = [
       { src: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg", alt: "MERYcare in adult ICU" },
       { src: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg", alt: "MERYcare in NICU" },
       { src: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg", alt: "MERYcare in high-dependency unit" },
-    ],
-  },
-  {
-    slug: "mery-care-classic",
-    name: "MERYcare-classic",
-    shortDescription: "ICU bed head unit with doubled gas outlets, additional electrical sockets, and full accessory range including rails, shelves, and IV poles.",
-    cardImage: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg",
-    heroTitle: "ICU bed head unit with doubled gas provision and full accessory integration",
-    heroSubtitle:
-      "MERYcare-classic extends the MERY platform with doubled gas outlets, additional electrical and equipotential sockets, and a comprehensive accessory ecosystem for demanding critical care environments.",
-    overview:
-      "MERYcare-classic combines the structural reliability of MERYclassic with the enhanced media provision required for ICU bedspaces. Doubled gas outlets ensure simultaneous connection of all critical care gas-driven devices; additional electrical and equipotential sockets accommodate the equipment density of level-2 and level-3 critical care. The full MERY accessory range вЂ” medical rails, trays, shelves, IV poles, and baskets вЂ” integrates directly with the unit body.",
-    highlights: [
-      "Doubled gas outlets for simultaneous critical care device connection.",
-      "Additional electrical and equipotential sockets for ICU equipment density.",
-      "Full MERY accessory range: rails, trays, shelves, IV poles, baskets.",
-      "Modular architecture for flexible ICU bedspace specification.",
-    ],
-    capabilityItems: [
-      {
-        title: "Doubled gas outlet provision",
-        description:
-          "Two gas outlets per service вЂ” oxygen, air, vacuum вЂ” ensure all critical care devices can be simultaneously connected without adaptor multipliers.",
-      },
-      {
-        title: "Enhanced electrical provision",
-        description:
-          "Additional standard and equipotential sockets support the high electrical demand of ICU bedspaces with multiple monitors and therapeutic devices.",
-      },
-      {
-        title: "Comprehensive accessory system",
-        description:
-          "Medical rails at the top and bottom of the unit accept IV poles, storage baskets, infusion pump rails, and bedside lighting arms.",
-      },
-      {
-        title: "Modular media configuration",
-        description:
-          "Gas, electrical, and data module positions are configurable at specification stage to match each ward's media infrastructure and clinical workflow.",
-      },
-    ],
-    deploymentItems: [
-      {
-        title: "General ICU wards",
-        description:
-          "Complete media provision for mixed-diagnosis ICU bedspaces with high concurrent equipment loading.",
-      },
-      {
-        title: "Post-surgical intensive care",
-        description:
-          "Supports the immediate post-operative period with all required monitoring, ventilation, and infusion device connections.",
-      },
-      {
-        title: "Coronary and cardiac care units",
-        description:
-          "Accommodates the specialized device requirements of cardiac ICU environments with full gas and electrical provision.",
-      },
-    ],
-    valuePoints: [
-      "Eliminates gas adaptor multipliers at critical care bedspaces.",
-      "Comprehensive accessory system adapts to each patient's needs.",
-      "Modular configuration reduces specification complexity.",
-      "Proven INMED quality for long-term ICU operation.",
-    ],
-    heroImages: {
-      main: { src: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg", alt: "MERYcare-classic in ICU bedspace" },
-      secondary1: { src: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg", alt: "MERYcare-classic doubled gas outlets" },
-      secondary2: { src: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg", alt: "MERYcare-classic with accessories in ICU" },
-    },
-    deploymentImages: [
-      { src: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg", alt: "MERYcare-classic in general ICU" },
-      { src: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg", alt: "MERYcare-classic in post-surgical ICU" },
-      { src: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg", alt: "MERYcare-classic in cardiac care unit" },
     ],
   },
   {
@@ -819,9 +747,81 @@ export const bedHeadUnitProducts: IcuInfrastructureProduct[] = [
     ],
   },
   {
+    slug: "mery-wall",
+    name: "MERYwall",
+    shortDescription: "Wall-integrated bed head unit with hospitality-grade finishes, lighting, and full medical media provision for premium patient rooms.",
+    cardImage: "/images/products/icu-infrastructure/bed-head-units/mery-wall/card.jpg",
+    heroTitle: "Architectural bed head unit for premium wards, hospices, and patient-centred care environments",
+    heroSubtitle:
+      "MERYwall blends medical gas, electrical, data, and lighting infrastructure into a wall-integrated composition that feels closer to interior architecture than conventional bedside equipment.",
+    overview:
+      "MERYwall is designed for projects where bedside infrastructure must support both clinical workflows and a calmer, more hospitality-led patient environment. The system integrates medical gases, electrical sockets, communication points, lighting, and accessory provision into a refined wall-mounted format available in warm material expressions such as Corian-style and wood-look finishes. It is particularly well suited to hospices, premium inpatient rooms, paediatric modernizations, and patient areas where the visual impact of conventional bed head units needs to be softened without sacrificing functionality.",
+    highlights: [
+      "Wall-integrated design that reduces the equipment-like appearance at the bedside.",
+      "Supports gas, electrical, data, nurse call, and lighting in one coordinated unit.",
+      "Available in warmer finish directions for premium and patient-comfort focused interiors.",
+      "Suitable for refurbishment and design-led new-build patient room concepts.",
+    ],
+    capabilityItems: [
+      {
+        title: "Integrated architectural format",
+        description:
+          "Media services are organized within a wall-mounted composition that aligns with interior finishes and reduces visual clutter around the patient bed.",
+      },
+      {
+        title: "Complete bedside media provision",
+        description:
+          "Medical gases, electrical sockets, data, nurse call, reading light, and ambient lighting can be combined in a single coordinated bedside system.",
+      },
+      {
+        title: "Finish flexibility",
+        description:
+          "Decorative front treatments and warmer material aesthetics help the unit fit hospice, paediatric, and premium inpatient environments without losing clinical durability.",
+      },
+      {
+        title: "Renovation-friendly deployment",
+        description:
+          "The wall-based format supports modernization programmes where facilities want to upgrade room quality and infrastructure together in one intervention.",
+      },
+    ],
+    deploymentItems: [
+      {
+        title: "Hospices and palliative care rooms",
+        description:
+          "Creates a softer, less technical bedside environment while preserving the full set of media connections needed for patient support and staff care delivery.",
+      },
+      {
+        title: "Premium inpatient and private wards",
+        description:
+          "Supports design-led patient rooms where interior quality is part of the facility's positioning and patient experience strategy.",
+      },
+      {
+        title: "Refurbished specialist and paediatric rooms",
+        description:
+          "Helps modernization projects improve bedside functionality and visual comfort at the same time, especially in spaces where conventional bed head units feel too clinical.",
+      },
+    ],
+    valuePoints: [
+      "Improves patient-room atmosphere without compromising bedside functionality.",
+      "Supports premium and patient-centred facility positioning.",
+      "Combines room modernization and infrastructure upgrade in a single system.",
+      "Helps reduce the perceived clinical harshness of the bedside zone.",
+    ],
+    heroImages: {
+      main: { src: "/images/products/icu-infrastructure/bed-head-units/mery-wall/hero-main.jpg", alt: "MERYwall installed in a premium patient room" },
+      secondary1: { src: "/images/products/icu-infrastructure/bed-head-units/mery-wall/hero-secondary-1.jpg", alt: "MERYwall finish and bedside detail" },
+      secondary2: { src: "/images/products/icu-infrastructure/bed-head-units/mery-wall/hero-secondary-2.jpg", alt: "MERYwall in a patient-centred care environment" },
+    },
+    deploymentImages: [
+      { src: "/images/products/icu-infrastructure/bed-head-units/mery-wall/deploy-1.jpg", alt: "MERYwall in hospice environment" },
+      { src: "/images/products/icu-infrastructure/bed-head-units/mery-wall/deploy-2.jpg", alt: "MERYwall in premium inpatient room" },
+      { src: "/images/products/icu-infrastructure/bed-head-units/mery-wall/deploy-3.jpg", alt: "MERYwall in modernized specialist room" },
+    ],
+  },
+  {
     slug: "mery-edge",
     name: "MERYedge",
-    shortDescription: "Modern bed head unit with elegant brushed aluminium front вЂ” ergonomic media access with contemporary ward aesthetics.",
+    shortDescription: "Modern bed head unit with elegant brushed aluminium front - ergonomic media access with contemporary ward aesthetics.",
     cardImage: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg",
     heroTitle: "Contemporary bed head unit with brushed aluminium front and ergonomic media access",
     heroSubtitle:
@@ -893,24 +893,24 @@ export const bedHeadUnitProducts: IcuInfrastructureProduct[] = [
   {
     slug: "mery-fun",
     name: "MERYfun",
-    shortDescription: "Paediatric bed head unit with colourful CorianВ® graphic fronts, child-safe sockets, LED/AmbientLight, and full medical integration.",
+    shortDescription: "Paediatric bed head unit with colourful Corian graphic fronts, child-safe sockets, LED/AmbientLight, and full medical integration.",
     cardImage: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg",
     heroTitle: "Paediatric bed head unit with child-friendly design and full clinical functionality",
     heroSubtitle:
-      "MERYfun creates a reassuring environment for young patients with vibrant CorianВ® graphic fronts and child-safe electrical sockets, while delivering complete medical gas, IT, and LED lighting integration.",
+      "MERYfun creates a reassuring environment for young patients with vibrant Corian graphic fronts and child-safe electrical sockets, while delivering complete medical gas, IT, and LED lighting integration.",
     overview:
-      "MERYfun is designed for children's hospital wards, paediatric departments, and NICU environments where the physical space must support both clinical care and a child-friendly patient experience. Colourful CorianВ® graphic fronts can be customized with themed designs to reduce patient anxiety, while child-safe electrical sockets and LED/AmbientLight technology ensure the unit meets paediatric safety standards. All standard MERY medical gas, IT, and clinical accessory functions are fully available.",
+      "MERYfun is designed for children's hospital wards, paediatric departments, and NICU environments where the physical space must support both clinical care and a child-friendly patient experience. Colourful Corian graphic fronts can be customized with themed designs to reduce patient anxiety, while child-safe electrical sockets and LED/AmbientLight technology ensure the unit meets paediatric safety standards. All standard MERY medical gas, IT, and clinical accessory functions are fully available.",
     highlights: [
-      "Colourful CorianВ® graphic fronts with customizable paediatric themes.",
+      "Colourful Corian graphic fronts with customizable paediatric themes.",
       "Child-safe electrical sockets meeting paediatric safety standards.",
       "Integrated LED and AmbientLight for therapeutic room lighting.",
       "Full medical gas, electrical, and IT integration.",
     ],
     capabilityItems: [
       {
-        title: "Customizable CorianВ® graphic fronts",
+        title: "Customizable Corian graphic fronts",
         description:
-          "CorianВ® front panels accept full-colour graphic printing with thematic designs that reduce paediatric patient anxiety and support age-appropriate environments.",
+          "Corian front panels accept full-colour graphic printing with thematic designs that reduce paediatric patient anxiety and support age-appropriate environments.",
       },
       {
         title: "Child-safe electrical safety",
@@ -965,15 +965,15 @@ export const bedHeadUnitProducts: IcuInfrastructureProduct[] = [
   {
     slug: "mery-art",
     name: "MERYart",
-    shortDescription: "Premium bed head unit with CorianВ® or tempered glass fronts вЂ” full clinical functionality with high-end design for premium healthcare.",
+    shortDescription: "Premium bed head unit with Corian or tempered glass fronts - full clinical functionality with high-end design for premium healthcare.",
     cardImage: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg",
     heroTitle: "Premium bed head unit for high-end healthcare environments",
     heroSubtitle:
-      "MERYart merges complete MERY clinical functionality with CorianВ® or tempered glass front surfaces, creating a premium bedside aesthetic for private hospitals, VIP suites, and luxury healthcare facilities.",
+      "MERYart merges complete MERY clinical functionality with Corian or tempered glass front surfaces, creating a premium bedside aesthetic for private hospitals, VIP suites, and luxury healthcare facilities.",
     overview:
-      "MERYart is the premium tier of the MERY bed head unit range, designed for healthcare facilities where the patient environment represents a core part of the service proposition. CorianВ® or tempered glass front panels create a distinctive, high-quality aesthetic that aligns with luxury hotel-standard patient rooms, while the underlying MERY architecture maintains full medical gas, electrical, IT, and lighting functionality without compromise. Custom colours and finishes are available to match interior design specifications.",
+      "MERYart is the premium tier of the MERY bed head unit range, designed for healthcare facilities where the patient environment represents a core part of the service proposition. Corian or tempered glass front panels create a distinctive, high-quality aesthetic that aligns with luxury hotel-standard patient rooms, while the underlying MERY architecture maintains full medical gas, electrical, IT, and lighting functionality without compromise. Custom colours and finishes are available to match interior design specifications.",
     highlights: [
-      "CorianВ® or tempered glass front options for premium interior integration.",
+      "Corian or tempered glass front options for premium interior integration.",
       "Custom colours and finishes available to specification.",
       "Complete MERY clinical functionality maintained within premium design.",
       "Appropriate for private hospitals, VIP suites, and luxury healthcare.",
@@ -982,7 +982,7 @@ export const bedHeadUnitProducts: IcuInfrastructureProduct[] = [
       {
         title: "Premium surface materials",
         description:
-          "CorianВ® or tempered glass fronts provide a high-quality surface appropriate for luxury healthcare environments, available in custom colours and finishes.",
+          "Corian or tempered glass fronts provide a high-quality surface appropriate for luxury healthcare environments, available in custom colours and finishes.",
       },
       {
         title: "Custom design integration",
@@ -997,7 +997,7 @@ export const bedHeadUnitProducts: IcuInfrastructureProduct[] = [
       {
         title: "Durable luxury materials",
         description:
-          "CorianВ® and tempered glass surfaces withstand intensive hospital cleaning and disinfection protocols while retaining their premium appearance.",
+          "Corian and tempered glass surfaces withstand intensive hospital cleaning and disinfection protocols while retaining their premium appearance.",
       },
     ],
     deploymentItems: [
@@ -1037,18 +1037,18 @@ export const bedHeadUnitProducts: IcuInfrastructureProduct[] = [
   {
     slug: "mery-comfort",
     name: "MERYcomfort",
-    shortDescription: "Patient-comfort focused bed head unit with CorianВ® finish, dedicated patient and staff zones, integrated media, and multi-zone lighting.",
+    shortDescription: "Patient-comfort focused bed head unit with Corian finish, dedicated patient and staff zones, integrated media, and multi-zone lighting.",
     cardImage: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg",
     heroTitle: "Patient-comfort oriented bed head unit with zoned design for patient and clinical staff",
     heroSubtitle:
       "MERYcomfort organizes the bedside space into dedicated patient and clinical staff zones, integrating entertainment media, multi-zone lighting, and full medical infrastructure for a superior patient experience.",
     overview:
-      "MERYcomfort is designed around the needs of the patient as well as the clinical team. The unit is organized into clearly defined patient and staff zones, with integrated media systems including television, internet connectivity, and nurse call, combined with multi-zone lighting that supports both clinical procedures and patient rest. The CorianВ® surface finish provides a premium aesthetic while maintaining the practical durability required in a hospital environment.",
+      "MERYcomfort is designed around the needs of the patient as well as the clinical team. The unit is organized into clearly defined patient and staff zones, with integrated media systems including television, internet connectivity, and nurse call, combined with multi-zone lighting that supports both clinical procedures and patient rest. The Corian surface finish provides a premium aesthetic while maintaining the practical durability required in a hospital environment.",
     highlights: [
       "Dedicated patient and clinical staff zones for organized bedside access.",
       "Integrated media: TV, internet, nurse call, and entertainment systems.",
       "Multi-zone lighting for clinical procedures and patient comfort.",
-      "CorianВ® surface finish combining premium aesthetics with durability.",
+      "Corian surface finish combining premium aesthetics with durability.",
     ],
     capabilityItems: [
       {
@@ -1067,9 +1067,9 @@ export const bedHeadUnitProducts: IcuInfrastructureProduct[] = [
           "Separate clinical and ambient lighting zones allow procedure-quality illumination without disturbing resting patients or adjacent beds.",
       },
       {
-        title: "CorianВ® surface quality",
+        title: "Corian surface quality",
         description:
-          "Premium CorianВ® surfaces provide the aesthetic quality and chemical resistance required for long-term hospital use.",
+          "Premium Corian surfaces provide the aesthetic quality and chemical resistance required for long-term hospital use.",
       },
     ],
     deploymentItems: [
@@ -1093,7 +1093,7 @@ export const bedHeadUnitProducts: IcuInfrastructureProduct[] = [
       "Improves patient experience through integrated entertainment and comfort features.",
       "Organized zone design supports efficient nursing workflow at the bedside.",
       "Multi-zone lighting reduces clinical disruption to patient rest cycles.",
-      "Premium CorianВ® finish enhances room environment quality.",
+      "Premium Corian finish enhances room environment quality.",
     ],
     heroImages: {
       main: { src: "/images/products/icu-infrastructure/shared/hero-secondary-2.jpg", alt: "MERYcomfort in private patient room" },

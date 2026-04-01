@@ -15,11 +15,11 @@ const categories: {
   icon: LucideIcon
   href: string
 }[] = [
-  { titleKey: "cat.imaging", descKey: "cat.imaging.desc", image: "/images/categories/integrated-or/cover.jpg", icon: Network, href: "/equipment" },
-  { titleKey: "cat.lighting", descKey: "cat.lighting.desc", image: "/images/categories/or-lighting/cover.png", icon: Lightbulb, href: "/equipment/or-lighting" },
-  { titleKey: "cat.endoscopy", descKey: "cat.endoscopy.desc", image: "/images/categories/icu-infrastructure/cover-v2.jpg", icon: SquareActivity, href: "/equipment/icu-infrastructure/ceiling-pendants" },
-  { titleKey: "cat.monitoring", descKey: "cat.monitoring.desc", image: "/images/categories/medical-gases/cover.jpg", icon: Wind, href: "/equipment/medical-gases" },
-  { titleKey: "cat.sterilization", descKey: "cat.sterilization.desc", image: "/images/categories/surgical-monitors/cover.jpg", icon: Monitor, href: "/equipment/surgical-monitors/fsn" },
+  { titleKey: "cat.imaging", descKey: "cat.imaging.desc", image: "/images/categories/integrated-or/cover.jpg?v=639104632582028020", icon: Network, href: "/equipment" },
+  { titleKey: "cat.lighting", descKey: "cat.lighting.desc", image: "/images/categories/or-lighting/cover.png?v=639104632582188498", icon: Lightbulb, href: "/equipment/or-lighting" },
+  { titleKey: "cat.endoscopy", descKey: "cat.endoscopy.desc", image: "/images/categories/icu-infrastructure/cover-v1.jpg?v=639105761966622438", icon: SquareActivity, href: "/equipment/icu-infrastructure/ceiling-pendants" },
+  { titleKey: "cat.monitoring", descKey: "cat.monitoring.desc", image: "/images/categories/medical-gases/cover.jpg?v=639105762802018446", icon: Wind, href: "/equipment?category=monitoring" },
+  { titleKey: "cat.sterilization", descKey: "cat.sterilization.desc", image: "/images/categories/surgical-monitors/cover.jpg?v=639105733590853529", icon: Monitor, href: "/equipment/surgical-monitors/fsn" },
 ]
 
 export function Categories() {
