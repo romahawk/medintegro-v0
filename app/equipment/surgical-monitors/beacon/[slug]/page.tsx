@@ -107,7 +107,7 @@ export default async function BeaconMonitorProductPage({
           <div className="grid items-start gap-8 lg:grid-cols-2">
             <div>
               <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
-                Surgical Monitors
+                OR Visualization Infrastructure
               </span>
               <h1 className="max-w-4xl text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
                 {product.name}
@@ -183,7 +183,7 @@ export default async function BeaconMonitorProductPage({
         <div className="absolute inset-0 bg-card/40" />
         <Container className="relative">
           <h2 className="text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-            Core capabilities for modern surgical workflows
+            Core capabilities for OR visualization workflows
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {product.capabilityItems.map((item, index) => (
@@ -202,11 +202,11 @@ export default async function BeaconMonitorProductPage({
       <section id="deployment" className="py-16 md:py-24">
         <Container>
           <h2 className="text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-            Adaptive deployment options
+            Deployment across integrated OR environments
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            {product.name} can be configured for different operating room formats and clinical
-            workflows while maintaining consistent display quality.
+            {product.name} can be specified as part of integrated OR, endoscopy, and team-viewing
+            layouts where the display must support the wider surgical workflow and room logic.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {product.deploymentItems.map((item, index) => (
@@ -224,7 +224,9 @@ export default async function BeaconMonitorProductPage({
 
       <section className="relative overflow-hidden border-y border-border/50 py-10">
         <Container className="flex flex-wrap items-center justify-between gap-3">
-          <div className="text-sm text-muted-foreground">Explore other Beacon Display surgical monitors</div>
+          <div className="text-sm text-muted-foreground">
+            Explore other Beacon OR visualization systems
+          </div>
           <div className="flex flex-wrap gap-2">
             {prevProduct && (
               <Button asChild variant="outline" size="sm" className="rounded-lg border-border/50 hover:border-primary/40">
@@ -251,15 +253,15 @@ export default async function BeaconMonitorProductPage({
         <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
         <Container className="relative flex flex-col items-center gap-6 text-center">
           <h2 className="max-w-xl text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-            Need support selecting the right surgical display?
+            Need support selecting OR visualization infrastructure?
           </h2>
           <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            We can evaluate your procedure mix, camera system, and OR configuration to define
-            the optimal surgical monitor solution for your operating suites.
+            We can evaluate the procedure mix, camera chain, routing needs, and OR configuration to
+            define the right display layer for your integrated surgical environment.
           </p>
           <Button asChild size="lg" className="gap-2 rounded-xl glow-cyan">
             <Link href="/contact">
-              Request Quote
+              Discuss OR Display Requirements
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>

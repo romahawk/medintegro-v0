@@ -59,15 +59,15 @@ export default function FsnMonitorsPage() {
           </Link>
 
           <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
-            Surgical Monitors
+            OR Visualization Infrastructure
           </span>
           <h1 className="max-w-4xl text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
-            FSN Medical Technologies Surgical Monitors
+            FSN surgical displays for integrated OR and advanced visualization
           </h1>
           <p className="mt-4 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
             FSN structures its surgical-display range across FHD, 4K, and large-format 4K
-            categories, including Mini-LED, OLED, and team-viewing monitor formats for modern
-            operating-room environments.
+            categories, including Mini-LED, OLED, and team-viewing formats that support operating
+            rooms as integrated visualization environments rather than isolated display points.
           </p>
         </Container>
       </section>
@@ -105,13 +105,13 @@ export default function FsnMonitorsPage() {
         <div className="absolute inset-0 bg-card/40" />
         <Container className="relative">
           <h2 className="max-w-3xl text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-            A complete surgical display range for every OR application
+            Display infrastructure for different OR visualization roles
           </h2>
           <p className="mt-4 max-w-4xl text-sm leading-relaxed text-muted-foreground md:text-base">
             The current FSN monitor structure highlights compact FHD displays, 4K clinical panels,
             Mini-LED and OLED premium options, and large 55-58 inch monitors for team-viewing and
-            integrated-room layouts. This gives buyers a practical path from standard procedure-room
-            visualization up to premium OR imaging environments.
+            integrated-room layouts. This gives buyers a practical path from auxiliary and
+            procedure-room visualization up to premium OR imaging and gallery-viewing environments.
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             <article className="glass rounded-xl p-5">
@@ -145,7 +145,7 @@ export default function FsnMonitorsPage() {
               </ul>
             </article>
             <article className="glass rounded-xl p-5">
-              <h3 className="text-base font-semibold text-foreground">Clinical integration focus</h3>
+              <h3 className="text-base font-semibold text-foreground">Integration-focused deployment</h3>
               <ul className="mt-3 space-y-2">
                 {[
                   "Fanless designs for quiet operation in noise-sensitive environments.",
@@ -163,7 +163,7 @@ export default function FsnMonitorsPage() {
           <div className="mt-10">
             <Button asChild size="lg" className="gap-2 rounded-xl glow-cyan">
               <Link href="/contact">
-                Request Quote
+                Discuss OR Display Requirements
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>

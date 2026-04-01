@@ -8,16 +8,27 @@ import { EquipmentCatalog } from "@/components/equipment/equipment-catalog"
 import { useLanguage } from "@/lib/i18n"
 
 export default function EquipmentPage() {
-  const { t } = useLanguage()
+  const { locale, t } = useLanguage()
+
+  const copy = {
+    title: {
+      en: "OR Integration Equipment",
+      ua: "Обладнання для інтеграції операційних",
+    },
+    description: {
+      en: "Browse our OR integration systems, surgical infrastructure, and specialist equipment from world-leading manufacturers.",
+      ua: "Перегляньте наші системи для інтеграції операційних, хірургічну інфраструктуру та спеціалізоване обладнання від провідних світових виробників.",
+    },
+  }
 
   return (
     <>
       <PageHeader
         label={t("equipment.label")}
-        title={t("equipment.title")}
-        description={t("equipment.subtitle")}
+        title={copy.title[locale]}
+        description={copy.description[locale]}
       />
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-14">
         <Container>
           <Suspense fallback={null}>
             <EquipmentCatalog />

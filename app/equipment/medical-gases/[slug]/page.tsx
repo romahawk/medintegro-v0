@@ -91,7 +91,7 @@ export default async function MedicalGasProductPage({
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
             <Link href="/equipment?category=monitoring" className="transition-colors hover:text-primary">
-              Medical Gases & Distribution
+              Medical Gas Infrastructure
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
             <span className="text-foreground">{product.name}</span>
@@ -102,13 +102,13 @@ export default async function MedicalGasProductPage({
             className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Medical Gases
+            Back to Medical Gas Infrastructure
           </Link>
 
           <div className="grid items-start gap-8 lg:grid-cols-2">
             <div>
               <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
-                Medical Gases & Distribution
+                Surgical Infrastructure / Medical Gases
               </span>
               <h1 className="max-w-4xl text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
                 {product.name}
@@ -238,8 +238,9 @@ export default async function MedicalGasProductPage({
             Deployment environments
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            {product.name} is applicable across a range of hospital and healthcare facility
-            environments, from new builds to renovation and upgrade programs.
+            {product.name} supports operating rooms, critical care areas, procedure rooms, and
+            wider clinical environments where dependable gas infrastructure is part of the room
+            logic, not a separate utility afterthought.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {product.deploymentItems.map((item, index) => (
@@ -264,7 +265,9 @@ export default async function MedicalGasProductPage({
 
       <section className="relative overflow-hidden border-y border-border/50 py-10">
         <Container className="flex flex-wrap items-center justify-between gap-3">
-          <div className="text-sm text-muted-foreground">Explore other medical gas systems</div>
+          <div className="text-sm text-muted-foreground">
+            Explore other medical gas infrastructure systems
+          </div>
           <div className="flex flex-wrap gap-2">
             {prevProduct && (
               <Button
@@ -301,11 +304,12 @@ export default async function MedicalGasProductPage({
         <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
         <Container className="relative flex flex-col items-center gap-6 text-center">
           <h2 className="max-w-xl text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-            Need a medical gas system specification or project quote?
+            Need a medical gas infrastructure specification for an OR or clinical project?
           </h2>
           <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            We can assess your facility requirements and provide a complete specification,
-            supply, installation, and commissioning proposal for your medical gas infrastructure.
+            We can assess the surgical and clinical room requirements, then define the gas
+            infrastructure package, supply scope, installation path, and commissioning proposal
+            needed for dependable project delivery.
           </p>
           <Button asChild size="lg" className="gap-2 rounded-xl glow-cyan">
             <Link href="/contact">

@@ -59,14 +59,15 @@ export default function BeaconMonitorsPage() {
           </Link>
 
           <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
-            Surgical Monitors
+            OR Visualization Infrastructure
           </span>
           <h1 className="max-w-4xl text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
-            Beacon Display Surgical Monitors
+            Beacon surgical display systems for integrated OR environments
           </h1>
           <p className="mt-4 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            Beacon operating-room display lineup covering FHD, 4K UHD, and 3D surgical monitors
-            for endoscopy, integrated OR workflows, and large-format team viewing environments.
+            Beacon's display range supports operating rooms as visualization infrastructure:
+            primary surgical screens, endoscopy displays, and large-format viewing surfaces that
+            fit into integrated OR workflows.
           </p>
         </Container>
       </section>
@@ -104,18 +105,16 @@ export default function BeaconMonitorsPage() {
         <div className="absolute inset-0 bg-card/40" />
         <Container className="relative">
           <h2 className="max-w-3xl text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-            Surgical displays for precision, clarity, and OR workflow efficiency
+            Surgical displays as part of the OR integration stack
           </h2>
           <p className="mt-4 max-w-4xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            High-quality surgical monitors are a critical component of modern endoscopic and minimally
-            invasive surgery. The display system determines how accurately surgeons perceive tissue
-            structure, depth, and color during every procedure. Selecting the right surgical monitor
-            improves intraoperative decision-making, reduces visual fatigue, and supports the full
-            capability of advanced 4K camera systems.
+            Surgical monitors are not standalone screens in this context. They are the visualization
+            layer inside integrated operating rooms, connecting camera systems, routing, team
+            viewing, and room workflow into a clinically reliable setup.
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             <article className="glass rounded-xl p-5">
-              <h3 className="text-base font-semibold text-foreground">Why display quality matters</h3>
+              <h3 className="text-base font-semibold text-foreground">Why monitor quality matters</h3>
               <ul className="mt-3 space-y-2">
                 {[
                   "Accurate color reproduction supports reliable intraoperative tissue differentiation.",
@@ -130,12 +129,12 @@ export default function BeaconMonitorsPage() {
               </ul>
             </article>
             <article className="glass rounded-xl p-5">
-              <h3 className="text-base font-semibold text-foreground">Key selection criteria</h3>
+              <h3 className="text-base font-semibold text-foreground">What must align in the room</h3>
               <ul className="mt-3 space-y-2">
                 {[
                   "Resolution and panel technology matched to the camera system in use.",
-                  "Brightness and contrast ratio for performance in OR ambient light conditions.",
-                  "Multiview support and input compatibility for complex OR configurations.",
+                  "Brightness and contrast ratio matched to OR lighting and ambient conditions.",
+                  "Multiview, routing, and input compatibility aligned with the integration workflow.",
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-2.5">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
@@ -145,7 +144,7 @@ export default function BeaconMonitorsPage() {
               </ul>
             </article>
             <article className="glass rounded-xl p-5">
-              <h3 className="text-base font-semibold text-foreground">Long-term OR value</h3>
+              <h3 className="text-base font-semibold text-foreground">Infrastructure value over time</h3>
               <ul className="mt-3 space-y-2">
                 {[
                   "Medical-grade calibration maintains consistent image accuracy over clinical lifetime.",
@@ -163,7 +162,7 @@ export default function BeaconMonitorsPage() {
           <div className="mt-10">
             <Button asChild size="lg" className="gap-2 rounded-xl glow-cyan">
               <Link href="/contact">
-                Request Quote
+                Discuss OR Display Requirements
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
