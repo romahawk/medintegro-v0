@@ -38,6 +38,11 @@ interface EquipmentItem {
   ctaKey?: string
 }
 
+type LocalizedValue = {
+  en: string
+  ua: string
+}
+
 const categoryFilters: { key: CategoryKey; labelKey: string; icon: LucideIcon }[] = [
   { key: "imaging", labelKey: "cat.imaging", icon: Network },
   { key: "lighting", labelKey: "cat.lighting", icon: Lightbulb },
@@ -141,7 +146,108 @@ const equipment: EquipmentItem[] = [
 export function EquipmentCatalog() {
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("imaging")
   const searchParams = useSearchParams()
-  const { t } = useLanguage()
+  const { locale, t } = useLanguage()
+
+  const localizedItemCopy: Record<string, { name: LocalizedValue; desc: LocalizedValue }> = {
+    "surgimedia-compact": {
+      name: { en: "SurgiMedia Compact", ua: "SurgiMedia Compact" },
+      desc: {
+        en: "Flexible integrated OR platform tailored for hybrid operating and treatment rooms.",
+        ua: "Гнучка платформа для інтегрованої операційної, адаптована для гібридних операційних і процедурних приміщень.",
+      },
+    },
+    "surgimedia-xxl-4k": {
+      name: { en: "SurgiMedia XXL 4K", ua: "SurgiMedia XXL 4K" },
+      desc: {
+        en: "Advanced 4K integrated OR concept for minimally invasive and image-guided surgery.",
+        ua: "Передова 4K-концепція інтегрованої операційної для малоінвазивної та навігаційної хірургії.",
+      },
+    },
+    "surgimedia-distriview-4k-ip": {
+      name: { en: "SurgiMedia DistriView 4K-IP", ua: "SurgiMedia DistriView 4K-IP" },
+      desc: {
+        en: "IP-based distribution and control platform for medical audio, video, and data signals.",
+        ua: "Платформа на базі IP для розподілу й керування медичними аудіо-, відео- та data-сигналами.",
+      },
+    },
+    "surgimedia-multiview-4k-ip": {
+      name: { en: "SurgiMedia MultiView 4K-IP", ua: "SurgiMedia MultiView 4K-IP" },
+      desc: {
+        en: "Integrated video management for multi-discipline and hybrid OR environments.",
+        ua: "Інтегроване керування відео для мультидисциплінарних і гібридних операційних середовищ.",
+      },
+    },
+    "gas-sources": {
+      name: { en: "Medical Gas Sources", ua: "Джерела медичних газів" },
+      desc: {
+        en: "Central medical gas plants including oxygen, vacuum, medical air, and cylinder manifold systems for healthcare facilities.",
+        ua: "Центральні станції медичних газів, включно з киснем, вакуумом, медичним повітрям і колекторними системами для медичних закладів.",
+      },
+    },
+    "pipeline-distribution": {
+      name: {
+        en: "Medical Gas Pipeline Distribution Systems",
+        ua: "Системи трубопровідного розподілу медичних газів",
+      },
+      desc: {
+        en: "Complete copper pipeline networks connecting gas sources to every point of care across operating rooms, ICU, and ward areas.",
+        ua: "Повні мережі мідних трубопроводів, що з'єднують джерела газів з кожною точкою споживання в операційних, ВІТ і палатних зонах.",
+      },
+    },
+    "area-valve-service-units": {
+      name: { en: "Area Valve Service Units", ua: "Зональні клапанні сервісні модулі" },
+      desc: {
+        en: "Zone isolation valve boxes enabling controlled shutdown of individual clinical areas for maintenance without disrupting adjacent zones.",
+        ua: "Зональні клапанні блоки, що дозволяють контрольовано відключати окремі клінічні зони для сервісу без впливу на сусідні ділянки.",
+      },
+    },
+    "monitoring-systems": {
+      name: { en: "Medical Gas Monitoring Systems", ua: "Системи моніторингу медичних газів" },
+      desc: {
+        en: "Alarm panels, pressure monitoring, and centralized gas management systems providing continuous visibility of medical gas pressure and status across all zones.",
+        ua: "Панелі сигналізації, моніторинг тиску та централізовані системи керування газами для постійного контролю тиску та стану медичних газів у всіх зонах.",
+      },
+    },
+    "gas-outlets": {
+      name: { en: "Medical Gas Outlets", ua: "Точки підключення медичних газів" },
+      desc: {
+        en: "Terminal units and quick-connect outlets for safe, standardized gas delivery at every point of care.",
+        ua: "Термінальні блоки та швидкороз'ємні точки підключення для безпечної стандартизованої подачі газів у кожній точці надання допомоги.",
+      },
+    },
+    "consumption-boards": {
+      name: { en: "Consumption and Control Boards", ua: "Панелі споживання та керування" },
+      desc: {
+        en: "Ward and bed-area boards combining outlet access, controls, and service organization for clinical workstations.",
+        ua: "Панелі для палат і приліжкових зон, що поєднують доступ до виходів, елементи керування та організацію сервісів на клінічному робочому місці.",
+      },
+    },
+    "beacon-monitors": {
+      name: { en: "Beacon Display", ua: "Beacon Display" },
+      desc: {
+        en: "High-performance 4K surgical monitors for endoscopy and open surgery from Shenzhen Beacon Display.",
+        ua: "Високопродуктивні 4K хірургічні монітори для ендоскопії та відкритої хірургії від Shenzhen Beacon Display.",
+      },
+    },
+    "fsn-monitors": {
+      name: { en: "FSN Medical Technologies", ua: "FSN Medical Technologies" },
+      desc: {
+        en: "Full-range surgical monitors from FHD to 4K Mini-LED, OLED and large-format for modern operating rooms.",
+        ua: "Повний спектр хірургічних моніторів від FHD до 4K Mini-LED, OLED і великоформатних дисплеїв для сучасних операційних.",
+      },
+    },
+  }
+
+  function getLocalizedText(item: EquipmentItem, field: "name" | "desc") {
+    const override = localizedItemCopy[item.key]
+    if (override) {
+      return override[field][locale]
+    }
+
+    const key = field === "name" ? item.nameKey : item.descKey
+    const translated = t(key)
+    return translated === key ? key : translated
+  }
 
   useEffect(() => {
     const categoryParam = searchParams.get("category")
@@ -200,11 +306,11 @@ export function EquipmentCatalog() {
                   {t(categoryFilters.find((c) => c.key === item.category)?.labelKey ?? "")}
                 </span>
                 <h3 className="text-base font-semibold text-foreground">
-                  {t(item.nameKey) === item.nameKey ? item.nameKey : t(item.nameKey)}
+                  {getLocalizedText(item, "name")}
                 </h3>
               </div>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                {t(item.descKey) === item.descKey ? item.descKey : t(item.descKey)}
+                {getLocalizedText(item, "desc")}
               </p>
               <div className="mt-auto pt-2">
                 <Button
