@@ -12,7 +12,51 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState("")
-  const { t } = useLanguage()
+  const { locale, t } = useLanguage()
+  const copy = {
+    sendError: {
+      en: "We could not send your message. Please try again.",
+      ua: "Не вдалося надіслати ваше повідомлення. Будь ласка, спробуйте ще раз.",
+    },
+    inquiryLabel: {
+      en: "Inquiry Type",
+      ua: "Тип звернення",
+    },
+    inquiryPlaceholder: {
+      en: "Select inquiry type",
+      ua: "Оберіть тип звернення",
+    },
+    inquiryOptions: {
+      project: {
+        en: "Project consultation",
+        ua: "Консультація щодо проєкту",
+      },
+      equipment: {
+        en: "Equipment sourcing",
+        ua: "Підбір і постачання обладнання",
+      },
+      contractor: {
+        en: "Contractor partnership",
+        ua: "Партнерство з підрядником",
+      },
+      manufacturer: {
+        en: "Manufacturer / distributor partnership",
+        ua: "Партнерство з виробником / дистриб'ютором",
+      },
+      service: {
+        en: "Service & maintenance",
+        ua: "Сервіс і технічне обслуговування",
+      },
+    },
+    helper: {
+      en: "Share your project stage, facility type, target rooms, and any brand or technical constraints. We typically respond within one business day.",
+      ua: "Вкажіть етап проєкту, тип закладу, цільові приміщення та можливі брендові або технічні обмеження. Зазвичай ми відповідаємо протягом одного робочого дня.",
+    },
+    sending: {
+      en: "Sending...",
+      ua: "Надсилання...",
+    },
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -44,9 +88,7 @@ export function ContactForm() {
       const result = (await response.json()) as { ok?: boolean; error?: string }
 
       if (!response.ok || !result.ok) {
-        throw new Error(
-          result.error || "We could not send your message. Please try again."
-        )
+        throw new Error(result.error || copy.sendError[locale])
       }
 
       setSubmitted(true)
@@ -55,7 +97,7 @@ export function ContactForm() {
       setError(
         err instanceof Error
           ? err.message
-          : "We could not send your message. Please try again."
+          : copy.sendError[locale]
       )
     } finally {
       setSubmitting(false)
@@ -104,7 +146,7 @@ export function ContactForm() {
         <Input id="email" name="email" type="email" placeholder={t("contact.form.email")} required className="rounded-lg bg-input border-border/50 focus:border-primary/50" />
       </div>
       <div className="flex flex-col gap-2">
-        <Label htmlFor="inquiryType">Inquiry Type</Label>
+        <Label htmlFor="inquiryType">{copy.inquiryLabel[locale]}</Label>
         <select
           id="inquiryType"
           name="inquiryType"
@@ -113,15 +155,19 @@ export function ContactForm() {
           className="h-10 rounded-lg border border-border/50 bg-input px-3 text-sm text-foreground focus:border-primary/50 focus:outline-none"
         >
           <option value="" disabled>
-            Select inquiry type
+            {copy.inquiryPlaceholder[locale]}
           </option>
-          <option value="Project consultation">Project consultation</option>
-          <option value="Equipment sourcing">Equipment sourcing</option>
-          <option value="Contractor partnership">Contractor partnership</option>
-          <option value="Manufacturer / distributor partnership">
-            Manufacturer / distributor partnership
+          <option value={copy.inquiryOptions.project.en}>{copy.inquiryOptions.project[locale]}</option>
+          <option value={copy.inquiryOptions.equipment.en}>
+            {copy.inquiryOptions.equipment[locale]}
           </option>
-          <option value="Service & maintenance">Service & maintenance</option>
+          <option value={copy.inquiryOptions.contractor.en}>
+            {copy.inquiryOptions.contractor[locale]}
+          </option>
+          <option value={copy.inquiryOptions.manufacturer.en}>
+            {copy.inquiryOptions.manufacturer[locale]}
+          </option>
+          <option value={copy.inquiryOptions.service.en}>{copy.inquiryOptions.service[locale]}</option>
         </select>
       </div>
       <div className="flex flex-col gap-2">
@@ -140,8 +186,7 @@ export function ContactForm() {
         />
       </div>
       <div className="rounded-xl border border-border/50 bg-card/40 p-4 text-sm text-muted-foreground">
-        Share your project stage, facility type, target rooms, and any brand or technical constraints.
-        We typically respond within one business day.
+        {copy.helper[locale]}
       </div>
       {error && (
         <div className="rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive">
@@ -154,7 +199,7 @@ export function ContactForm() {
         disabled={submitting}
         className="gap-2 self-start rounded-xl glow-cyan"
       >
-        {submitting ? "Sending..." : t("contact.form.submit")}
+        {submitting ? copy.sending[locale] : t("contact.form.submit")}
         {submitting ? (
           <LoaderCircle className="h-4 w-4 animate-spin" />
         ) : (

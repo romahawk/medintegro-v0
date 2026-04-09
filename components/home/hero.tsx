@@ -5,21 +5,45 @@ import Image from "next/image"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import { useLanguage } from "@/lib/i18n"
 
 export function Hero() {
+  const { locale } = useLanguage()
   const copy = {
-    label: "OR Integration Expert",
-    title: "Integrated operating rooms and surgical infrastructure for high-performance clinical environments",
-    subtitle:
-      "Medintegro designs and integrates operating room systems that combine OR integration platforms, surgical lights, medical gas infrastructure, and specialized clinical equipment into one reliable surgical workflow.",
-    cta1: "Explore OR Solutions",
-    cta2: "Discuss an OR Project",
-    badges: [
-      "OR integration",
-      "Surgical lights",
-      "Medical gas systems",
-      "Hospitals, contractors, and partners",
-    ],
+    label: {
+      en: "OR Integration Expert",
+      ua: "Експерт з інтеграції операційних",
+    },
+    title: {
+      en: "Integrated operating rooms and surgical infrastructure for high-performance clinical environments",
+      ua: "Інтегровані операційні та хірургічна інфраструктура для високоефективних клінічних середовищ",
+    },
+    subtitle: {
+      en: "Medintegro designs and integrates operating room systems that combine OR integration platforms, surgical lights, medical gas infrastructure, and specialized clinical equipment into one reliable surgical workflow.",
+      ua: "Medintegro проєктує та інтегрує системи для операційних, поєднуючи платформи OR integration, хірургічне освітлення, інфраструктуру медичних газів і спеціалізоване клінічне обладнання в один надійний хірургічний процес.",
+    },
+    cta1: {
+      en: "Explore OR Solutions",
+      ua: "Переглянути рішення для операційних",
+    },
+    cta2: {
+      en: "Discuss an OR Project",
+      ua: "Обговорити проєкт операційної",
+    },
+    badges: {
+      en: [
+        "OR integration",
+        "Surgical lights",
+        "Medical gas systems",
+        "Hospitals, contractors, and partners",
+      ],
+      ua: [
+        "Інтеграція операційних",
+        "Хірургічне освітлення",
+        "Системи медичних газів",
+        "Лікарні, підрядники та партнери",
+      ],
+    },
   }
 
   return (
@@ -43,16 +67,16 @@ export function Hero() {
       <Container className="relative z-10">
         <div className="flex max-w-2xl flex-col gap-6">
           <span className="w-fit rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary">
-            {copy.label}
+            {copy.label[locale]}
           </span>
           <h1 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            {copy.title}
+            {copy.title[locale]}
           </h1>
           <p className="max-w-lg text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            {copy.subtitle}
+            {copy.subtitle[locale]}
           </p>
           <div className="flex flex-wrap gap-2">
-            {copy.badges.map((badge) => (
+            {copy.badges[locale].map((badge) => (
               <span
                 key={badge}
                 className="rounded-full border border-border/60 bg-card/50 px-3 py-1 text-xs text-muted-foreground"
@@ -64,7 +88,7 @@ export function Hero() {
           <div className="flex flex-wrap gap-3 pt-2">
             <Button asChild size="lg" className="gap-2 rounded-xl glow-cyan">
               <Link href="/solutions">
-                {copy.cta1}
+                {copy.cta1[locale]}
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
@@ -74,7 +98,7 @@ export function Hero() {
               variant="outline"
               className="rounded-xl border-border/50 bg-card/30 text-foreground backdrop-blur-sm hover:border-primary/40 hover:bg-card/50 hover:text-foreground"
             >
-              <Link href="/contact">{copy.cta2}</Link>
+              <Link href="/contact">{copy.cta2[locale]}</Link>
             </Button>
           </div>
         </div>
