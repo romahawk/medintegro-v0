@@ -82,14 +82,14 @@ export function ProjectsPreview() {
               key={project.title.en}
               className="glass glass-hover glow-cyan-hover group overflow-hidden rounded-xl transition-all duration-300"
             >
-              <div className="relative aspect-[16/10] overflow-hidden">
+              <div className="relative aspect-16/10 overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title[locale]}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-background/80 to-transparent" />
               </div>
               <div className="flex flex-col gap-2 p-5">
                 <h3 className="text-base font-semibold text-foreground">{project.title[locale]}</h3>

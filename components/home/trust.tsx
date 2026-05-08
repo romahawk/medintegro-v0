@@ -69,8 +69,8 @@ export function Trust() {
 
   return (
     <section className="relative overflow-hidden py-16 md:py-20">
-      <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute left-0 top-0 h-px w-full bg-linear-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 h-px w-full bg-linear-to-r from-transparent via-primary/30 to-transparent" />
       <div className="absolute inset-0 bg-mesh" />
 
       <Container className="relative">
