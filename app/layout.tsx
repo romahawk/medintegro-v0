@@ -18,12 +18,12 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   icons: {
     icon: [
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon-light-32.png', type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: light)' },
+      { url: '/favicon-dark-32.png',  type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: dark)'  },
+      { url: '/icon.svg', type: 'image/svg+xml' },
     ],
-    apple: '/apple-icon.png',
+    apple: '/favicon-light-180.png',
   },
   openGraph: {
     title: 'Medintegro | Medical Infrastructure Integration',
