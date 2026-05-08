@@ -1,4 +1,4 @@
-const fallbackSiteUrl = "https://medintegro.com"
+const fallbackSiteUrl = "https://www.medintegro.com.ua"
 
 export const siteConfig = {
   name: "Medintegro",

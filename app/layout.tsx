@@ -9,43 +9,50 @@ import './globals.css'
 
 const _inter = Inter({ subsets: ["latin", "cyrillic"] })
 
+const OG_DESCRIPTION =
+  "Operating room integration, surgical video systems, medical equipment, and hospital infrastructure solutions for clinics and healthcare projects."
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.medintegro.com.ua"),
   title: {
-    default: 'Medintegro | Medical Infrastructure Integration',
-    template: '%s | Medintegro',
+    default: "Medintegro | Operating Room & Medical Infrastructure Integration",
+    template: "%s | Medintegro",
   },
-  metadataBase: new URL(siteConfig.siteUrl),
-  description: siteConfig.description,
+  description:
+    "Medintegro designs and integrates operating rooms, surgical video systems, medical infrastructure, and hospital equipment solutions for modern healthcare facilities.",
+  alternates: {
+    canonical: "https://www.medintegro.com.ua/",
+  },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '32x32' },
-      { url: '/favicon-light-32.png', type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: light)' },
-      { url: '/favicon-dark-32.png',  type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: dark)'  },
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon-light-32.png", type: "image/png", sizes: "32x32", media: "(prefers-color-scheme: light)" },
+      { url: "/favicon-dark-32.png",  type: "image/png", sizes: "32x32", media: "(prefers-color-scheme: dark)"  },
+      { url: "/icon.svg", type: "image/svg+xml" },
     ],
-    apple: '/favicon-light-180.png',
+    apple: "/favicon-light-180.png",
   },
   openGraph: {
-    title: 'Medintegro | Medical Infrastructure Integration',
-    description: siteConfig.description,
-    url: siteConfig.siteUrl,
-    siteName: siteConfig.name,
+    type: "website",
+    siteName: "Medintegro",
+    url: "https://www.medintegro.com.ua/",
+    title: "Medintegro | Medical Infrastructure Integration",
+    description: OG_DESCRIPTION,
     images: [
       {
-        url: absoluteUrl('/images/hero-or.jpg'),
-        width: 1600,
-        height: 900,
-        alt: 'Integrated operating room delivered by Medintegro',
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Modern integrated operating room by Medintegro",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+    locale: "uk_UA",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Medintegro | Medical Infrastructure Integration',
-    description: siteConfig.description,
-    images: [absoluteUrl('/images/hero-or.jpg')],
+    card: "summary_large_image",
+    title: "Medintegro | Medical Infrastructure Integration",
+    description: OG_DESCRIPTION,
+    images: ["/og-image.jpg"],
   },
 }
 
