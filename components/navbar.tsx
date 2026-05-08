@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { useState, useEffect } from "react"
 import { Menu, X, Sun, Moon } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -22,10 +22,27 @@ const navKeys = [
 
 export function Navbar() {
   const pathname = usePathname()
+  const router = useRouter()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { locale, setLocale, t } = useLanguage()
   const { theme, toggleTheme } = useTheme()
+  const homeHref = locale === "en" ? "/en" : "/"
+
+  function handleLocaleToggle() {
+    const nextLocale = locale === "en" ? "ua" : "en"
+    setLocale(nextLocale)
+
+    if (pathname === "/") {
+      router.push(nextLocale === "en" ? "/en" : "/")
+      return
+    }
+
+    if (pathname === "/en") {
+      router.push(nextLocale === "en" ? "/en" : "/")
+      return
+    }
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -43,7 +60,7 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-3">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="Medintegro Home">
+        <Link href={homeHref} className="flex items-center gap-2.5" aria-label="Medintegro Home">
           <Logo className="h-8 w-auto" />
         </Link>
 
@@ -55,7 +72,7 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   "relative rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                  pathname === link.href
+                  pathname === link.href || (link.href === "/" && pathname === "/en")
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground"
                 )}
@@ -80,7 +97,7 @@ export function Navbar() {
           </button>
           {/* Language toggle */}
           <button
-            onClick={() => setLocale(locale === "en" ? "ua" : "en")}
+            onClick={handleLocaleToggle}
             className="rounded-lg border border-border px-2.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
           >
             {locale === "en" ? "UA" : "EN"}
@@ -100,7 +117,7 @@ export function Navbar() {
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
           <button
-            onClick={() => setLocale(locale === "en" ? "ua" : "en")}
+            onClick={handleLocaleToggle}
             className="rounded-lg border border-border px-2 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground"
           >
             {locale === "en" ? "UA" : "EN"}
@@ -126,7 +143,7 @@ export function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className={cn(
                     "block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
-                    pathname === link.href
+                    pathname === link.href || (link.href === "/" && pathname === "/en")
                       ? "text-primary"
                       : "text-muted-foreground hover:text-foreground"
                   )}

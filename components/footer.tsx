@@ -7,7 +7,8 @@ import { Logo } from "@/components/logo"
 import { CONTACT } from "@/lib/contact"
 
 export function Footer() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
+  const homeHref = locale === "en" ? "/en" : "/"
 
   const solutionLinks = [
     { href: "/solutions", key: "nav.services" },
@@ -27,7 +28,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-2.5" aria-label="Medintegro Home">
+            <Link href={homeHref} className="flex items-center gap-2.5" aria-label="Medintegro Home">
               <Logo className="h-7 w-auto" />
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
