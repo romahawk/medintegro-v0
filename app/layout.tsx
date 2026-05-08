@@ -4,24 +4,30 @@ import { Analytics } from '@vercel/analytics/next'
 import { Providers } from '@/components/providers'
 import { BackToTop } from '@/components/back-to-top'
 import { ScrollIndicator } from '@/components/scroll-indicator'
-import { absoluteUrl, siteConfig } from '@/lib/site'
 import './globals.css'
 
 const _inter = Inter({ subsets: ["latin", "cyrillic"] })
 
-const OG_DESCRIPTION =
-  "Operating room integration, surgical video systems, medical infrastructure, and equipment solutions for healthcare facilities."
+const UK_TITLE = "Medintegro | Інтеграція операційних та медичних систем"
+const UK_DESCRIPTION =
+  "Medintegro проєктує та інтегрує операційні, хірургічні відеосистеми, медичну інфраструктуру та обладнання для сучасних клінік."
+const UK_OG_DESCRIPTION =
+  "Інтеграція операційних, хірургічні відеосистеми, медична інфраструктура та обладнання для сучасних клінік."
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.medintegro.com.ua"),
   title: {
-    default: "Medintegro | Operating Room & Medical Systems Integration",
+    default: UK_TITLE,
     template: "%s | Medintegro",
   },
-  description:
-    "Medintegro designs and integrates operating rooms, surgical video systems, medical infrastructure, and equipment solutions for modern healthcare facilities.",
+  description: UK_DESCRIPTION,
   alternates: {
     canonical: "https://www.medintegro.com.ua/",
+    languages: {
+      "uk-UA": "https://www.medintegro.com.ua/",
+      en: "https://www.medintegro.com.ua/en",
+      "x-default": "https://www.medintegro.com.ua/",
+    },
   },
   icons: {
     icon: [
@@ -36,23 +42,23 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Medintegro",
     url: "https://www.medintegro.com.ua/",
-    title: "Medintegro | Operating Room & Medical Systems Integration",
-    description: OG_DESCRIPTION,
+    title: UK_TITLE,
+    description: UK_OG_DESCRIPTION,
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og/og-image-uk.jpg",
         width: 1200,
         height: 630,
-        alt: "Operating room integration and medical infrastructure solutions by Medintegro",
+        alt: "Інтеграція операційних та медична інфраструктура від Medintegro",
       },
     ],
     locale: "uk_UA",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Medintegro | Operating Room & Medical Systems Integration",
-    description: OG_DESCRIPTION,
-    images: ["/og-image.jpg"],
+    title: UK_TITLE,
+    description: UK_OG_DESCRIPTION,
+    images: ["/og/og-image-uk.jpg"],
   },
 }
 

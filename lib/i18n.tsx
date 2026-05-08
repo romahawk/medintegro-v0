@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react"
+import { usePathname } from "next/navigation"
 import { translations } from "./translations"
 
 export type Locale = "en" | "ua"
@@ -15,16 +16,21 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | null>(null)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname()
   const [locale, setLocaleState] = useState<Locale>("ua")
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    const routeLocale: Locale = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "ua"
     const stored = localStorage.getItem("medintegro-locale") as Locale | null
-    if (stored === "en" || stored === "ua") {
+    if (routeLocale === "en") {
+      setLocaleState("en")
+      localStorage.setItem("medintegro-locale", "en")
+    } else if (stored === "en" || stored === "ua") {
       setLocaleState(stored)
     }
     setMounted(true)
-  }, [])
+  }, [pathname])
 
   const setLocale = useCallback((l: Locale) => {
     setLocaleState(l)

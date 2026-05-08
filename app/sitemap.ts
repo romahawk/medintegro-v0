@@ -13,6 +13,7 @@ import { medicalGasProducts } from "@/lib/medical-gases-products"
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "/",
+    "/en",
     "/about",
     "/contact",
     "/equipment",
