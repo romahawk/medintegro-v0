@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     description: OG_DESCRIPTION,
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Modern integrated operating room by Medintegro",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Medintegro | OR & Medical Infrastructure Integration",
     description: OG_DESCRIPTION,
-    images: ["/og-image.jpg"],
+    images: ["/images/og-image.jpg"],
   },
 }
 
