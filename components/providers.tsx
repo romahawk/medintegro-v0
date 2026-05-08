@@ -5,6 +5,7 @@ import { LanguageProvider, useLanguage } from "@/lib/i18n"
 import { ThemeProvider } from "@/lib/theme"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { WhatsAppButton } from "@/components/whatsapp-button"
 
 function AppShell({ children }: { children: ReactNode }) {
   const { mounted } = useLanguage()
@@ -17,6 +18,7 @@ function AppShell({ children }: { children: ReactNode }) {
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />
+      <WhatsAppButton />
     </div>
   )
 }

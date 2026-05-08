@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Mail, Phone, MapPin } from "lucide-react"
 import { useLanguage } from "@/lib/i18n"
 import { Logo } from "@/components/logo"
+import { CONTACT } from "@/lib/contact"
 
 export function Footer() {
   const { t } = useLanguage()
@@ -84,10 +85,10 @@ export function Footer() {
               <li className="flex items-start gap-2.5">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <a
-                  href="tel:+380441234567"
+                  href={`tel:${CONTACT.phoneTel}`}
                   className="text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
-                  +380 44 123 4567
+                  {CONTACT.phoneDisplay}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
