@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Medintegro",
     url: "https://www.medintegro.com.ua/",
-    title: "Medintegro | Medical Infrastructure Integration",
+    title: "Medintegro | OR & Medical Infrastructure Integration",
     description: OG_DESCRIPTION,
     images: [
       {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Medintegro | Medical Infrastructure Integration",
+    title: "Medintegro | OR & Medical Infrastructure Integration",
     description: OG_DESCRIPTION,
     images: ["/og-image.jpg"],
   },
