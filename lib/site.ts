@@ -7,7 +7,7 @@ export const siteConfig = {
   siteUrl:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") || fallbackSiteUrl,
   contactEmail: process.env.CONTACT_EMAIL || "info@medintegro.com",
-  contactPhone: "+380 44 123 4567",
+  contactPhone: "+380 67 214 2144",
   location: "Kyiv, Ukraine",
 }
 

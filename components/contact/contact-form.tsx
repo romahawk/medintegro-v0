@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { LoaderCircle, Send } from "lucide-react"
 import { useLanguage } from "@/lib/i18n"
+import { CONTACT } from "@/lib/contact"
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
@@ -181,9 +182,28 @@ export function ContactForm() {
           className="rounded-lg bg-input border-border/50 focus:border-primary/50"
         />
       </div>
-      <p className="text-xs text-muted-foreground">
-        {copy.helper[locale]}
-      </p>
+      <div className="flex flex-col gap-1">
+        <p className="text-xs text-muted-foreground">{copy.helper[locale]}</p>
+        <p className="text-xs text-muted-foreground">
+          {locale === "ua" ? (
+            <>
+              Для швидкої відповіді також можете{" "}
+              <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-medium text-[#25D366] hover:opacity-80 transition-opacity">
+                написати нам у WhatsApp
+              </a>
+              .
+            </>
+          ) : (
+            <>
+              For a quick reply,{" "}
+              <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-medium text-[#25D366] hover:opacity-80 transition-opacity">
+                message us in WhatsApp
+              </a>
+              .
+            </>
+          )}
+        </p>
+      </div>
       {error && (
         <div className="rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive">
           {error}
