@@ -38,7 +38,7 @@ export default async function IntegratedOrProductPage({
       alt: "Integrated operating room environment",
     },
     secondary1: {
-      src: "/images/company/or-integration.jpg",
+      src: "/images/company/or-integration.jpg?v=20260508",
       alt: "OR control and displays",
     },
     secondary2: {
@@ -48,7 +48,7 @@ export default async function IntegratedOrProductPage({
   }
   const heroImages = product.heroImages ?? fallbackHeroImages
   const deploymentImages = product.deploymentImages ?? [
-    { src: "/images/company/or-integration.jpg", alt: "Integrated OR deployment configuration" },
+    { src: "/images/company/or-integration.jpg?v=20260508", alt: "Integrated OR deployment configuration" },
     { src: "/images/projects/project-surgical.jpg", alt: "Integrated OR deployment configuration" },
     { src: "/images/company/hero-or.jpg", alt: "Integrated OR deployment configuration" },
   ]

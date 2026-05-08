@@ -122,7 +122,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       <input
         type="text"
         name="website"
@@ -131,63 +131,59 @@ export function ContactForm() {
         className="hidden"
         aria-hidden="true"
       />
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div className="flex flex-col gap-2">
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="flex flex-col gap-1.5">
           <Label htmlFor="name">{t("contact.form.name")}</Label>
           <Input id="name" name="name" placeholder={t("contact.form.name")} required className="rounded-lg bg-input border-border/50 focus:border-primary/50" />
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1.5">
           <Label htmlFor="company">{t("contact.form.company")}</Label>
           <Input id="company" name="company" placeholder={t("contact.form.company")} className="rounded-lg bg-input border-border/50 focus:border-primary/50" />
         </div>
       </div>
-      <div className="flex flex-col gap-2">
-        <Label htmlFor="email">{t("contact.form.email")}</Label>
-        <Input id="email" name="email" type="email" placeholder={t("contact.form.email")} required className="rounded-lg bg-input border-border/50 focus:border-primary/50" />
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="flex flex-col gap-1.5">
+          <Label htmlFor="email">{t("contact.form.email")}</Label>
+          <Input id="email" name="email" type="email" placeholder={t("contact.form.email")} required className="rounded-lg bg-input border-border/50 focus:border-primary/50" />
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <Label htmlFor="inquiryType">{copy.inquiryLabel[locale]}</Label>
+          <select
+            id="inquiryType"
+            name="inquiryType"
+            required
+            defaultValue=""
+            className="h-10 rounded-lg border border-border/50 bg-input px-3 text-sm text-foreground focus:border-primary/50 focus:outline-none"
+          >
+            <option value="" disabled>
+              {copy.inquiryPlaceholder[locale]}
+            </option>
+            <option value={copy.inquiryOptions.project.en}>{copy.inquiryOptions.project[locale]}</option>
+            <option value={copy.inquiryOptions.equipment.en}>{copy.inquiryOptions.equipment[locale]}</option>
+            <option value={copy.inquiryOptions.contractor.en}>{copy.inquiryOptions.contractor[locale]}</option>
+            <option value={copy.inquiryOptions.manufacturer.en}>{copy.inquiryOptions.manufacturer[locale]}</option>
+            <option value={copy.inquiryOptions.service.en}>{copy.inquiryOptions.service[locale]}</option>
+          </select>
+        </div>
       </div>
-      <div className="flex flex-col gap-2">
-        <Label htmlFor="inquiryType">{copy.inquiryLabel[locale]}</Label>
-        <select
-          id="inquiryType"
-          name="inquiryType"
-          required
-          defaultValue=""
-          className="h-10 rounded-lg border border-border/50 bg-input px-3 text-sm text-foreground focus:border-primary/50 focus:outline-none"
-        >
-          <option value="" disabled>
-            {copy.inquiryPlaceholder[locale]}
-          </option>
-          <option value={copy.inquiryOptions.project.en}>{copy.inquiryOptions.project[locale]}</option>
-          <option value={copy.inquiryOptions.equipment.en}>
-            {copy.inquiryOptions.equipment[locale]}
-          </option>
-          <option value={copy.inquiryOptions.contractor.en}>
-            {copy.inquiryOptions.contractor[locale]}
-          </option>
-          <option value={copy.inquiryOptions.manufacturer.en}>
-            {copy.inquiryOptions.manufacturer[locale]}
-          </option>
-          <option value={copy.inquiryOptions.service.en}>{copy.inquiryOptions.service[locale]}</option>
-        </select>
-      </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1.5">
         <Label htmlFor="subject">{t("contact.form.subject")}</Label>
         <Input id="subject" name="subject" placeholder={t("contact.form.subject")} className="rounded-lg bg-input border-border/50 focus:border-primary/50" />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1.5">
         <Label htmlFor="message">{t("contact.form.message")}</Label>
         <Textarea
           id="message"
           name="message"
           placeholder={t("contact.form.message")}
-          rows={5}
+          rows={3}
           required
           className="rounded-lg bg-input border-border/50 focus:border-primary/50"
         />
       </div>
-      <div className="rounded-xl border border-border/50 bg-card/40 p-4 text-sm text-muted-foreground">
+      <p className="text-xs text-muted-foreground">
         {copy.helper[locale]}
-      </div>
+      </p>
       {error && (
         <div className="rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive">
           {error}

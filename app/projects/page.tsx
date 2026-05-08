@@ -10,111 +10,111 @@ import { useLanguage } from "@/lib/i18n"
 const projects = [
   {
     title: {
-      en: "City Clinical Hospital OR Complex",
-      ua: "Комплекс операційних міської клінічної лікарні",
+      en: "Dobrobut Private Clinic Network — Surgical Lighting",
+      ua: "Мережа приватних клінік Добробут — хірургічне освітлення",
+    },
+    location: {
+      en: "Kyiv, Ukraine — 3 branches",
+      ua: "Київ, Україна — 3 філії",
+    },
+    summary: {
+      en: "15 operating rooms across three Dobrobut clinic branches equipped with Surgiris X3-X2MT surgical lights, delivered as a coordinated multi-site project.",
+      ua: "15 операційних у трьох філіях клінік Добробут оснащені хірургічними світильниками Surgiris X3-X2MT у рамках скоординованого багатомайданчикового проєкту.",
+    },
+    challenge: {
+      en: "Challenge: maintain consistent lighting standards and commissioning quality across 15 ORs in three separate clinic locations operating on different schedules.",
+      ua: "Виклик: забезпечити єдині стандарти освітлення та якість пусконалагодження у 15 операційних трьох філій, що працюють за різними графіками.",
+    },
+    scope: {
+      en: "Scope: Surgiris X3-X2MT surgical lights, 15 ORs across 3 branches, multi-site delivery and commissioning coordination.",
+      ua: "Обсяг: хірургічні світильники Surgiris X3-X2MT, 15 операційних у 3 філіях, координація поставки та пусконалагодження на кількох майданчиках.",
+    },
+    result: {
+      en: "Result: a unified surgical lighting standard across all three clinic branches with consistent clinical performance and room-ready handover.",
+      ua: "Результат: єдиний стандарт хірургічного освітлення в усіх трьох філіях із однорідними клінічними показниками та готовністю приміщень до роботи.",
+    },
+    image: "/images/projects/project-dobrobut.jpg",
+  },
+  {
+    title: {
+      en: "National Pediatric Hospital — OR Integration System",
+      ua: "Національна дитяча лікарня — система OR integration",
     },
     location: {
       en: "Kyiv, Ukraine",
       ua: "Київ, Україна",
     },
     summary: {
-      en: "Four operating rooms aligned around centralized video routing, surgical displays, and workflow control for a modern OR block.",
-      ua: "Чотири операційні, побудовані навколо централізованої відеокомутації, хірургічних дисплеїв та логіки керування сучасним операційним блоком.",
+      en: "7 operating rooms equipped with the Surgimedia Distriview 4K-IP OR integration system, enabling centralized video routing and surgical workflow control across the pediatric surgical department.",
+      ua: "7 операційних оснащені системою OR integration Surgimedia Distriview 4K-IP, що забезпечує централізований відеорозподіл і керування хірургічним процесом у педіатричному хірургічному відділенні.",
     },
     challenge: {
-      en: "Challenge: coordinate multiple OR rooms, shared video logic, and brand compatibility without slowing project delivery.",
-      ua: "Виклик: узгодити кілька операційних, спільну відеологіку та сумісність брендів без затримки реалізації проєкту.",
+      en: "Challenge: implement a unified OR integration platform across 7 operating rooms supporting multi-discipline pediatric surgery with demanding workflow and cross-room coordination requirements.",
+      ua: "Виклик: впровадити єдину платформу OR integration у 7 операційних для мультидисциплінарної педіатричної хірургії з високими вимогами до процесу та координації між кімнатами.",
     },
     scope: {
-      en: "Scope: OR integration, surgical displays, routing, room workflow coordination.",
-      ua: "Обсяг: інтеграція операційних, хірургічні дисплеї, маршрутизація сигналів, координація логіки приміщень.",
+      en: "Scope: Surgimedia Distriview 4K-IP OR integration system, 7 ORs, centralized video routing and surgical workflow coordination.",
+      ua: "Обсяг: система OR integration Surgimedia Distriview 4K-IP, 7 операційних, централізований відеорозподіл і координація хірургічного процесу.",
     },
     result: {
-      en: "Result: a coordinated OR environment that supports clinical teams with cleaner visualization and faster in-room control.",
-      ua: "Результат: узгоджене OR-середовище, яке забезпечує клінічним командам кращу візуалізацію та швидше керування в межах кімнати.",
+      en: "Result: a centralized OR integration environment supporting multi-discipline pediatric surgery with reliable video management and consistent room workflow.",
+      ua: "Результат: централізоване OR-середовище для мультидисциплінарної педіатричної хірургії з надійним керуванням відео та сталим робочим процесом у приміщеннях.",
     },
-    image: "/images/projects/project-hospital.jpg",
+    image: "/images/projects/project-k2o.jpg",
   },
   {
     title: {
-      en: "Private Surgical Center Upgrade",
-      ua: "Модернізація приватного хірургічного центру",
+      en: "Kyiv City Clinical Hospital No. 1 — OR Integration and Lighting",
+      ua: "Київська міська клінічна лікарня №1 — OR Integration і освітлення",
     },
     location: {
-      en: "Lviv, Ukraine",
-      ua: "Львів, Україна",
+      en: "Kyiv, Ukraine",
+      ua: "Київ, Україна",
     },
     summary: {
-      en: "Surgical rooms upgraded with integration-ready infrastructure, lighting, and coordinated equipment planning for relaunch.",
-      ua: "Хірургічні приміщення модернізовано з інтеграційно-готовою інфраструктурою, освітленням та узгодженим плануванням обладнання для повторного запуску.",
+      en: "Operating rooms equipped with the Surgimedia Compact OR integration system combined with Surgiris Epure surgical lights with integrated video cameras, connecting room lighting and OR video infrastructure.",
+      ua: "Операційні оснащені системою OR integration Surgimedia Compact у поєднанні з хірургічними світильниками Surgiris Epure з вбудованими відеокамерами, що об'єднує освітлення приміщення й відеоінфраструктуру операційної.",
     },
     challenge: {
-      en: "Challenge: modernize the surgical suite while aligning room infrastructure with clinical workflow and reopening targets.",
-      ua: "Виклик: модернізувати хірургічний блок, узгодивши інфраструктуру приміщень із клінічним процесом і термінами повторного запуску.",
+      en: "Challenge: combine OR integration with video-capable surgical lighting in a city hospital environment, ensuring the camera-equipped lights feed correctly into the room's OR video system.",
+      ua: "Виклик: поєднати OR integration з відеоздатним хірургічним освітленням у міській лікарні, гарантуючи коректну передачу відеосигналу від камер світильників до OR-системи приміщення.",
     },
     scope: {
-      en: "Scope: surgical lighting, room infrastructure, equipment package coordination, commissioning support.",
-      ua: "Обсяг: хірургічне освітлення, кімнатна інфраструктура, координація пакета обладнання, супровід пусконалагодження.",
+      en: "Scope: Surgimedia Compact OR integration system; Surgiris Epure surgical lights with embedded video cameras.",
+      ua: "Обсяг: система OR integration Surgimedia Compact; хірургічні світильники Surgiris Epure з вбудованими відеокамерами.",
     },
     result: {
-      en: "Result: a sharper surgical-room package that supports daily throughput and a more dependable relaunch path.",
-      ua: "Результат: сильніший пакет хірургічних приміщень, який підтримує щоденне навантаження та надійніший шлях до повторного запуску.",
+      en: "Result: an integrated OR environment where video-capable surgical lights are connected to the room's OR integration system, supporting both illumination and in-room video capture.",
+      ua: "Результат: інтегроване OR-середовище, де відеоздатні хірургічні світильники підключені до системи OR integration приміщення, забезпечуючи освітлення і відеозапис у кімнаті.",
     },
-    image: "/images/projects/project-clinic.jpg",
+    image: "/images/projects/project-kyiv-1_1.jpg",
   },
   {
     title: {
-      en: "Regional Endoscopy and Procedure Department",
-      ua: "Регіональне відділення ендоскопії та процедурних кімнат",
+      en: "Kyiv City Clinical Hospital No. 7 — Lights and Medical Gas Pendants",
+      ua: "Київська міська клінічна лікарня №7 — освітлення і консолі медичних газів",
     },
     location: {
-      en: "Odesa, Ukraine",
-      ua: "Одеса, Україна",
+      en: "Kyiv, Ukraine",
+      ua: "Київ, Україна",
     },
     summary: {
-      en: "Procedure rooms equipped with high-resolution visualization, supporting infrastructure, and documentation-ready room systems.",
-      ua: "Процедурні кімнати, оснащені високоякісною візуалізацією, допоміжною інфраструктурою та кімнатними системами, готовими до документації процесу.",
+      en: "Operating rooms equipped with Surgiris X3-X2MT surgical lights and Surgiris Genius medical gas pendants, delivered as a coordinated single-supplier OR infrastructure package.",
+      ua: "Операційні оснащені хірургічними світильниками Surgiris X3-X2MT і консолями медичних газів Surgiris Genius у рамках скоординованого OR-інфраструктурного пакету від одного постачальника.",
     },
     challenge: {
-      en: "Challenge: deliver multiple procedure spaces that feel clinically consistent instead of a disconnected equipment rollout.",
-      ua: "Виклик: реалізувати кілька процедурних просторів так, щоб вони працювали як єдина клінічна система, а не як набір розрізненого обладнання.",
+      en: "Challenge: align surgical lighting and medical gas pendant systems from the same manufacturer into one consistent OR infrastructure delivery without creating inter-system dependencies that complicate installation.",
+      ua: "Виклик: узгодити хірургічне освітлення і консолі медичних газів від одного виробника в єдине OR-інфраструктурне постачання без міжсистемних залежностей, що ускладнюють монтаж.",
     },
     scope: {
-      en: "Scope: visualization systems, room infrastructure, washer-disinfector support, workflow-ready room setup.",
-      ua: "Обсяг: системи візуалізації, кімнатна інфраструктура, підтримка мийно-дезінфекційного циклу, підготовка приміщень до робочого процесу.",
+      en: "Scope: Surgiris X3-X2MT surgical lights; Surgiris Genius medical gas pendants; coordinated delivery and commissioning.",
+      ua: "Обсяг: хірургічні світильники Surgiris X3-X2MT; консолі медичних газів Surgiris Genius; координована поставка та пусконалагодження.",
     },
     result: {
-      en: "Result: a department package that supports procedure quality, staff usability, and future system expansion.",
-      ua: "Результат: пакет для відділення, який підтримує якість процедур, зручність для персоналу та майбутнє розширення систем.",
+      en: "Result: a coordinated single-supplier OR infrastructure package covering both surgical lighting and medical gas supply, with a clean handover to the surgical team.",
+      ua: "Результат: скоординований OR-інфраструктурний пакет від одного постачальника, що охоплює хірургічне освітлення і медичне газопостачання з чіткою передачею хірургічній команді.",
     },
-    image: "/images/projects/project-endoscopy.jpg",
-  },
-  {
-    title: {
-      en: "Maternity Hospital Operating Suite Renovation",
-      ua: "Реконструкція операційного блоку пологового будинку",
-    },
-    location: {
-      en: "Zaporizhzhia, Ukraine",
-      ua: "Запоріжжя, Україна",
-    },
-    summary: {
-      en: "Operating suites and delivery-room infrastructure refreshed with modern surgical and monitoring systems.",
-      ua: "Операційні та інфраструктура пологових залів оновлені сучасними хірургічними та моніторинговими системами.",
-    },
-    challenge: {
-      en: "Challenge: improve room readiness and surgical support infrastructure inside an active hospital environment.",
-      ua: "Виклик: покращити готовність приміщень та хірургічну інфраструктуру в умовах діючого медичного закладу.",
-    },
-    scope: {
-      en: "Scope: OR equipment refresh, monitoring support, room modernization, coordinated relaunch preparation.",
-      ua: "Обсяг: оновлення OR-обладнання, підтримка моніторингу, модернізація приміщень, координація підготовки до повторного запуску.",
-    },
-    result: {
-      en: "Result: a more reliable surgical environment with stronger readiness for obstetric and operative care workflows.",
-      ua: "Результат: надійніше хірургічне середовище з кращою готовністю до акушерських та операційних клінічних процесів.",
-    },
-    image: "/images/projects/project-surgical.jpg",
+    image: "/images/projects/project-kyiv-7_1.jpg",
   },
 ]
 
@@ -160,14 +160,14 @@ export default function ProjectsPage() {
                 key={project.title.en}
                 className="glass glass-hover glow-cyan-hover group overflow-hidden rounded-2xl transition-all duration-300"
               >
-                <div className="relative aspect-[16/10] overflow-hidden">
+                <div className="relative aspect-16/10 overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title[locale]}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-background/85 to-transparent" />
+
                 </div>
 
                 <div className="space-y-4 p-6">

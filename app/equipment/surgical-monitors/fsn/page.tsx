@@ -8,23 +8,15 @@ import { Button } from "@/components/ui/button"
 import { fsnProducts } from "@/lib/surgical-monitors-products"
 
 function getFsnImage(slug: string, fileName: string, fallbackSrc: string) {
-  const relativePath = `/images/products/surgical-monitors/fsn/${slug}/${fileName}`
-  const absolutePath = path.join(
-    process.cwd(),
-    "public",
-    "images",
-    "products",
-    "surgical-monitors",
-    "fsn",
-    slug,
-    fileName
-  )
-
-  if (!existsSync(absolutePath)) {
-    return fallbackSrc
+  const base = fileName.replace(/\.[^.]+$/, "")
+  for (const ext of [".jpg", ".png"]) {
+    const name = base + ext
+    const absolutePath = path.join(process.cwd(), "public", "images", "products", "surgical-monitors", "fsn", slug, name)
+    if (existsSync(absolutePath)) {
+      return `/images/products/surgical-monitors/fsn/${slug}/${name}?v=${statSync(absolutePath).mtimeMs}`
+    }
   }
-
-  return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
+  return fallbackSrc
 }
 
 export default function FsnMonitorsPage() {

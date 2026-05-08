@@ -11,39 +11,39 @@ import { useLanguage } from "@/lib/i18n"
 const projects = [
   {
     title: {
-      en: "City Clinical Hospital OR Complex",
-      ua: "Комплекс операційних міської клінічної лікарні",
+      en: "Dobrobut Private Clinic — Surgical lights",
+      ua: "Приватна клініка Добробут — Хірургічне освітлення",
     },
     desc: {
-      en: "Four integrated operating rooms with centralized video routing, surgical displays, and coordinated room control.",
-      ua: "Чотири інтегровані операційні з централізованою відеокомутацією, хірургічними дисплеями та узгодженим керуванням у межах кімнати.",
+      en: "Surgical lighting supply and installation for a leading private clinic network in Kyiv.",
+      ua: "Постачання та монтаж хірургічного освітлення для провідної мережі приватних клінік у Києві.",
     },
     location: "Kyiv",
-    image: "/images/projects/project-hospital.jpg",
+    image: "/images/pages/home/dobrobut-2017-1.jpg",
   },
   {
     title: {
-      en: "Private Surgical Center Upgrade",
-      ua: "Модернізація приватного хірургічного центру",
+      en: "City Clinical Hospital No. 1 — Integrated OR and Surgical lights",
+      ua: "Міська клінічна лікарня №1 — Інтегрована операційна та хірургічне освітлення",
     },
     desc: {
-      en: "Surgical lighting, room infrastructure, and supporting systems coordinated for a faster relaunch of the OR suite.",
-      ua: "Хірургічне освітлення, інфраструктура приміщення та допоміжні системи, узгоджені для швидкого перезапуску операційного блоку.",
+      en: "Integrated operating room setup combining surgical lighting and OR infrastructure for a major municipal hospital.",
+      ua: "Комплексне оснащення операційної з хірургічним освітленням та інфраструктурою OR для великої міської лікарні.",
     },
-    location: "Lviv",
-    image: "/images/projects/project-clinic.jpg",
+    location: "Kyiv",
+    image: "/images/pages/home/kyiv-1_2.jpg",
   },
   {
     title: {
-      en: "Regional Endoscopy and Procedure Department",
-      ua: "Регіональне відділення ендоскопії та процедурних кімнат",
+      en: "City Clinical Hospital No. 7 — Surgical lights and pendants",
+      ua: "Міська клінічна лікарня №7 — Хірургічне освітлення та консолі",
     },
     desc: {
-      en: "Procedure rooms equipped with visualization, integration-ready infrastructure, and room systems aligned for clinical workflow.",
-      ua: "Процедурні кімнати, оснащені системами візуалізації, інфраструктурою для інтеграції та узгодженими кімнатними системами для клінічного процесу.",
+      en: "Supply and installation of surgical lights and ceiling-mounted pendants as part of a broader OR infrastructure upgrade.",
+      ua: "Постачання та монтаж хірургічних світильників і стельових консолей у рамках масштабного оновлення інфраструктури операційної.",
     },
-    location: "Odesa",
-    image: "/images/projects/project-surgical.jpg",
+    location: "Kyiv",
+    image: "/images/pages/home/kyiv-7_3.jpg",
   },
 ]
 

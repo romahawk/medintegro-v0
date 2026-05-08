@@ -15,7 +15,7 @@ const expertiseItems = [
       en: "We translate the surgical brief, room constraints, and equipment priorities into a practical OR system scope.",
       ua: "Ми перетворюємо хірургічне завдання, обмеження приміщення та пріоритети обладнання на практичний обсяг систем для операційної.",
     },
-    image: "/images/company/equipment-supply.jpg",
+    image: "/images/pages/home/clinical-brief.png",
   },
   {
     title: {
@@ -26,7 +26,7 @@ const expertiseItems = [
       en: "We coordinate lights, medical gases, displays, pendants, and supporting infrastructure so the room works as one clinical environment.",
       ua: "Ми координуємо освітлення, медичні гази, дисплеї, консолі та допоміжну інфраструктуру, щоб приміщення працювало як єдине клінічне середовище.",
     },
-    image: "/images/company/or-integration.jpg",
+    image: "/images/pages/home/system-alignment.jpg",
   },
   {
     title: {
@@ -37,7 +37,7 @@ const expertiseItems = [
       en: "We support delivery planning, on-site coordination, commissioning, staff orientation, and structured handover for the surgical team.",
       ua: "Ми супроводжуємо планування поставки, координацію на майданчику, пусконалагодження, навчання персоналу та структуровану передачу для хірургічної команди.",
     },
-    image: "/images/company/maintenance.jpg",
+    image: "/images/pages/home/installation.png",
   },
   {
     title: {
@@ -48,7 +48,7 @@ const expertiseItems = [
       en: "We stay involved through service coordination, modernization planning, and future room upgrades as clinical needs evolve.",
       ua: "Ми залишаємося залученими через координацію сервісу, планування модернізації та подальші оновлення приміщень разом зі зміною клінічних потреб.",
     },
-    image: "/images/company/turnkey.jpg",
+    image: "/images/pages/home/support.png",
   },
 ]
 
@@ -83,14 +83,14 @@ export function Expertise() {
               key={item.title.en}
               className="glass glass-hover glow-cyan-hover group flex flex-col overflow-hidden rounded-xl transition-all duration-300"
             >
-              <div className="relative aspect-[16/10] overflow-hidden">
+              <div className="relative aspect-16/10 overflow-hidden">
                 <Image
                   src={item.image}
                   alt={item.title[locale]}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-background/80 to-transparent" />
               </div>
               <div className="flex flex-col gap-2 p-5">
                 <h3 className="text-base font-semibold text-foreground">{item.title[locale]}</h3>

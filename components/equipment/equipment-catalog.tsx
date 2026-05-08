@@ -12,6 +12,7 @@ import {
   Monitor,
   Network,
   SquareActivity,
+  Tv2,
   Wind,
   type LucideIcon,
 } from "lucide-react"
@@ -25,6 +26,7 @@ type CategoryKey =
   | "endoscopy"
   | "monitoring"
   | "sterilization"
+  | "surgical"
 
 interface EquipmentItem {
   key: string
@@ -49,6 +51,7 @@ const categoryFilters: { key: CategoryKey; labelKey: string; icon: LucideIcon }[
   { key: "endoscopy", labelKey: "cat.endoscopy", icon: SquareActivity },
   { key: "monitoring", labelKey: "cat.monitoring", icon: Wind },
   { key: "sterilization", labelKey: "cat.sterilization", icon: Monitor },
+  { key: "surgical", labelKey: "cat.surgical", icon: Tv2 },
 ]
 
 const equipment: EquipmentItem[] = [
@@ -106,7 +109,8 @@ const equipment: EquipmentItem[] = [
     nameKey: "monitors.beacon.name",
     descKey: "monitors.beacon.desc",
     category: "sterilization",
-    image: "/images/categories/medical-gases/cover.jpg",
+    image: "/images/products/surgical-monitors/beacon/s3285p/card.jpg",
+    imageClassName: "object-contain",
     href: "/equipment/surgical-monitors/beacon",
     ctaKey: "equipment.viewMore",
   },
@@ -115,7 +119,8 @@ const equipment: EquipmentItem[] = [
     nameKey: "monitors.fsn.name",
     descKey: "monitors.fsn.desc",
     category: "sterilization",
-    image: "/images/categories/medical-gases/cover.jpg",
+    image: "/images/products/surgical-monitors/fsn/fm-d5802dv/card.png",
+    imageClassName: "object-contain",
     href: "/equipment/surgical-monitors/fsn",
     ctaKey: "equipment.viewMore",
   },
@@ -140,6 +145,33 @@ const equipment: EquipmentItem[] = [
     imageWrapperClassName: "bg-background/70",
     href: "/equipment/examination-lamps",
     ctaKey: "equipment.viewMore",
+  },
+  {
+    key: "ceiling-mounts",
+    nameKey: "mounts.ceiling.name",
+    descKey: "mounts.ceiling.desc",
+    category: "surgical",
+    image: "/images/products/monitor-mounts/ceiling-mount.jpg",
+    href: "/contact",
+    ctaKey: "equipment.requestQuote",
+  },
+  {
+    key: "wall-mounts",
+    nameKey: "mounts.wall.name",
+    descKey: "mounts.wall.desc",
+    category: "surgical",
+    image: "/images/products/monitor-mounts/wall-mount.jpg",
+    href: "/contact",
+    ctaKey: "equipment.requestQuote",
+  },
+  {
+    key: "video-walls",
+    nameKey: "mounts.videowall.name",
+    descKey: "mounts.videowall.desc",
+    category: "surgical",
+    image: "/images/products/monitor-mounts/video-wall.jpg",
+    href: "/contact",
+    ctaKey: "equipment.requestQuote",
   },
 ]
 
@@ -236,6 +268,27 @@ export function EquipmentCatalog() {
         ua: "Повний спектр хірургічних моніторів від FHD до 4K Mini-LED, OLED і великоформатних дисплеїв для сучасних операційних.",
       },
     },
+    "ceiling-mounts": {
+      name: { en: "Ceiling Mounts", ua: "Стельові кріплення" },
+      desc: {
+        en: "Ceiling-mounted articulated arms and boom systems for surgical displays, keeping the OR floor clear and displays optimally positioned.",
+        ua: "Стельові шарнірні кронштейни та консольні системи для хірургічних дисплеїв — звільняють підлогу операційної та забезпечують оптимальне положення екранів.",
+      },
+    },
+    "wall-mounts": {
+      name: { en: "Wall Mounts", ua: "Настінні кріплення" },
+      desc: {
+        en: "Fixed and tilting wall-mount brackets for surgical monitors in procedure rooms, scrub areas, and OR perimeter positions.",
+        ua: "Фіксовані та нахилені настінні кронштейни для хірургічних моніторів у процедурних кімнатах, зонах підготовки та периметрі операційної.",
+      },
+    },
+    "video-walls": {
+      name: { en: "Video Walls", ua: "Відеостіни" },
+      desc: {
+        en: "Multi-display video wall configurations for OR gallery viewing, imaging review, and team visualization in surgical environments.",
+        ua: "Мультидисплейні відеостіни для перегляду зображень з галереї операційної, роботи з діагностичними даними та командної візуалізації в хірургічних середовищах.",
+      },
+    },
   }
 
   function getLocalizedText(item: EquipmentItem, field: "name" | "desc") {
@@ -257,7 +310,8 @@ export function EquipmentCatalog() {
       categoryParam === "lighting" ||
       categoryParam === "endoscopy" ||
       categoryParam === "monitoring" ||
-      categoryParam === "sterilization"
+      categoryParam === "sterilization" ||
+      categoryParam === "surgical"
     ) {
       setActiveCategory(categoryParam)
     }

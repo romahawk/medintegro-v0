@@ -7,7 +7,7 @@ export function Trust() {
   const { locale } = useLanguage()
   const stats = [
     {
-      value: "200+",
+      value: "50+",
       label: {
         en: "clinical projects and room packages supported",
         ua: "клінічних проєктів і пакетів оснащення приміщень",
@@ -21,7 +21,7 @@ export function Trust() {
       },
     },
     {
-      value: "50+",
+      value: "10+",
       label: {
         en: "manufacturers and technology partners",
         ua: "виробників і технологічних партнерів",
@@ -51,7 +51,7 @@ export function Trust() {
     },
   ]
 
-  const brands = ["Olympus", "Karl Storz", "GE HealthCare", "Siemens", "Drager", "FSN", "INMED"]
+  const brands = ["Surgiris", "Surgimedia", "Inmed", "Beacon", "FSN", "Ergomounts"]
   const copy = {
     trustTitle: {
       en: "Why OR buyers trust Medintegro",
@@ -62,8 +62,8 @@ export function Trust() {
       ua: "Представлені бренди та технології",
     },
     brandsDescription: {
-      en: "We coordinate multi-brand operating room and surgical infrastructure packages around the clinical workflow, installation sequence, and long-term support model.",
-      ua: "Ми координуємо мультибрендові пакети для операційних і хірургічної інфраструктури з урахуванням клінічного процесу, послідовності монтажу та моделі довгострокової підтримки.",
+      en: "Our integration solutions are vendor-neutral, built on an open architecture that connects equipment from various manufacturers into one synergic surgical workflow.",
+      ua: "Наші інтеграційні рішення є вендорно-нейтральними — побудовані на відкритій архітектурі, яка поєднує обладнання різних виробників в один синергічний хірургічний процес.",
     },
   }
 

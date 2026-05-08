@@ -168,9 +168,9 @@ export default function AboutPage() {
                 {copy.introBody2[locale]}
               </p>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl glow-cyan">
+            <div className="relative aspect-4/3 overflow-hidden rounded-xl glow-cyan">
               <Image
-                src="/images/company/or-integration.jpg"
+                src="/images/pages/about/what-we-do.png"
                 alt={copy.imageAlt[locale]}
                 fill
                 className="object-cover"

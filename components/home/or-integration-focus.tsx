@@ -141,9 +141,9 @@ export function OrIntegrationFocus() {
           </div>
 
           <div className="glass overflow-hidden rounded-2xl border border-border/60">
-            <div className="relative aspect-[16/11] overflow-hidden">
+            <div className="relative aspect-16/11 overflow-hidden">
               <Image
-                src="/images/company/or-integration.jpg"
+                src="/images/company/or-integration.jpg?v=20260508"
                 alt={copy.imageAlt[locale]}
                 fill
                 className="object-cover"

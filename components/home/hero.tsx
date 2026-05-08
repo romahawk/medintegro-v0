@@ -47,10 +47,10 @@ export function Hero() {
   }
 
   return (
-    <section className="relative overflow-hidden py-24 md:py-32 lg:py-40">
+    <section className="relative flex min-h-svh items-center overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/images/company/hero-or.jpg"
+          src="/images/company/hero-or.jpg?v=20260507"
           alt=""
           fill
           className="object-cover opacity-15"
@@ -64,15 +64,15 @@ export function Hero() {
       <div className="absolute -left-32 top-1/4 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
       <div className="absolute -right-32 bottom-1/4 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
 
-      <Container className="relative z-10">
-        <div className="flex max-w-2xl flex-col gap-6">
+      <Container className="relative z-10 py-20">
+        <div className="flex max-w-2xl flex-col gap-4">
           <span className="w-fit rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary">
             {copy.label[locale]}
           </span>
-          <h1 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          <h1 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-5xl">
             {copy.title[locale]}
           </h1>
-          <p className="max-w-lg text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className="max-w-lg text-pretty text-sm leading-relaxed text-muted-foreground md:text-base">
             {copy.subtitle[locale]}
           </p>
           <div className="flex flex-wrap gap-2">
@@ -85,7 +85,7 @@ export function Hero() {
               </span>
             ))}
           </div>
-          <div className="flex flex-wrap gap-3 pt-2">
+          <div className="flex flex-wrap gap-3">
             <Button asChild size="lg" className="gap-2 rounded-xl glow-cyan">
               <Link href="/solutions">
                 {copy.cta1[locale]}

@@ -9,6 +9,7 @@ import {
   Handshake,
   Hospital,
   Lightbulb,
+  MessageSquare,
   Monitor,
   Network,
   Wind,
@@ -69,6 +70,17 @@ const solutions = [
     desc: {
       en: "We also support wider clinic and hospital projects when OR and surgical infrastructure expertise must connect with the broader delivery package.",
       ua: "Ми також підтримуємо ширші проєкти для клінік і лікарень, коли експертиза з операційних та хірургічної інфраструктури має бути пов’язана із загальним проєктним пакетом.",
+    },
+  },
+  {
+    icon: MessageSquare,
+    title: {
+      en: "Consulting",
+      ua: "Консалтинг",
+    },
+    desc: {
+      en: "Independent advice on OR system selection, infrastructure planning, and project scope — for buyers who need clarity before committing to a delivery path.",
+      ua: "Незалежні рекомендації щодо вибору систем для операційних, планування інфраструктури та обсягу проєкту — для замовників, яким потрібна визначеність перед прийняттям рішення.",
     },
   },
 ]

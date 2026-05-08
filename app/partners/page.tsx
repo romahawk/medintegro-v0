@@ -1,7 +1,7 @@
 "use client"
 
+import Image from "next/image"
 import { CheckCircle2, Globe2, Handshake, Hospital, Shield, ShieldCheck } from "lucide-react"
-import { PageHeader } from "@/components/page-header"
 import { Container } from "@/components/container"
 import { CTASection } from "@/components/cta-section"
 import { useLanguage } from "@/lib/i18n"
@@ -53,36 +53,6 @@ const cards = [
   },
 ]
 
-const distributorships = [
-  {
-    label: {
-      en: "Exclusive in Ukraine",
-      ua: "Ексклюзивно в Україні",
-    },
-    title: {
-      en: "Surgiris and Surgimedia",
-      ua: "Surgiris та Surgimedia",
-    },
-    desc: {
-      en: "Exclusive distributor position for Ukraine across OR integration and related surgical infrastructure solutions.",
-      ua: "Статус ексклюзивного дистриб'ютора в Україні для рішень з OR integration і пов'язаної хірургічної інфраструктури.",
-    },
-  },
-  {
-    label: {
-      en: "Official in Ukraine",
-      ua: "Офіційно в Україні",
-    },
-    title: {
-      en: "Inmed, Beacon, and FSN",
-      ua: "Inmed, Beacon та FSN",
-    },
-    desc: {
-      en: "Official distributor relationships covering medical infrastructure, surgical displays, and supporting clinical systems.",
-      ua: "Офіційні дистриб'юторські відносини у сфері медичної інфраструктури, хірургічних дисплеїв і допоміжних клінічних систем.",
-    },
-  },
-]
 
 const integrationProof = {
   en: [
@@ -136,11 +106,63 @@ export default function PartnersPage() {
 
   return (
     <>
-      <PageHeader
-        label={copy.header.label[locale]}
-        title={copy.header.title[locale]}
-        description={copy.header.description[locale]}
-      />
+      <section className="relative flex min-h-svh items-center overflow-hidden border-b border-border/50">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/company/hero-or.jpg?v=20260507"
+            alt=""
+            fill
+            className="object-cover opacity-15"
+            priority
+          />
+          <div className="absolute inset-0 bg-background/60" />
+        </div>
+        <div className="absolute inset-0 bg-mesh" />
+        <div className="absolute inset-0 bg-grid opacity-20" />
+        <div className="absolute -left-32 top-1/4 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute -right-32 bottom-1/4 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
+
+        <Container className="relative z-10 py-24">
+          <div className="max-w-3xl">
+            <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
+              {copy.header.label[locale]}
+            </span>
+            <h1 className="mt-4 text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-5xl">
+              {copy.header.title[locale]}
+            </h1>
+            <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
+              {copy.header.description[locale]}
+            </p>
+          </div>
+
+          <div className="mt-12">
+            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-primary">
+              {locale === "en" ? "Exclusive distributor for Ukraine" : "Ексклюзивний дистриб'ютор в Україні"}
+            </p>
+            <div className="flex flex-wrap items-center gap-6">
+              <div className="glass flex h-20 items-center rounded-xl border border-border/60 px-6">
+                <Image
+                  src="/images/partners/surgiris.png"
+                  alt="Surgiris"
+                  width={180}
+                  height={56}
+                  className="h-14 w-auto object-contain"
+                />
+              </div>
+              <div className="glass flex h-20 items-center rounded-xl border border-border/60 px-6">
+                <Image
+                  src="/images/partners/SurgiMedia_blue_solid.svg"
+                  alt="Surgimedia"
+                  width={192}
+                  height={29}
+                  className="h-8 w-auto object-contain"
+                  unoptimized
+                />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       <section className="py-20 md:py-28">
         <Container>
@@ -171,26 +193,108 @@ export default function PartnersPage() {
           </h2>
           <div className="mt-8 grid gap-4 lg:grid-cols-[1.3fr_1fr]">
             <div className="grid gap-4">
-              {distributorships.map((item) => (
-                <article key={item.title.en} className="glass rounded-xl border border-border/60 p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <span className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
-                        {item.label[locale]}
-                      </span>
-                      <h3 className="mt-4 text-lg font-semibold text-foreground">
-                        {item.title[locale]}
-                      </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                        {item.desc[locale]}
-                      </p>
-                    </div>
-                    <div className="rounded-xl border border-primary/20 bg-primary/10 p-2.5 text-primary">
-                      <Shield className="h-5 w-5" />
-                    </div>
+
+              {/* Exclusive */}
+              <article className="glass rounded-xl border border-border/60 p-6">
+                <div className="flex items-start justify-between gap-4">
+                  <span className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+                    {locale === "en" ? "Exclusive in Ukraine" : "Ексклюзивно в Україні"}
+                  </span>
+                  <div className="shrink-0 rounded-xl border border-primary/20 bg-primary/10 p-2.5 text-primary">
+                    <Shield className="h-5 w-5" />
                   </div>
-                </article>
-              ))}
+                </div>
+                <div className="mt-5 flex flex-wrap items-center gap-5">
+                  <div className="flex h-14 items-center rounded-lg border border-border/50 bg-white px-4 dark:bg-white/10">
+                    <Image
+                      src="/images/partners/surgiris.png"
+                      alt="Surgiris"
+                      width={160}
+                      height={50}
+                      className="h-10 w-auto object-contain dark:brightness-0 dark:invert"
+                    />
+                  </div>
+                  <div className="flex h-14 items-center rounded-lg border border-border/50 bg-white px-4 dark:bg-white/10">
+                    <Image
+                      src="/images/partners/SurgiMedia_blue_solid.svg"
+                      alt="SurgiMedia"
+                      width={192}
+                      height={29}
+                      className="h-7 w-auto object-contain"
+                      unoptimized
+                    />
+                  </div>
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {locale === "en"
+                    ? "Exclusive distributor position for Ukraine across OR integration and related surgical infrastructure solutions."
+                    : "Статус ексклюзивного дистриб'ютора в Україні для рішень з OR integration і пов'язаної хірургічної інфраструктури."}
+                </p>
+              </article>
+
+              {/* Official */}
+              <article className="glass rounded-xl border border-border/60 p-6">
+                <div className="flex items-start justify-between gap-4">
+                  <span className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+                    {locale === "en" ? "Official in Ukraine" : "Офіційно в Україні"}
+                  </span>
+                  <div className="shrink-0 rounded-xl border border-primary/20 bg-primary/10 p-2.5 text-primary">
+                    <Shield className="h-5 w-5" />
+                  </div>
+                </div>
+                <div className="mt-5 grid grid-cols-2 gap-3">
+                  <div className="space-y-2">
+                    <div className="flex h-24 items-center justify-center overflow-hidden rounded-lg border border-border/50 bg-white px-3 dark:bg-white/10">
+                      <Image src="/images/partners/inmed-light.png" alt="Inmed" width={240} height={96} className="h-16 w-auto object-contain dark:hidden" />
+                      <Image src="/images/partners/inmed-dark.png" alt="Inmed" width={240} height={96} className="hidden h-16 w-auto object-contain dark:block" />
+                    </div>
+                    <p className="px-1 text-xs leading-relaxed text-muted-foreground">
+                      {locale === "en"
+                        ? "Medical gas delivery systems, pipeline infrastructure, and clinical gas periphery."
+                        : "Системи подачі медичних газів, трубопровідна інфраструктура та периферія."}
+                    </p>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex h-24 items-center justify-center overflow-hidden rounded-lg border border-border/50 bg-white px-3 dark:bg-white/10">
+                      <Image src="/images/partners/beacon-light.png" alt="Beacon" width={240} height={96} className="h-20 w-auto object-contain dark:hidden" />
+                      <Image src="/images/partners/beacon-dark.png" alt="Beacon" width={240} height={96} className="hidden h-20 w-auto object-contain dark:block" />
+                    </div>
+                    <p className="px-1 text-xs leading-relaxed text-muted-foreground">
+                      {locale === "en"
+                        ? "High-performance 4K surgical monitors for endoscopy and open surgery."
+                        : "Високопродуктивні 4K хірургічні монітори для ендоскопії та відкритих операцій."}
+                    </p>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex h-24 items-center justify-center overflow-hidden rounded-lg border border-border/50 bg-white px-3 dark:bg-white/10">
+                      <Image src="/images/partners/FSN-light.png" alt="FSN Medical Technologies" width={240} height={96} className="h-20 w-auto object-contain dark:hidden" />
+                      <Image src="/images/partners/FSN-dark.png" alt="FSN Medical Technologies" width={240} height={96} className="hidden h-20 w-auto object-contain dark:block" />
+                    </div>
+                    <p className="px-1 text-xs leading-relaxed text-muted-foreground">
+                      {locale === "en"
+                        ? "Full-range surgical displays from FHD to 4K Mini-LED, OLED, and large-format OR monitors."
+                        : "Повний спектр хірургічних дисплеїв від FHD до 4K Mini-LED, OLED і великоформатних OR-моніторів."}
+                    </p>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex h-24 items-center justify-center overflow-hidden rounded-lg border border-border/50 bg-white px-3 dark:bg-white/10">
+                      <Image src="/images/partners/ergomounts-light.png" alt="ErgoMounts" width={240} height={96} className="h-20 w-auto object-contain dark:hidden" />
+                      <Image src="/images/partners/ergomounts-dark.png" alt="ErgoMounts" width={240} height={96} className="hidden h-20 w-auto object-contain dark:block" />
+                    </div>
+                    <p className="px-1 text-xs leading-relaxed text-muted-foreground">
+                      {locale === "en"
+                        ? "Ceiling, wall, and articulated mounting systems for surgical displays in OR environments."
+                        : "Стельові, настінні та шарнірні системи кріплення дисплеїв для операційних."}
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {locale === "en"
+                    ? "Official distributor relationships covering medical infrastructure, surgical displays, monitor mounts, and supporting clinical systems."
+                    : "Офіційні дистриб'юторські відносини у сфері медичної інфраструктури, хірургічних дисплеїв, систем кріплення моніторів і допоміжних клінічних систем."}
+                </p>
+              </article>
+
             </div>
             <div className="glass rounded-xl p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
