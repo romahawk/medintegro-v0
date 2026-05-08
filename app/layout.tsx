@@ -10,16 +10,16 @@ import './globals.css'
 const _inter = Inter({ subsets: ["latin", "cyrillic"] })
 
 const OG_DESCRIPTION =
-  "Operating room integration, surgical video systems, medical equipment, and hospital infrastructure solutions for clinics and healthcare projects."
+  "Operating room integration, surgical video systems, medical infrastructure, and equipment solutions for healthcare facilities."
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.medintegro.com.ua"),
   title: {
-    default: "Medintegro | Operating Room & Medical Infrastructure Integration",
+    default: "Medintegro | Operating Room & Medical Systems Integration",
     template: "%s | Medintegro",
   },
   description:
-    "Medintegro designs and integrates operating rooms, surgical video systems, medical infrastructure, and hospital equipment solutions for modern healthcare facilities.",
+    "Medintegro designs and integrates operating rooms, surgical video systems, medical infrastructure, and equipment solutions for modern healthcare facilities.",
   alternates: {
     canonical: "https://www.medintegro.com.ua/",
   },
@@ -36,21 +36,21 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Medintegro",
     url: "https://www.medintegro.com.ua/",
-    title: "Medintegro | Medical Infrastructure Integration",
+    title: "Medintegro | Operating Room & Medical Systems Integration",
     description: OG_DESCRIPTION,
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Modern integrated operating room by Medintegro",
+        alt: "Operating room integration and medical infrastructure solutions by Medintegro",
       },
     ],
     locale: "uk_UA",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Medintegro | Medical Infrastructure Integration",
+    title: "Medintegro | Operating Room & Medical Systems Integration",
     description: OG_DESCRIPTION,
     images: ["/og-image.jpg"],
   },

@@ -1,13 +1,26 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import { EquipmentContent } from "./equipment-content"
 
 export const metadata: Metadata = {
-  title: "OR Integration Equipment & Surgical Systems",
-  description: "Browse OR integration platforms, surgical lighting, medical gas pendants, surgical displays, and specialist equipment from Surgiris, Surgimedia, FSN, Inmed, Beacon, and ErgoMounts.",
+  title: {
+    absolute: "Equipment | Surgical Lights, Pendants & Medical Systems",
+  },
+  description:
+    "Medical equipment for operating rooms and healthcare infrastructure, including surgical lights, medical pendants, displays, and integration systems.",
   alternates: { canonical: "https://www.medintegro.com.ua/equipment" },
-  openGraph: { url: "https://www.medintegro.com.ua/equipment" },
+  openGraph: {
+    url: "https://www.medintegro.com.ua/equipment",
+    title: "Equipment | Surgical Lights, Pendants & Medical Systems",
+    description:
+      "Medical equipment for operating rooms and healthcare infrastructure, including surgical lights, medical pendants, displays, and integration systems.",
+  },
 }
 
 export default function EquipmentPage() {
-  return <EquipmentContent />
+  return (
+    <Suspense fallback={null}>
+      <EquipmentContent />
+    </Suspense>
+  )
 }

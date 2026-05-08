@@ -1,6 +1,5 @@
 "use client"
 
-import { Suspense } from "react"
 import Image from "next/image"
 import { Container } from "@/components/container"
 import { CTASection } from "@/components/cta-section"
@@ -52,9 +51,7 @@ export function EquipmentContent() {
             </p>
           </div>
 
-          <Suspense fallback={null}>
-            <EquipmentCatalog />
-          </Suspense>
+          <EquipmentCatalog />
         </Container>
       </section>
 
