@@ -9,23 +9,22 @@ import { Button } from "@/components/ui/button"
 import { getFsnProductBySlug, fsnProducts } from "@/lib/surgical-monitors-products"
 
 function getFsnImage(slug: string, fileName: string, fallbackSrc: string) {
-  const relativePath = `/images/products/surgical-monitors/fsn/${slug}/${fileName}`
-  const absolutePath = path.join(
-    process.cwd(),
-    "public",
-    "images",
-    "products",
-    "surgical-monitors",
-    "fsn",
-    slug,
-    fileName
-  )
-
-  if (!existsSync(absolutePath)) {
-    return fallbackSrc
+  const base = fileName.replace(/\.[^.]+$/, "")
+  for (const ext of [".jpg", ".png"]) {
+    const name = base + ext
+    const absolutePath = path.join(process.cwd(), "public", "images", "products", "surgical-monitors", "fsn", slug, name)
+    if (existsSync(absolutePath)) {
+      return `/images/products/surgical-monitors/fsn/${slug}/${name}?v=${statSync(absolutePath).mtimeMs}`
+    }
   }
+  return fallbackSrc
+}
 
-  return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
+function hasFsnImage(slug: string, fileName: string) {
+  const base = fileName.replace(/\.[^.]+$/, "")
+  return [".jpg", ".png"].some((ext) =>
+    existsSync(path.join(process.cwd(), "public", "images", "products", "surgical-monitors", "fsn", slug, base + ext))
+  )
 }
 
 export function generateStaticParams() {
@@ -48,34 +47,28 @@ export default async function FsnMonitorProductPage({
   const prevProduct = currentIndex > 0 ? fsnProducts[currentIndex - 1] : null
   const nextProduct =
     currentIndex < fsnProducts.length - 1 ? fsnProducts[currentIndex + 1] : null
-  const heroImages = {
-    main: {
-      src: getFsnImage(product.slug, "hero-main.jpg", product.heroImages.main.src),
-      alt: product.heroImages.main.alt,
-    },
-    secondary1: {
-      src: getFsnImage(product.slug, "hero-secondary-1.jpg", product.heroImages.secondary1.src),
-      alt: product.heroImages.secondary1.alt,
-    },
-    secondary2: {
-      src: getFsnImage(product.slug, "hero-secondary-2.jpg", product.heroImages.secondary2.src),
-      alt: product.heroImages.secondary2.alt,
-    },
+  const heroMain = {
+    src: getFsnImage(product.slug, "hero-main.jpg", product.heroImages.main.src),
+    alt: product.heroImages.main.alt,
   }
-  const deploymentImages = [
-    {
-      src: getFsnImage(product.slug, "deploy-1.jpg", product.deploymentImages[0]?.src ?? product.heroImages.main.src),
-      alt: product.deploymentImages[0]?.alt ?? `${product.name} in clinical deployment`,
-    },
-    {
-      src: getFsnImage(product.slug, "deploy-2.jpg", product.deploymentImages[1]?.src ?? product.deploymentImages[0]?.src ?? product.heroImages.main.src),
-      alt: product.deploymentImages[1]?.alt ?? `${product.name} in integrated OR setup`,
-    },
-    {
-      src: getFsnImage(product.slug, "deploy-3.jpg", product.deploymentImages[2]?.src ?? product.deploymentImages[0]?.src ?? product.heroImages.main.src),
-      alt: product.deploymentImages[2]?.alt ?? `${product.name} in procedure-room deployment`,
-    },
-  ]
+  const heroSecondary1 = hasFsnImage(product.slug, "hero-secondary-1.jpg")
+    ? { src: getFsnImage(product.slug, "hero-secondary-1.jpg", product.heroImages.secondary1.src), alt: product.heroImages.secondary1.alt }
+    : null
+  const heroSecondary2 = hasFsnImage(product.slug, "hero-secondary-2.jpg")
+    ? { src: getFsnImage(product.slug, "hero-secondary-2.jpg", product.heroImages.secondary2.src), alt: product.heroImages.secondary2.alt }
+    : null
+
+  const deploymentImages = (["deploy-1.jpg", "deploy-2.jpg", "deploy-3.jpg"] as const).map(
+    (fileName, index) =>
+      hasFsnImage(product.slug, fileName)
+        ? {
+            src: getFsnImage(product.slug, fileName, product.deploymentImages[index]?.src ?? product.heroImages.main.src),
+            alt: product.deploymentImages[index]?.alt ?? `${product.name} deployment`,
+          }
+        : null
+  )
+  const deploymentAllHaveImages = deploymentImages.every(img => img !== null)
+  const deploymentHasAnyImages = deploymentImages.some(img => img !== null)
 
   return (
     <>
@@ -107,7 +100,7 @@ export default async function FsnMonitorProductPage({
           <div className="grid items-start gap-8 lg:grid-cols-2">
             <div>
               <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
-                Surgical Monitors
+                OR Visualization Infrastructure
               </span>
               <h1 className="max-w-4xl text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
                 {product.name}
@@ -135,14 +128,18 @@ export default async function FsnMonitorProductPage({
 
             <div className="grid grid-cols-2 gap-3 md:gap-4">
               <div className="relative col-span-2 aspect-video overflow-hidden rounded-xl border border-border/40 bg-white">
-                <Image src={heroImages.main.src} alt={heroImages.main.alt} fill className="object-contain p-6" />
+                <Image src={heroMain.src} alt={heroMain.alt} fill className="object-contain p-6" />
               </div>
-              <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40 bg-white">
-                <Image src={heroImages.secondary1.src} alt={heroImages.secondary1.alt} fill className="object-contain p-4" />
-              </div>
-              <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40 bg-white">
-                <Image src={heroImages.secondary2.src} alt={heroImages.secondary2.alt} fill className="object-contain p-4" />
-              </div>
+              {heroSecondary1 && (
+                <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40 bg-white">
+                  <Image src={heroSecondary1.src} alt={heroSecondary1.alt} fill className="object-contain p-4" />
+                </div>
+              )}
+              {heroSecondary2 && (
+                <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-border/40 bg-white">
+                  <Image src={heroSecondary2.src} alt={heroSecondary2.alt} fill className="object-contain p-4" />
+                </div>
+              )}
             </div>
           </div>
         </Container>
@@ -183,7 +180,7 @@ export default async function FsnMonitorProductPage({
         <div className="absolute inset-0 bg-card/40" />
         <Container className="relative">
           <h2 className="text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-            Core capabilities for modern surgical workflows
+            Core capabilities for OR visualization workflows
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {product.capabilityItems.map((item, index) => (
@@ -202,29 +199,61 @@ export default async function FsnMonitorProductPage({
       <section id="deployment" className="py-16 md:py-24">
         <Container>
           <h2 className="text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-            Adaptive deployment options
+            Deployment across integrated OR environments
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            {product.name} can be configured for different operating room formats and clinical
-            workflows while maintaining consistent display quality.
+            {product.name} can be specified for endoscopy towers, integrated OR rooms, and surgical
+            team-viewing positions where the display must support the wider room workflow.
           </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {product.deploymentItems.map((item, index) => (
-              <article key={item.title} className="glass rounded-xl p-4">
-                <div className="relative mb-4 aspect-4/3 overflow-hidden rounded-lg border border-border/40 bg-white">
-                  <Image src={deploymentImages[index]?.src ?? deploymentImages[0].src} alt={deploymentImages[index]?.alt ?? item.title} fill className="object-contain p-4" />
-                </div>
-                <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-              </article>
-            ))}
-          </div>
+          {deploymentAllHaveImages ? (
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {product.deploymentItems.map((item, index) => (
+                <article key={item.title} className="glass rounded-xl p-4">
+                  <div className="relative mb-4 aspect-4/3 overflow-hidden rounded-lg border border-border/40 bg-white">
+                    <Image src={deploymentImages[index]!.src} alt={deploymentImages[index]!.alt} fill className="object-contain p-4" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                </article>
+              ))}
+            </div>
+          ) : !deploymentHasAnyImages ? (
+            <div className="mt-8 grid gap-4 items-start sm:grid-cols-2 lg:grid-cols-3">
+              {product.deploymentItems.map((item) => (
+                <article key={item.title} className="glass rounded-xl p-5">
+                  <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-stretch">
+              <div className="relative overflow-hidden rounded-xl border border-border/40 bg-white md:w-1/2">
+                {(() => {
+                  const firstImage = deploymentImages.find(img => img !== null)
+                  return firstImage ? (
+                    <Image src={firstImage.src} alt={firstImage.alt} fill className="object-contain p-6" />
+                  ) : null
+                })()}
+              </div>
+              <div className="flex flex-col gap-4 md:flex-1">
+                {product.deploymentItems.map((item) => (
+                  <article key={item.title} className="glass rounded-xl p-5 flex-1">
+                    <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          )}
         </Container>
       </section>
 
       <section className="relative overflow-hidden border-y border-border/50 py-10">
         <Container className="flex flex-wrap items-center justify-between gap-3">
-          <div className="text-sm text-muted-foreground">Explore other FSN Medical Technologies monitors</div>
+          <div className="text-sm text-muted-foreground">
+            Explore other FSN OR visualization systems
+          </div>
           <div className="flex flex-wrap gap-2">
             {prevProduct && (
               <Button asChild variant="outline" size="sm" className="rounded-lg border-border/50 hover:border-primary/40">
@@ -248,18 +277,18 @@ export default async function FsnMonitorProductPage({
 
       <section className="relative overflow-hidden border-t border-border/50 py-20 md:py-24">
         <div className="absolute inset-0 bg-mesh" />
-        <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+        <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-linear-to-r from-transparent via-primary/50 to-transparent" />
         <Container className="relative flex flex-col items-center gap-6 text-center">
           <h2 className="max-w-xl text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-            Need support selecting the right surgical display?
+            Need support selecting OR visualization infrastructure?
           </h2>
           <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            We can evaluate your procedure mix, camera system, and OR configuration to define
-            the optimal surgical monitor solution for your operating suites.
+            We can evaluate the procedure mix, camera chain, routing needs, and OR configuration to
+            define the right display layer for your integrated surgical environment.
           </p>
           <Button asChild size="lg" className="gap-2 rounded-xl glow-cyan">
             <Link href="/contact">
-              Request Quote
+              Discuss OR Display Requirements
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>

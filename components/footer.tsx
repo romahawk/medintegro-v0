@@ -9,7 +9,7 @@ export function Footer() {
   const { t } = useLanguage()
 
   const solutionLinks = [
-    { href: "/services", key: "nav.services" },
+    { href: "/solutions", key: "nav.services" },
     { href: "/equipment", key: "nav.equipment" },
     { href: "/projects", key: "nav.projects" },
     { href: "/partners", key: "nav.partners" },

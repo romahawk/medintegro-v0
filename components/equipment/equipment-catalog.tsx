@@ -12,6 +12,7 @@ import {
   Monitor,
   Network,
   SquareActivity,
+  Tv2,
   Wind,
   type LucideIcon,
 } from "lucide-react"
@@ -25,6 +26,7 @@ type CategoryKey =
   | "endoscopy"
   | "monitoring"
   | "sterilization"
+  | "surgical"
 
 interface EquipmentItem {
   key: string
@@ -38,12 +40,18 @@ interface EquipmentItem {
   ctaKey?: string
 }
 
+type LocalizedValue = {
+  en: string
+  ua: string
+}
+
 const categoryFilters: { key: CategoryKey; labelKey: string; icon: LucideIcon }[] = [
   { key: "imaging", labelKey: "cat.imaging", icon: Network },
   { key: "lighting", labelKey: "cat.lighting", icon: Lightbulb },
   { key: "endoscopy", labelKey: "cat.endoscopy", icon: SquareActivity },
   { key: "monitoring", labelKey: "cat.monitoring", icon: Wind },
   { key: "sterilization", labelKey: "cat.sterilization", icon: Monitor },
+  { key: "surgical", labelKey: "cat.surgical", icon: Tv2 },
 ]
 
 const equipment: EquipmentItem[] = [
@@ -101,7 +109,8 @@ const equipment: EquipmentItem[] = [
     nameKey: "monitors.beacon.name",
     descKey: "monitors.beacon.desc",
     category: "sterilization",
-    image: "/images/categories/medical-gases/cover.jpg",
+    image: "/images/products/surgical-monitors/beacon/s3285p/card.jpg",
+    imageClassName: "object-contain",
     href: "/equipment/surgical-monitors/beacon",
     ctaKey: "equipment.viewMore",
   },
@@ -110,7 +119,8 @@ const equipment: EquipmentItem[] = [
     nameKey: "monitors.fsn.name",
     descKey: "monitors.fsn.desc",
     category: "sterilization",
-    image: "/images/categories/medical-gases/cover.jpg",
+    image: "/images/products/surgical-monitors/fsn/fm-d5802dv/card.png",
+    imageClassName: "object-contain",
     href: "/equipment/surgical-monitors/fsn",
     ctaKey: "equipment.viewMore",
   },
@@ -136,12 +146,161 @@ const equipment: EquipmentItem[] = [
     href: "/equipment/examination-lamps",
     ctaKey: "equipment.viewMore",
   },
+  {
+    key: "ceiling-mounts",
+    nameKey: "mounts.ceiling.name",
+    descKey: "mounts.ceiling.desc",
+    category: "surgical",
+    image: "/images/products/monitor-mounts/ceiling-mount.jpg",
+    href: "/contact",
+    ctaKey: "equipment.requestQuote",
+  },
+  {
+    key: "wall-mounts",
+    nameKey: "mounts.wall.name",
+    descKey: "mounts.wall.desc",
+    category: "surgical",
+    image: "/images/products/monitor-mounts/wall-mount.jpg",
+    href: "/contact",
+    ctaKey: "equipment.requestQuote",
+  },
+  {
+    key: "video-walls",
+    nameKey: "mounts.videowall.name",
+    descKey: "mounts.videowall.desc",
+    category: "surgical",
+    image: "/images/products/monitor-mounts/video-wall.jpg",
+    href: "/contact",
+    ctaKey: "equipment.requestQuote",
+  },
 ]
 
 export function EquipmentCatalog() {
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("imaging")
   const searchParams = useSearchParams()
-  const { t } = useLanguage()
+  const { locale, t } = useLanguage()
+
+  const localizedItemCopy: Record<string, { name: LocalizedValue; desc: LocalizedValue }> = {
+    "surgimedia-compact": {
+      name: { en: "SurgiMedia Compact", ua: "SurgiMedia Compact" },
+      desc: {
+        en: "Flexible integrated OR platform tailored for hybrid operating and treatment rooms.",
+        ua: "Гнучка платформа для інтегрованої операційної, адаптована для гібридних операційних і процедурних приміщень.",
+      },
+    },
+    "surgimedia-xxl-4k": {
+      name: { en: "SurgiMedia XXL 4K", ua: "SurgiMedia XXL 4K" },
+      desc: {
+        en: "Advanced 4K integrated OR concept for minimally invasive and image-guided surgery.",
+        ua: "Передова 4K-концепція інтегрованої операційної для малоінвазивної та навігаційної хірургії.",
+      },
+    },
+    "surgimedia-distriview-4k-ip": {
+      name: { en: "SurgiMedia DistriView 4K-IP", ua: "SurgiMedia DistriView 4K-IP" },
+      desc: {
+        en: "IP-based distribution and control platform for medical audio, video, and data signals.",
+        ua: "Платформа на базі IP для розподілу й керування медичними аудіо-, відео- та data-сигналами.",
+      },
+    },
+    "surgimedia-multiview-4k-ip": {
+      name: { en: "SurgiMedia MultiView 4K-IP", ua: "SurgiMedia MultiView 4K-IP" },
+      desc: {
+        en: "Integrated video management for multi-discipline and hybrid OR environments.",
+        ua: "Інтегроване керування відео для мультидисциплінарних і гібридних операційних середовищ.",
+      },
+    },
+    "gas-sources": {
+      name: { en: "Medical Gas Sources", ua: "Джерела медичних газів" },
+      desc: {
+        en: "Central medical gas plants including oxygen, vacuum, medical air, and cylinder manifold systems for healthcare facilities.",
+        ua: "Центральні станції медичних газів, включно з киснем, вакуумом, медичним повітрям і колекторними системами для медичних закладів.",
+      },
+    },
+    "pipeline-distribution": {
+      name: {
+        en: "Medical Gas Pipeline Distribution Systems",
+        ua: "Системи трубопровідного розподілу медичних газів",
+      },
+      desc: {
+        en: "Complete copper pipeline networks connecting gas sources to every point of care across operating rooms, ICU, and ward areas.",
+        ua: "Повні мережі мідних трубопроводів, що з'єднують джерела газів з кожною точкою споживання в операційних, ВІТ і палатних зонах.",
+      },
+    },
+    "area-valve-service-units": {
+      name: { en: "Area Valve Service Units", ua: "Зональні клапанні сервісні модулі" },
+      desc: {
+        en: "Zone isolation valve boxes enabling controlled shutdown of individual clinical areas for maintenance without disrupting adjacent zones.",
+        ua: "Зональні клапанні блоки, що дозволяють контрольовано відключати окремі клінічні зони для сервісу без впливу на сусідні ділянки.",
+      },
+    },
+    "monitoring-systems": {
+      name: { en: "Medical Gas Monitoring Systems", ua: "Системи моніторингу медичних газів" },
+      desc: {
+        en: "Alarm panels, pressure monitoring, and centralized gas management systems providing continuous visibility of medical gas pressure and status across all zones.",
+        ua: "Панелі сигналізації, моніторинг тиску та централізовані системи керування газами для постійного контролю тиску та стану медичних газів у всіх зонах.",
+      },
+    },
+    "gas-outlets": {
+      name: { en: "Medical Gas Outlets", ua: "Точки підключення медичних газів" },
+      desc: {
+        en: "Terminal units and quick-connect outlets for safe, standardized gas delivery at every point of care.",
+        ua: "Термінальні блоки та швидкороз'ємні точки підключення для безпечної стандартизованої подачі газів у кожній точці надання допомоги.",
+      },
+    },
+    "consumption-boards": {
+      name: { en: "Consumption and Control Boards", ua: "Панелі споживання та керування" },
+      desc: {
+        en: "Ward and bed-area boards combining outlet access, controls, and service organization for clinical workstations.",
+        ua: "Панелі для палат і приліжкових зон, що поєднують доступ до виходів, елементи керування та організацію сервісів на клінічному робочому місці.",
+      },
+    },
+    "beacon-monitors": {
+      name: { en: "Beacon Display", ua: "Beacon Display" },
+      desc: {
+        en: "High-performance 4K surgical monitors for endoscopy and open surgery from Shenzhen Beacon Display.",
+        ua: "Високопродуктивні 4K хірургічні монітори для ендоскопії та відкритої хірургії від Shenzhen Beacon Display.",
+      },
+    },
+    "fsn-monitors": {
+      name: { en: "FSN Medical Technologies", ua: "FSN Medical Technologies" },
+      desc: {
+        en: "Full-range surgical monitors from FHD to 4K Mini-LED, OLED and large-format for modern operating rooms.",
+        ua: "Повний спектр хірургічних моніторів від FHD до 4K Mini-LED, OLED і великоформатних дисплеїв для сучасних операційних.",
+      },
+    },
+    "ceiling-mounts": {
+      name: { en: "Ceiling Mounts", ua: "Стельові кріплення" },
+      desc: {
+        en: "Ceiling-mounted articulated arms and boom systems for surgical displays, keeping the OR floor clear and displays optimally positioned.",
+        ua: "Стельові шарнірні кронштейни та консольні системи для хірургічних дисплеїв — звільняють підлогу операційної та забезпечують оптимальне положення екранів.",
+      },
+    },
+    "wall-mounts": {
+      name: { en: "Wall Mounts", ua: "Настінні кріплення" },
+      desc: {
+        en: "Fixed and tilting wall-mount brackets for surgical monitors in procedure rooms, scrub areas, and OR perimeter positions.",
+        ua: "Фіксовані та нахилені настінні кронштейни для хірургічних моніторів у процедурних кімнатах, зонах підготовки та периметрі операційної.",
+      },
+    },
+    "video-walls": {
+      name: { en: "Video Walls", ua: "Відеостіни" },
+      desc: {
+        en: "Multi-display video wall configurations for OR gallery viewing, imaging review, and team visualization in surgical environments.",
+        ua: "Мультидисплейні відеостіни для перегляду зображень з галереї операційної, роботи з діагностичними даними та командної візуалізації в хірургічних середовищах.",
+      },
+    },
+  }
+
+  function getLocalizedText(item: EquipmentItem, field: "name" | "desc") {
+    const override = localizedItemCopy[item.key]
+    if (override) {
+      return override[field][locale]
+    }
+
+    const key = field === "name" ? item.nameKey : item.descKey
+    const translated = t(key)
+    return translated === key ? key : translated
+  }
 
   useEffect(() => {
     const categoryParam = searchParams.get("category")
@@ -151,7 +310,8 @@ export function EquipmentCatalog() {
       categoryParam === "lighting" ||
       categoryParam === "endoscopy" ||
       categoryParam === "monitoring" ||
-      categoryParam === "sterilization"
+      categoryParam === "sterilization" ||
+      categoryParam === "surgical"
     ) {
       setActiveCategory(categoryParam)
     }
@@ -200,11 +360,11 @@ export function EquipmentCatalog() {
                   {t(categoryFilters.find((c) => c.key === item.category)?.labelKey ?? "")}
                 </span>
                 <h3 className="text-base font-semibold text-foreground">
-                  {t(item.nameKey) === item.nameKey ? item.nameKey : t(item.nameKey)}
+                  {getLocalizedText(item, "name")}
                 </h3>
               </div>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                {t(item.descKey) === item.descKey ? item.descKey : t(item.descKey)}
+                {getLocalizedText(item, "desc")}
               </p>
               <div className="mt-auto pt-2">
                 <Button
