@@ -85,10 +85,6 @@ export default function RootLayout({
           <BackToTop />
         </Providers>
         <Analytics />
-        {/* Future chatbot integration:
-            Tidio / Crisp / Chatbase script can be added here after provider selection.
-            Do not enable before production key is available.
-        */}
       </body>
     </html>
   )
