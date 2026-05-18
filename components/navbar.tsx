@@ -27,19 +27,13 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const { locale, setLocale, t } = useLanguage()
   const { theme, toggleTheme } = useTheme()
-  const homeHref = locale === "en" ? "/en" : "/"
 
   function handleLocaleToggle() {
     const nextLocale = locale === "en" ? "ua" : "en"
     setLocale(nextLocale)
 
-    if (pathname === "/") {
-      router.push(nextLocale === "en" ? "/en" : "/")
-      return
-    }
-
-    if (pathname === "/en") {
-      router.push(nextLocale === "en" ? "/en" : "/")
+    if (pathname === "/en" && nextLocale === "ua") {
+      router.push("/")
       return
     }
   }
@@ -60,7 +54,7 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-3">
-        <Link href={homeHref} className="flex items-center gap-2.5" aria-label="Medintegro Home">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="Medintegro Home">
           <Logo className="h-8 w-auto" />
         </Link>
 
