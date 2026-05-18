@@ -1,11 +1,12 @@
 "use client"
 
 import type { ReactNode } from "react"
+import { CrispProvider } from "@/components/chat/crisp-provider"
+import { SupportLauncher } from "@/components/chat/support-launcher"
 import { LanguageProvider, useLanguage } from "@/lib/i18n"
 import { ThemeProvider } from "@/lib/theme"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { WhatsAppButton } from "@/components/whatsapp-button"
 
 function AppShell({ children }: { children: ReactNode }) {
   const { mounted } = useLanguage()
@@ -18,7 +19,7 @@ function AppShell({ children }: { children: ReactNode }) {
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />
-      <WhatsAppButton />
+      <SupportLauncher />
     </div>
   )
 }
@@ -27,7 +28,9 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <AppShell>{children}</AppShell>
+        <CrispProvider>
+          <AppShell>{children}</AppShell>
+        </CrispProvider>
       </LanguageProvider>
     </ThemeProvider>
   )

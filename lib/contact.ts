@@ -1,7 +1,9 @@
 export const CONTACT = {
   email: "info@medintegro.com",
+  emailHref: "mailto:info@medintegro.com",
   phoneDisplay: "+380 67 214 2144",
   phoneTel: "+380672142144",
+  contactPageHref: "/contact",
   whatsappNumber: "380672142144",
   whatsappMessage: "Добрий день, хочу отримати консультацію щодо медичного обладнання.",
   whatsappUrl:
