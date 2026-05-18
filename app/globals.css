@@ -220,3 +220,13 @@
     display: none;
   }
 }
+
+.about-card-node {
+  display: inline-flex;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklch, var(--primary) 55%, transparent);
+  background: color-mix(in oklch, var(--primary) 18%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary) 7%, transparent);
+}
