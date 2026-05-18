@@ -14,7 +14,14 @@ import {
   Network,
   Wind,
 } from "lucide-react"
-import { useLanguage } from "@/lib/i18n"
+import { useLanguage, type Locale } from "@/lib/i18n"
+
+type LocalizedText = Record<Locale, string>
+
+interface WorkflowStep {
+  title: LocalizedText
+  desc: LocalizedText
+}
 
 const solutions = [
   {
@@ -121,7 +128,7 @@ const buyerSituations = [
   },
 ]
 
-const deliverySteps = [
+const deliverySteps: WorkflowStep[] = [
   {
     title: {
       en: "Define the surgical room brief",
@@ -164,6 +171,127 @@ const deliverySteps = [
   },
 ]
 
+function WorkflowConnectors() {
+  return (
+    <>
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        className="workflow-connector pointer-events-none absolute inset-0 z-0 hidden h-full w-full md:block"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="workflow-line-gradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="currentColor" stopOpacity="0.16" />
+            <stop offset="45%" stopColor="currentColor" stopOpacity="0.42" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0.16" />
+          </linearGradient>
+        </defs>
+        <path
+          className="workflow-connector-path"
+          d="M 25 24 H 75 V 76 H 25 V 24"
+          fill="none"
+          stroke="url(#workflow-line-gradient)"
+          strokeWidth="0.7"
+          strokeDasharray="3 3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          vectorEffect="non-scaling-stroke"
+        />
+        <circle className="workflow-connector-dot" r="1" fill="currentColor">
+          <animateMotion
+            dur="18s"
+            repeatCount="indefinite"
+            path="M 25 24 H 75 V 76 H 25 V 24"
+          />
+        </circle>
+      </svg>
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        className="workflow-connector pointer-events-none absolute bottom-8 left-6 top-8 z-0 w-8 md:hidden"
+        viewBox="0 0 24 100"
+        preserveAspectRatio="none"
+      >
+        <path
+          className="workflow-connector-path"
+          d="M 12 0 V 100"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+          strokeDasharray="4 5"
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
+    </>
+  )
+}
+
+function WorkflowCard({
+  step,
+  index,
+  locale,
+}: {
+  step: WorkflowStep
+  index: number
+  locale: Locale
+}) {
+  return (
+    <div className="group rounded-xl border border-border/60 bg-background/85 p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_18px_45px_var(--glow-color)]">
+      <div className="flex items-center gap-3">
+        <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-primary/25 bg-primary/10 text-xs font-semibold text-primary transition-colors duration-300 group-hover:border-primary/45 group-hover:bg-primary/15">
+          0{index + 1}
+        </span>
+        <span className="h-px flex-1 bg-linear-to-r from-primary/25 to-transparent" />
+      </div>
+      <h3 className="mt-3 text-base font-semibold text-foreground">{step.title[locale]}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.desc[locale]}</p>
+    </div>
+  )
+}
+
+function WorkflowSection({
+  title,
+  description,
+  locale,
+}: {
+  title: string
+  description: string
+  locale: Locale
+}) {
+  return (
+    <section className="py-20 md:py-24">
+      <Container>
+        <div className="glass rounded-2xl p-8">
+          <div className="max-w-3xl">
+            <h2 className="text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+              {title}
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+              {description}
+            </p>
+          </div>
+          <div className="relative mt-8">
+            <WorkflowConnectors />
+            <div className="relative z-10 grid gap-4 md:grid-cols-2">
+              {deliverySteps.map((step, index) => (
+                <WorkflowCard
+                  key={step.title.en}
+                  step={step}
+                  index={index}
+                  locale={locale}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  )
+}
+
 export function SolutionsContent() {
   const { locale } = useLanguage()
 
@@ -204,6 +332,12 @@ export function SolutionsContent() {
         label={copy.label[locale]}
         title={copy.title[locale]}
         description={copy.description[locale]}
+      />
+
+      <WorkflowSection
+        title={copy.deliveryTitle[locale]}
+        description={copy.deliveryDescription[locale]}
+        locale={locale}
       />
 
       <section className="py-20 md:py-28">
@@ -250,39 +384,6 @@ export function SolutionsContent() {
                 </p>
               </article>
             ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="py-20 md:py-24">
-        <Container>
-          <div className="glass rounded-2xl p-8">
-            <div className="max-w-3xl">
-              <h2 className="text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-                {copy.deliveryTitle[locale]}
-              </h2>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-                {copy.deliveryDescription[locale]}
-              </p>
-            </div>
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              {deliverySteps.map((item, index) => (
-                <div
-                  key={item.title.en}
-                  className="rounded-xl border border-border/50 bg-background/40 p-5"
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-                    0{index + 1}
-                  </p>
-                  <h3 className="mt-3 text-base font-semibold text-foreground">
-                    {item.title[locale]}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {item.desc[locale]}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </Container>
       </section>
