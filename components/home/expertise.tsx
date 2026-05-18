@@ -15,7 +15,7 @@ const expertiseItems = [
       en: "We translate the surgical brief, room constraints, and equipment priorities into a practical OR system scope.",
       ua: "Ми перетворюємо хірургічне завдання, обмеження приміщення та пріоритети обладнання на практичний обсяг систем для операційної.",
     },
-    image: "/images/pages/home/clinical-brief.png",
+    image: "/images/pages/home/OR-specification.jpg",
   },
   {
     title: {
@@ -26,7 +26,7 @@ const expertiseItems = [
       en: "We coordinate lights, medical gases, displays, pendants, and supporting infrastructure so the room works as one clinical environment.",
       ua: "Ми координуємо освітлення, медичні гази, дисплеї, консолі та допоміжну інфраструктуру, щоб приміщення працювало як єдине клінічне середовище.",
     },
-    image: "/images/pages/home/system-alignment.jpg",
+    image: "/images/pages/home/system-alignment.png",
   },
   {
     title: {
@@ -48,7 +48,7 @@ const expertiseItems = [
       en: "We stay involved through service coordination, modernization planning, and future room upgrades as clinical needs evolve.",
       ua: "Ми залишаємося залученими через координацію сервісу, планування модернізації та подальші оновлення приміщень разом зі зміною клінічних потреб.",
     },
-    image: "/images/pages/home/support.png",
+    image: "/images/pages/home/support.jpg",
   },
 ]
 
