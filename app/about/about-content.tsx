@@ -1,11 +1,20 @@
 "use client"
 
 import Image from "next/image"
+import { useEffect, useState } from "react"
 import { CheckCircle } from "lucide-react"
 import { PageHeader } from "@/components/page-header"
 import { Container } from "@/components/container"
 import { CTASection } from "@/components/cta-section"
 import { SectionHeader } from "@/components/section-header"
+import {
+  type CarouselApi,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 import { useLanguage } from "@/lib/i18n"
 
 const values = [
@@ -83,6 +92,86 @@ const proofBlocks = [
     },
   },
 ]
+
+const aboutCarouselImages = [
+  { src: "/images/pages/about/1.jpg", index: 1 },
+  { src: "/images/pages/about/2.jpg", index: 2 },
+  { src: "/images/pages/about/3.jpg", index: 3 },
+  { src: "/images/pages/about/4.jpg?v=20260518", index: 4 },
+  { src: "/images/pages/about/5.jpg", index: 5 },
+]
+
+function AboutImageCarousel({ alt }: { alt: string }) {
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    if (!api) return
+
+    const updateCurrent = () => setCurrent(api.selectedScrollSnap())
+
+    updateCurrent()
+    api.on("select", updateCurrent)
+    api.on("reInit", updateCurrent)
+
+    return () => {
+      api.off("select", updateCurrent)
+      api.off("reInit", updateCurrent)
+    }
+  }, [api])
+
+  useEffect(() => {
+    if (!api) return
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+
+    const interval = window.setInterval(() => {
+      api.scrollNext()
+    }, 3000)
+
+    return () => window.clearInterval(interval)
+  }, [api])
+
+  return (
+    <Carousel
+      setApi={setApi}
+      opts={{ align: "start", loop: true }}
+      className="relative aspect-4/3 overflow-hidden rounded-xl glow-cyan"
+    >
+      <CarouselContent className="-ml-0">
+        {aboutCarouselImages.map((image) => (
+          <CarouselItem key={image.src} className="pl-0">
+            <div className="relative aspect-4/3 overflow-hidden">
+              <Image
+                src={image.src}
+                alt={`${alt} ${image.index}`}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent" />
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious className="left-4 border-white/20 bg-background/75 text-foreground backdrop-blur-md hover:bg-background/90" />
+      <CarouselNext className="right-4 border-white/20 bg-background/75 text-foreground backdrop-blur-md hover:bg-background/90" />
+      <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+        {aboutCarouselImages.map((image, index) => (
+          <button
+            key={image.src}
+            type="button"
+            className={`h-1.5 rounded-full transition-all ${
+              current === index ? "w-6 bg-primary" : "w-1.5 bg-white/60 hover:bg-white/80"
+            }`}
+            aria-label={`Show image ${image.index}`}
+            aria-current={current === index ? "true" : undefined}
+            onClick={() => api?.scrollTo(index)}
+          />
+        ))}
+      </div>
+    </Carousel>
+  )
+}
 
 export function AboutContent() {
   const { locale } = useLanguage()
@@ -168,24 +257,16 @@ export function AboutContent() {
                 {copy.introBody2[locale]}
               </p>
             </div>
-            <div className="relative aspect-4/3 overflow-hidden rounded-xl glow-cyan">
-              <Image
-                src="/images/pages/about/what-we-do.png"
-                alt={copy.imageAlt[locale]}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent" />
-            </div>
+            <AboutImageCarousel alt={copy.imageAlt[locale]} />
           </div>
         </Container>
       </section>
 
       <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="absolute inset-0 bg-card/50" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklch,var(--background)_88%,white),color-mix(in_oklch,var(--card)_42%,transparent),color-mix(in_oklch,var(--background)_90%,white))] dark:bg-card/45" />
         <div className="absolute left-0 top-0 h-px w-full bg-linear-to-r from-transparent via-primary/30 to-transparent" />
 
-        <Container className="relative">
+        <Container className="relative z-10">
           <SectionHeader
             label={copy.specialistLabel[locale]}
             title={copy.specialistTitle[locale]}
@@ -193,7 +274,14 @@ export function AboutContent() {
           />
           <div className="grid gap-5 md:grid-cols-3">
             {proofBlocks.map((block) => (
-              <article key={block.title.en} className="glass rounded-xl p-6">
+              <article
+                key={block.title.en}
+                className="glass group relative min-h-full overflow-hidden rounded-xl p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_18px_45px_var(--glow-color)]"
+              >
+                <div className="mb-4 flex items-center gap-3">
+                  <span className="about-card-node" />
+                  <span className="h-px flex-1 bg-linear-to-r from-primary/30 to-transparent" />
+                </div>
                 <h3 className="text-lg font-semibold text-foreground">{block.title[locale]}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {block.desc[locale]}
@@ -204,8 +292,10 @@ export function AboutContent() {
         </Container>
       </section>
 
-      <section className="py-20 md:py-28">
-        <Container>
+      <section className="relative overflow-hidden py-20 md:py-28">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklch,var(--background)_92%,white),color-mix(in_oklch,var(--card)_34%,transparent),color-mix(in_oklch,var(--background)_92%,white))] dark:bg-linear-to-b dark:from-background dark:via-card/25 dark:to-background" />
+
+        <Container className="relative z-10">
           <SectionHeader
             label={copy.trustLabel[locale]}
             title={copy.trustTitle[locale]}
@@ -214,9 +304,12 @@ export function AboutContent() {
             {values.map((val) => (
               <div
                 key={val.title.en}
-                className="glass glass-hover glow-cyan-hover flex items-start gap-4 rounded-xl p-5 transition-all duration-300"
+                className="glass glass-hover group flex min-h-full items-start gap-4 rounded-xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_16px_38px_var(--glow-color)]"
               >
-                <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                <div className="relative mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center">
+                  <span className="about-card-node absolute" />
+                  <CheckCircle className="relative h-5 w-5 text-primary" />
+                </div>
                 <div>
                   <h3 className="text-sm font-semibold text-foreground">{val.title[locale]}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
