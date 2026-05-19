@@ -3,6 +3,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react"
 
 export type Theme = "dark" | "light"
+type ThemePreference = Theme | "system"
 
 interface ThemeContextType {
   theme: Theme
@@ -11,33 +12,63 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType | null>(null)
+const THEME_STORAGE_KEY = "medintegro-theme"
+
+function getSystemTheme(): Theme {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+}
+
+function getStoredThemePreference(): ThemePreference | null {
+  const stored = localStorage.getItem(THEME_STORAGE_KEY)
+  return stored === "light" || stored === "dark" || stored === "system" ? stored : null
+}
+
+function resolveThemePreference(): Theme {
+  const stored = getStoredThemePreference()
+  if (stored === "light" || stored === "dark") return stored
+  return getSystemTheme()
+}
+
+function applyThemeClass(t: Theme) {
+  document.documentElement.classList.toggle("dark", t === "dark")
+  document.documentElement.classList.toggle("light", t === "light")
+  document.documentElement.style.colorScheme = t
+}
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("dark")
 
   useEffect(() => {
-    const stored = localStorage.getItem("medintegro-theme") as Theme | null
-    if (stored === "light" || stored === "dark") {
-      setThemeState(stored)
-      applyThemeClass(stored)
-    }
+    const resolvedTheme = resolveThemePreference()
+    setThemeState(resolvedTheme)
+    applyThemeClass(resolvedTheme)
   }, [])
 
-  const applyThemeClass = (t: Theme) => {
-    document.documentElement.classList.toggle("dark", t === "dark")
-    document.documentElement.classList.toggle("light", t === "light")
-  }
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-color-scheme: dark)")
+    const handleSystemThemeChange = () => {
+      const stored = getStoredThemePreference()
+      if (!stored || stored === "system") {
+        const nextTheme = getSystemTheme()
+        setThemeState(nextTheme)
+        applyThemeClass(nextTheme)
+      }
+    }
+
+    media.addEventListener("change", handleSystemThemeChange)
+    return () => media.removeEventListener("change", handleSystemThemeChange)
+  }, [])
 
   const setTheme = useCallback((t: Theme) => {
     setThemeState(t)
-    localStorage.setItem("medintegro-theme", t)
+    localStorage.setItem(THEME_STORAGE_KEY, t)
     applyThemeClass(t)
   }, [])
 
   const toggleTheme = useCallback(() => {
     setThemeState((prev) => {
       const next = prev === "dark" ? "light" : "dark"
-      localStorage.setItem("medintegro-theme", next)
+      localStorage.setItem(THEME_STORAGE_KEY, next)
       applyThemeClass(next)
       return next
     })

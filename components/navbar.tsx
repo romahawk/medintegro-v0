@@ -36,6 +36,10 @@ export function Navbar() {
       router.push("/")
       return
     }
+
+    if (pathname === "/" && nextLocale === "en") {
+      router.push("/en")
+    }
   }
 
   useEffect(() => {
