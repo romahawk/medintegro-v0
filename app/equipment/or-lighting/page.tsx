@@ -14,13 +14,6 @@ export default function OrLightingPage() {
       image: product.cardImage,
       href: `/equipment/or-lighting/${product.slug}`,
     })),
-    {
-      key: "examination-lamps",
-      title: "Examination Lamps",
-      description: "Dedicated examination and treatment lighting solutions for specialist care environments.",
-      image: "/images/categories/examination-lamps/cover.png",
-      href: "/equipment/examination-lamps",
-    },
   ]
 
   return (

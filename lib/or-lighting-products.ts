@@ -161,6 +161,77 @@ export const orLightingProducts: OrLightingProduct[] = [
       { src: "/images/products/or-lighting/epure-range/deploy-3.jpg", alt: "EPURE in sterile-focused procedural environment" },
     ],
   },
+  {
+    slug: "nomadeo-wireless-camera",
+    name: "NOMADEO Wireless Camera",
+    shortDescription: "Wireless Full HD surgical camera module for compatible Surgiris operating lights.",
+    cardImage: "/images/products/or-lighting/xmt-range/x2-camera.png",
+    heroTitle: "Wireless surgical video directly from the operating light",
+    heroSubtitle:
+      "NOMADEO adds removable, low-latency Full HD video capture to compatible Surgiris lights, helping teams share, record, and route the surgical view without adding a fixed camera arm.",
+    overview:
+      "NOMADEO is a plug-and-play wireless camera accessory designed for X2MT, X3MT, and EPURE surgical lights. The module captures Full HD 1080p video at 60 frames per second from a 2.4 MP sensor and transmits over a 5 GHz wireless link with AES encryption and very low latency.",
+    highlights: [
+      "Full HD 1080p60 surgical video capture from a compact 2.4 MP camera module.",
+      "Wireless 5 GHz transmission with AES encryption and latency below 2 ms.",
+      "Removable plug-and-play design compatible with X2MT, X3MT, and EPURE lights.",
+    ],
+    capabilityItems: [
+      {
+        title: "Full HD surgical capture",
+        description:
+          "Delivers 1920 x 1080 video at 60 fps for live procedure sharing, teaching, documentation, and OR display workflows.",
+      },
+      {
+        title: "Low-latency wireless signal",
+        description:
+          "Uses a 5 GHz wireless link with latency below 2 ms, helping the video feed stay responsive during live surgical teamwork.",
+      },
+      {
+        title: "Secure video transmission",
+        description:
+          "AES encryption supports secure wireless communication between the camera and receiving equipment in the operating room.",
+      },
+      {
+        title: "Quick removable setup",
+        description:
+          "The camera can be fitted or removed without complex installation steps, making it practical for rooms that need flexible video capability.",
+      },
+    ],
+    deploymentItems: [
+      {
+        title: "Teaching and consultation",
+        description:
+          "Streams the surgical field to displays or recording systems for training, supervision, and remote expert support.",
+      },
+      {
+        title: "Flexible OR upgrades",
+        description:
+          "Adds video capture to compatible lights without dedicating a separate fixed camera arm in the room plan.",
+      },
+      {
+        title: "Integrated video workflows",
+        description:
+          "Fits naturally into OR integration environments where camera feeds are routed to monitors, recorders, or collaboration systems.",
+      },
+    ],
+    valuePoints: [
+      "Adds surgical video capability while preserving a clean ceiling and light-head workflow.",
+      "Supports documentation, education, and team viewing from the operating light position.",
+      "Makes camera availability easier to standardize across rooms with compatible Surgiris lights.",
+      "Keeps deployment flexible because the module can be removed when the workflow does not require video.",
+    ],
+    heroImages: {
+      main: { src: "/images/products/or-lighting/xmt-range/x2-camera.png", alt: "NOMADEO wireless camera for Surgiris operating lights" },
+      secondary1: { src: "/images/products/or-lighting/xmt-range/hero-secondary-1.png", alt: "Surgical light workflow with integrated camera capability" },
+      secondary2: { src: "/images/products/or-lighting/epure-range/hero-secondary-2.png", alt: "Operating room video workflow with surgical lighting" },
+    },
+    deploymentImages: [
+      { src: "/images/products/or-lighting/xmt-range/x2-camera.png", alt: "NOMADEO removable camera module" },
+      { src: "/images/products/or-lighting/xmt-range/hero-secondary-2.png", alt: "Compatible Surgiris lighting in operating room planning" },
+      { src: "/images/products/or-lighting/surgiris-integration.png", alt: "Surgiris integrated video workflow for operating rooms" },
+    ],
+  },
 ]
 
 export function getOrLightingProductBySlug(slug: string) {

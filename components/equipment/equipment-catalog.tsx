@@ -329,7 +329,7 @@ export function EquipmentCatalog() {
             className={cn(
               "inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200",
               activeCategory === cat.key
-                ? "bg-primary text-primary-foreground glow-cyan"
+                ? "active-tab-pulse bg-primary text-primary-foreground glow-cyan"
                 : "glass text-muted-foreground hover:border-primary/30 hover:text-foreground"
             )}
           >

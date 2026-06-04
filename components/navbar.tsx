@@ -64,24 +64,31 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-0.5 lg:flex">
-          {navKeys.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={cn(
-                  "relative rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                  pathname === link.href || (link.href === "/" && pathname === "/en")
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                {t(link.key)}
-                {pathname === link.href && (
-                  <span className="absolute bottom-0 left-1/2 h-0.5 w-4 -translate-x-1/2 rounded-full bg-primary" />
-                )}
-              </Link>
-            </li>
-          ))}
+          {navKeys.map((link) => {
+            const isActive =
+              pathname === link.href ||
+              (link.href === "/" && pathname === "/en") ||
+              (link.href !== "/" && pathname.startsWith(`${link.href}/`))
+
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={cn(
+                    "relative rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                    isActive
+                      ? "active-tab-pulse text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  {t(link.key)}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-1/2 h-0.5 w-4 -translate-x-1/2 rounded-full bg-primary" />
+                  )}
+                </Link>
+              </li>
+            )
+          })}
         </ul>
 
         <div className="hidden items-center gap-2 lg:flex">
@@ -134,22 +141,29 @@ export function Navbar() {
       {mobileOpen && (
         <div className="border-t border-border/50 bg-background/95 px-6 pb-6 pt-2 backdrop-blur-xl lg:hidden">
           <ul className="flex flex-col gap-1">
-            {navKeys.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={cn(
-                    "block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
-                    pathname === link.href || (link.href === "/" && pathname === "/en")
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  {t(link.key)}
-                </Link>
-              </li>
-            ))}
+            {navKeys.map((link) => {
+              const isActive =
+                pathname === link.href ||
+                (link.href === "/" && pathname === "/en") ||
+                (link.href !== "/" && pathname.startsWith(`${link.href}/`))
+
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={cn(
+                      "block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                      isActive
+                        ? "active-tab-pulse text-primary"
+                        : "text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    {t(link.key)}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
           <div className="mt-4">
             <Button asChild className="w-full rounded-lg" size="sm">
