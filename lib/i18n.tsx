@@ -21,6 +21,12 @@ const HOME_TITLES: Record<Locale, string> = {
   en: "Medintegro | Operating Room & Medical Systems Integration",
   ua: "Medintegro | Інтеграція операційних та медичних систем",
 }
+const SPECIAL_PAGE_TITLES: Record<string, Record<Locale, string>> = {
+  "/equipment/or-lighting": {
+    en: "Surgical Lights & LED Operating Room Lighting | Medintegro",
+    ua: "Хірургічні світильники та LED освітлення операційних | Medintegro",
+  },
+}
 const PAGE_TITLE_KEYS = [
   { path: "/solutions", key: "nav.services" },
   { path: "/services", key: "nav.services" },
@@ -65,6 +71,9 @@ function storeLanguagePreference(locale: Locale) {
 
 function getDocumentTitle(pathname: string, locale: Locale, translate: (key: string) => string) {
   if (pathname === "/" || pathname === "/en") return HOME_TITLES[locale]
+
+  const specialTitle = SPECIAL_PAGE_TITLES[pathname]
+  if (specialTitle) return specialTitle[locale]
 
   const match = PAGE_TITLE_KEYS.find(({ path }) => pathname === path || pathname.startsWith(`${path}/`))
   if (!match) return HOME_TITLES[locale]
