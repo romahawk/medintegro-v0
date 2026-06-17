@@ -7,6 +7,16 @@ import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { ceilingPendantProducts } from "@/lib/icu-infrastructure-products"
 
+const productDescriptions: Record<string, string> = {
+  "lissa-classic": "Модульна стельова консоль для операційних і ВІТ з ергономічними поворотними плечами та високою вантажопідйомністю.",
+  "lissa-classic-lift": "Стельова консоль з електричним або пружинним підйомом для операційних і процедурних кімнат з високою ергономікою.",
+  "lissa-heavy": "Посилена стельова консоль з навантаженням до 250 кг і вильотом плеча до 260 см для складних операційних середовищ.",
+  "luna-compact": "Економічна фіксована стельова консоль для палат ВІТ і процедурних зон з полицями та аксесуарами.",
+  "vega-care": "Медична стійка від підлоги до стелі для ВІТ та анестезіології з функціональністю консолі без стельового монтажу.",
+  "caro-classic": "Стельова балкова система ВІТ з міцним корпусом без рухомих кареток, для надійності та легкого очищення.",
+  "caro-care-premium": "Розширена стельова балкова система ВІТ з рухомими каретками та медичними рейками для гнучкого розміщення обладнання.",
+}
+
 function getCeilingPendantImage(slug: string, fileName: string) {
   const relativePath = `/images/products/icu-infrastructure/ceiling-pendants/${slug}/${fileName}`
   const absolutePath = path.join(
@@ -36,14 +46,14 @@ export default function CeilingPendantsPage() {
         <Container className="relative">
           <nav className="mb-4 flex flex-wrap items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             <Link href="/equipment" className="transition-colors hover:text-primary">
-              Equipment
+              Обладнання
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
             <Link href="/equipment" className="transition-colors hover:text-primary">
-              ICU / Critical Infrastructure
+              ВІТ / критична інфраструктура
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-foreground">Ceiling Medical Supply Units</span>
+            <span className="text-foreground">Стельові медичні консолі</span>
           </nav>
 
           <Link
@@ -51,19 +61,19 @@ export default function CeilingPendantsPage() {
             className="mb-6 flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Equipment
+            Назад до обладнання
           </Link>
 
           <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
-            ICU / Critical Infrastructure
+            ВІТ / критична інфраструктура
           </span>
           <h1 className="max-w-4xl text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
-            Ceiling Medical Supply Units
+            Стельові медичні консолі
           </h1>
           <p className="mt-4 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            INMED ceiling pendants, ICU beams, and floor-to-ceiling strut units - providing
-            reliable gas, electrical, data, and accessory infrastructure for operating rooms
-            and intensive care environments.
+            Стельові консолі INMED, балкові системи ВІТ та стійки від підлоги до стелі
+            забезпечують надійну інфраструктуру медичних газів, електроживлення, даних
+            і аксесуарів для операційних залів та відділень інтенсивної терапії.
           </p>
         </Container>
       </section>
@@ -80,12 +90,12 @@ export default function CeilingPendantsPage() {
                 <div className="p-5">
                   <h2 className="text-lg font-semibold text-foreground">{product.name}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {product.shortDescription}
+                    {productDescriptions[product.slug] ?? product.shortDescription}
                   </p>
                   <div className="mt-4">
                     <Button asChild variant="outline" size="sm" className="gap-2 rounded-lg border-border/50 hover:border-primary/40">
                       <Link href={`/equipment/icu-infrastructure/ceiling-pendants/${product.slug}`}>
-                        View More
+                        Детальніше
                         <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </Button>
@@ -101,21 +111,22 @@ export default function CeilingPendantsPage() {
         <div className="absolute inset-0 bg-card/40" />
         <Container className="relative">
           <h2 className="max-w-3xl text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-            Ceiling pendant infrastructure for OR and ICU environments
+            Стельова інфраструктура для операційних і ВІТ
           </h2>
           <p className="mt-4 max-w-4xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Ceiling medical supply units centralize all gas, electrical, data, and accessory connections
-            at the point of care - reducing floor-level clutter, supporting ergonomic clinical workflows,
-            and providing a reliable media infrastructure that serves both operating rooms and intensive care units.
+            Стельові медичні консолі централізують підключення медичних газів,
+            електроживлення, даних і аксесуарів у точці надання допомоги, зменшують
+            кількість обладнання на підлозі, підтримують ергономічні клінічні процеси
+            та створюють надійну інфраструктуру для операційних і відділень ВІТ.
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             <article className="glass rounded-xl p-5">
-              <h3 className="text-base font-semibold text-foreground">OR and ICU media centralization</h3>
+              <h3 className="text-base font-semibold text-foreground">Централізація медіа в операційних і ВІТ</h3>
               <ul className="mt-3 space-y-2">
                 {[
-                  "Overhead positioning eliminates floor obstacles and cable hazards.",
-                  "Single access point for gas, electrical, data, and monitoring connections.",
-                  "Supports sterile workflow by reducing contact with floor surfaces.",
+                  "Стельове розміщення усуває перешкоди на підлозі та ризики від кабелів.",
+                  "Єдина точка доступу до газів, електрики, даних і моніторингу.",
+                  "Підтримує стерильний робочий процес завдяки меншому контакту з підлогою.",
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-2.5">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
@@ -125,12 +136,12 @@ export default function CeilingPendantsPage() {
               </ul>
             </article>
             <article className="glass rounded-xl p-5">
-              <h3 className="text-base font-semibold text-foreground">Flexibility and ergonomics</h3>
+              <h3 className="text-base font-semibold text-foreground">Гнучкість та ергономіка</h3>
               <ul className="mt-3 space-y-2">
                 {[
-                  "Articulated arm systems allow precise positioning during procedures.",
-                  "Height-adjustable variants accommodate different surgical team configurations.",
-                  "Sliding beam systems enable rapid bedspace reconfiguration in ICU.",
+                  "Шарнірні плечі дають змогу точно позиціонувати обладнання під час процедур.",
+                  "Варіанти з регулюванням висоти адаптуються до різних конфігурацій команди.",
+                  "Балкові системи з каретками швидко змінюють конфігурацію місця пацієнта у ВІТ.",
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-2.5">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
@@ -140,12 +151,12 @@ export default function CeilingPendantsPage() {
               </ul>
             </article>
             <article className="glass rounded-xl p-5">
-              <h3 className="text-base font-semibold text-foreground">Lifecycle and investment value</h3>
+              <h3 className="text-base font-semibold text-foreground">Життєвий цикл та цінність інвестиції</h3>
               <ul className="mt-3 space-y-2">
                 {[
-                  "Long service life with accessible maintenance access points.",
-                  "Modular design supports future reconfiguration as clinical needs change.",
-                  "Compatible with INMED accessory ecosystem across product generations.",
+                  "Тривалий строк служби з доступними точками технічного обслуговування.",
+                  "Модульна конструкція підтримує майбутню реконфігурацію під клінічні потреби.",
+                  "Сумісність з екосистемою аксесуарів INMED у різних поколіннях продуктів.",
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-2.5">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
@@ -158,7 +169,7 @@ export default function CeilingPendantsPage() {
           <div className="mt-10">
             <Button asChild size="lg" className="gap-2 rounded-xl glow-cyan">
               <Link href="/contact">
-                Request Quote
+                Отримати пропозицію
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>

@@ -77,8 +77,8 @@ export const translations: Record<string, { en: string; ua: string }> = {
   "medgas.catalog.desc": { en: "Complete medical gas infrastructure from source generation and pipeline distribution to terminal outlets and monitoring.", ua: "Повна інфраструктура медичних газів від генерації джерел та трубопровідного розподілу до термінальних виходів та моніторингу." },
   "icu.ceilingPendants.name": { en: "Ceiling Medical Supply Units", ua: "Стельові медичні консолі" },
   "icu.ceilingPendants.desc": { en: "INMED ceiling pendants and ICU beams for operating rooms and intensive care units.", ua: "Стельові консолі та балкові системи INMED для операційних залів та відділень ВІТ." },
-  "icu.bedHeadUnits.name": { en: "Bed Head Units", ua: "Прикроватні панелі" },
-  "icu.bedHeadUnits.desc": { en: "INMED MERY family bed head units for hospital wards, ICU, paediatric, and premium care environments.", ua: "Прикроватні панелі сімейства INMED MERY для лікарняних палат, ВІТ, педіатрії та преміальних середовищ догляду." },
+  "icu.bedHeadUnits.name": { en: "Bed Head Units", ua: "Приліжкові панелі" },
+  "icu.bedHeadUnits.desc": { en: "INMED MERY family bed head units for hospital wards, ICU, paediatric, and premium care environments.", ua: "Приліжкові панелі сімейства INMED MERY для лікарняних палат, ВІТ, педіатрії та преміальних середовищ догляду." },
   "cat.videorecorders": { en: "Surgical videorecorders", ua: "Хірургічні відеореєстратори" },
   "cat.videorecorders.desc": { en: "4K video recording and streaming systems for surgical procedures", ua: "Системи 4K-відеозапису та стримінгу для хірургічних процедур" },
 

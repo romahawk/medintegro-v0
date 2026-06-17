@@ -70,11 +70,11 @@ export default async function CeilingPendantProductPage({
         <Container className="relative">
           <nav className="mb-4 flex flex-wrap items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             <Link href="/equipment" className="transition-colors hover:text-primary">
-              Equipment
+              Обладнання
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
             <Link href="/equipment/icu-infrastructure/ceiling-pendants" className="transition-colors hover:text-primary">
-              Ceiling Medical Supply Units
+              Стельові медичні консолі
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
             <span className="text-foreground">{product.name}</span>
@@ -85,13 +85,13 @@ export default async function CeilingPendantProductPage({
             className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Ceiling Medical Supply Units
+            Назад до стельових медичних консолей
           </Link>
 
           <div className="grid items-start gap-8 lg:grid-cols-2">
             <div>
               <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
-                ICU / Critical Infrastructure
+                ВІТ / критична інфраструктура
               </span>
               <h1 className="max-w-4xl text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
                 {product.name}
