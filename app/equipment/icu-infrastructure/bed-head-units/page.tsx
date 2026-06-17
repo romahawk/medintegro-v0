@@ -7,6 +7,17 @@ import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { bedHeadUnitProducts } from "@/lib/icu-infrastructure-products"
 
+const productDescriptions: Record<string, string> = {
+  "mery-classic": "Класична приліжкова панель MERY, що інтегрує медичні гази, електрику та освітлення у модульній конструкції.",
+  "mery-care": "Розширена приліжкова панель для ВІТ/NICU у горизонтальній або вертикальній конфігурації для критичної допомоги.",
+  "mery-light": "Ультратонка легка приліжкова панель з 9 типами алюмінієвих профілів для газів, електрики, IT та освітлення.",
+  "mery-wall": "Вбудована в стіну приліжкова панель з якісними оздобленнями, освітленням і повною медичною інфраструктурою.",
+  "mery-edge": "Сучасна приліжкова панель з елегантною алюмінієвою передньою поверхнею та ергономічним доступом до медіа.",
+  "mery-fun": "Педіатрична приліжкова панель з кольоровими Corian-панелями, безпечними розетками та повною медичною інтеграцією.",
+  "mery-art": "Преміальна приліжкова панель з Corian або загартованим склом, що поєднує клінічну функціональність і дизайн.",
+  "mery-comfort": "Приліжкова панель для комфорту пацієнта з Corian-оздобленням, зонами для пацієнта і персоналу та багатозонним освітленням.",
+}
+
 function getBedHeadUnitImage(slug: string, fileName: string, fallbackSrc: string) {
   const relativePath = `/images/products/icu-infrastructure/bed-head-units/${slug}/${fileName}`
   const absolutePath = path.join(
@@ -36,14 +47,14 @@ export default function BedHeadUnitsPage() {
         <Container className="relative">
           <nav className="mb-4 flex flex-wrap items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             <Link href="/equipment" className="transition-colors hover:text-primary">
-              Equipment
+              Обладнання
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
             <Link href="/equipment" className="transition-colors hover:text-primary">
-              ICU / Critical Infrastructure
+              ВІТ / критична інфраструктура
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-foreground">Bed Head Units</span>
+            <span className="text-foreground">Приліжкові панелі</span>
           </nav>
 
           <Link
@@ -51,19 +62,19 @@ export default function BedHeadUnitsPage() {
             className="mb-6 flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Equipment
+            Назад до обладнання
           </Link>
 
           <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
-            ICU / Critical Infrastructure
+            ВІТ / критична інфраструктура
           </span>
           <h1 className="max-w-4xl text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
-            Bed Head Units
+            Приліжкові панелі
           </h1>
           <p className="mt-4 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            INMED MERY family bed head units - integrating medical gas, electrical, data, IT,
-            and lighting in a single modular bedside unit for hospital wards, ICU, paediatric,
-            and premium care environments.
+            Приліжкові панелі сімейства INMED MERY об'єднують медичні гази,
+            електроживлення, дані, IT та освітлення в одному модульному рішенні
+            для лікарняних палат, ВІТ, педіатрії та преміальних середовищ догляду.
           </p>
         </Container>
       </section>
@@ -85,12 +96,12 @@ export default function BedHeadUnitsPage() {
                 <div className="p-5">
                   <h2 className="text-lg font-semibold text-foreground">{product.name}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {product.shortDescription}
+                    {productDescriptions[product.slug] ?? product.shortDescription}
                   </p>
                   <div className="mt-4">
                     <Button asChild variant="outline" size="sm" className="gap-2 rounded-lg border-border/50 hover:border-primary/40">
                       <Link href={`/equipment/icu-infrastructure/bed-head-units/${product.slug}`}>
-                        View More
+                        Детальніше
                         <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </Button>
@@ -106,22 +117,23 @@ export default function BedHeadUnitsPage() {
         <div className="absolute inset-0 bg-card/40" />
         <Container className="relative">
           <h2 className="max-w-3xl text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-            Bed head units for every hospital ward and care environment
+            Приліжкові панелі для кожного лікарняного відділення
           </h2>
           <p className="mt-4 max-w-4xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Bed head units organize all bedside media - gas, power, data, lighting - in one modular
-            overhead system, supporting efficient nursing workflows and a clean patient environment.
-            The MERY family covers every ward type from standard general wards to ICU, paediatric,
-            and premium private care.
+            Приліжкові панелі організовують усі підключення біля ліжка - гази,
+            живлення, дані та освітлення - в одній модульній системі, підтримуючи
+            ефективну роботу медичного персоналу та охайне середовище для пацієнта.
+            Сімейство MERY охоплює палати загального профілю, ВІТ, педіатрію
+            та преміальні приватні палати.
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             <article className="glass rounded-xl p-5">
-              <h3 className="text-base font-semibold text-foreground">Organized bedside infrastructure</h3>
+              <h3 className="text-base font-semibold text-foreground">Організована приліжкова інфраструктура</h3>
               <ul className="mt-3 space-y-2">
                 {[
-                  "Centralizes gas, electrical, data, and lighting at the bedside.",
-                  "Eliminates floor-level cable management and equipment stands.",
-                  "Supports rapid clinical access during nursing procedures.",
+                  "Централізує гази, електрику, дані та освітлення біля ліжка.",
+                  "Зменшує потребу в кабелях на підлозі та окремих стійках обладнання.",
+                  "Підтримує швидкий клінічний доступ під час сестринських процедур.",
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-2.5">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
@@ -131,12 +143,12 @@ export default function BedHeadUnitsPage() {
               </ul>
             </article>
             <article className="glass rounded-xl p-5">
-              <h3 className="text-base font-semibold text-foreground">Clinical environment range</h3>
+              <h3 className="text-base font-semibold text-foreground">Діапазон клінічних середовищ</h3>
               <ul className="mt-3 space-y-2">
                 {[
-                  "Standard ward to ICU-grade media provision options.",
-                  "Paediatric models with child-safe design and themed fronts.",
-                  "Premium finishes for private and luxury healthcare environments.",
+                  "Варіанти від стандартних палат до медіаінфраструктури рівня ВІТ.",
+                  "Педіатричні моделі з безпечним дизайном і тематичними фронтами.",
+                  "Преміальні оздоблення для приватних і висококласних медичних середовищ.",
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-2.5">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
@@ -146,12 +158,12 @@ export default function BedHeadUnitsPage() {
               </ul>
             </article>
             <article className="glass rounded-xl p-5">
-              <h3 className="text-base font-semibold text-foreground">Patient comfort and experience</h3>
+              <h3 className="text-base font-semibold text-foreground">Комфорт і досвід пацієнта</h3>
               <ul className="mt-3 space-y-2">
                 {[
-                  "Integrated nurse call, entertainment, and patient media systems.",
-                  "Multi-zone lighting supports procedures and patient rest cycles.",
-                  "Design options from functional to premium aesthetics.",
+                  "Інтегровані системи виклику медсестри, розваг і пацієнтських медіа.",
+                  "Багатозонне освітлення підтримує процедури та відпочинок пацієнта.",
+                  "Дизайн від функціонального виконання до преміальної естетики.",
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-2.5">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
@@ -164,7 +176,7 @@ export default function BedHeadUnitsPage() {
           <div className="mt-10">
             <Button asChild size="lg" className="gap-2 rounded-xl glow-cyan">
               <Link href="/contact">
-                Request Quote
+                Отримати пропозицію
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
