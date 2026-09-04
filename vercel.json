@@ -1,5 +1,13 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "medintegro.com.ua" }],
+      "destination": "https://www.medintegro.com.ua/:path*",
+      "permanent": true
+    },
+
     { "source": "/poslugi",    "destination": "/solutions", "permanent": true },
     { "source": "/poslugi/",   "destination": "/solutions", "permanent": true },
     { "source": "/rishennya",  "destination": "/solutions", "permanent": true },
@@ -26,39 +34,27 @@
     { "source": "/medichna-robototehnika",    "destination": "/solutions", "permanent": true },
     { "source": "/medichna-robototehnika/",   "destination": "/solutions", "permanent": true },
 
-    { "source": "/integrovani-operaczijni-surgimedia",                       "destination": "/solutions", "permanent": true },
-    { "source": "/integrovani-operaczijni-surgimedia/",                      "destination": "/solutions", "permanent": true },
-    { "source": "/integrovani-operaczijni-surgimedia/surgimedia-xl",         "destination": "/solutions", "permanent": true },
-    { "source": "/integrovani-operaczijni-surgimedia/surgimedia-xl/",        "destination": "/solutions", "permanent": true },
-    { "source": "/integrovani-operaczijni-surgimedia/surgimedia-distriview", "destination": "/solutions", "permanent": true },
-    { "source": "/integrovani-operaczijni-surgimedia/surgimedia-distriview/","destination": "/solutions", "permanent": true },
-    { "source": "/integrovani-operaczijni-surgimedia/surgimedia-multiview",  "destination": "/solutions", "permanent": true },
-    { "source": "/integrovani-operaczijni-surgimedia/surgimedia-multiview/", "destination": "/solutions", "permanent": true },
-    { "source": "/integrovani-operaczijni-surgimedia/surgimedia-compact",    "destination": "/solutions", "permanent": true },
-    { "source": "/integrovani-operaczijni-surgimedia/surgimedia-compact/",   "destination": "/solutions", "permanent": true },
+    { "source": "/integrovani-operaczijni-surgimedia",       "destination": "/solutions", "permanent": true },
+    { "source": "/integrovani-operaczijni-surgimedia/",      "destination": "/solutions", "permanent": true },
+    { "source": "/integrovani-operaczijni-surgimedia/:path*","destination": "/solutions", "permanent": true },
 
-    { "source": "/medichni-konsoli-surgiris",                 "destination": "/equipment", "permanent": true },
-    { "source": "/medichni-konsoli-surgiris/",                "destination": "/equipment", "permanent": true },
-    { "source": "/medichni-konsoli-surgiris/genius-air",      "destination": "/equipment", "permanent": true },
-    { "source": "/medichni-konsoli-surgiris/genius-air/",     "destination": "/equipment", "permanent": true },
-    { "source": "/medichni-konsoli-surgiris/genius-motor",    "destination": "/equipment", "permanent": true },
-    { "source": "/medichni-konsoli-surgiris/genius-motor/",   "destination": "/equipment", "permanent": true },
-    { "source": "/medichni-konsoli-surgiris/genius-e-brake",  "destination": "/equipment", "permanent": true },
-    { "source": "/medichni-konsoli-surgiris/genius-e-brake/", "destination": "/equipment", "permanent": true },
-    { "source": "/medichni-konsoli-surgiris/motor-s90",       "destination": "/equipment", "permanent": true },
-    { "source": "/medichni-konsoli-surgiris/motor-s90/",      "destination": "/equipment", "permanent": true },
+    { "source": "/medichni-konsoli-surgiris",        "destination": "/equipment", "permanent": true },
+    { "source": "/medichni-konsoli-surgiris/",       "destination": "/equipment", "permanent": true },
+    { "source": "/medichni-konsoli-surgiris/:path*", "destination": "/equipment", "permanent": true },
 
-    { "source": "/blog",   "destination": "/", "permanent": true },
-    { "source": "/blog/",  "destination": "/", "permanent": true },
-    { "source": "/czifrova-likarnya-realnij-kejs",    "destination": "/projects", "permanent": true },
-    { "source": "/czifrova-likarnya-realnij-kejs/",   "destination": "/projects", "permanent": true },
-    { "source": "/category/czifrova-ohorona-zdorovya-uk",  "destination": "/", "permanent": true },
-    { "source": "/category/czifrova-ohorona-zdorovya-uk/", "destination": "/", "permanent": true },
-    { "source": "/category/e-health",       "destination": "/", "permanent": true },
-    { "source": "/category/e-health/",      "destination": "/", "permanent": true },
-    { "source": "/category/cifrova-likarnya",  "destination": "/", "permanent": true },
-    { "source": "/category/cifrova-likarnya/", "destination": "/", "permanent": true },
-    { "source": "/category/czifrova-operaczijna-uk",  "destination": "/", "permanent": true },
-    { "source": "/category/czifrova-operaczijna-uk/", "destination": "/", "permanent": true }
+    { "source": "/czifrova-likarnya-realnij-kejs",  "destination": "/projects", "permanent": true },
+    { "source": "/czifrova-likarnya-realnij-kejs/", "destination": "/projects", "permanent": true },
+
+    { "source": "/blog",         "destination": "/", "permanent": true },
+    { "source": "/blog/",        "destination": "/", "permanent": true },
+    { "source": "/blog/:path*",  "destination": "/", "permanent": true },
+    { "source": "/category",         "destination": "/", "permanent": true },
+    { "source": "/category/:path*",  "destination": "/", "permanent": true },
+    { "source": "/tag/:path*",       "destination": "/", "permanent": true },
+    { "source": "/author/:path*",    "destination": "/", "permanent": true },
+    { "source": "/feed",             "destination": "/", "permanent": true },
+    { "source": "/feed/",            "destination": "/", "permanent": true },
+    { "source": "/comments/feed",    "destination": "/", "permanent": true },
+    { "source": "/comments/feed/",   "destination": "/", "permanent": true }
   ]
 }

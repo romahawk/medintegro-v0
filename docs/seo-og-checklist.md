@@ -10,7 +10,8 @@
 
 - `/` uses Ukrainian title, description, Open Graph, Twitter, canonical, and hreflang metadata
 - `/en` uses English title, description, Open Graph, Twitter, canonical, and hreflang metadata
-- `x-default` points to `https://www.medintegro.com.ua/`
+- `x-default` points to `https://www.medintegro.com.ua/en`
+- Full model documented in `docs/seo-architecture.md`
 
 ## Local verification
 

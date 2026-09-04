@@ -6,6 +6,10 @@ import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { fsnProducts } from "@/lib/surgical-monitors-products"
+import type { Metadata } from "next"
+import { staticPageMetadata } from "@/lib/seo"
+import { breadcrumbSchema } from "@/lib/structured-data"
+import { JsonLd } from "@/components/json-ld"
 
 function getFsnImage(slug: string, fileName: string, fallbackSrc: string) {
   const base = fileName.replace(/\.[^.]+$/, "")
@@ -19,6 +23,10 @@ function getFsnImage(slug: string, fileName: string, fallbackSrc: string) {
   return fallbackSrc
 }
 
+export const metadata: Metadata = staticPageMetadata(
+  "/equipment/surgical-monitors/fsn"
+)
+
 export default function FsnMonitorsPage() {
   const productCards = fsnProducts.map((product) => ({
     key: product.slug,
@@ -30,6 +38,15 @@ export default function FsnMonitorsPage() {
 
   return (
     <>
+      <JsonLd
+        schema={breadcrumbSchema([
+          { name: "Equipment", path: "/equipment" },
+          {
+            name: "FSN Medical Technologies Monitors",
+            path: "/equipment/surgical-monitors/fsn",
+          },
+        ])}
+      />
       <section className="relative overflow-hidden border-b border-border/50 py-16 md:py-20">
         <div className="absolute inset-0 bg-mesh" />
         <div className="absolute inset-0 bg-grid opacity-30" />
@@ -70,7 +87,12 @@ export default function FsnMonitorsPage() {
             {productCards.map((card) => (
               <article key={card.key} className="glass glass-hover glow-cyan-hover overflow-hidden rounded-xl transition-all duration-300">
                 <div className="relative aspect-4/3 overflow-hidden bg-white">
-                  <Image src={card.image} alt={card.title} fill className="object-contain p-5" />
+                  <Image
+                    src={card.image}
+                    alt={`${card.title} FSN medical display for operating rooms`}
+                    fill
+                    className="object-contain p-5"
+                  />
                   <div className="absolute inset-0 bg-linear-to-t from-background/70 to-transparent" />
                 </div>
                 <div className="p-5">

@@ -7,6 +7,10 @@ import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Layers, Settings2, S
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { getMedicalGasProductBySlug, medicalGasProducts } from "@/lib/medical-gases-products"
+import type { Metadata } from "next"
+import { productMetadata } from "@/lib/seo"
+import { breadcrumbSchema } from "@/lib/structured-data"
+import { JsonLd } from "@/components/json-ld"
 
 function getMedicalGasImage(slug: string, fileName: string, fallbackSrc: string) {
   const relativePath = `/images/products/medical-gases/${slug}/${fileName}`
@@ -29,6 +33,23 @@ function getMedicalGasImage(slug: string, fileName: string, fallbackSrc: string)
 
 export function generateStaticParams() {
   return medicalGasProducts.map((product) => ({ slug: product.slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const product = getMedicalGasProductBySlug(slug)
+
+  if (!product) return {}
+
+  return productMetadata({
+    path: `/equipment/medical-gases/${product.slug}`,
+    name: product.name,
+    description: `${product.name} — системи медичних газів для лікарень і клінік: проєктування, постачання, монтаж і введення в експлуатацію від Medintegro.`,
+  })
 }
 
 export default async function MedicalGasProductPage({
@@ -80,6 +101,15 @@ export default async function MedicalGasProductPage({
 
   return (
     <>
+      <JsonLd
+        schema={breadcrumbSchema([
+          { name: "Equipment", path: "/equipment" },
+          {
+            name: product.name,
+            path: `/equipment/medical-gases/${product.slug}`,
+          },
+        ])}
+      />
       <section className="relative overflow-hidden border-b border-border/50 py-16 md:py-20">
         <div className="absolute inset-0 bg-mesh" />
         <div className="absolute inset-0 bg-grid opacity-30" />

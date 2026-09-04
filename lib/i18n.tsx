@@ -3,6 +3,7 @@
 import { createContext, useContext, useState, useEffect, useLayoutEffect, useCallback, type ReactNode } from "react"
 import { usePathname } from "next/navigation"
 import { translations } from "./translations"
+import { HOME_SEO, PAGE_SEO } from "./seo"
 
 export type Locale = "en" | "ua"
 type StoredLocale = "en" | "uk"
@@ -17,15 +18,16 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | null>(null)
 const LANGUAGE_STORAGE_KEY = "medintegro-language"
 const LEGACY_LANGUAGE_STORAGE_KEY = "medintegro-locale"
+// Titles come from the same registry the server metadata is built from, so the
+// browser tab always matches the language and route rendered on screen.
 const HOME_TITLES: Record<Locale, string> = {
-  en: "Medintegro | Operating Room & Medical Systems Integration",
-  ua: "Medintegro | Інтеграція операційних та медичних систем",
+  en: HOME_SEO.en.title,
+  ua: HOME_SEO.uk.title,
 }
-const SPECIAL_PAGE_TITLES: Record<string, Record<Locale, string>> = {
-  "/equipment/or-lighting": {
-    en: "Surgical Lights & LED Operating Room Lighting | Medintegro",
-    ua: "Хірургічні світильники та LED освітлення операційних | Medintegro",
-  },
+
+// English titles for routes that only have Ukrainian copy in the SEO registry.
+const EN_PAGE_TITLES: Record<string, string> = {
+  "/equipment/or-lighting": "Surgical Lights & LED Operating Room Lighting | Medintegro",
 }
 const PAGE_TITLE_KEYS = [
   { path: "/solutions", key: "nav.services" },
@@ -72,8 +74,13 @@ function storeLanguagePreference(locale: Locale) {
 function getDocumentTitle(pathname: string, locale: Locale, translate: (key: string) => string) {
   if (pathname === "/" || pathname === "/en") return HOME_TITLES[locale]
 
-  const specialTitle = SPECIAL_PAGE_TITLES[pathname]
-  if (specialTitle) return specialTitle[locale]
+  if (locale === "en") {
+    const englishTitle = EN_PAGE_TITLES[pathname]
+    if (englishTitle) return englishTitle
+  } else {
+    const ukrainianTitle = PAGE_SEO[pathname]?.title
+    if (ukrainianTitle) return ukrainianTitle
+  }
 
   const match = PAGE_TITLE_KEYS.find(({ path }) => pathname === path || pathname.startsWith(`${path}/`))
   if (!match) return HOME_TITLES[locale]
@@ -86,13 +93,24 @@ function syncDocumentLanguage(pathname: string, locale: Locale, translate: (key:
   document.title = getDocumentTitle(pathname, locale, translate)
 }
 
+/**
+ * Language a given route is published in. Ukrainian is the canonical content
+ * language for the whole site; /en is the only English URL.
+ */
+function routeLocale(pathname: string): Locale {
+  return pathname === "/en" || pathname.startsWith("/en/") ? "en" : "ua"
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname()
-  const [locale, setLocaleState] = useState<Locale>("ua")
+  // Seeded from the route so the server-rendered HTML - what a crawler sees -
+  // is always in the language that URL is published in. User preference is
+  // applied afterwards, in the effect below, and only on bilingual routes.
+  const [locale, setLocaleState] = useState<Locale>(() => routeLocale(pathname))
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    if (pathname === "/en" || pathname.startsWith("/en/")) {
+    if (routeLocale(pathname) === "en") {
       setLocaleState("en")
       storeLanguagePreference("en")
       setMounted(true)

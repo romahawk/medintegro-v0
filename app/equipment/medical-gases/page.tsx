@@ -1,5 +1,6 @@
-import { redirect } from "next/navigation"
+import { permanentRedirect } from "next/navigation"
 
+// 308 rather than 307: the category listing now lives on the equipment page.
 export default function MedicalGasesPage() {
-  redirect("/equipment?category=monitoring")
+  permanentRedirect("/equipment?category=monitoring")
 }

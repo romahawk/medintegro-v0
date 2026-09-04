@@ -7,6 +7,11 @@ import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Layers, Settings2, S
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { getBedHeadUnitBySlug, bedHeadUnitProducts } from "@/lib/icu-infrastructure-products"
+import type { Metadata } from "next"
+import { productMetadata } from "@/lib/seo"
+import { breadcrumbSchema } from "@/lib/structured-data"
+import { JsonLd } from "@/components/json-ld"
+import { bedHeadUnitUaDescriptions } from "@/lib/icu-infrastructure-localizations"
 
 function getBedHeadUnitImage(slug: string, fileName: string, fallbackSrc: string) {
   const relativePath = `/images/products/icu-infrastructure/bed-head-units/${slug}/${fileName}`
@@ -30,6 +35,24 @@ function getBedHeadUnitImage(slug: string, fileName: string, fallbackSrc: string
 
 export function generateStaticParams() {
   return bedHeadUnitProducts.map((product) => ({ slug: product.slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const product = getBedHeadUnitBySlug(slug)
+
+  if (!product) return {}
+
+  return productMetadata({
+    path: `/equipment/icu-infrastructure/bed-head-units/${product.slug}`,
+    name: product.name,
+    description:
+      bedHeadUnitUaDescriptions[product.slug] ?? product.shortDescription,
+  })
 }
 
 export default async function BedHeadUnitProductPage({
@@ -81,6 +104,19 @@ export default async function BedHeadUnitProductPage({
 
   return (
     <>
+      <JsonLd
+        schema={breadcrumbSchema([
+          { name: "Обладнання", path: "/equipment" },
+          {
+            name: "Приліжкові панелі",
+            path: "/equipment/icu-infrastructure/bed-head-units",
+          },
+          {
+            name: product.name,
+            path: `/equipment/icu-infrastructure/bed-head-units/${product.slug}`,
+          },
+        ])}
+      />
       <section className="relative overflow-hidden border-b border-border/50 py-16 md:py-20">
         <div className="absolute inset-0 bg-mesh" />
         <div className="absolute inset-0 bg-grid opacity-30" />

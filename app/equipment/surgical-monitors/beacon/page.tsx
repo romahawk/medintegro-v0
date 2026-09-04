@@ -6,6 +6,10 @@ import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { beaconProducts } from "@/lib/surgical-monitors-products"
+import type { Metadata } from "next"
+import { staticPageMetadata } from "@/lib/seo"
+import { breadcrumbSchema } from "@/lib/structured-data"
+import { JsonLd } from "@/components/json-ld"
 
 function getBeaconImage(slug: string, fileName: string, fallbackSrc: string) {
   const relativePath = `/images/products/surgical-monitors/beacon/${slug}/${fileName}`
@@ -27,6 +31,10 @@ function getBeaconImage(slug: string, fileName: string, fallbackSrc: string) {
   return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
 }
 
+export const metadata: Metadata = staticPageMetadata(
+  "/equipment/surgical-monitors/beacon"
+)
+
 export default function BeaconMonitorsPage() {
   const productCards = beaconProducts.map((product) => ({
     key: product.slug,
@@ -38,6 +46,15 @@ export default function BeaconMonitorsPage() {
 
   return (
     <>
+      <JsonLd
+        schema={breadcrumbSchema([
+          { name: "Equipment", path: "/equipment" },
+          {
+            name: "Beacon Display Monitors",
+            path: "/equipment/surgical-monitors/beacon",
+          },
+        ])}
+      />
       <section className="relative overflow-hidden border-b border-border/50 py-16 md:py-20">
         <div className="absolute inset-0 bg-mesh" />
         <div className="absolute inset-0 bg-grid opacity-30" />
@@ -78,7 +95,12 @@ export default function BeaconMonitorsPage() {
             {productCards.map((card) => (
               <article key={card.key} className="glass glass-hover glow-cyan-hover overflow-hidden rounded-xl transition-all duration-300">
                 <div className="relative aspect-4/3">
-                  <Image src={card.image} alt={card.title} fill className="object-cover" />
+                  <Image
+                    src={card.image}
+                    alt={`${card.title} Beacon surgical display for operating rooms`}
+                    fill
+                    className="object-cover"
+                  />
                   <div className="absolute inset-0 bg-linear-to-t from-background/70 to-transparent" />
                 </div>
                 <div className="p-5">

@@ -6,16 +6,11 @@ import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { ceilingPendantProducts } from "@/lib/icu-infrastructure-products"
-
-const productDescriptions: Record<string, string> = {
-  "lissa-classic": "Модульна стельова консоль для операційних і ВІТ з ергономічними поворотними плечами та високою вантажопідйомністю.",
-  "lissa-classic-lift": "Стельова консоль з електричним або пружинним підйомом для операційних і процедурних кімнат з високою ергономікою.",
-  "lissa-heavy": "Посилена стельова консоль з навантаженням до 250 кг і вильотом плеча до 260 см для складних операційних середовищ.",
-  "luna-compact": "Економічна фіксована стельова консоль для палат ВІТ і процедурних зон з полицями та аксесуарами.",
-  "vega-care": "Медична стійка від підлоги до стелі для ВІТ та анестезіології з функціональністю консолі без стельового монтажу.",
-  "caro-classic": "Стельова балкова система ВІТ з міцним корпусом без рухомих кареток, для надійності та легкого очищення.",
-  "caro-care-premium": "Розширена стельова балкова система ВІТ з рухомими каретками та медичними рейками для гнучкого розміщення обладнання.",
-}
+import type { Metadata } from "next"
+import { staticPageMetadata } from "@/lib/seo"
+import { breadcrumbSchema } from "@/lib/structured-data"
+import { JsonLd } from "@/components/json-ld"
+import { ceilingPendantUaDescriptions } from "@/lib/icu-infrastructure-localizations"
 
 function getCeilingPendantImage(slug: string, fileName: string) {
   const relativePath = `/images/products/icu-infrastructure/ceiling-pendants/${slug}/${fileName}`
@@ -37,9 +32,22 @@ function getCeilingPendantImage(slug: string, fileName: string) {
   return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
 }
 
+export const metadata: Metadata = staticPageMetadata(
+  "/equipment/icu-infrastructure/ceiling-pendants"
+)
+
 export default function CeilingPendantsPage() {
   return (
     <>
+      <JsonLd
+        schema={breadcrumbSchema([
+          { name: "Обладнання", path: "/equipment" },
+          {
+            name: "Стельові медичні консолі",
+            path: "/equipment/icu-infrastructure/ceiling-pendants",
+          },
+        ])}
+      />
       <section className="relative overflow-hidden border-b border-border/50 py-16 md:py-20">
         <div className="absolute inset-0 bg-mesh" />
         <div className="absolute inset-0 bg-grid opacity-30" />
@@ -84,13 +92,18 @@ export default function CeilingPendantsPage() {
             {ceilingPendantProducts.map((product) => (
               <article key={product.slug} className="glass glass-hover glow-cyan-hover overflow-hidden rounded-xl transition-all duration-300">
                 <div className="relative aspect-4/3">
-                  <Image src={getCeilingPendantImage(product.slug, "card.jpg")} alt={product.name} fill className="object-cover" />
+                  <Image
+                    src={getCeilingPendantImage(product.slug, "card.jpg")}
+                    alt={`${product.name} — стельова медична консоль для операційних та ВІТ`}
+                    fill
+                    className="object-cover"
+                  />
                   <div className="absolute inset-0 bg-linear-to-t from-background/70 to-transparent" />
                 </div>
                 <div className="p-5">
                   <h2 className="text-lg font-semibold text-foreground">{product.name}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {productDescriptions[product.slug] ?? product.shortDescription}
+                    {ceilingPendantUaDescriptions[product.slug] ?? product.shortDescription}
                   </p>
                   <div className="mt-4">
                     <Button asChild variant="outline" size="sm" className="gap-2 rounded-lg border-border/50 hover:border-primary/40">

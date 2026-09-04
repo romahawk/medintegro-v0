@@ -10,6 +10,13 @@ Follows: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Unreleased]
 
 ### Added
+- `lib/seo.ts` — centralized, localized SEO metadata registry (titles, descriptions, canonical, hreflang, OpenGraph, Twitter) for every route
+- `lib/structured-data.ts` + `components/json-ld.tsx` — shared Organization, WebSite and BreadcrumbList schema
+- `lib/icu-infrastructure-localizations.ts` — Ukrainian product copy shared by listings and metadata
+- `docs/seo-architecture.md` — SEO architecture, known gaps, and external follow-up actions
+- Metadata for 14 previously untagged routes (equipment category and product pages)
+- BreadcrumbList schema on equipment category and product pages that render a visible breadcrumb
+- Apex to www host redirect and wildcard legacy WordPress redirects in `vercel.json`
 - `docs/PRD.md` — Product requirements document with MVP scope and acceptance criteria
 - `docs/ARCHITECTURE.md` — System design, component map, and data flow documentation
 - `docs/ROADMAP.md` — 3-month outcome-based roadmap with weekly DoD
@@ -24,6 +31,12 @@ Follows: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - AI Production OS v1 governance layer applied retroactively
 
 ### Fixed
+- Language/metadata mismatch: Ukrainian routes served English metadata over Ukrainian content
+- `/en` now server-renders English content instead of Ukrainian, by seeding `LanguageProvider` from the route
+- Canonical, hreflang, `og:url` and sitemap URLs now use one trailing-slash spelling
+- `/services` and `/equipment/medical-gases` return 308 instead of 307
+- `robots.txt` disallows `/api/` and declares the production host
+- `sitemap.xml` no longer emits a build-time `lastmod` on every URL
 - `package.json` name corrected from `"my-project"` to `"medintegro"`
 - `next.config.mjs` — removed `ignoreBuildErrors: true` (TypeScript errors now fail builds)
 - `next.config.mjs` — removed `images.unoptimized: true` (image optimization re-enabled)

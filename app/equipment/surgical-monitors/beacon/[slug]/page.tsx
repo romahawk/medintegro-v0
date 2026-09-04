@@ -7,6 +7,10 @@ import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Lightbulb, Monitor, 
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { getBeaconProductBySlug, beaconProducts } from "@/lib/surgical-monitors-products"
+import type { Metadata } from "next"
+import { productMetadata } from "@/lib/seo"
+import { breadcrumbSchema } from "@/lib/structured-data"
+import { JsonLd } from "@/components/json-ld"
 
 function getBeaconImage(slug: string, fileName: string, fallbackSrc: string) {
   const relativePath = `/images/products/surgical-monitors/beacon/${slug}/${fileName}`
@@ -30,6 +34,23 @@ function getBeaconImage(slug: string, fileName: string, fallbackSrc: string) {
 
 export function generateStaticParams() {
   return beaconProducts.map((product) => ({ slug: product.slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const product = getBeaconProductBySlug(slug)
+
+  if (!product) return {}
+
+  return productMetadata({
+    path: `/equipment/surgical-monitors/beacon/${product.slug}`,
+    name: product.name,
+    description: `${product.name} — хірургічний монітор Beacon для інтегрованих операційних та ендоскопічної візуалізації. Постачання, інтеграція та підтримка від Medintegro.`,
+  })
 }
 
 export default async function BeaconMonitorProductPage({
@@ -79,6 +100,19 @@ export default async function BeaconMonitorProductPage({
 
   return (
     <>
+      <JsonLd
+        schema={breadcrumbSchema([
+          { name: "Equipment", path: "/equipment" },
+          {
+            name: "Beacon Display",
+            path: "/equipment/surgical-monitors/beacon",
+          },
+          {
+            name: product.name,
+            path: `/equipment/surgical-monitors/beacon/${product.slug}`,
+          },
+        ])}
+      />
       <section className="relative overflow-hidden border-b border-border/50 py-16 md:py-20">
         <div className="absolute inset-0 bg-mesh" />
         <div className="absolute inset-0 bg-grid opacity-30" />
