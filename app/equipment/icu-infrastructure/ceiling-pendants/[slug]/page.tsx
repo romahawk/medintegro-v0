@@ -33,6 +33,10 @@ function getCeilingPendantImage(slug: string, fileName: string) {
   return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
 }
 
+// Every product slug is known at build time; anything else is a real 404 and
+// should render the branded not-found page rather than an on-demand error shell.
+export const dynamicParams = false
+
 export function generateStaticParams() {
   return ceilingPendantProducts.map((product) => ({ slug: product.slug }))
 }

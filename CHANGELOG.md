@@ -31,6 +31,8 @@ Follows: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - AI Production OS v1 governance layer applied retroactively
 
 ### Fixed
+- 404 pages no longer inherit the homepage canonical or OpenGraph tags, and carry a proper 404 title
+- Invalid product slugs now render the branded 404 instead of an unstyled Next error shell (`dynamicParams = false` on all product routes)
 - Language/metadata mismatch: Ukrainian routes served English metadata over Ukrainian content
 - `/en` now server-renders English content instead of Ukrainian, by seeding `LanguageProvider` from the route
 - Canonical, hreflang, `og:url` and sitemap URLs now use one trailing-slash spelling

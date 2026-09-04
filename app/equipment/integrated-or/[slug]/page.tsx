@@ -8,6 +8,10 @@ import type { Metadata } from "next"
 import { productMetadata } from "@/lib/seo"
 import { getLocalizedIntegratedOrProduct } from "@/lib/equipment-detail-localizations"
 
+// Every product slug is known at build time; anything else is a real 404 and
+// should render the branded not-found page rather than an on-demand error shell.
+export const dynamicParams = false
+
 export function generateStaticParams() {
   return integratedOrProducts.map((product) => ({ slug: product.slug }))
 }
