@@ -1,9 +1,31 @@
 import { notFound } from "next/navigation"
 import { OrLightingProductContent } from "./or-lighting-product-content"
 import { getOrLightingProductBySlug, orLightingProducts } from "@/lib/or-lighting-products"
+import type { Metadata } from "next"
+import { productMetadata } from "@/lib/seo"
+import { getLocalizedOrLightingProduct } from "@/lib/equipment-detail-localizations"
 
 export function generateStaticParams() {
   return orLightingProducts.map((product) => ({ slug: product.slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const product = getOrLightingProductBySlug(slug)
+
+  if (!product) return {}
+
+  const localized = getLocalizedOrLightingProduct(product, "ua")
+
+  return productMetadata({
+    path: `/equipment/or-lighting/${product.slug}`,
+    name: localized.name ?? product.name,
+    description: localized.shortDescription ?? product.shortDescription,
+  })
 }
 
 export default async function OrLightingProductPage({

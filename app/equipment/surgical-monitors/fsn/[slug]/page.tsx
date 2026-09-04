@@ -7,6 +7,10 @@ import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Lightbulb, Monitor, 
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { getFsnProductBySlug, fsnProducts } from "@/lib/surgical-monitors-products"
+import type { Metadata } from "next"
+import { productMetadata } from "@/lib/seo"
+import { breadcrumbSchema } from "@/lib/structured-data"
+import { JsonLd } from "@/components/json-ld"
 
 function getFsnImage(slug: string, fileName: string, fallbackSrc: string) {
   const base = fileName.replace(/\.[^.]+$/, "")
@@ -29,6 +33,23 @@ function hasFsnImage(slug: string, fileName: string) {
 
 export function generateStaticParams() {
   return fsnProducts.map((product) => ({ slug: product.slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const product = getFsnProductBySlug(slug)
+
+  if (!product) return {}
+
+  return productMetadata({
+    path: `/equipment/surgical-monitors/fsn/${product.slug}`,
+    name: product.name,
+    description: `${product.name} — медичний дисплей FSN для операційних та ендоскопічної візуалізації. Постачання, інтеграція та підтримка від Medintegro.`,
+  })
 }
 
 export default async function FsnMonitorProductPage({
@@ -72,6 +93,19 @@ export default async function FsnMonitorProductPage({
 
   return (
     <>
+      <JsonLd
+        schema={breadcrumbSchema([
+          { name: "Equipment", path: "/equipment" },
+          {
+            name: "FSN Medical Technologies",
+            path: "/equipment/surgical-monitors/fsn",
+          },
+          {
+            name: product.name,
+            path: `/equipment/surgical-monitors/fsn/${product.slug}`,
+          },
+        ])}
+      />
       <section className="relative overflow-hidden border-b border-border/50 py-16 md:py-20">
         <div className="absolute inset-0 bg-mesh" />
         <div className="absolute inset-0 bg-grid opacity-30" />

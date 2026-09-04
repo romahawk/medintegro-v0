@@ -6,17 +6,11 @@ import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { bedHeadUnitProducts } from "@/lib/icu-infrastructure-products"
-
-const productDescriptions: Record<string, string> = {
-  "mery-classic": "Класична приліжкова панель MERY, що інтегрує медичні гази, електрику та освітлення у модульній конструкції.",
-  "mery-care": "Розширена приліжкова панель для ВІТ/NICU у горизонтальній або вертикальній конфігурації для критичної допомоги.",
-  "mery-light": "Ультратонка легка приліжкова панель з 9 типами алюмінієвих профілів для газів, електрики, IT та освітлення.",
-  "mery-wall": "Вбудована в стіну приліжкова панель з якісними оздобленнями, освітленням і повною медичною інфраструктурою.",
-  "mery-edge": "Сучасна приліжкова панель з елегантною алюмінієвою передньою поверхнею та ергономічним доступом до медіа.",
-  "mery-fun": "Педіатрична приліжкова панель з кольоровими Corian-панелями, безпечними розетками та повною медичною інтеграцією.",
-  "mery-art": "Преміальна приліжкова панель з Corian або загартованим склом, що поєднує клінічну функціональність і дизайн.",
-  "mery-comfort": "Приліжкова панель для комфорту пацієнта з Corian-оздобленням, зонами для пацієнта і персоналу та багатозонним освітленням.",
-}
+import type { Metadata } from "next"
+import { staticPageMetadata } from "@/lib/seo"
+import { breadcrumbSchema } from "@/lib/structured-data"
+import { JsonLd } from "@/components/json-ld"
+import { bedHeadUnitUaDescriptions } from "@/lib/icu-infrastructure-localizations"
 
 function getBedHeadUnitImage(slug: string, fileName: string, fallbackSrc: string) {
   const relativePath = `/images/products/icu-infrastructure/bed-head-units/${slug}/${fileName}`
@@ -38,9 +32,22 @@ function getBedHeadUnitImage(slug: string, fileName: string, fallbackSrc: string
   return `${relativePath}?v=${statSync(absolutePath).mtimeMs}`
 }
 
+export const metadata: Metadata = staticPageMetadata(
+  "/equipment/icu-infrastructure/bed-head-units"
+)
+
 export default function BedHeadUnitsPage() {
   return (
     <>
+      <JsonLd
+        schema={breadcrumbSchema([
+          { name: "Обладнання", path: "/equipment" },
+          {
+            name: "Приліжкові панелі",
+            path: "/equipment/icu-infrastructure/bed-head-units",
+          },
+        ])}
+      />
       <section className="relative overflow-hidden border-b border-border/50 py-16 md:py-20">
         <div className="absolute inset-0 bg-mesh" />
         <div className="absolute inset-0 bg-grid opacity-30" />
@@ -87,7 +94,7 @@ export default function BedHeadUnitsPage() {
                 <div className="relative aspect-4/3 overflow-hidden">
                   <Image
                     src={getBedHeadUnitImage(product.slug, "card.jpg", product.cardImage)}
-                    alt={product.name}
+                    alt={`${product.name} — приліжкова панель для палат та відділень ВІТ`}
                     fill
                     className={product.slug === "mery-classic" ? "scale-125 object-cover" : "object-cover"}
                   />
@@ -96,7 +103,7 @@ export default function BedHeadUnitsPage() {
                 <div className="p-5">
                   <h2 className="text-lg font-semibold text-foreground">{product.name}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {productDescriptions[product.slug] ?? product.shortDescription}
+                    {bedHeadUnitUaDescriptions[product.slug] ?? product.shortDescription}
                   </p>
                   <div className="mt-4">
                     <Button asChild variant="outline" size="sm" className="gap-2 rounded-lg border-border/50 hover:border-primary/40">

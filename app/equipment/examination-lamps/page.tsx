@@ -4,10 +4,27 @@ import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react"
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { examinationLampProducts } from "@/lib/examination-lamps-products"
+import type { Metadata } from "next"
+import { staticPageMetadata } from "@/lib/seo"
+import { breadcrumbSchema } from "@/lib/structured-data"
+import { JsonLd } from "@/components/json-ld"
+
+export const metadata: Metadata = staticPageMetadata(
+  "/equipment/examination-lamps"
+)
 
 export default function ExaminationLampsPage() {
   return (
     <>
+      <JsonLd
+        schema={breadcrumbSchema([
+          { name: "Equipment", path: "/equipment" },
+          {
+            name: "Examination Lamps",
+            path: "/equipment/examination-lamps",
+          },
+        ])}
+      />
       <section className="relative overflow-hidden border-b border-border/50 py-16 md:py-20">
         <div className="absolute inset-0 bg-mesh" />
         <div className="absolute inset-0 bg-grid opacity-30" />
@@ -45,7 +62,12 @@ export default function ExaminationLampsPage() {
             {examinationLampProducts.map((product) => (
               <article key={product.slug} className="glass glass-hover glow-cyan-hover overflow-hidden rounded-xl transition-all duration-300">
                 <div className="relative aspect-[16/10]">
-                  <Image src={product.cardImage} alt={product.name} fill className="object-cover" />
+                  <Image
+                    src={product.cardImage}
+                    alt={`${product.name} examination and treatment light`}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div className="p-5">
                   <h2 className="text-lg font-semibold text-foreground">{product.name}</h2>

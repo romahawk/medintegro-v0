@@ -4,30 +4,24 @@ import { Analytics } from '@vercel/analytics/next'
 import { Providers } from '@/components/providers'
 import { BackToTop } from '@/components/back-to-top'
 import { ScrollIndicator } from '@/components/scroll-indicator'
+import { HOME_SEO, OG_IMAGE, SITE_URL, canonicalUrl } from '@/lib/seo'
 import './globals.css'
 
 const _inter = Inter({ subsets: ["latin", "cyrillic"] })
 
-const UK_TITLE = "Medintegro | Інтеграція операційних та медичних систем"
-const UK_DESCRIPTION =
-  "Medintegro проєктує та інтегрує операційні, хірургічні відеосистеми, медичну інфраструктуру та обладнання для сучасних клінік."
-const UK_OG_DESCRIPTION =
-  "Інтеграція операційних, хірургічні відеосистеми, медична інфраструктура та обладнання для сучасних клінік."
-
+/**
+ * Site-wide defaults only. Per-route titles, descriptions, canonicals and
+ * hreflang live in lib/seo.ts and are applied by each page's metadata export.
+ */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.medintegro.com.ua"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: UK_TITLE,
+    default: HOME_SEO.uk.title,
     template: "%s | Medintegro",
   },
-  description: UK_DESCRIPTION,
+  description: HOME_SEO.uk.description,
   alternates: {
-    canonical: "https://www.medintegro.com.ua/",
-    languages: {
-      "uk-UA": "https://www.medintegro.com.ua/",
-      en: "https://www.medintegro.com.ua/en",
-      "x-default": "https://www.medintegro.com.ua/",
-    },
+    canonical: canonicalUrl("/"),
   },
   icons: {
     icon: [
@@ -41,24 +35,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Medintegro",
-    url: "https://www.medintegro.com.ua/",
-    title: UK_TITLE,
-    description: UK_OG_DESCRIPTION,
+    locale: "uk_UA",
+    url: canonicalUrl("/"),
+    title: HOME_SEO.uk.title,
+    description: HOME_SEO.uk.ogDescription,
     images: [
       {
-        url: "/og/og-image-uk.jpg",
+        url: OG_IMAGE.uk,
         width: 1200,
         height: 630,
         alt: "Інтеграція операційних та медична інфраструктура від Medintegro",
       },
     ],
-    locale: "uk_UA",
   },
   twitter: {
     card: "summary_large_image",
-    title: UK_TITLE,
-    description: UK_OG_DESCRIPTION,
-    images: ["/og/og-image-uk.jpg"],
+    title: HOME_SEO.uk.title,
+    description: HOME_SEO.uk.ogDescription,
+    images: [OG_IMAGE.uk],
   },
 }
 

@@ -4,9 +4,31 @@ import {
   getIntegratedOrProductBySlug,
   integratedOrProducts,
 } from "@/lib/integrated-or-products"
+import type { Metadata } from "next"
+import { productMetadata } from "@/lib/seo"
+import { getLocalizedIntegratedOrProduct } from "@/lib/equipment-detail-localizations"
 
 export function generateStaticParams() {
   return integratedOrProducts.map((product) => ({ slug: product.slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const product = getIntegratedOrProductBySlug(slug)
+
+  if (!product) return {}
+
+  const localized = getLocalizedIntegratedOrProduct(product, "ua")
+
+  return productMetadata({
+    path: `/equipment/integrated-or/${product.slug}`,
+    name: localized.name ?? product.name,
+    description: localized.shortDescription ?? product.shortDescription,
+  })
 }
 
 export default async function IntegratedOrProductPage({

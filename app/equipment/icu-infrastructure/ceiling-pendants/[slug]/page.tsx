@@ -7,6 +7,11 @@ import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Layers, Settings2, S
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
 import { getCeilingPendantBySlug, ceilingPendantProducts } from "@/lib/icu-infrastructure-products"
+import type { Metadata } from "next"
+import { productMetadata } from "@/lib/seo"
+import { breadcrumbSchema } from "@/lib/structured-data"
+import { JsonLd } from "@/components/json-ld"
+import { ceilingPendantUaDescriptions } from "@/lib/icu-infrastructure-localizations"
 
 function getCeilingPendantImage(slug: string, fileName: string) {
   const relativePath = `/images/products/icu-infrastructure/ceiling-pendants/${slug}/${fileName}`
@@ -30,6 +35,24 @@ function getCeilingPendantImage(slug: string, fileName: string) {
 
 export function generateStaticParams() {
   return ceilingPendantProducts.map((product) => ({ slug: product.slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const product = getCeilingPendantBySlug(slug)
+
+  if (!product) return {}
+
+  return productMetadata({
+    path: `/equipment/icu-infrastructure/ceiling-pendants/${product.slug}`,
+    name: product.name,
+    description:
+      ceilingPendantUaDescriptions[product.slug] ?? product.shortDescription,
+  })
 }
 
 export default async function CeilingPendantProductPage({
@@ -63,6 +86,19 @@ export default async function CeilingPendantProductPage({
 
   return (
     <>
+      <JsonLd
+        schema={breadcrumbSchema([
+          { name: "Обладнання", path: "/equipment" },
+          {
+            name: "Стельові медичні консолі",
+            path: "/equipment/icu-infrastructure/ceiling-pendants",
+          },
+          {
+            name: product.name,
+            path: `/equipment/icu-infrastructure/ceiling-pendants/${product.slug}`,
+          },
+        ])}
+      />
       <section className="relative overflow-hidden border-b border-border/50 py-16 md:py-20">
         <div className="absolute inset-0 bg-mesh" />
         <div className="absolute inset-0 bg-grid opacity-30" />
