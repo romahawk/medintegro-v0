@@ -97,6 +97,20 @@ It also carries the apex → `www` host redirect.
 
 ---
 
+## 5a. 404 handling
+
+`app/not-found.tsx` is a server component so it can export metadata: it unsets
+the inherited homepage canonical (`alternates: { canonical: null }`) and the
+inherited OpenGraph/Twitter tags, and gives the page its own 404 title. Next
+emits `noindex` on this route automatically - do not add a second robots tag.
+The visual content lives in `components/not-found-content.tsx`.
+
+Every product `[slug]` route sets `dynamicParams = false`. All slugs are known
+at build time, so an unknown one is a real 404 and renders the branded page;
+without this, Next renders it on demand and serves an unstyled error shell.
+
+---
+
 ## 6. Structured data
 
 `lib/structured-data.ts` + `components/json-ld.tsx`.

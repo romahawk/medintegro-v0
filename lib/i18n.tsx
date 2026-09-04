@@ -25,6 +25,13 @@ const HOME_TITLES: Record<Locale, string> = {
   ua: HOME_SEO.uk.title,
 }
 
+// Any path that matches no known route is a 404, so the tab title should say so
+// rather than falling back to the homepage title.
+const NOT_FOUND_TITLES: Record<Locale, string> = {
+  en: "404 — Page Not Found | Medintegro",
+  ua: "404 — Сторінку не знайдено | Medintegro",
+}
+
 // English titles for routes that only have Ukrainian copy in the SEO registry.
 const EN_PAGE_TITLES: Record<string, string> = {
   "/equipment/or-lighting": "Surgical Lights & LED Operating Room Lighting | Medintegro",
@@ -83,7 +90,7 @@ function getDocumentTitle(pathname: string, locale: Locale, translate: (key: str
   }
 
   const match = PAGE_TITLE_KEYS.find(({ path }) => pathname === path || pathname.startsWith(`${path}/`))
-  if (!match) return HOME_TITLES[locale]
+  if (!match) return NOT_FOUND_TITLES[locale]
 
   return `${translate(match.key)} | Medintegro`
 }

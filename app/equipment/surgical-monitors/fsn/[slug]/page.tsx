@@ -31,6 +31,10 @@ function hasFsnImage(slug: string, fileName: string) {
   )
 }
 
+// Every product slug is known at build time; anything else is a real 404 and
+// should render the branded not-found page rather than an on-demand error shell.
+export const dynamicParams = false
+
 export function generateStaticParams() {
   return fsnProducts.map((product) => ({ slug: product.slug }))
 }
